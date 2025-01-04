@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/DanSnow/hoarder-pipette/compare/hoarder-pipette-v1.0.0...hoarder-pipette-v1.0.1) (2025-01-04)
+
+
+### Bug Fixes
+
+* trigger ci ([817f962](https://github.com/DanSnow/hoarder-pipette/commit/817f962951555e53123145f8f7e460a457329921))
+
 ## 1.0.0 (2025-01-04)
 
 
