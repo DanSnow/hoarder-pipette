@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/DanSnow/hoarder-pipette/compare/hoarder-pipette-v1.1.0...hoarder-pipette-v1.1.1) (2025-01-05)
+
+
+### Bug Fixes
+
+* add homepage url ([6b23378](https://github.com/DanSnow/hoarder-pipette/commit/6b233784a4692b31194ec533b09da348dff3f2f0))
+
 ## [1.1.0](https://github.com/DanSnow/hoarder-pipette/compare/hoarder-pipette-v1.0.3...hoarder-pipette-v1.1.0) (2025-01-05)
 
 
