@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.1.0](https://github.com/DanSnow/hoarder-pipette/compare/hoarder-pipette-v1.0.3...hoarder-pipette-v1.1.0) (2025-01-05)
+
+
+### Features
+
+* add button to open api key setting in options page ([979ebb9](https://github.com/DanSnow/hoarder-pipette/commit/979ebb9a0f88119e024c372fb4e98846b6fc6d26))
+
+
+### Bug Fixes
+
+* **deps:** pin dependencies ([37c0cbc](https://github.com/DanSnow/hoarder-pipette/commit/37c0cbcc5553e150deb9d4bd803a6896eb7d9b51))
+* **deps:** update dependency @iconify-json/lucide to v1.2.21 ([35fd0d8](https://github.com/DanSnow/hoarder-pipette/commit/35fd0d84de8ea82969b1df037838e6de90fcba32))
+* **deps:** update dependency @tanstack/react-query to v5.62.15 ([44f4cdd](https://github.com/DanSnow/hoarder-pipette/commit/44f4cddc940be2e1f318b638ee072dd918bae6fc))
+* **deps:** update dependency effect to v3.12.1 ([9e80e04](https://github.com/DanSnow/hoarder-pipette/commit/9e80e0403795744fd9af770d6c421fafc964ffa6))
+* **deps:** update dependency sharp to v0.33.5 ([c0a408c](https://github.com/DanSnow/hoarder-pipette/commit/c0a408c8a68636a14272f2adc004f0df6e5216fa))
+
 ## [1.0.3](https://github.com/DanSnow/hoarder-pipette/compare/hoarder-pipette-v1.0.2...hoarder-pipette-v1.0.3) (2025-01-04)
 
 
