@@ -1,12 +1,14 @@
 {
   "$schema": "https://json.schemastore.org/chrome-manifest.json",
   "manifest_version": 3,
-  "version": "1.1.1",
+  "version": "1.1.2",
   "homepage_url": "https://dansnow.github.io/hoarder-pipette/",
   "name": "Hoarder's Pipette",
   "description": "Search smarter. Find your Hoarder bookmarks directly in search results.",
   "author": "David Peng",
-  "permissions": ["storage"],
+  "permissions": [
+    "storage"
+  ],
   "options_ui": {
     "page": "./src/options.html"
   },
@@ -21,12 +23,20 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://www.google.com/search*"],
-      "js": ["./content/content.tsx"]
+      "matches": [
+        "https://www.google.com/search*"
+      ],
+      "js": [
+        "./content/content.tsx"
+      ]
     },
     {
-      "matches": ["https://www.ecosia.org/search*"],
-      "js": ["./content/content.tsx"]
+      "matches": [
+        "https://www.ecosia.org/search*"
+      ],
+      "js": [
+        "./content/content.tsx"
+      ]
     }
   ]
 }
