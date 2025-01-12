@@ -13,7 +13,7 @@ importers:
     dependencies:
       '@autoform/react':
         specifier: 2.2.0
-        version: 3.0.0(react-hook-form@7.54.2(react@19.0.0))(react@19.0.0)(yup@1.6.1)(zod@3.24.1)
+        version: 2.2.0(react-hook-form@7.54.2(react@19.0.0))(react@19.0.0)(yup@1.6.1)(zod@3.24.1)
       '@autoform/zod':
         specifier: 2.1.0
         version: 2.1.0(zod@3.24.1)
@@ -82,7 +82,7 @@ importers:
         version: 19.0.0
       react-day-picker:
         specifier: 8.10.1
-        version: 9.5.0(react@19.0.0)
+        version: 8.10.1(date-fns@4.1.0)(react@19.0.0)
       react-dom:
         specifier: 19.0.0
         version: 19.0.0(react@19.0.0)
@@ -143,10 +143,10 @@ importers:
     dependencies:
       '@astrojs/starlight':
         specifier: 0.30.3
-        version: 0.30.3(astro@5.1.2(@types/node@22.10.5)(jiti@1.21.7)(less@4.2.0)(rollup@4.29.1)(terser@5.37.0)(typescript@5.7.3)(yaml@2.6.1))
+        version: 0.30.3(astro@5.1.5(@types/node@22.10.5)(jiti@1.21.7)(less@4.2.0)(rollup@4.29.1)(terser@5.37.0)(typescript@5.7.3)(yaml@2.6.1))
       astro:
-        specifier: 5.1.2
-        version: 5.1.2(@types/node@22.10.5)(jiti@1.21.7)(less@4.2.0)(rollup@4.29.1)(terser@5.37.0)(typescript@5.7.3)(yaml@2.6.1)
+        specifier: 5.1.5
+        version: 5.1.5(@types/node@22.10.5)(jiti@1.21.7)(less@4.2.0)(rollup@4.29.1)(terser@5.37.0)(typescript@5.7.3)(yaml@2.6.1)
       sharp:
         specifier: 0.33.5
         version: 0.33.5
@@ -201,8 +201,8 @@ packages:
   '@autoform/core@2.1.0':
     resolution: {integrity: sha512-8eJIa4psajV3A5reJB3MFWfqSJkEQwU5NEuG+LzJNJlwy5c/T7Q/U1D+ofswGJOGWhDdAKUrLylkcnbL8pfkpg==}
 
-  '@autoform/react@3.0.0':
-    resolution: {integrity: sha512-YDntApZUeiKiSjrp6tZKy/SNxtXE8rkG7SfR2Dn02hhJy4V/iO2AYzN6fQ7kg9jSLtnj+RpbVKt5B71MdhBoHw==}
+  '@autoform/react@2.2.0':
+    resolution: {integrity: sha512-03QOvNoHxzrdVoMZwj6zG4orOV73xm+YMbP0FgZavQqAHa3sDUiMaEulN37l4TEIdE6OOLPNu2N4M1i/WATUpw==}
     peerDependencies:
       react: 19.0.0
       react-hook-form: ^7
@@ -263,11 +263,6 @@ packages:
     resolution: {integrity: sha512-tbhNuIxNcVb21pInl3ZSjksLCvgdZy9KwJ8brv993QtIVKJBBkYXz4q4ZbAv31GdnC+R90np23L5FbEBlthAEw==}
     engines: {node: '>=6.9.0'}
 
-  '@babel/parser@7.26.3':
-    resolution: {integrity: sha512-WJ/CvmY8Mea8iDXo6a7RK2wbmJITT5fN3BEkRuFlxVyNx8jOKIIhmC4fSkTcPcf8JyavbBwIe6OpiCOBXt/IcA==}
-    engines: {node: '>=6.0.0'}
-    hasBin: true
-
   '@babel/parser@7.26.5':
     resolution: {integrity: sha512-SRJ4jYmXRqV1/Xc+TIVG84WjHBXKlxO9sHQnA2Pf12QQEAp1LOh6kDzNHXcUnbH1QI0FDoPPVOt+vyUDucxpaw==}
     engines: {node: '>=6.0.0'}
@@ -283,10 +278,6 @@ packages:
 
   '@babel/traverse@7.26.5':
     resolution: {integrity: sha512-rkOSPOw+AXbgtwUga3U4u8RpoK9FEFWBNAlTpcnkLFjL5CT+oyHNuUUC/xx6XefEJ16r38r8Bc/lfp6rYuHeJQ==}
-    engines: {node: '>=6.9.0'}
-
-  '@babel/types@7.26.3':
-    resolution: {integrity: sha512-vN5p+1kl59GVKMvTHt55NzzmYVxprfJD+ql7U9NFIfKCBkYE55LYtS+WtPlaYOyzydrKI8Nezd+aZextrd+FMA==}
     engines: {node: '>=6.9.0'}
 
   '@babel/types@7.26.5':
@@ -608,9 +599,6 @@ packages:
   '@ctrl/tinycolor@4.1.0':
     resolution: {integrity: sha512-WyOx8cJQ+FQus4Mm4uPIZA64gbk3Wxh0so5Lcii0aJifqwoVOlfFtorjLE0Hen4OYyHZMXDWqMmaQemBhgxFRQ==}
     engines: {node: '>=14'}
-
-  '@date-fns/tz@1.2.0':
-    resolution: {integrity: sha512-LBrd7MiJZ9McsOgxqWX7AaxrDjcFVjWH/tIKJd7pnR7McaslGYOP1QmmiBXdJH/H/yLCT+rcQ7FaPBUxRGUtrg==}
 
   '@egoist/tailwindcss-icons@1.8.2':
     resolution: {integrity: sha512-A0+/387Qg+rZgGRNlV9chwyikaPq9HALJYMwVspbqdbeA+TNEwUajM38pyaUqASArhubZUnFOgRALsdWYXn+rg==}
@@ -2153,8 +2141,8 @@ packages:
     peerDependencies:
       astro: ^4.0.0-beta || ^5.0.0-beta || ^3.3.0
 
-  astro@5.1.2:
-    resolution: {integrity: sha512-+U5lXPEJZ6cQx0botGbPhzN6XGWRgDtXgy/RUkpTmUj18LW6pbzYo0O0k3hFWOazlI039bZ+4P2e/oSNlKzm0Q==}
+  astro@5.1.5:
+    resolution: {integrity: sha512-Q9TE4aNlczxVoPDoXR3UcjLezL+70z0KbTRXovE4ybpx0mgNL1jsmSWtF3UFXB5+GTf9JK7om5fbIaaMReKcUg==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=22.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -2513,9 +2501,6 @@ packages:
 
   csv-loader@3.0.5:
     resolution: {integrity: sha512-vO01k3mtxlSeipH4bvLgzM3yuhlF3efNBnx3xXpvyG/yZT4cyNgk3jh3cuoilKPHpGC5uvGCvq4pYxoafa5jsQ==}
-
-  date-fns-jalali@4.1.0-0:
-    resolution: {integrity: sha512-hTIP/z+t+qKwBDcmmsnmjWTduxCg+5KfdqWQvb2X/8C9+knYY6epN/pfxdDuyVlSVeFz0sM5eEfwIUQ70U4ckg==}
 
   date-fns@4.1.0:
     resolution: {integrity: sha512-Ukq0owbQXxa/U3EGtsdVBkR1w7KOQ5gIBqdH2hkvknzZPYvBxb/aa6E8L7tmjFtkwZBu3UXBbjIgPo/Ez4xaNg==}
@@ -4309,10 +4294,10 @@ packages:
     resolution: {integrity: sha512-y3bGgqKj3QBdxLbLkomlohkvsA8gdAiUQlSBJnBhfn+BPxg4bc62d8TcBW15wavDfgexCgccckhcZvywyQYPOw==}
     hasBin: true
 
-  react-day-picker@9.5.0:
-    resolution: {integrity: sha512-WmJnPFVLnKh5Qscm7wavMNg86rqPverSWjx+zgK8/ZmGRSQ8c8OoqW10RI+AzAfT2atIxImpCUU2R9Z7Xb2SUA==}
-    engines: {node: '>=18'}
+  react-day-picker@8.10.1:
+    resolution: {integrity: sha512-TMx7fNbhLk15eqcMt+7Z7S2KF7mfTId/XJDjKE8f+IUcFn0l08/kI4FiYTL/0yuOLmEcbR4Fwe3GJf/NiiMnPA==}
     peerDependencies:
+      date-fns: ^2.28.0 || ^3.0.0
       react: 19.0.0
 
   react-dom@19.0.0:
@@ -5497,12 +5482,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/mdx@4.0.3(astro@5.1.2(@types/node@22.10.5)(jiti@1.21.7)(less@4.2.0)(rollup@4.29.1)(terser@5.37.0)(typescript@5.7.3)(yaml@2.6.1))':
+  '@astrojs/mdx@4.0.3(astro@5.1.5(@types/node@22.10.5)(jiti@1.21.7)(less@4.2.0)(rollup@4.29.1)(terser@5.37.0)(typescript@5.7.3)(yaml@2.6.1))':
     dependencies:
       '@astrojs/markdown-remark': 6.0.1
       '@mdx-js/mdx': 3.1.0(acorn@8.14.0)
       acorn: 8.14.0
-      astro: 5.1.2(@types/node@22.10.5)(jiti@1.21.7)(less@4.2.0)(rollup@4.29.1)(terser@5.37.0)(typescript@5.7.3)(yaml@2.6.1)
+      astro: 5.1.5(@types/node@22.10.5)(jiti@1.21.7)(less@4.2.0)(rollup@4.29.1)(terser@5.37.0)(typescript@5.7.3)(yaml@2.6.1)
       es-module-lexer: 1.6.0
       estree-util-visit: 2.0.0
       hast-util-to-html: 9.0.4
@@ -5526,16 +5511,16 @@ snapshots:
       stream-replace-string: 2.0.0
       zod: 3.24.1
 
-  '@astrojs/starlight@0.30.3(astro@5.1.2(@types/node@22.10.5)(jiti@1.21.7)(less@4.2.0)(rollup@4.29.1)(terser@5.37.0)(typescript@5.7.3)(yaml@2.6.1))':
+  '@astrojs/starlight@0.30.3(astro@5.1.5(@types/node@22.10.5)(jiti@1.21.7)(less@4.2.0)(rollup@4.29.1)(terser@5.37.0)(typescript@5.7.3)(yaml@2.6.1))':
     dependencies:
-      '@astrojs/mdx': 4.0.3(astro@5.1.2(@types/node@22.10.5)(jiti@1.21.7)(less@4.2.0)(rollup@4.29.1)(terser@5.37.0)(typescript@5.7.3)(yaml@2.6.1))
+      '@astrojs/mdx': 4.0.3(astro@5.1.5(@types/node@22.10.5)(jiti@1.21.7)(less@4.2.0)(rollup@4.29.1)(terser@5.37.0)(typescript@5.7.3)(yaml@2.6.1))
       '@astrojs/sitemap': 3.2.1
       '@pagefind/default-ui': 1.3.0
       '@types/hast': 3.0.4
       '@types/js-yaml': 4.0.9
       '@types/mdast': 4.0.4
-      astro: 5.1.2(@types/node@22.10.5)(jiti@1.21.7)(less@4.2.0)(rollup@4.29.1)(terser@5.37.0)(typescript@5.7.3)(yaml@2.6.1)
-      astro-expressive-code: 0.38.3(astro@5.1.2(@types/node@22.10.5)(jiti@1.21.7)(less@4.2.0)(rollup@4.29.1)(terser@5.37.0)(typescript@5.7.3)(yaml@2.6.1))
+      astro: 5.1.5(@types/node@22.10.5)(jiti@1.21.7)(less@4.2.0)(rollup@4.29.1)(terser@5.37.0)(typescript@5.7.3)(yaml@2.6.1)
+      astro-expressive-code: 0.38.3(astro@5.1.5(@types/node@22.10.5)(jiti@1.21.7)(less@4.2.0)(rollup@4.29.1)(terser@5.37.0)(typescript@5.7.3)(yaml@2.6.1))
       bcp-47: 2.1.0
       hast-util-from-html: 2.0.3
       hast-util-select: 6.0.3
@@ -5570,7 +5555,7 @@ snapshots:
 
   '@autoform/core@2.1.0': {}
 
-  '@autoform/react@3.0.0(react-hook-form@7.54.2(react@19.0.0))(react@19.0.0)(yup@1.6.1)(zod@3.24.1)':
+  '@autoform/react@2.2.0(react-hook-form@7.54.2(react@19.0.0))(react@19.0.0)(yup@1.6.1)(zod@3.24.1)':
     dependencies:
       '@autoform/core': 2.1.0
       '@autoform/yup': 2.1.0(yup@1.6.1)
@@ -5672,14 +5657,9 @@ snapshots:
       '@babel/types': 7.26.5
     optional: true
 
-  '@babel/parser@7.26.3':
-    dependencies:
-      '@babel/types': 7.26.3
-
   '@babel/parser@7.26.5':
     dependencies:
       '@babel/types': 7.26.5
-    optional: true
 
   '@babel/runtime@7.26.0':
     dependencies:
@@ -5705,16 +5685,10 @@ snapshots:
       - supports-color
     optional: true
 
-  '@babel/types@7.26.3':
-    dependencies:
-      '@babel/helper-string-parser': 7.25.9
-      '@babel/helper-validator-identifier': 7.25.9
-
   '@babel/types@7.26.5':
     dependencies:
       '@babel/helper-string-parser': 7.25.9
       '@babel/helper-validator-identifier': 7.25.9
-    optional: true
 
   '@biomejs/biome@1.9.4':
     optionalDependencies:
@@ -6051,8 +6025,6 @@ snapshots:
     optional: true
 
   '@ctrl/tinycolor@4.1.0': {}
-
-  '@date-fns/tz@1.2.0': {}
 
   '@egoist/tailwindcss-icons@1.8.2(tailwindcss@3.4.17)':
     dependencies:
@@ -7427,12 +7399,12 @@ snapshots:
 
   astring@1.9.0: {}
 
-  astro-expressive-code@0.38.3(astro@5.1.2(@types/node@22.10.5)(jiti@1.21.7)(less@4.2.0)(rollup@4.29.1)(terser@5.37.0)(typescript@5.7.3)(yaml@2.6.1)):
+  astro-expressive-code@0.38.3(astro@5.1.5(@types/node@22.10.5)(jiti@1.21.7)(less@4.2.0)(rollup@4.29.1)(terser@5.37.0)(typescript@5.7.3)(yaml@2.6.1)):
     dependencies:
-      astro: 5.1.2(@types/node@22.10.5)(jiti@1.21.7)(less@4.2.0)(rollup@4.29.1)(terser@5.37.0)(typescript@5.7.3)(yaml@2.6.1)
+      astro: 5.1.5(@types/node@22.10.5)(jiti@1.21.7)(less@4.2.0)(rollup@4.29.1)(terser@5.37.0)(typescript@5.7.3)(yaml@2.6.1)
       rehype-expressive-code: 0.38.3
 
-  astro@5.1.2(@types/node@22.10.5)(jiti@1.21.7)(less@4.2.0)(rollup@4.29.1)(terser@5.37.0)(typescript@5.7.3)(yaml@2.6.1):
+  astro@5.1.5(@types/node@22.10.5)(jiti@1.21.7)(less@4.2.0)(rollup@4.29.1)(terser@5.37.0)(typescript@5.7.3)(yaml@2.6.1):
     dependencies:
       '@astrojs/compiler': 2.10.3
       '@astrojs/internal-helpers': 0.4.2
@@ -7895,8 +7867,6 @@ snapshots:
     dependencies:
       loader-utils: 2.0.4
       papaparse: 5.4.1
-
-  date-fns-jalali@4.1.0-0: {}
 
   date-fns@4.1.0: {}
 
@@ -9126,8 +9096,8 @@ snapshots:
 
   magicast@0.3.5:
     dependencies:
-      '@babel/parser': 7.26.3
-      '@babel/types': 7.26.3
+      '@babel/parser': 7.26.5
+      '@babel/types': 7.26.5
       source-map-js: 1.2.1
 
   make-dir@2.1.0:
@@ -10308,11 +10278,9 @@ snapshots:
       minimist: 1.2.8
       strip-json-comments: 2.0.1
 
-  react-day-picker@9.5.0(react@19.0.0):
+  react-day-picker@8.10.1(date-fns@4.1.0)(react@19.0.0):
     dependencies:
-      '@date-fns/tz': 1.2.0
       date-fns: 4.1.0
-      date-fns-jalali: 4.1.0-0
       react: 19.0.0
 
   react-dom@19.0.0(react@19.0.0):
