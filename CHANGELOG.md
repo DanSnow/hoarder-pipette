@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.1.3](https://github.com/DanSnow/hoarder-pipette/compare/hoarder-pipette-v1.1.2...hoarder-pipette-v1.1.3) (2025-01-13)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @astrojs/starlight to v0.31.0 ([d03caa0](https://github.com/DanSnow/hoarder-pipette/commit/d03caa0be41f0cc0058f5db736509b9faddeb69a))
+* **deps:** update dependency @autoform/react to v3 ([1dd6c58](https://github.com/DanSnow/hoarder-pipette/commit/1dd6c58a5e2a27b34b27429c5d2d48bcfe666a65))
+* **deps:** update dependency astro to v5.1.5 ([73db1c7](https://github.com/DanSnow/hoarder-pipette/commit/73db1c73afd3f8ef6113985a20e6184d2aae8ada))
+* **deps:** update dependency effect to v3.12.2 ([0ced8f5](https://github.com/DanSnow/hoarder-pipette/commit/0ced8f5a654c015ac4f0f11bb28eeb9c1845c019))
+* update logo ([a47832d](https://github.com/DanSnow/hoarder-pipette/commit/a47832dedd20f371bd9c6240bab9c162ccc15a2b))
+
 ## [1.1.2](https://github.com/DanSnow/hoarder-pipette/compare/hoarder-pipette-v1.1.1...hoarder-pipette-v1.1.2) (2025-01-05)
 
 
