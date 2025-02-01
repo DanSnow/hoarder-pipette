@@ -118,7 +118,7 @@ importers:
         specifier: 1.31.1
         version: 1.31.1
       '@tailwindcss/postcss':
-        specifier: ^4.0.0
+        specifier: 4.0.0
         version: 4.0.0
       '@types/react':
         specifier: 19.0.5
@@ -148,10 +148,10 @@ importers:
         specifier: 0.31.1
         version: 0.31.1(astro@5.2.3(@types/node@22.10.5)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.1)(rollup@4.32.1)(terser@5.37.0)(typescript@5.7.3)(yaml@2.7.0))
       '@astrojs/starlight-tailwind':
-        specifier: ^3.0.0
+        specifier: 3.0.0
         version: 3.0.0(@astrojs/starlight@0.31.1(astro@5.2.3(@types/node@22.10.5)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.1)(rollup@4.32.1)(terser@5.37.0)(typescript@5.7.3)(yaml@2.7.0)))(@astrojs/tailwind@6.0.0(astro@5.2.3(@types/node@22.10.5)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.1)(rollup@4.32.1)(terser@5.37.0)(typescript@5.7.3)(yaml@2.7.0))(tailwindcss@4.0.2))(tailwindcss@4.0.2)
       '@tailwindcss/vite':
-        specifier: ^4.0.2
+        specifier: 4.0.2
         version: 4.0.2(vite@6.0.11(@types/node@22.10.5)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.1)(terser@5.37.0)(yaml@2.7.0))
       astro:
         specifier: 5.2.3
@@ -160,7 +160,7 @@ importers:
         specifier: 0.33.5
         version: 0.33.5
       tailwindcss:
-        specifier: ^4.0.2
+        specifier: 4.0.2
         version: 4.0.2
 
 packages:
@@ -6067,8 +6067,8 @@ snapshots:
       hast-util-to-html: 9.0.4
       hast-util-to-text: 4.0.2
       hastscript: 9.0.0
-      postcss: 8.5.1
-      postcss-nested: 6.2.0(postcss@8.5.1)
+      postcss: 8.4.49
+      postcss-nested: 6.2.0(postcss@8.4.49)
       unist-util-visit: 5.0.0
       unist-util-visit-parents: 6.0.1
 
@@ -9962,9 +9962,9 @@ snapshots:
       icss-utils: 5.1.0(postcss@8.4.49)
       postcss: 8.4.49
 
-  postcss-nested@6.2.0(postcss@8.5.1):
+  postcss-nested@6.2.0(postcss@8.4.49):
     dependencies:
-      postcss: 8.5.1
+      postcss: 8.4.49
       postcss-selector-parser: 6.1.2
 
   postcss-nesting@13.0.1(postcss@8.4.49):
