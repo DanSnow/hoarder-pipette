@@ -127,7 +127,7 @@ importers:
         specifier: 19.0.3
         version: 19.0.3(@types/react@19.0.8)
       chrome-webstore-upload-cli:
-        specifier: ^3.3.1
+        specifier: 3.3.1
         version: 3.3.1
       extension:
         specifier: 2.0.0-beta.9
