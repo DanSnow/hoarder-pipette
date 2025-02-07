@@ -59,7 +59,7 @@
     "date-fns": "4.1.0",
     "effect": "3.12.10",
     "jotai": "2.11.3",
-    "lucide-react": "0.474.0",
+    "lucide-react": "0.475.0",
     "react": "19.0.0",
     "react-day-picker": "8.10.1",
     "react-dom": "19.0.0",
