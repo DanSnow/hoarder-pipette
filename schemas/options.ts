@@ -9,7 +9,7 @@ export const LooseOptionsSchema = z.object({
   apiKey: z.string(),
 })
 
-export const AppOptionsSchema = z.object({
+export const InstanceOptionsSchema = z.object({
   url: z
     .string()
     .url()
@@ -31,4 +31,4 @@ export const AppOptionsSchema = z.object({
   ),
 })
 
-export type AppOptions = z.infer<typeof AppOptionsSchema>
+export type InstanceOptions = z.infer<typeof InstanceOptionsSchema>

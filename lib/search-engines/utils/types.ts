@@ -4,10 +4,6 @@ export interface SearchEngine {
    */
   name: string
   /**
-   * @deprecated Use `matches` instead.
-   */
-  url: string
-  /**
    * The search pages of the search engine
    */
   matches: string[]

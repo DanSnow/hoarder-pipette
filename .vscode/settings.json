@@ -9,5 +9,11 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "biomejs.biome"
   },
-  "harper-ls.linters.spaces": false
+  "harper-ls.linters.spaces": false,
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/.hg/store/**": true,
+    "src/options/routeTree.gen.ts": true
+  }
 }

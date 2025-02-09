@@ -7,7 +7,7 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "ignore": ["dist/**/*", "docs/.astro/**/*"]
+    "ignore": ["dist/**/*", "docs/.astro/**/*", "**/node_modules/**/*", "src/options/routeTree.gen.ts"]
   },
   "formatter": {
     "enabled": true,
