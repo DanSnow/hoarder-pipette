@@ -1,12 +1,12 @@
 import { atom } from 'jotai'
 import { createClient } from '~/client'
-import { LooseOptionsSchema, type AppOptions } from '~/schemas/options'
+import { LooseOptionsSchema, type InstanceOptions } from '~/schemas/options'
 
 export const optionsAtom = atom(async () => {
   const res = await chrome.storage.sync.get({
     apiKey: '',
     url: '',
-  } satisfies AppOptions)
+  } satisfies InstanceOptions)
   return LooseOptionsSchema.parse(res)
 })
 

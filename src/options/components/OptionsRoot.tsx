@@ -1,12 +1,13 @@
 import { createStore, Provider } from 'jotai'
 import { useState } from 'react'
-import { OptionsUI } from './OptionsUI'
+import { RouterProvider } from '@tanstack/react-router'
+import { router } from '../router'
 
 export function OptionsRoot() {
   const [store] = useState(createStore())
   return (
     <Provider store={store}>
-      <OptionsUI />
+      <RouterProvider router={router} />
     </Provider>
   )
 }

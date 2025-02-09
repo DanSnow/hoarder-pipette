@@ -6,6 +6,9 @@
   "name": "Hoarder's Pipette",
   "description": "Search smarter. Find your Hoarder bookmarks directly in search results.",
   "author": "David Peng",
+  "background": {
+    "service_worker": "./background/index.ts"
+  },
   "permissions": ["storage"],
   "options_ui": {
     "page": "./src/options.html"
@@ -21,12 +24,9 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://www.google.com/search*"],
-      "js": ["./content/content.tsx"]
-    },
-    {
-      "matches": ["https://www.ecosia.org/search*"],
+      "matches": ["https://www.google.com/search*", "https://www.ecosia.org/search*"],
       "js": ["./content/content.tsx"]
     }
-  ]
+  ],
+  "optional_host_permissions": ["*://*/*"]
 }
