@@ -7,7 +7,9 @@ import type { SearchEngine } from './utils/types'
 export const ECOSIA_URL = 'https://www.ecosia.org/search'
 
 export const ecosia: SearchEngine = {
+  name: 'Ecosia',
   url: ECOSIA_URL,
+  matches: [ECOSIA_URL],
   getQuery: fromUrlQuery('q'),
   getRenderRoot: () => {
     const { container, renderRoot } = createMountContainer()

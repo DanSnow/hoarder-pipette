@@ -7,7 +7,9 @@ import type { SearchEngine } from './utils/types'
 export const GOOGLE_URL = 'https://www.google.com/search'
 
 export const google: SearchEngine = {
+  name: 'Google',
   url: GOOGLE_URL,
+  matches: [GOOGLE_URL],
   getQuery: fromUrlQuery('q'),
   getRenderRoot: () => {
     const { container, renderRoot } = createMountContainer()
