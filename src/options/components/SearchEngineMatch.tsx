@@ -3,16 +3,13 @@ import { Button } from '~/components/ui/button'
 import { TooltipContent, Tooltip, TooltipTrigger } from '~/components/ui/tooltip'
 import { cn } from '~/lib/utils'
 import type { SearchEngineMatch } from '~/schemas/supported-engines'
-import type { Context } from '../context'
 import { useMutation } from '@tanstack/react-query'
 import { Effect } from 'effect'
 import { requestOrigin } from '../permission'
+import { useRouteContext } from '@tanstack/react-router'
 
-export function SearchEngineMatchItem({
-  match,
-  trpc,
-  trpcUtils,
-}: { match: SearchEngineMatch; trpc: Context['trpc']; trpcUtils: Context['trpcUtils'] }) {
+export function SearchEngineMatchItem({ match }: { match: SearchEngineMatch }) {
+  const { trpc, trpcUtils } = useRouteContext({ from: '__root__' })
   const { mutate: registerAll } = trpc.registerAll.useMutation()
   const { mutate } = useMutation({
     mutationKey: ['requestOriginPermission'],

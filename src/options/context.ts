@@ -5,30 +5,29 @@ import { createLink } from '~/trpc/link'
 
 const chromeLink = createLink()
 
-export function createContext() {
-  const trpc = createTRPCReact<AppRouter>()
-  const queryClient = new QueryClient({
-    defaultOptions: {
-      mutations: {
-        onError: (err) => console.error('Mutation error:', err),
-      },
+export const trpc = createTRPCReact<AppRouter>()
+
+export const queryClient = new QueryClient({
+  defaultOptions: {
+    mutations: {
+      onError: (err) => console.error('Mutation error:', err),
     },
-  })
-  const client = trpc.createClient({
-    links: [chromeLink],
-  })
+  },
+})
+export const client = trpc.createClient({
+  links: [chromeLink],
+})
 
-  const trpcUtils = createTRPCQueryUtils({
-    client,
-    queryClient,
-  })
+export const trpcUtils = createTRPCQueryUtils({
+  client,
+  queryClient,
+})
 
-  return {
-    trpc,
-    queryClient,
-    client,
-    trpcUtils,
-  }
-}
+export const context = {
+  trpc,
+  queryClient,
+  client,
+  trpcUtils,
+} as const
 
-export type Context = ReturnType<typeof createContext>
+export type Context = typeof context
