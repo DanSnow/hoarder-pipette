@@ -9,6 +9,7 @@ export const GOOGLE_URL = 'https://www.google.com/search'
 export const google: SearchEngine = {
   name: 'Google',
   matches: [GOOGLE_URL],
+  optionalMatches: ['https://www.google.de/search'],
   getQuery: fromUrlQuery('q'),
   getRenderRoot: () => {
     const { container, renderRoot } = createMountContainer()
