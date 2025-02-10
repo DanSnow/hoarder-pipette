@@ -10,12 +10,11 @@ import {
 } from '~/components/ui/navigation-menu'
 import { Toaster } from '~/components/ui/toaster'
 import { cn } from '~/lib/utils'
-import { createContext, type Context } from '../context'
+import type { Context } from '../context'
 import { QueryClientProvider } from '@tanstack/react-query'
 
 export const Route = createRootRouteWithContext<Context>()({
   component: RouteComponent,
-  context: createContext,
 })
 
 function RouteComponent() {

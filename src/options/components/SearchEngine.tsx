@@ -4,16 +4,13 @@ import { SearchEngineMatchItem } from './SearchEngineMatch'
 import { Badge } from '~/components/ui/badge'
 import { Button } from '~/components/ui/button'
 import { Tooltip, TooltipContent, TooltipTrigger } from '~/components/ui/tooltip'
-import type { Context } from '../context'
 import { useMutation } from '@tanstack/react-query'
+import { useRouteContext } from '@tanstack/react-router'
 import { Effect } from 'effect'
 import { requestSite } from '../permission'
 
-export function SearchEngine({
-  engine,
-  trpc,
-  trpcUtils,
-}: { engine: SupportSearchEngine; trpc: Context['trpc']; trpcUtils: Context['trpcUtils'] }) {
+export function SearchEngine({ engine }: { engine: SupportSearchEngine }) {
+  const { trpc, trpcUtils } = useRouteContext({ from: '__root__' })
   const totalMatches = engine.matches.length
   const enabledMatches = engine.matches.filter((m) => m.isEnabled).length
   const { mutate: registerAll } = trpc.registerAll.useMutation()
@@ -54,7 +51,7 @@ export function SearchEngine({
       </AccordionTrigger>
       <AccordionContent>
         {engine.matches.map((match) => (
-          <SearchEngineMatchItem key={match.match} match={match} trpc={trpc} trpcUtils={trpcUtils} />
+          <SearchEngineMatchItem key={match.match} match={match} />
         ))}
       </AccordionContent>
     </AccordionItem>
