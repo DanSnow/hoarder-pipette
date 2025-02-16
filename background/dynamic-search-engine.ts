@@ -2,7 +2,7 @@ import { Array, Effect, pipe } from 'effect'
 import browser from 'webextension-polyfill'
 import { supportedEngines } from '~/lib/search-engines'
 import { ContentScriptRegister } from './content-script-register'
-import type { SearchEngineMatch, SupportSearchEngines } from '~/schemas/supported-engines'
+import type { SearchEngineMatch, SupportSearchEngines, SupportSearchEngine } from '~/schemas/supported-engines'
 
 function toOriginUrl(url: string): string {
   return `${url}*`
@@ -50,10 +50,15 @@ export function getSupportedSearchEngines(): Effect.Effect<SupportSearchEngines>
     Array.map((engine) =>
       pipe(
         getIsPermissionGranted(engine.optionalMatches ?? []),
-        Effect.map((matches) => ({
-          name: engine.name,
-          matches: [...toDefaultEnabled(engine.matches), ...matches],
-        })),
+        Effect.map(
+          (matches): SupportSearchEngine => ({
+            id: engine.id,
+            name: engine.name,
+            icon: engine.icon,
+            allowUserSites: engine.allowUserSites ?? false,
+            matches: [...toDefaultEnabled(engine.matches), ...matches],
+          }),
+        ),
       ),
     ),
     Effect.allWith({ concurrency: 'unbounded' }),

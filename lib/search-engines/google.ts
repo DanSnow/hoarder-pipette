@@ -7,6 +7,8 @@ import type { SearchEngine } from './utils/types'
 export const GOOGLE_URL = 'https://www.google.com/search'
 
 export const google: SearchEngine = {
+  id: 'google',
+  icon: 'i-simple-icons-google',
   name: 'Google',
   matches: [GOOGLE_URL],
   optionalMatches: ['https://www.google.de/search'],

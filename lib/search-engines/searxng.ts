@@ -3,13 +3,13 @@ import { createMountContainer } from '../mount-container'
 import { $ } from '../utils'
 import type { SearchEngine } from './utils/types'
 
-export const startPage: SearchEngine = {
-  id: 'startpage',
-  icon: 'i-simple-icons-startpage',
-  name: 'StartPage',
+export const searXNG: SearchEngine = {
+  id: 'searxng',
+  icon: 'i-simple-icons-searxng',
+  name: 'SearXNG',
   matches: [],
-  optionalMatches: ['https://www.startpage.com/sp/search'],
-  getQuery: () => $('input.search-form-input')?.value ?? null,
+  allowUserSites: true,
+  getQuery: () => $('input#q')?.value ?? null,
   getRenderRoot: () => {
     const { container, renderRoot } = createMountContainer()
     const sidebarContainer = $('#sidebar')
