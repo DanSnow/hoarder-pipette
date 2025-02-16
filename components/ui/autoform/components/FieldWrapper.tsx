@@ -17,9 +17,9 @@ export const FieldWrapper: React.FC<FieldWrapperProps> = ({ label, children, id,
       )}
       {children}
       {field.fieldConfig?.description && (
-        <p className='text-muted-foreground text-sm'>{field.fieldConfig.description}</p>
+        <p className="text-muted-foreground text-sm">{field.fieldConfig.description}</p>
       )}
-      {error && <p className='text-destructive text-sm'>{error}</p>}
+      {error && <p className="text-destructive text-sm">{error}</p>}
     </div>
   )
 }

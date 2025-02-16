@@ -1,11 +1,11 @@
-import { initClient, initContract } from '@ts-rest/core';
-import { z } from 'zod';
+import { initClient, initContract } from '@ts-rest/core'
+import { z } from 'zod'
 
-const c = initContract();
+const c = initContract()
 
-const BookmarkId = z.string();
-const ListId = z.string();
-const TagId = z.string();
+const BookmarkId = z.string()
+const ListId = z.string()
+const TagId = z.string()
 export const BookmarkSchema = z
   .object({
     id: z.string(),
@@ -64,26 +64,19 @@ export const BookmarkSchema = z
       z
         .object({
           id: z.string(),
-          assetType: z.enum([
-            'screenshot',
-            'bannerImage',
-            'fullPageArchive',
-            'video',
-            'bookmarkAsset',
-            'unknown',
-          ]),
+          assetType: z.enum(['screenshot', 'bannerImage', 'fullPageArchive', 'video', 'bookmarkAsset', 'unknown']),
         })
         .passthrough(),
     ),
   })
-  .passthrough();
+  .passthrough()
 const PaginatedBookmarks = z
   .object({
     bookmarks: z.array(BookmarkSchema),
     nextCursor: z.string().nullable(),
   })
-  .passthrough();
-const Cursor = z.string();
+  .passthrough()
+const Cursor = z.string()
 const List = z
   .object({
     id: z.string(),
@@ -91,17 +84,15 @@ const List = z
     icon: z.string(),
     parentId: z.string().nullable(),
   })
-  .passthrough();
+  .passthrough()
 const Tag = z
   .object({
     id: z.string(),
     name: z.string(),
     numBookmarks: z.number(),
-    numBookmarksByAttachedType: z
-      .object({ ai: z.number().optional(), human: z.number().optional() })
-      .passthrough(),
+    numBookmarksByAttachedType: z.object({ ai: z.number().optional(), human: z.number().optional() }).passthrough(),
   })
-  .passthrough();
+  .passthrough()
 
 export const schemas = {
   BookmarkId,
@@ -112,7 +103,7 @@ export const schemas = {
   Cursor,
   List,
   Tag,
-};
+}
 
 export const contract = c.router({
   searchBookmark: {
@@ -165,9 +156,7 @@ export const contract = c.router({
       .passthrough()
       .and(
         z.union([
-          z
-            .object({ type: z.literal('link'), url: z.string().url() })
-            .passthrough(),
+          z.object({ type: z.literal('link'), url: z.string().url() }).passthrough(),
           z
             .object({
               type: z.literal('text'),
@@ -393,7 +382,7 @@ export const contract = c.router({
     pathParams: z.object({ tagId: z.string() }),
     responses: { 200: PaginatedBookmarks },
   },
-});
+})
 
 export function createClient(baseUrl: string, apiKey: string) {
   return initClient(contract, {
@@ -403,5 +392,5 @@ export function createClient(baseUrl: string, apiKey: string) {
     },
     validateResponse: true,
     jsonQuery: true,
-  });
+  })
 }

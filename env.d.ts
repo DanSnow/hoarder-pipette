@@ -1,1 +1,1 @@
-import 'typed-query-selector';
+import 'typed-query-selector'

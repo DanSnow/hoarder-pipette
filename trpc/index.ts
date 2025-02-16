@@ -1,5 +1,4 @@
 import { initTRPC } from '@trpc/server'
-import { z } from 'zod'
 import { getSupportedSearchEngines, registerAll } from '~/background/dynamic-search-engine'
 import { BackgroundRuntime } from '~/background/runtime'
 import { SupportSearchEnginesSchema } from '~/schemas/supported-engines'
