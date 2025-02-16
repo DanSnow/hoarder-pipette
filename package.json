@@ -7,7 +7,11 @@
   "name": "hoarder-pipette",
   "description": "An extension to inject bookmarks from your Hoarder app",
   "version": "1.1.3",
-  "keywords": ["extension", "browser-extension", "hoarder"],
+  "keywords": [
+    "extension",
+    "browser-extension",
+    "hoarder"
+  ],
   "scripts": {
     "build": "moon run build --",
     "start": "moon run start --",
@@ -17,8 +21,18 @@
     "overrides": {
       "react": "19.0.0"
     },
-    "ignoredBuiltDependencies": ["core-js-pure", "spawn-sync", "svelte-preprocess"],
-    "onlyBuiltDependencies": ["@biomejs/biome", "@moonrepo/cli", "@swc/core", "esbuild", "sharp"]
+    "ignoredBuiltDependencies": [
+      "core-js-pure",
+      "spawn-sync",
+      "svelte-preprocess"
+    ],
+    "onlyBuiltDependencies": [
+      "@biomejs/biome",
+      "@moonrepo/cli",
+      "@swc/core",
+      "esbuild",
+      "sharp"
+    ]
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
@@ -34,6 +48,7 @@
     "chrome-webstore-upload-cli": "3.3.1",
     "extension": "2.0.0-beta.9",
     "postcss": "8.5.1",
+    "shadcn": "2.4.0-canary.6",
     "tailwindcss": "4.0.4",
     "typed-query-selector": "2.12.0",
     "typescript": "5.7.3",
@@ -83,5 +98,5 @@
     "webextension-polyfill": "^0.12.0",
     "zod": "3.24.1"
   },
-  "packageManager": "pnpm@10.2.1+sha512.398035c7bd696d0ba0b10a688ed558285329d27ea994804a52bad9167d8e3a72bcb993f9699585d3ca25779ac64949ef422757a6c31102c12ab932e5cbe5cc92"
+  "packageManager": "pnpm@10.4.0+sha512.6b849d0787d97f8f4e1f03a9b8ff8f038e79e153d6f11ae539ae7c435ff9e796df6a862c991502695c7f9e8fac8aeafc1ac5a8dab47e36148d183832d886dd52"
 }
