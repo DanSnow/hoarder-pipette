@@ -11,79 +11,149 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as SearchEnginesImport } from './routes/search-engines'
-import { Route as IndexImport } from './routes/index'
+import { Route as StoryRenderImport } from './routes/story-render'
+import { Route as LayoutImport } from './routes/_layout'
+import { Route as LayoutIndexImport } from './routes/_layout/index'
+import { Route as LayoutSearchEnginesImport } from './routes/_layout/search-engines'
+import { Route as LayoutListImport } from './routes/_layout/list'
 
 // Create/Update Routes
 
-const SearchEnginesRoute = SearchEnginesImport.update({
-  id: '/search-engines',
-  path: '/search-engines',
+const StoryRenderRoute = StoryRenderImport.update({
+  id: '/story-render',
+  path: '/story-render',
   getParentRoute: () => rootRoute,
 } as any)
 
-const IndexRoute = IndexImport.update({
+const LayoutRoute = LayoutImport.update({
+  id: '/_layout',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const LayoutIndexRoute = LayoutIndexImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutSearchEnginesRoute = LayoutSearchEnginesImport.update({
+  id: '/search-engines',
+  path: '/search-engines',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutListRoute = LayoutListImport.update({
+  id: '/list',
+  path: '/list',
+  getParentRoute: () => LayoutRoute,
 } as any)
 
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexImport
+    '/_layout': {
+      id: '/_layout'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof LayoutImport
       parentRoute: typeof rootRoute
     }
-    '/search-engines': {
-      id: '/search-engines'
+    '/story-render': {
+      id: '/story-render'
+      path: '/story-render'
+      fullPath: '/story-render'
+      preLoaderRoute: typeof StoryRenderImport
+      parentRoute: typeof rootRoute
+    }
+    '/_layout/list': {
+      id: '/_layout/list'
+      path: '/list'
+      fullPath: '/list'
+      preLoaderRoute: typeof LayoutListImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/search-engines': {
+      id: '/_layout/search-engines'
       path: '/search-engines'
       fullPath: '/search-engines'
-      preLoaderRoute: typeof SearchEnginesImport
-      parentRoute: typeof rootRoute
+      preLoaderRoute: typeof LayoutSearchEnginesImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/': {
+      id: '/_layout/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof LayoutIndexImport
+      parentRoute: typeof LayoutImport
     }
   }
 }
 
 // Create and export the route tree
 
+interface LayoutRouteChildren {
+  LayoutListRoute: typeof LayoutListRoute
+  LayoutSearchEnginesRoute: typeof LayoutSearchEnginesRoute
+  LayoutIndexRoute: typeof LayoutIndexRoute
+}
+
+const LayoutRouteChildren: LayoutRouteChildren = {
+  LayoutListRoute: LayoutListRoute,
+  LayoutSearchEnginesRoute: LayoutSearchEnginesRoute,
+  LayoutIndexRoute: LayoutIndexRoute,
+}
+
+const LayoutRouteWithChildren =
+  LayoutRoute._addFileChildren(LayoutRouteChildren)
+
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/search-engines': typeof SearchEnginesRoute
+  '': typeof LayoutRouteWithChildren
+  '/story-render': typeof StoryRenderRoute
+  '/list': typeof LayoutListRoute
+  '/search-engines': typeof LayoutSearchEnginesRoute
+  '/': typeof LayoutIndexRoute
 }
 
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/search-engines': typeof SearchEnginesRoute
+  '/story-render': typeof StoryRenderRoute
+  '/list': typeof LayoutListRoute
+  '/search-engines': typeof LayoutSearchEnginesRoute
+  '/': typeof LayoutIndexRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
-  '/': typeof IndexRoute
-  '/search-engines': typeof SearchEnginesRoute
+  '/_layout': typeof LayoutRouteWithChildren
+  '/story-render': typeof StoryRenderRoute
+  '/_layout/list': typeof LayoutListRoute
+  '/_layout/search-engines': typeof LayoutSearchEnginesRoute
+  '/_layout/': typeof LayoutIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/search-engines'
+  fullPaths: '' | '/story-render' | '/list' | '/search-engines' | '/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/search-engines'
-  id: '__root__' | '/' | '/search-engines'
+  to: '/story-render' | '/list' | '/search-engines' | '/'
+  id:
+    | '__root__'
+    | '/_layout'
+    | '/story-render'
+    | '/_layout/list'
+    | '/_layout/search-engines'
+    | '/_layout/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
-  SearchEnginesRoute: typeof SearchEnginesRoute
+  LayoutRoute: typeof LayoutRouteWithChildren
+  StoryRenderRoute: typeof StoryRenderRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
-  SearchEnginesRoute: SearchEnginesRoute,
+  LayoutRoute: LayoutRouteWithChildren,
+  StoryRenderRoute: StoryRenderRoute,
 }
 
 export const routeTree = rootRoute
@@ -96,15 +166,32 @@ export const routeTree = rootRoute
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/",
-        "/search-engines"
+        "/_layout",
+        "/story-render"
       ]
     },
-    "/": {
-      "filePath": "index.tsx"
+    "/_layout": {
+      "filePath": "_layout.tsx",
+      "children": [
+        "/_layout/list",
+        "/_layout/search-engines",
+        "/_layout/"
+      ]
     },
-    "/search-engines": {
-      "filePath": "search-engines.tsx"
+    "/story-render": {
+      "filePath": "story-render.tsx"
+    },
+    "/_layout/list": {
+      "filePath": "_layout/list.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/search-engines": {
+      "filePath": "_layout/search-engines.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/": {
+      "filePath": "_layout/index.tsx",
+      "parent": "/_layout"
     }
   }
 }

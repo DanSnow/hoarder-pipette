@@ -13,7 +13,7 @@ import { ZodProvider } from '@autoform/zod'
 
 const schemaProvider = new ZodProvider(InstanceOptionsSchema)
 
-export const Route = createFileRoute('/')({
+export const Route = createFileRoute('/_layout/')({
   component: OptionsForm,
   wrapInSuspense: true,
 })

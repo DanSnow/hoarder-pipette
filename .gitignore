@@ -30,3 +30,4 @@ extension-env.d.ts
 .moon/docker
 
 *.crx
+*storybook.log

@@ -11,7 +11,7 @@ module.exports = {
   plugins: [
     require('tailwindcss-animate'),
     iconsPlugin({
-      collections: getIconCollections(['lucide']),
+      collections: getIconCollections(['lucide', 'simple-icons']),
     }),
   ],
 }

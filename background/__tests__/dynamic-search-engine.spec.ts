@@ -17,7 +17,10 @@ describe('getSupportedSearchEngines', () => {
     Effect.gen(function* () {
       const engines = yield* getSupportedSearchEngines()
       expect(engines).toContainEqual({
+        id: startPage.id,
         name: startPage.name,
+        icon: startPage.icon,
+        allowUserSites: false,
         matches: [
           {
             match: startPage.optionalMatches?.[0],
