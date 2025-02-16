@@ -1,22 +1,7 @@
 import { Match, pipe } from 'effect'
-import { Button } from '~/components/ui/button'
 import { Tooltip, TooltipContent, TooltipTrigger } from '~/components/ui/tooltip'
-import { cn } from '~/lib/utils'
 import type { SupportSearchEngine } from '~/schemas/supported-engines'
-
-type State = 'disabled' | 'enabled' | 'partial'
-
-const icons: Record<State, string> = {
-  enabled: 'i-lucide-square-check-big',
-  partial: 'i-lucide-square-divide',
-  disabled: 'i-lucide-square-check',
-}
-
-const colors: Record<State, string> = {
-  enabled: 'text-green-500',
-  partial: 'text-blue-500',
-  disabled: 'text-gray-500',
-}
+import { CheckButton, type State } from './CheckButton'
 
 const tooltipContent: Record<State, string> = {
   enabled: 'All enabled',
@@ -41,15 +26,7 @@ export function SearchEngineStateButton({ engine, onClick }: { engine: SupportSe
   return (
     <Tooltip open={isUserSites ? false : undefined}>
       <TooltipTrigger asChild>
-        <Button
-          size="sm"
-          variant="ghost"
-          disabled={state === 'enabled' && totalMatches > 0}
-          className="disabled:pointer-events-auto disabled:opacity-100"
-          onClick={onClick}
-        >
-          <span className={cn(colors[state], icons[state])} />
-        </Button>
+        <CheckButton state={state} disabled={state === 'enabled' && totalMatches > 0} onClick={onClick} />
       </TooltipTrigger>
       <TooltipContent className="max-w-36 text-wrap">{tooltipContent[state]}</TooltipContent>
     </Tooltip>
