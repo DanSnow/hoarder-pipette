@@ -1,9 +1,10 @@
 import { atom } from 'jotai'
 import { createClient } from '~/client'
 import { LooseOptionsSchema, type InstanceOptions } from '~/schemas/options'
+import browser from 'webextension-polyfill'
 
 export const optionsAtom = atom(async () => {
-  const res = await chrome.storage.sync.get({
+  const res = await browser.storage.sync.get({
     apiKey: '',
     url: '',
   } satisfies InstanceOptions)
