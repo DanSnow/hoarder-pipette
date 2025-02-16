@@ -56,3 +56,8 @@ tasks:
       - start
     local: true
     platform: node
+  test:
+    command:
+      - vitest
+    preset: watcher
+    platform: node
