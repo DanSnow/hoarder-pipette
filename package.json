@@ -22,6 +22,8 @@
       "react": "19.0.0"
     },
     "ignoredBuiltDependencies": [
+      "core-js-pure",
+      "spawn-sync",
       "svelte-preprocess"
     ],
     "onlyBuiltDependencies": [
