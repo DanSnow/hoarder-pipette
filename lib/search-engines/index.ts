@@ -1,9 +1,10 @@
 import { ecosia } from './ecosia'
 import { google } from './google'
+import { searXNG } from './searxng'
 import { startPage } from './startpage'
 import type { SearchEngine } from './utils/types'
 
-export const supportedEngines = [ecosia, google, startPage]
+export const supportedEngines = [ecosia, google, startPage, searXNG]
 
 export function getUserQuery() {
   for (const engine of supportedEngines) {

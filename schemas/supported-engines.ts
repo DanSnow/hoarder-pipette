@@ -10,7 +10,10 @@ export const SearchEngineMatchSchema = z.object({
 export type SearchEngineMatch = z.infer<typeof SearchEngineMatchSchema>
 
 export const SupportSearchEngineSchema = z.object({
+  id: z.string(),
   name: z.string(),
+  icon: z.string(),
+  allowUserSites: z.boolean(),
   matches: z.array(SearchEngineMatchSchema),
 })
 

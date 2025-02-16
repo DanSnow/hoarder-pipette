@@ -1,5 +1,13 @@
 export interface SearchEngine {
   /**
+   * Unique identifier of the search engine
+   */
+  id: string
+  /**
+   * Icon of the search engine
+   */
+  icon: string
+  /**
    * Search engine name
    */
   name: string
@@ -11,6 +19,10 @@ export interface SearchEngine {
    * Extra search pages that are not default enabled, but can be enabled by the user.
    */
   optionalMatches?: string[]
+  /**
+   * Whether the search engine allows user sites, e.g. SearXNG.
+   */
+  allowUserSites?: boolean
   /**
    * Get user's search query
    * @returns Search query, if not available, return `null`
