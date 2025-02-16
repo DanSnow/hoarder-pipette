@@ -14,6 +14,7 @@ import { Route as rootRoute } from './routes/__root'
 import { Route as StoryRenderImport } from './routes/story-render'
 import { Route as LayoutImport } from './routes/_layout'
 import { Route as LayoutIndexImport } from './routes/_layout/index'
+import { Route as SearchEnginesIdImport } from './routes/search-engines.$id'
 import { Route as LayoutSearchEnginesImport } from './routes/_layout/search-engines'
 import { Route as LayoutListImport } from './routes/_layout/list'
 
@@ -34,6 +35,12 @@ const LayoutIndexRoute = LayoutIndexImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => LayoutRoute,
+} as any)
+
+const SearchEnginesIdRoute = SearchEnginesIdImport.update({
+  id: '/search-engines/$id',
+  path: '/search-engines/$id',
+  getParentRoute: () => rootRoute,
 } as any)
 
 const LayoutSearchEnginesRoute = LayoutSearchEnginesImport.update({
@@ -80,6 +87,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutSearchEnginesImport
       parentRoute: typeof LayoutImport
     }
+    '/search-engines/$id': {
+      id: '/search-engines/$id'
+      path: '/search-engines/$id'
+      fullPath: '/search-engines/$id'
+      preLoaderRoute: typeof SearchEnginesIdImport
+      parentRoute: typeof rootRoute
+    }
     '/_layout/': {
       id: '/_layout/'
       path: '/'
@@ -112,6 +126,7 @@ export interface FileRoutesByFullPath {
   '/story-render': typeof StoryRenderRoute
   '/list': typeof LayoutListRoute
   '/search-engines': typeof LayoutSearchEnginesRoute
+  '/search-engines/$id': typeof SearchEnginesIdRoute
   '/': typeof LayoutIndexRoute
 }
 
@@ -119,6 +134,7 @@ export interface FileRoutesByTo {
   '/story-render': typeof StoryRenderRoute
   '/list': typeof LayoutListRoute
   '/search-engines': typeof LayoutSearchEnginesRoute
+  '/search-engines/$id': typeof SearchEnginesIdRoute
   '/': typeof LayoutIndexRoute
 }
 
@@ -128,20 +144,33 @@ export interface FileRoutesById {
   '/story-render': typeof StoryRenderRoute
   '/_layout/list': typeof LayoutListRoute
   '/_layout/search-engines': typeof LayoutSearchEnginesRoute
+  '/search-engines/$id': typeof SearchEnginesIdRoute
   '/_layout/': typeof LayoutIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '' | '/story-render' | '/list' | '/search-engines' | '/'
+  fullPaths:
+    | ''
+    | '/story-render'
+    | '/list'
+    | '/search-engines'
+    | '/search-engines/$id'
+    | '/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/story-render' | '/list' | '/search-engines' | '/'
+  to:
+    | '/story-render'
+    | '/list'
+    | '/search-engines'
+    | '/search-engines/$id'
+    | '/'
   id:
     | '__root__'
     | '/_layout'
     | '/story-render'
     | '/_layout/list'
     | '/_layout/search-engines'
+    | '/search-engines/$id'
     | '/_layout/'
   fileRoutesById: FileRoutesById
 }
@@ -149,11 +178,13 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   LayoutRoute: typeof LayoutRouteWithChildren
   StoryRenderRoute: typeof StoryRenderRoute
+  SearchEnginesIdRoute: typeof SearchEnginesIdRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   LayoutRoute: LayoutRouteWithChildren,
   StoryRenderRoute: StoryRenderRoute,
+  SearchEnginesIdRoute: SearchEnginesIdRoute,
 }
 
 export const routeTree = rootRoute
@@ -167,7 +198,8 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/_layout",
-        "/story-render"
+        "/story-render",
+        "/search-engines/$id"
       ]
     },
     "/_layout": {
@@ -188,6 +220,9 @@ export const routeTree = rootRoute
     "/_layout/search-engines": {
       "filePath": "_layout/search-engines.tsx",
       "parent": "/_layout"
+    },
+    "/search-engines/$id": {
+      "filePath": "search-engines.$id.tsx"
     },
     "/_layout/": {
       "filePath": "_layout/index.tsx",

@@ -1,16 +1,14 @@
 import type { SupportSearchEngine } from '~/schemas/supported-engines'
-import { Badge } from '~/components/ui/badge'
 import { useMutation } from '@tanstack/react-query'
-import { useRouteContext } from '@tanstack/react-router'
+import { Link, useRouteContext } from '@tanstack/react-router'
 import { Effect } from 'effect'
 import { requestSite } from '../permission'
 import { ListBoxItem } from '~/components/ui/listbox'
 import { SearchEngineStateButton } from './SearchEngineStateButton'
+import { Button } from '~/components/ui/button'
 
 export function SearchEngine({ engine }: { engine: SupportSearchEngine }) {
   const { trpc, trpcUtils } = useRouteContext({ from: '__root__' })
-  const totalMatches = engine.matches.length
-  const enabledMatches = engine.matches.filter((m) => m.isEnabled).length
 
   const { mutate: registerAll } = trpc.registerAll.useMutation()
   const { mutate: requestSitePermission } = useMutation({
@@ -28,14 +26,12 @@ export function SearchEngine({ engine }: { engine: SupportSearchEngine }) {
     <ListBoxItem value={engine}>
       <div className="flex items-center gap-2">
         <SearchEngineStateButton engine={engine} onClick={requestSitePermission} />
-        <h2 className="font-bold text-lg">{engine.name}</h2>
-        {totalMatches === enabledMatches ? (
-          <Badge className="bg-green-400">All Enabled</Badge>
-        ) : (
-          <Badge>
-            {enabledMatches}/{totalMatches}
-          </Badge>
-        )}
+        <h2 className="grow font-bold text-lg">{engine.name}</h2>
+        <Link to="/search-engines/$id" params={{ id: engine.id }}>
+          <Button size="sm" variant="ghost">
+            <span className="i-lucide-chevron-right" />
+          </Button>
+        </Link>
       </div>
     </ListBoxItem>
   )
