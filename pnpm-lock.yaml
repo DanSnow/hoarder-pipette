@@ -57,8 +57,8 @@ importers:
         specifier: 5.66.0
         version: 5.66.0(react@19.0.0)
       '@ts-rest/core':
-        specifier: 3.51.0
-        version: 3.51.0(@types/node@22.10.5)(zod@3.24.1)
+        specifier: 3.52.0
+        version: 3.52.0(@types/node@22.10.5)(zod@3.24.1)
       class-variance-authority:
         specifier: 0.7.1
         version: 0.7.1
@@ -1782,8 +1782,8 @@ packages:
     peerDependencies:
       react: 19.0.0
 
-  '@ts-rest/core@3.51.0':
-    resolution: {integrity: sha512-v6lnWEcpZj1UgN9wb84XQ+EORP1QEtncFumoXMJjno5ZUV6vdjKze3MYcQN0C6vjBpIJPQEaI/gab2jr4/0KzQ==}
+  '@ts-rest/core@3.52.0':
+    resolution: {integrity: sha512-t2KWbRWTh9ikYFOugDNFGaEhiPOzlzkQA8uRHebRN/HtJoauPS4ry3jgdvd5hYQNB/QlfpYeLqBCnGudc9vFog==}
     peerDependencies:
       '@types/node': ^18.18.7 || >=20.8.4
       zod: ^3.22.3
@@ -7025,7 +7025,7 @@ snapshots:
       '@tanstack/query-core': 5.66.0
       react: 19.0.0
 
-  '@ts-rest/core@3.51.0(@types/node@22.10.5)(zod@3.24.1)':
+  '@ts-rest/core@3.52.0(@types/node@22.10.5)(zod@3.24.1)':
     optionalDependencies:
       '@types/node': 22.10.5
       zod: 3.24.1
