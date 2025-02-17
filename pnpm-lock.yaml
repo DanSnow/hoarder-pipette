@@ -112,8 +112,8 @@ importers:
         specifier: 1.9.4
         version: 1.9.4
       '@egoist/tailwindcss-icons':
-        specifier: 1.8.2
-        version: 1.8.2(tailwindcss@4.0.4)
+        specifier: 1.9.0
+        version: 1.9.0(tailwindcss@4.0.4)
       '@moonrepo/cli':
         specifier: 1.32.5
         version: 1.32.5
@@ -632,8 +632,8 @@ packages:
     resolution: {integrity: sha512-WyOx8cJQ+FQus4Mm4uPIZA64gbk3Wxh0so5Lcii0aJifqwoVOlfFtorjLE0Hen4OYyHZMXDWqMmaQemBhgxFRQ==}
     engines: {node: '>=14'}
 
-  '@egoist/tailwindcss-icons@1.8.2':
-    resolution: {integrity: sha512-A0+/387Qg+rZgGRNlV9chwyikaPq9HALJYMwVspbqdbeA+TNEwUajM38pyaUqASArhubZUnFOgRALsdWYXn+rg==}
+  '@egoist/tailwindcss-icons@1.9.0':
+    resolution: {integrity: sha512-xWA9cUy6hzlK7Y6TaoRIcwmilSXiTJ8rbXcEdf9uht7yzDgw/yIgF4rThIQMrpD2Y2v4od51+r2y6Z7GStanDQ==}
     peerDependencies:
       tailwindcss: '*'
 
@@ -6013,7 +6013,7 @@ snapshots:
 
   '@ctrl/tinycolor@4.1.0': {}
 
-  '@egoist/tailwindcss-icons@1.8.2(tailwindcss@4.0.4)':
+  '@egoist/tailwindcss-icons@1.9.0(tailwindcss@4.0.4)':
     dependencies:
       '@iconify/utils': 2.2.1
       tailwindcss: 4.0.4

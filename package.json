@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
-    "@egoist/tailwindcss-icons": "1.8.2",
+    "@egoist/tailwindcss-icons": "1.9.0",
     "@moonrepo/cli": "1.32.5",
     "@tailwindcss/postcss": "4.0.4",
     "@types/react": "19.0.8",
