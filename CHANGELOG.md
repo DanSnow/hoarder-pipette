@@ -1,5 +1,26 @@
 # Changelog
 
+## [1.1.4](https://github.com/DanSnow/hoarder-pipette/compare/hoarder-pipette-v1.1.3...hoarder-pipette-v1.1.4) (2025-02-17)
+
+
+### Bug Fixes
+
+* **deps:** pin dependencies ([eda3391](https://github.com/DanSnow/hoarder-pipette/commit/eda33915f94054be87c38fb4c510def639400129))
+* **deps:** update dependency @iconify-json/lucide to v1.2.25 ([77f87d2](https://github.com/DanSnow/hoarder-pipette/commit/77f87d2ca7d6692f86996f00d6b3c8d5c422d68c))
+* **deps:** update dependency @iconify-json/lucide to v1.2.26 ([fd37f7e](https://github.com/DanSnow/hoarder-pipette/commit/fd37f7e6e3a336f0d684d26fcfc9374fb5614574))
+* **deps:** update dependency @tanstack/react-query to v5.66.0 ([f7665de](https://github.com/DanSnow/hoarder-pipette/commit/f7665deae1f232acafeb4cfa2a7ba95ce8ee3475))
+* **deps:** update dependency astro to v5.3.0 ([f96c14d](https://github.com/DanSnow/hoarder-pipette/commit/f96c14d85490b07063dfaf9752140b8e342bf7cc))
+* **deps:** update dependency effect to v3.12.10 ([6005312](https://github.com/DanSnow/hoarder-pipette/commit/6005312908e2fae2f1e02eb18d9e9efd4743244b))
+* **deps:** update dependency effect to v3.12.7 ([9a139ce](https://github.com/DanSnow/hoarder-pipette/commit/9a139cec336855751dbcf4ceb8f47d0b4cbfd308))
+* **deps:** update dependency jotai to v2.11.3 ([fe9328f](https://github.com/DanSnow/hoarder-pipette/commit/fe9328f9fb53de828ccaed30a0ca89bb7a177a55))
+* **deps:** update dependency lucide-react to v0.474.0 ([886784d](https://github.com/DanSnow/hoarder-pipette/commit/886784db18a37c2c36872efed523580d3d076f81))
+* **deps:** update dependency lucide-react to v0.475.0 ([187f01f](https://github.com/DanSnow/hoarder-pipette/commit/187f01f74e0f92a1edbc91b3a1082b04523dc22e))
+* **deps:** update radix-ui-primitives monorepo ([2991ed9](https://github.com/DanSnow/hoarder-pipette/commit/2991ed955d4cb1620627345c377487a6d033cacb))
+* **deps:** update radix-ui-primitives monorepo ([cd990b8](https://github.com/DanSnow/hoarder-pipette/commit/cd990b86c573d5b1099c83de7f1ae4c88218a881))
+* **deps:** update tailwindcss monorepo to v4.0.3 ([8b9b112](https://github.com/DanSnow/hoarder-pipette/commit/8b9b112f64ad9cd92d61922b203fcf380a7ca576))
+* **deps:** update tailwindcss monorepo to v4.0.4 ([00c2dd5](https://github.com/DanSnow/hoarder-pipette/commit/00c2dd582d0c56c9c05e97a43167d93eba675cad))
+* hide bookmark section if no result ([87daaa7](https://github.com/DanSnow/hoarder-pipette/commit/87daaa7b39564cd2dcdd11d204f886a52651fd47))
+
 ## [1.1.3](https://github.com/DanSnow/hoarder-pipette/compare/hoarder-pipette-v1.1.2...hoarder-pipette-v1.1.3) (2025-01-13)
 
 
