@@ -1,6 +1,6 @@
 import { createFileRoute, redirect, useNavigate } from '@tanstack/react-router'
-import { getCurrentTabUrl, isAllowProtocol } from '../../utils'
-import { Effect, pipe, Predicate } from 'effect'
+import { getCurrentTabUrl, isAllowUrl } from '../../utils'
+import { Effect, pipe } from 'effect'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Form, FormControl, FormField, FormItem, FormLabel } from '~/components/ui/form'
 import { z } from 'zod'
@@ -9,19 +9,14 @@ import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '~
 import { useMemo } from 'react'
 import { supportedEngines } from '~/lib/search-engines'
 import { Button } from '~/components/ui/button'
-import { useSetAtom } from 'jotai'
-import { userSitesAtom } from '~/atoms/storage'
-import { useRequestOriginPermission } from '../../hooks/request-origin-permission'
-import { toOriginUrl } from '~/lib/utils'
+import { useRequestUserSitePermission } from '../../hooks/request-user-site-permission'
 
 export const Route = createFileRoute('/_search-engines/search-engines/apply')({
   component: RouteComponent,
   loader: async () => {
     return pipe(
       Effect.promise(() => getCurrentTabUrl()),
-      Effect.filterOrFail(Predicate.compose(Predicate.isString, isAllowProtocol), () =>
-        redirect({ to: '/search-engines' }),
-      ),
+      Effect.filterOrFail(isAllowUrl, () => redirect({ to: '/search-engines' })),
       Effect.runPromise,
     )
   },
@@ -35,9 +30,8 @@ type EnableForm = z.infer<typeof enableFormSchema>
 
 function RouteComponent() {
   const url = Route.useLoaderData()
-  const setUserSites = useSetAtom(userSitesAtom)
+  const { requestUserSitePermission } = useRequestUserSitePermission()
   const availableSearchEngine = useMemo(() => supportedEngines.filter((engine) => engine.allowUserSites), [])
-  const { requestOriginPermission } = useRequestOriginPermission()
   const form = useForm<EnableForm>({
     resolver: zodResolver(enableFormSchema),
   })
@@ -46,12 +40,7 @@ function RouteComponent() {
   async function onSubmit(values: EnableForm) {
     console.log('submit', values)
 
-    const originUrl = toOriginUrl(url)
-    await requestOriginPermission(originUrl)
-    await setUserSites(async (sitesPromise) => {
-      const sites = (await sitesPromise) ?? []
-      return [...sites, { id: values.searchEngine, url }]
-    })
+    await requestUserSitePermission({ id: values.searchEngine, url })
     navigate({ to: '/search-engines' })
   }
   return (

@@ -21,10 +21,6 @@ const links = linkOptions([
     to: '/search-engines',
     label: 'Search Engines',
   },
-  {
-    to: '/list',
-    label: 'List',
-  },
 ])
 
 function RouteComponent() {
