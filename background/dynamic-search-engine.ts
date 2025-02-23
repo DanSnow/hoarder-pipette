@@ -3,10 +3,8 @@ import browser from 'webextension-polyfill'
 import { supportedEngines } from '~/lib/search-engines'
 import { ContentScriptRegister } from './content-script-register'
 import type { SearchEngineMatch, SupportSearchEngines, SupportSearchEngine } from '~/schemas/supported-engines'
-
-function toOriginUrl(url: string): string {
-  return `${url}*`
-}
+import { toOriginUrl } from '~/lib/utils'
+import { Storage } from './store'
 
 function getIsPermissionGranted(matches: string[]): Effect.Effect<SearchEngineMatch[]> {
   return pipe(
@@ -44,12 +42,35 @@ function toDefaultEnabled(matches: string[]): SearchEngineMatch[] {
   )
 }
 
-export function getSupportedSearchEngines(): Effect.Effect<SupportSearchEngines> {
+function getUserSites(id: string): Effect.Effect<SearchEngineMatch[], never, Storage> {
+  return pipe(
+    Storage.userSites,
+    Effect.map((sites) =>
+      pipe(
+        sites,
+        Array.filter((site) => site.id === id),
+        Array.map(
+          (site): SearchEngineMatch => ({
+            match: site.url,
+            originUrl: toOriginUrl(site.url),
+            isEnabledByDefault: false,
+            isEnabled: true,
+          }),
+        ),
+      ),
+    ),
+  )
+}
+
+export function getSupportedSearchEngines(): Effect.Effect<SupportSearchEngines, never, Storage> {
   return pipe(
     supportedEngines,
     Array.map((engine) =>
       pipe(
         getIsPermissionGranted(engine.optionalMatches ?? []),
+        Effect.zipWith(getUserSites(engine.id), (optionalMatch, userSites) =>
+          Array.appendAll(optionalMatch, userSites),
+        ),
         Effect.map(
           (matches): SupportSearchEngine => ({
             id: engine.id,
@@ -65,7 +86,7 @@ export function getSupportedSearchEngines(): Effect.Effect<SupportSearchEngines>
   )
 }
 
-export function getRegisterableScripts(): Effect.Effect<string[]> {
+export function getRegisterableScripts(): Effect.Effect<string[], never, Storage> {
   return pipe(
     getSupportedSearchEngines(),
     Effect.map((engines) =>

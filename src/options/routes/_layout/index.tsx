@@ -1,7 +1,6 @@
 import { AutoForm } from '~/components/ui/autoform'
 import { createFileRoute } from '@tanstack/react-router'
-import browser from 'webextension-polyfill'
-import { useAtomValue } from 'jotai'
+import { useAtom } from 'jotai'
 import { useCallback } from 'react'
 import type { z } from 'zod'
 import { optionsAtom } from '~/atoms/storage'
@@ -19,7 +18,7 @@ export const Route = createFileRoute('/_layout/')({
 })
 
 function OptionsForm() {
-  const initialValues = useAtomValue(optionsAtom)
+  const [initialValues, setOptions] = useAtom(optionsAtom)
   const { toast } = useToast()
   console.log(initialValues)
   const handleSubmit = useCallback(
@@ -35,6 +34,7 @@ function OptionsForm() {
           })
           return
         }
+
         console.log(res)
       } catch (error) {
         toast({
@@ -43,12 +43,12 @@ function OptionsForm() {
         })
         return
       }
-      await browser.storage.sync.set(data)
+      await setOptions(data)
       toast({
         title: 'Config Saved',
       })
     },
-    [toast],
+    [toast, setOptions],
   )
 
   return (

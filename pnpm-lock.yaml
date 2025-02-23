@@ -80,6 +80,9 @@ importers:
       '@webext-core/messaging':
         specifier: ^2.2.0
         version: 2.2.0
+      '@webext-core/storage':
+        specifier: ^1.2.0
+        version: 1.2.0
       class-variance-authority:
         specifier: 0.7.1
         version: 0.7.1
@@ -98,6 +101,9 @@ importers:
       lucide-react:
         specifier: 0.475.0
         version: 0.475.0(react@19.0.0)
+      mutative:
+        specifier: ^1.1.0
+        version: 1.1.0
       react:
         specifier: 19.0.0
         version: 19.0.0
@@ -3359,6 +3365,9 @@ packages:
   '@webext-core/messaging@2.2.0':
     resolution: {integrity: sha512-CRKFSH8ZAp55QpzfseOO/RlW6fAVSGWYNJK1j23khB855Ba9wHu8PB3uuqMVZtfEAwAmsw/2U8HIkony5adFBQ==}
 
+  '@webext-core/storage@1.2.0':
+    resolution: {integrity: sha512-XI86HJUhugVdAQZLcj3EH/rZv08ByVn2riX3YI4HCJ86NOH5K3OwGi0ClFa/kq5U5hIVDMG6hwOBwgEgI2G5GQ==}
+
   '@xobotyi/scrollbar-width@1.9.5':
     resolution: {integrity: sha512-N8tkAACJx2ww8vFMneJmaAgmjAG1tnVBZJRLRcx061tmsLRZHSEZSLuGWnwPtunsSLvSqXQ2wfp7Mgqg1I+2dQ==}
 
@@ -5484,6 +5493,10 @@ packages:
   multicast-dns@7.2.5:
     resolution: {integrity: sha512-2eznPJP8z2BFLX50tf0LuODrpINqP1RVIm/CObbTcBRITQgmC/TjcREF1NeTBzIcR5XO/ukWo+YHOjBbFwIupg==}
     hasBin: true
+
+  mutative@1.1.0:
+    resolution: {integrity: sha512-2PJADREjOusk3iJkD3rXV2YjAxTuaLxdfqtqTEt6vcY07LtEBR1seHuBHXWEIuscqRDGvbauYPs+A4Rj/KTczQ==}
+    engines: {node: '>=14.0'}
 
   nano-css@5.6.2:
     resolution: {integrity: sha512-+6bHaC8dSDGALM1HJjOHVXpuastdu2xFoZlC77Jh4cg+33Zcgm+Gxd+1xsnpZK14eyHObSp82+ll5y3SX75liw==}
@@ -11201,6 +11214,10 @@ snapshots:
       uid: 2.0.2
       webextension-polyfill: 0.10.0
 
+  '@webext-core/storage@1.2.0':
+    dependencies:
+      webextension-polyfill: 0.10.0
+
   '@xobotyi/scrollbar-width@1.9.5': {}
 
   '@xtuc/ieee754@1.2.0': {}
@@ -13901,6 +13918,8 @@ snapshots:
     dependencies:
       dns-packet: 5.6.1
       thunky: 1.1.0
+
+  mutative@1.1.0: {}
 
   nano-css@5.6.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
     dependencies:

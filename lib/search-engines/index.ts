@@ -1,3 +1,4 @@
+import type { UserSite } from '~/schemas/user-sites'
 import { ecosia } from './ecosia'
 import { google } from './google'
 import { searXNG } from './searxng'
@@ -15,9 +16,14 @@ export function getUserQuery() {
   throw new Error('Unsupported engine')
 }
 
-export function getRenderRoot(): HTMLElement {
+export function getRenderRoot(userSites: UserSite[] = []): HTMLElement {
   for (const engine of supportedEngines) {
-    if (isMatchSearchEngine(engine, window.location.href)) {
+    const url = window.location.href
+    if (isMatchSearchEngine(engine, url)) {
+      return engine.getRenderRoot()
+    }
+
+    if (userSites.some((site) => site.id === engine.id && url.startsWith(site.url))) {
       return engine.getRenderRoot()
     }
   }

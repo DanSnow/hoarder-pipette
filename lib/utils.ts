@@ -25,3 +25,7 @@ export function decodeEntities(str: string): string {
   textarea.innerHTML = str
   return textarea.value
 }
+
+export function toOriginUrl(url: string): string {
+  return `${url}*`
+}
