@@ -202,8 +202,8 @@ importers:
         specifier: 8.5.3
         version: 8.5.3
       shadcn:
-        specifier: 2.4.0-canary.6
-        version: 2.4.0-canary.6(typescript@5.7.3)
+        specifier: 2.4.0-canary.9
+        version: 2.4.0-canary.9(typescript@5.7.3)
       storybook:
         specifier: ^8.5.6
         version: 8.5.6(prettier@3.5.0)
@@ -6478,8 +6478,8 @@ packages:
   setprototypeof@1.2.0:
     resolution: {integrity: sha512-E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw==}
 
-  shadcn@2.4.0-canary.6:
-    resolution: {integrity: sha512-7bsqWU9j6HwAksSLbzRTsnztd6cWa3F3MHP74aLYghDjbgFhlWzSYV8DyXfXz6EKbNSZzgYIWJvlk9UZ9TzbGw==}
+  shadcn@2.4.0-canary.9:
+    resolution: {integrity: sha512-1uOaCi/a2+MlPbXZSX8HrTEg5nMl1wQKGpkdz+6GzizRxvpZqmVpwuEb1oefOfsqkm/fZy68kHGXR4yr64VTwQ==}
     hasBin: true
 
   shallow-clone@3.0.1:
@@ -15169,7 +15169,7 @@ snapshots:
 
   setprototypeof@1.2.0: {}
 
-  shadcn@2.4.0-canary.6(typescript@5.7.3):
+  shadcn@2.4.0-canary.9(typescript@5.7.3):
     dependencies:
       '@antfu/ni': 23.3.1
       '@babel/core': 7.26.8
