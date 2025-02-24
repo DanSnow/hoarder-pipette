@@ -145,8 +145,8 @@ importers:
         specifier: 1.9.4
         version: 1.9.4
       '@effect/vitest':
-        specifier: ^0.17.6
-        version: 0.17.6(effect@3.13.2)(vitest@3.0.5(@types/debug@4.1.12)(@types/node@22.10.5)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.1)(terser@5.37.0)(tsx@4.19.2)(yaml@2.7.0))
+        specifier: ^0.19.0
+        version: 0.19.0(effect@3.13.2)(vitest@3.0.5(@types/debug@4.1.12)(@types/node@22.10.5)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.1)(terser@5.37.0)(tsx@4.19.2)(yaml@2.7.0))
       '@egoist/tailwindcss-icons':
         specifier: 1.9.0
         version: 1.9.0(tailwindcss@4.0.8)
@@ -770,11 +770,11 @@ packages:
     resolution: {integrity: sha512-WyOx8cJQ+FQus4Mm4uPIZA64gbk3Wxh0so5Lcii0aJifqwoVOlfFtorjLE0Hen4OYyHZMXDWqMmaQemBhgxFRQ==}
     engines: {node: '>=14'}
 
-  '@effect/vitest@0.17.6':
-    resolution: {integrity: sha512-UQXBaQ4+OeIm2n2jcCmxQcinDPvwRc5PS/sT4ZVTXC/tVFrhOlAe+JufdgVUxt7h9+ZConehywVdSG8H8LgRIQ==}
+  '@effect/vitest@0.19.0':
+    resolution: {integrity: sha512-KkyCAIpEl0S9HheF4+a6UrLW5cgn6W+H7JlMPt+pZiehkBQHVIdsVuzRpk/ZFdgVJNMHE+Xh2ZOKPoGJZnu0Fg==}
     peerDependencies:
-      effect: ^3.12.10
-      vitest: ^2.0.5
+      effect: ^3.13.2
+      vitest: ^3.0.0
 
   '@egoist/tailwindcss-icons@1.9.0':
     resolution: {integrity: sha512-xWA9cUy6hzlK7Y6TaoRIcwmilSXiTJ8rbXcEdf9uht7yzDgw/yIgF4rThIQMrpD2Y2v4od51+r2y6Z7GStanDQ==}
@@ -8180,7 +8180,7 @@ snapshots:
 
   '@ctrl/tinycolor@4.1.0': {}
 
-  '@effect/vitest@0.17.6(effect@3.13.2)(vitest@3.0.5(@types/debug@4.1.12)(@types/node@22.10.5)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.1)(terser@5.37.0)(tsx@4.19.2)(yaml@2.7.0))':
+  '@effect/vitest@0.19.0(effect@3.13.2)(vitest@3.0.5(@types/debug@4.1.12)(@types/node@22.10.5)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.1)(terser@5.37.0)(tsx@4.19.2)(yaml@2.7.0))':
     dependencies:
       effect: 3.13.2
       vitest: 3.0.5(@types/debug@4.1.12)(@types/node@22.10.5)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.1)(terser@5.37.0)(tsx@4.19.2)(yaml@2.7.0)
