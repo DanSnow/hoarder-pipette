@@ -27,7 +27,7 @@
     "@biomejs/biome": "1.9.4",
     "@effect/vitest": "0.19.0",
     "@egoist/tailwindcss-icons": "1.9.0",
-    "@iconify-json/simple-icons": "1.2.24",
+    "@iconify-json/simple-icons": "1.2.26",
     "@moonrepo/cli": "1.32.6",
     "@storybook/addon-essentials": "8.5.6",
     "@storybook/addon-interactions": "8.5.6",
