@@ -11,7 +11,7 @@ export const google: SearchEngine = {
   icon: 'i-simple-icons-google',
   name: 'Google',
   matches: [GOOGLE_URL],
-  optionalMatches: ['https://www.google.de/search'],
+  optionalMatches: ['https://www.google.de/search', 'https://www.google.ca/search'],
   getQuery: fromUrlQuery('q'),
   getRenderRoot: () => {
     const { container, renderRoot } = createMountContainer()
