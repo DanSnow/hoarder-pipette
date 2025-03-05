@@ -3,6 +3,12 @@ export interface MountContainer {
   renderRoot: HTMLElement
 }
 
+declare global {
+  interface Window {
+    __EXTENSION_SHADOW_ROOT__: ShadowRoot
+  }
+}
+
 export function createMountContainer(): MountContainer {
   const container = document.createElement('div')
   container.id = 'extension-root'
