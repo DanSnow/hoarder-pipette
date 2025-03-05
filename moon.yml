@@ -61,3 +61,7 @@ tasks:
       - vitest
     preset: watcher
     platform: node
+  typecheck-watch:
+    command: tsc --noEmit --watch
+    platform: node
+    local: true

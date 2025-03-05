@@ -20,5 +20,6 @@
     "**/node_modules/@radix-ui/**",
     "**/node_modules/react-aria-components/**",
     "**/node_modules/lucide-react/**"
-  ]
+  ],
+  "typescript.tsdk": "node_modules/typescript/lib"
 }
