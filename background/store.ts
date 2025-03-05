@@ -1,4 +1,4 @@
-import { Effect } from 'effect'
+import { type Context, Effect, Layer } from 'effect'
 import { createStore } from 'jotai'
 import { userSitesAtom } from '~/atoms/storage'
 
@@ -17,4 +17,12 @@ export class Storage extends Effect.Service<Storage>()('@app/Storage', {
   }),
   accessors: true,
   dependencies: [Store.Default],
-}) {}
+}) {
+  static layerWithData = ({ userSites }: Omit<Context.Tag.Service<typeof this>, '_tag'>) =>
+    Layer.succeed(
+      this,
+      this.make({
+        userSites,
+      }),
+    )
+}

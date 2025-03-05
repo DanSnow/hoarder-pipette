@@ -5,7 +5,18 @@ export function createTrpcAdapter<TRouter extends AnyTRPCRouter>(
   router: TRouter,
   createContext?: () => Promise<inferRouterContext<TRouter>>,
 ) {
-  const handleMessage = async ({ path, input, type }: TrpcMessage) => {
+  const handleMessage = createMessageHandler<TRouter>(router, createContext)
+
+  onMessage('trpc', (message) => {
+    return handleMessage(message.data)
+  })
+}
+
+export function createMessageHandler<TRouter extends AnyTRPCRouter>(
+  router: TRouter,
+  createContext?: () => Promise<inferRouterContext<TRouter>>,
+) {
+  return async ({ path, input, type }: TrpcMessage) => {
     console.log({ path, input, type })
     return callTRPCProcedure({
       ctx: await createContext?.(),
@@ -17,8 +28,4 @@ export function createTrpcAdapter<TRouter extends AnyTRPCRouter>(
       signal: new AbortController().signal,
     })
   }
-
-  onMessage('trpc', (message) => {
-    return handleMessage(message.data)
-  })
 }

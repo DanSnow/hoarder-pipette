@@ -31,3 +31,5 @@ extension-env.d.ts
 
 *.crx
 *storybook.log
+
+.vite-inspect
