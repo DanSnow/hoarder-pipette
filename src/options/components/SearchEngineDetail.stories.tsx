@@ -12,6 +12,8 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
+    isAllowUrl: false,
+    url: 'https://example.com',
     engine: {
       id: 'google',
       name: 'Google',

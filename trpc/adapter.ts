@@ -9,7 +9,7 @@ export function createTrpcAdapter<TRouter extends AnyTRPCRouter>(
     console.log({ path, input, type })
     return callTRPCProcedure({
       ctx: await createContext?.(),
-      _def: router._def,
+      router,
       path,
       type,
       input,
