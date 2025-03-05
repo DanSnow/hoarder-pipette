@@ -52,7 +52,7 @@
     "typed-query-selector": "2.12.0",
     "typescript": "5.8.2",
     "vite": "6.2.0",
-    "vite-plugin-inspect": "^11.0.0",
+    "vite-plugin-inspect": "11.0.0",
     "vite-plugin-tsconfig-paths": "1.4.1",
     "vitest": "3.0.7"
   },
