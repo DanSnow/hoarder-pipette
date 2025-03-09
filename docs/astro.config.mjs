@@ -31,6 +31,10 @@ export default defineConfig({
             { label: 'Configuration', slug: 'guides/configuration' },
           ],
         },
+        {
+          label: 'Contribute',
+          items: [{ label: 'How to contribute', slug: 'contribute/how-to-contribute' }],
+        },
       ],
     }),
   ],
