@@ -7,7 +7,11 @@
   "name": "hoarder-pipette",
   "description": "An extension to inject bookmarks from your Hoarder app",
   "version": "1.1.3",
-  "keywords": ["extension", "browser-extension", "hoarder"],
+  "keywords": [
+    "extension",
+    "browser-extension",
+    "hoarder"
+  ],
   "scripts": {
     "build": "moon run build --",
     "start": "moon run start --",
@@ -22,23 +26,33 @@
     "overrides": {
       "react": "19.0.0"
     },
-    "ignoredBuiltDependencies": ["core-js-pure", "spawn-sync", "svelte-preprocess"],
-    "onlyBuiltDependencies": ["@biomejs/biome", "@moonrepo/cli", "@swc/core", "esbuild", "sharp"]
+    "ignoredBuiltDependencies": [
+      "core-js-pure",
+      "spawn-sync",
+      "svelte-preprocess"
+    ],
+    "onlyBuiltDependencies": [
+      "@biomejs/biome",
+      "@moonrepo/cli",
+      "@swc/core",
+      "esbuild",
+      "sharp"
+    ]
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
-    "@effect/vitest": "0.19.4",
+    "@effect/vitest": "0.19.5",
     "@egoist/tailwindcss-icons": "1.9.0",
     "@iconify-json/simple-icons": "1.2.27",
     "@moonrepo/cli": "1.32.8",
-    "@storybook/addon-essentials": "8.6.3",
-    "@storybook/addon-interactions": "8.6.3",
-    "@storybook/blocks": "8.6.3",
-    "@storybook/react": "8.6.3",
-    "@storybook/react-vite": "8.6.3",
-    "@storybook/test": "8.6.3",
-    "@tailwindcss/postcss": "4.0.9",
-    "@tanstack/router-plugin": "1.112.13",
+    "@storybook/addon-essentials": "8.6.4",
+    "@storybook/addon-interactions": "8.6.4",
+    "@storybook/blocks": "8.6.4",
+    "@storybook/react": "8.6.4",
+    "@storybook/react-vite": "8.6.4",
+    "@storybook/test": "8.6.4",
+    "@tailwindcss/postcss": "4.0.12",
+    "@tanstack/router-plugin": "1.114.2",
     "@types/react": "19.0.10",
     "@types/react-dom": "19.0.4",
     "@types/webextension-polyfill": "0.12.3",
@@ -47,14 +61,14 @@
     "extension": "2.0.0-beta.9",
     "postcss": "8.5.3",
     "shadcn": "2.4.0-canary.12",
-    "storybook": "8.6.3",
-    "tailwindcss": "4.0.9",
+    "storybook": "8.6.4",
+    "tailwindcss": "4.0.12",
     "typed-query-selector": "2.12.0",
     "typescript": "5.8.2",
-    "vite": "6.2.0",
+    "vite": "6.2.1",
     "vite-plugin-inspect": "11.0.0",
     "vite-plugin-tsconfig-paths": "1.4.1",
-    "vitest": "3.0.7"
+    "vitest": "3.0.8"
   },
   "private": true,
   "dependencies": {
@@ -73,8 +87,8 @@
     "@radix-ui/react-toast": "1.2.6",
     "@radix-ui/react-toggle": "1.1.2",
     "@radix-ui/react-tooltip": "1.1.8",
-    "@tanstack/react-query": "5.67.1",
-    "@tanstack/react-router": "1.112.13",
+    "@tanstack/react-query": "5.67.2",
+    "@tanstack/react-router": "1.114.2",
     "@trpc/client": "11.0.0-rc.824",
     "@trpc/react-query": "11.0.0-rc.824",
     "@trpc/server": "11.0.0-rc.824",
@@ -84,12 +98,12 @@
     "class-variance-authority": "0.7.1",
     "clsx": "2.1.1",
     "date-fns": "4.1.0",
-    "effect": "3.13.6",
+    "effect": "3.13.7",
     "jotai": "2.12.1",
-    "lucide-react": "0.477.0",
+    "lucide-react": "0.479.0",
     "mutative": "1.1.0",
     "react": "19.0.0",
-    "react-aria-components": "1.6.0",
+    "react-aria-components": "1.7.0",
     "react-day-picker": "8.10.1",
     "react-dom": "19.0.0",
     "react-hook-form": "7.54.2",
@@ -102,5 +116,5 @@
     "webextension-polyfill": "0.12.0",
     "zod": "3.24.2"
   },
-  "packageManager": "pnpm@10.5.2+sha512.da9dc28cd3ff40d0592188235ab25d3202add8a207afbedc682220e4a0029ffbff4562102b9e6e46b4e3f9e8bd53e6d05de48544b0c57d4b0179e22c76d1199b"
+  "packageManager": "pnpm@10.6.1+sha512.40ee09af407fa9fbb5fbfb8e1cb40fbb74c0af0c3e10e9224d7b53c7658528615b2c92450e74cfad91e3a2dcafe3ce4050d80bda71d757756d2ce2b66213e9a3"
 }
