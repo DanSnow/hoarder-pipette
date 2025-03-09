@@ -1,0 +1,27 @@
+---
+import { cva } from 'class-variance-authority'
+
+type State = 'disabled' | 'enabled' | 'partial'
+
+const checkButtonContentVariants = cva('', {
+  variants: {
+    state: {
+      enabled: 'text-green-500 i-lucide-square-check-big',
+      partial: 'text-blue-500 i-lucide-square-divide',
+      disabled: 'text-gray-500 i-lucide-square-check',
+    },
+  },
+})
+
+interface Props {
+  state: State
+}
+
+const { state } = Astro.props
+
+const className = checkButtonContentVariants({ state })
+---
+
+<li>
+  <span class={className}></span>: <slot />
+</li>

@@ -29,6 +29,7 @@ export default defineConfig({
             // Each item here is one entry in the navigation menu.
             { label: 'Installation', slug: 'guides/installation' },
             { label: 'Configuration', slug: 'guides/configuration' },
+            { label: 'Search Engine Support', slug: 'guides/search-engine-support' },
           ],
         },
         {

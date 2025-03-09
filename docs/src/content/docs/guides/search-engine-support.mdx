@@ -1,0 +1,34 @@
+---
+title: Search Engine Support
+---
+import { Image } from 'astro:assets';
+import { Aside } from '@astrojs/starlight/components';
+import IconDescription from '@/components/IconDescription.astro';
+
+Hoarder's Pipette now supports more search engines starting with version 1.2.0!
+
+To enable them, open the extension setting by clicking on the extension icon.
+
+In the extension settings, select the Search Engine tab.
+
+![Search Engine List](@/assets/search-engine-list.png)
+
+The icon beside the search engine name indicates whether it's enabled or not.
+
+<ul>
+<IconDescription state='enabled'>The search engine is enable</IconDescription>
+<IconDescription state='partial'>The search engine is partially enabled. Partial means that Hoarder's Pipette is enabled on some, but not all of the url's that are associated with that search engine.</IconDescription>
+<IconDescription state='disabled'>The search engine is disabled</IconDescription>
+</ul>
+
+To enable the search engine, simply click on the icon next to its name.
+
+<Aside type="note">
+Currently, there is no way to disable a search engine in Hoarder's Pipette. If you want to disable a search engine, you need to disable them in the extension setting page in `chrome://extensions`
+</Aside>
+
+If you want more control, you can click the arrow icon next to the search engine name. This will take you to the details page of the search engine, where you can see all the support URLs for that search engine.
+
+![Search Engine Detail](@/assets/search-engine-detail.png)
+
+You can only enable Hoarder's Pipette on the specific URL you want to use it with.
