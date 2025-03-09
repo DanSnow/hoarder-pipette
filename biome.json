@@ -7,7 +7,13 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "ignore": ["dist/**/*", "docs/.astro/**/*", "**/node_modules/**/*", "src/options/routeTree.gen.ts"]
+    "ignore": [
+      "dist/**/*",
+      "docs/.astro/**/*",
+      "**/node_modules/**/*",
+      "src/options/routeTree.gen.ts",
+      ".vite-inspect/**/*"
+    ]
   },
   "formatter": {
     "enabled": true,
@@ -39,9 +45,17 @@
   },
   "javascript": {
     "formatter": {
+      "enabled": true,
       "semicolons": "asNeeded",
       "quoteStyle": "single",
       "jsxQuoteStyle": "double"
+    }
+  },
+  "json": {
+    "formatter": {
+      "enabled": true,
+      "indentWidth": 2,
+      "lineWidth": 120
     }
   }
 }
