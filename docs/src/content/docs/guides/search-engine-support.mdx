@@ -2,7 +2,6 @@
 title: Search Engine Support
 ---
 import { Image } from 'astro:assets';
-import { Aside } from '@astrojs/starlight/components';
 import IconDescription from '@/components/IconDescription.astro';
 
 Hoarder's Pipette now supports more search engines starting with version 1.2.0!
@@ -23,9 +22,9 @@ The icon beside the search engine name indicates whether it's enabled or not.
 
 To enable the search engine, simply click on the icon next to its name.
 
-<Aside type="note">
+:::caution[Be aware]
 Currently, there is no way to disable a search engine in Hoarder's Pipette. If you want to disable a search engine, you need to disable them in the extension setting page in `chrome://extensions`
-</Aside>
+:::
 
 If you want more control, you can click the arrow icon next to the search engine name. This will take you to the details page of the search engine, where you can see all the support URLs for that search engine.
 
