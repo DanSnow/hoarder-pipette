@@ -56,5 +56,10 @@ Thank you for your interest in contributing to Hoarder's Pipette! We welcome con
   ```bash
   pnpm test
   ```
+- Test in local environment:
+ - Run the following command to start it locally:
+   ```bash
+   pnpm dev
+   ```
 
 **Thank you for your contributions!**
