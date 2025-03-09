@@ -33,7 +33,10 @@ export default defineConfig({
         },
         {
           label: 'Contribute',
-          items: [{ label: 'How to contribute', slug: 'contribute/how-to-contribute' }],
+          items: [
+            { label: 'How to contribute', slug: 'contribute/how-to-contribute' },
+            { label: 'How to add a Search Engine', slug: 'contribute/how-to-add-a-search-engine' },
+          ],
         },
       ],
     }),
