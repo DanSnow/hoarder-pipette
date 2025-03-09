@@ -1,6 +1,8 @@
 ---
 title: Configuration
 description: Configuration options for the extension
+sidebar:
+  order: 2
 ---
 
 ## Introduction

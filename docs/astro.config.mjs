@@ -25,19 +25,11 @@ export default defineConfig({
       sidebar: [
         {
           label: 'Get Started',
-          items: [
-            // Each item here is one entry in the navigation menu.
-            { label: 'Installation', slug: 'guides/installation' },
-            { label: 'Configuration', slug: 'guides/configuration' },
-            { label: 'Search Engine Support', slug: 'guides/search-engine-support' },
-          ],
+          autogenerate: { directory: 'guides' },
         },
         {
           label: 'Contribute',
-          items: [
-            { label: 'How to contribute', slug: 'contribute/how-to-contribute' },
-            { label: 'How to add a Search Engine', slug: 'contribute/how-to-add-a-search-engine' },
-          ],
+          autogenerate: { directory: 'contribute' },
         },
       ],
     }),
