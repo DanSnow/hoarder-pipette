@@ -9,7 +9,7 @@
   "background": {
     "service_worker": "./background/index.ts"
   },
-  "permissions": ["storage", "activeTab"],
+  "permissions": ["storage", "activeTab", "scripting"],
   "options_ui": {
     "page": "./src/options.html"
   },
