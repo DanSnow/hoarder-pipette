@@ -7,27 +7,26 @@ import type { SearchEngine } from './utils/types'
 
 export const supportedEngines = [ecosia, google, startPage, searXNG]
 
-export function getUserQuery() {
+function getSearchEngine(userSites: UserSite[]): SearchEngine {
   for (const engine of supportedEngines) {
-    if (isMatchSearchEngine(engine, window.location.href)) {
-      return engine.getQuery()
+    const url = window.location.href
+    if (isMatchSearchEngine(engine, url)) {
+      return engine
+    }
+
+    if (userSites.some((site) => site.id === engine.id && url.startsWith(site.url))) {
+      return engine
     }
   }
   throw new Error('Unsupported engine')
 }
 
-export function getRenderRoot(userSites: UserSite[] = []): HTMLElement {
-  for (const engine of supportedEngines) {
-    const url = window.location.href
-    if (isMatchSearchEngine(engine, url)) {
-      return engine.getRenderRoot()
-    }
+export function getUserQuery(userSites: UserSite[]): string | null {
+  return getSearchEngine(userSites).getQuery()
+}
 
-    if (userSites.some((site) => site.id === engine.id && url.startsWith(site.url))) {
-      return engine.getRenderRoot()
-    }
-  }
-  throw new Error('Unsupported engine')
+export function getRenderRoot(userSites: UserSite[]): HTMLElement {
+  return getSearchEngine(userSites).getRenderRoot()
 }
 
 export function isMatchSearchEngine(engine: SearchEngine, url: string): boolean {
