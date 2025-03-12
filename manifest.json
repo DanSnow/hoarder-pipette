@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/chrome-manifest.json",
   "manifest_version": 3,
-  "version": "1.2.0",
+  "version": "1.2.1",
   "homepage_url": "https://dansnow.github.io/hoarder-pipette/",
   "name": "Hoarder's Pipette",
   "description": "Search smarter. Find your Hoarder bookmarks directly in search results.",
