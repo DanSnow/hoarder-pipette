@@ -12,13 +12,13 @@
   "dependencies": {
     "@astrojs/starlight": "0.32.2",
     "@astrojs/starlight-tailwind": "3.0.0",
-    "@tailwindcss/vite": "4.0.13",
+    "@tailwindcss/vite": "4.0.14",
     "astro": "5.4.3",
     "class-variance-authority": "0.7.1",
     "clsx": "2.1.1",
     "sharp": "0.33.5",
     "tailwind-merge": "3.0.2",
-    "tailwindcss": "4.0.13"
+    "tailwindcss": "4.0.14"
   },
   "devDependencies": {
     "@egoist/tailwindcss-icons": "1.9.0"
