@@ -59,7 +59,7 @@
     "chrome-webstore-upload-cli": "3.3.1",
     "extension": "2.0.0-beta.9",
     "postcss": "8.5.3",
-    "shadcn": "2.4.0-canary.12",
+    "shadcn": "2.4.0-canary.14",
     "storybook": "8.6.4",
     "tailwindcss": "4.0.13",
     "typed-query-selector": "2.12.0",
