@@ -13,7 +13,7 @@
     "@astrojs/starlight": "0.32.2",
     "@astrojs/starlight-tailwind": "3.0.0",
     "@tailwindcss/vite": "4.0.14",
-    "astro": "5.4.3",
+    "astro": "5.5.2",
     "class-variance-authority": "0.7.1",
     "clsx": "2.1.1",
     "sharp": "0.33.5",
