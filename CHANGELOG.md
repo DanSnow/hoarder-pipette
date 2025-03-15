@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.2.2](https://github.com/DanSnow/hoarder-pipette/compare/hoarder-pipette-v1.2.1...hoarder-pipette-v1.2.2) (2025-03-15)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @iconify-json/lucide to v1.2.30 ([#117](https://github.com/DanSnow/hoarder-pipette/issues/117)) ([781c43a](https://github.com/DanSnow/hoarder-pipette/commit/781c43a9b797cecc2718751fa75d6e8fc28fd6c7))
+* **deps:** update dependency @tanstack/react-query to v5.68.0 ([#116](https://github.com/DanSnow/hoarder-pipette/issues/116)) ([7720361](https://github.com/DanSnow/hoarder-pipette/commit/7720361971caf7dd72806efad9ae3fcbbd42a676))
+* **deps:** update dependency astro to v5.5.2 ([#112](https://github.com/DanSnow/hoarder-pipette/issues/112)) ([2de1e93](https://github.com/DanSnow/hoarder-pipette/commit/2de1e93623bf9ddd2f6e5433a2c6f5cf495d8f75))
+* **deps:** update tailwindcss monorepo to v4.0.14 ([#111](https://github.com/DanSnow/hoarder-pipette/issues/111)) ([5790c9a](https://github.com/DanSnow/hoarder-pipette/commit/5790c9a4bce99b179a76468cea49b83e581eea4a))
+
 ## [1.2.1](https://github.com/DanSnow/hoarder-pipette/compare/hoarder-pipette-v1.2.0...hoarder-pipette-v1.2.1) (2025-03-12)
 
 
