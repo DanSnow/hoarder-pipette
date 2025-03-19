@@ -43,7 +43,7 @@
     "@effect/vitest": "0.19.8",
     "@egoist/tailwindcss-icons": "1.9.0",
     "@iconify-json/simple-icons": "1.2.29",
-    "@moonrepo/cli": "1.33.1",
+    "@moonrepo/cli": "1.33.2",
     "@storybook/addon-essentials": "8.6.7",
     "@storybook/addon-interactions": "8.6.7",
     "@storybook/blocks": "8.6.7",
