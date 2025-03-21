@@ -108,8 +108,8 @@ importers:
         specifier: 1.7.1
         version: 1.7.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       react-day-picker:
-        specifier: 8.10.1
-        version: 8.10.1(date-fns@4.1.0)(react@19.0.0)
+        specifier: 9.6.3
+        version: 9.6.3(react@19.0.0)
       react-dom:
         specifier: 19.0.0
         version: 19.0.0(react@19.0.0)
@@ -796,6 +796,9 @@ packages:
   '@ctrl/tinycolor@4.1.0':
     resolution: {integrity: sha512-WyOx8cJQ+FQus4Mm4uPIZA64gbk3Wxh0so5Lcii0aJifqwoVOlfFtorjLE0Hen4OYyHZMXDWqMmaQemBhgxFRQ==}
     engines: {node: '>=14'}
+
+  '@date-fns/tz@1.2.0':
+    resolution: {integrity: sha512-LBrd7MiJZ9McsOgxqWX7AaxrDjcFVjWH/tIKJd7pnR7McaslGYOP1QmmiBXdJH/H/yLCT+rcQ7FaPBUxRGUtrg==}
 
   '@effect/vitest@0.19.8':
     resolution: {integrity: sha512-AB5mhWvKoZuQDhXc4PVgIzdy4xjiJa+Zs1ZyoJVuZA+HaaThlt8mvfOuaAUTKb50M7Zc4Z5hhpD6KShIntfBAA==}
@@ -3844,6 +3847,9 @@ packages:
     resolution: {integrity: sha512-0R9ikRb668HB7QDxT1vkpuUBtqc53YyAwMwGeUFKRojY/NWKvdZ+9UYtRfGmhqNbRkTSVpMbmyhXipFFv2cb/A==}
     engines: {node: '>= 12'}
 
+  date-fns-jalali@4.1.0-0:
+    resolution: {integrity: sha512-hTIP/z+t+qKwBDcmmsnmjWTduxCg+5KfdqWQvb2X/8C9+knYY6epN/pfxdDuyVlSVeFz0sM5eEfwIUQ70U4ckg==}
+
   date-fns@4.1.0:
     resolution: {integrity: sha512-Ukq0owbQXxa/U3EGtsdVBkR1w7KOQ5gIBqdH2hkvknzZPYvBxb/aa6E8L7tmjFtkwZBu3UXBbjIgPo/Ez4xaNg==}
 
@@ -5995,10 +6001,10 @@ packages:
       react: 19.0.0
       react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
 
-  react-day-picker@8.10.1:
-    resolution: {integrity: sha512-TMx7fNbhLk15eqcMt+7Z7S2KF7mfTId/XJDjKE8f+IUcFn0l08/kI4FiYTL/0yuOLmEcbR4Fwe3GJf/NiiMnPA==}
+  react-day-picker@9.6.3:
+    resolution: {integrity: sha512-rDqCSKAl5MLX0z1fLkYcBenQK4ANlYaAhUR0ruVSVAhAa7/ZmKQqgDpXPoS7bYEkgBRH06LO1qNFP1Ki8uiZpw==}
+    engines: {node: '>=18'}
     peerDependencies:
-      date-fns: ^2.28.0 || ^3.0.0
       react: 19.0.0
 
   react-docgen-typescript@2.2.2:
@@ -8131,6 +8137,8 @@ snapshots:
     optional: true
 
   '@ctrl/tinycolor@4.1.0': {}
+
+  '@date-fns/tz@1.2.0': {}
 
   '@effect/vitest@0.19.8(effect@3.14.1)(vitest@3.0.9(@types/debug@4.1.12)(@types/node@22.10.5)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.2)(msw@2.7.3(@types/node@22.10.5)(typescript@5.8.2))(terser@5.37.0)(tsx@4.19.3)(yaml@2.7.0))':
     dependencies:
@@ -11772,6 +11780,8 @@ snapshots:
 
   data-uri-to-buffer@4.0.1: {}
 
+  date-fns-jalali@4.1.0-0: {}
+
   date-fns@4.1.0: {}
 
   de-indent@1.0.2:
@@ -14527,9 +14537,11 @@ snapshots:
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
 
-  react-day-picker@8.10.1(date-fns@4.1.0)(react@19.0.0):
+  react-day-picker@9.6.3(react@19.0.0):
     dependencies:
+      '@date-fns/tz': 1.2.0
       date-fns: 4.1.0
+      date-fns-jalali: 4.1.0-0
       react: 19.0.0
 
   react-docgen-typescript@2.2.2(typescript@5.8.2):
