@@ -12,7 +12,8 @@
       "docs/.astro/**/*",
       "**/node_modules/**/*",
       "src/options/routeTree.gen.ts",
-      ".vite-inspect/**/*"
+      ".vite-inspect/**/*",
+      ".moon/cache/**/*"
     ]
   },
   "formatter": {
