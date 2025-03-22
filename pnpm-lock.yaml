@@ -145,8 +145,8 @@ importers:
         specifier: 1.9.4
         version: 1.9.4
       '@effect/vitest':
-        specifier: 0.19.8
-        version: 0.19.8(effect@3.14.1)(vitest@3.0.9(@types/debug@4.1.12)(@types/node@22.10.5)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.2)(msw@2.7.3(@types/node@22.10.5)(typescript@5.8.2))(terser@5.37.0)(tsx@4.19.3)(yaml@2.7.0))
+        specifier: 0.20.1
+        version: 0.20.1(effect@3.14.1)(vitest@3.0.9(@types/debug@4.1.12)(@types/node@22.10.5)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.2)(msw@2.7.3(@types/node@22.10.5)(typescript@5.8.2))(terser@5.37.0)(tsx@4.19.3)(yaml@2.7.0))
       '@egoist/tailwindcss-icons':
         specifier: 1.9.0
         version: 1.9.0(tailwindcss@4.0.15)
@@ -797,10 +797,10 @@ packages:
     resolution: {integrity: sha512-WyOx8cJQ+FQus4Mm4uPIZA64gbk3Wxh0so5Lcii0aJifqwoVOlfFtorjLE0Hen4OYyHZMXDWqMmaQemBhgxFRQ==}
     engines: {node: '>=14'}
 
-  '@effect/vitest@0.19.8':
-    resolution: {integrity: sha512-AB5mhWvKoZuQDhXc4PVgIzdy4xjiJa+Zs1ZyoJVuZA+HaaThlt8mvfOuaAUTKb50M7Zc4Z5hhpD6KShIntfBAA==}
+  '@effect/vitest@0.20.1':
+    resolution: {integrity: sha512-++Q/d/Boz9L8aZ2qpR0GrrrCkX2u0M/N9AaKmdQOulNeJ1/5ALMwteP4Kk5iO4romCJc5uPIUmJAaGgtMqfC4A==}
     peerDependencies:
-      effect: ^3.13.10
+      effect: ^3.14.1
       vitest: ^3.0.0
 
   '@egoist/tailwindcss-icons@1.9.0':
@@ -8136,7 +8136,7 @@ snapshots:
 
   '@ctrl/tinycolor@4.1.0': {}
 
-  '@effect/vitest@0.19.8(effect@3.14.1)(vitest@3.0.9(@types/debug@4.1.12)(@types/node@22.10.5)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.2)(msw@2.7.3(@types/node@22.10.5)(typescript@5.8.2))(terser@5.37.0)(tsx@4.19.3)(yaml@2.7.0))':
+  '@effect/vitest@0.20.1(effect@3.14.1)(vitest@3.0.9(@types/debug@4.1.12)(@types/node@22.10.5)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.2)(msw@2.7.3(@types/node@22.10.5)(typescript@5.8.2))(terser@5.37.0)(tsx@4.19.3)(yaml@2.7.0))':
     dependencies:
       effect: 3.14.1
       vitest: 3.0.9(@types/debug@4.1.12)(@types/node@22.10.5)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.2)(msw@2.7.3(@types/node@22.10.5)(typescript@5.8.2))(terser@5.37.0)(tsx@4.19.3)(yaml@2.7.0)
