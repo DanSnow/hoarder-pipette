@@ -9,11 +9,13 @@ import { getCurrentTabUrl, isAllowUrl } from '../../utils'
 
 export const Route = createFileRoute('/_layout/search-engines')({
   component: RouteComponent,
-  loader: async () => {
+  loader: async ({ context: { trpc, queryClient } }) => {
     const url = await getCurrentTabUrl()
+    const engines = await queryClient.ensureQueryData(trpc.listSupportedSearchEngines.queryOptions())
     return {
       url,
       isAllowUrl: isAllowUrl(url),
+      engines,
     }
   },
   wrapInSuspense: true,
@@ -21,8 +23,12 @@ export const Route = createFileRoute('/_layout/search-engines')({
 
 function RouteComponent() {
   const { trpc } = Route.useRouteContext()
-  const { data } = useQuery(trpc.listSupportedSearchEngines.queryOptions())
-  const { url, isAllowUrl } = Route.useLoaderData()
+  const { url, isAllowUrl, engines } = Route.useLoaderData()
+  const { data } = useQuery(
+    trpc.listSupportedSearchEngines.queryOptions(undefined, {
+      initialData: engines,
+    }),
+  )
   const userSites = useAtomValue(userSitesAtom)
 
   const isAlreadyEnabled = Boolean(url && userSites.some((site) => site.url === url))
