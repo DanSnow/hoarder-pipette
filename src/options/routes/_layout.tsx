@@ -1,9 +1,9 @@
-import { createFileRoute, Link, linkOptions, Outlet } from '@tanstack/react-router'
+import { Link, Outlet, createFileRoute, linkOptions } from '@tanstack/react-router'
 import {
   NavigationMenu,
-  NavigationMenuList,
   NavigationMenuItem,
   NavigationMenuLink,
+  NavigationMenuList,
   navigationMenuTriggerStyle,
 } from '~/components/ui/navigation-menu'
 import { OptionsContainer } from '../components/OptionsContainer'

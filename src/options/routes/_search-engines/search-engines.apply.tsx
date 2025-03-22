@@ -1,15 +1,15 @@
-import { createFileRoute, redirect, useNavigate } from '@tanstack/react-router'
-import { getCurrentTabUrl, isAllowUrl } from '../../utils'
-import { Effect, pipe } from 'effect'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Form, FormControl, FormField, FormItem, FormLabel } from '~/components/ui/form'
-import { z } from 'zod'
-import { useForm } from 'react-hook-form'
-import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '~/components/ui/select'
+import { createFileRoute, redirect, useNavigate } from '@tanstack/react-router'
+import { Effect, pipe } from 'effect'
 import { useMemo } from 'react'
-import { supportedEngines } from '~/lib/search-engines'
+import { useForm } from 'react-hook-form'
+import { z } from 'zod'
 import { Button } from '~/components/ui/button'
+import { Form, FormControl, FormField, FormItem, FormLabel } from '~/components/ui/form'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '~/components/ui/select'
+import { supportedEngines } from '~/lib/search-engines'
 import { useRequestUserSitePermission } from '../../hooks/request-user-site-permission'
+import { getCurrentTabUrl, isAllowUrl } from '../../utils'
 
 export const Route = createFileRoute('/_search-engines/search-engines/apply')({
   component: RouteComponent,

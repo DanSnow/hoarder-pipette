@@ -1,6 +1,6 @@
-import { defineConfig } from 'vitest/config'
-import TsConfigPaths from 'vite-plugin-tsconfig-paths'
 import { TanStackRouterVite } from '@tanstack/router-plugin/vite'
+import TsConfigPaths from 'vite-plugin-tsconfig-paths'
+import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
   plugins: [TsConfigPaths(), TanStackRouterVite()],

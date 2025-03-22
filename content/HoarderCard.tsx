@@ -1,11 +1,11 @@
 import { useQuery } from '@tanstack/react-query'
-import { BookmarkPreview } from '~/components/BookmarkPreview'
-import { Card, CardContent, CardHeader } from '~/components/ui/card'
-import { useClient } from '~/hooks/use-client'
-import { pipe, Array } from 'effect'
-import { ScrollBar, ScrollArea } from '~/components/ui/scroll-area'
+import { Array, pipe } from 'effect'
 import { useAtomValue } from 'jotai'
 import { optionsAtom } from '~/atoms/storage'
+import { BookmarkPreview } from '~/components/BookmarkPreview'
+import { Card, CardContent, CardHeader } from '~/components/ui/card'
+import { ScrollArea, ScrollBar } from '~/components/ui/scroll-area'
+import { useClient } from '~/hooks/use-client'
 
 export function HoarderCard({ className, userQuery }: { className?: string; userQuery: string }) {
   const options = useAtomValue(optionsAtom)

@@ -1,8 +1,8 @@
-import { expect, vi } from 'vitest'
 import { layer } from '@effect/vitest'
 import { Effect } from 'effect'
-import { getRegisterableScripts, getSupportedSearchEngines } from '../dynamic-search-engine'
+import { expect, vi } from 'vitest'
 import { startPage } from '~/lib/search-engines/startpage'
+import { getRegisterableScripts, getSupportedSearchEngines } from '../dynamic-search-engine'
 import { Storage } from '../store'
 
 vi.mock('~/atoms/storage', async () => {

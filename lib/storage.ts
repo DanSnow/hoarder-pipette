@@ -1,5 +1,5 @@
-import browser from 'webextension-polyfill'
 import { defineExtensionStorage } from '@webext-core/storage'
+import browser from 'webextension-polyfill'
 import type { InstanceOptions } from '~/schemas/options'
 import type { UserSite } from '~/schemas/user-sites'
 

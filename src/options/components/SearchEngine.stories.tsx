@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { SearchEngine } from './SearchEngine'
 import { ListBox } from '~/components/ui/listbox'
+import { SearchEngine } from './SearchEngine'
 
 const meta = {
   component: SearchEngine,

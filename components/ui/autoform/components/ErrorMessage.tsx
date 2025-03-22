@@ -1,5 +1,5 @@
-import type React from 'react'
 import { AlertCircle } from 'lucide-react'
+import type React from 'react'
 
 import { Alert, AlertTitle } from '~/components/ui/alert'
 

@@ -1,5 +1,5 @@
+import { describe, expect, it } from 'vitest'
 import { withoutQueryAndHash } from '../utils'
-import { describe, it, expect } from 'vitest'
 
 describe('withoutQueryAndHash', () => {
   it('should remove query and hash from the URL', () => {

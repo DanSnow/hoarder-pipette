@@ -1,4 +1,4 @@
-import { Array, Effect, pipe, Predicate, Equal } from 'effect'
+import { Array, Effect, Equal, Predicate, pipe } from 'effect'
 import browser from 'webextension-polyfill'
 import type { SupportSearchEngine } from '~/schemas/supported-engines'
 

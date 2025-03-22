@@ -1,9 +1,9 @@
 import '~/styles/tailwind.css?inline_style'
 import { createRoot } from 'react-dom/client'
-import { ContentRoot } from './ContentRoot'
+import { userSitesAtom } from '~/atoms/storage'
 import { getRenderRoot } from '~/lib/search-engines'
 import { store } from '~/store'
-import { userSitesAtom } from '~/atoms/storage'
+import { ContentRoot } from './ContentRoot'
 
 if (document.readyState === 'complete') {
   initial()

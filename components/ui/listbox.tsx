@@ -3,12 +3,12 @@ import {
   Header as AriaHeader,
   ListBox as AriaListBox,
   ListBoxItem as AriaListBoxItem,
+  type ListBoxProps as AriaListBoxProps,
   ListBoxSection as AriaListBoxSection,
   Separator as AriaSeparator,
-  type ListBoxProps as AriaListBoxProps,
   type ListBoxItemProps,
-  type SeparatorProps,
   type ListBoxSectionProps,
+  type SeparatorProps,
 } from 'react-aria-components'
 import { cn } from '~/lib/utils'
 

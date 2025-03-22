@@ -1,6 +1,6 @@
 import { initTRPC } from '@trpc/server'
-import { createMessageHandler } from '../adapter'
 import { describe, expect, it, vi } from 'vitest'
+import { createMessageHandler } from '../adapter'
 
 const t = initTRPC.create({
   isServer: false,

@@ -1,8 +1,8 @@
 import { appRouter } from '~/trpc'
 import { createTrpcAdapter } from '~/trpc/adapter'
-import { BackgroundRuntime } from './runtime'
 import { registerAll } from './dynamic-search-engine'
 import { migrateData } from './migrate'
+import { BackgroundRuntime } from './runtime'
 
 createTrpcAdapter(appRouter)
 

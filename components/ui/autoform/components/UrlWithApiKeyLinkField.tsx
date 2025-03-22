@@ -1,10 +1,10 @@
-import type React from 'react'
-import { Input } from '~/components/ui/input'
-import { Button } from '~/components/ui/button'
 import type { AutoFormFieldProps } from '@autoform/react'
-import { Tooltip, TooltipContent, TooltipTrigger } from '~/components/ui/tooltip'
-import { useCallback, useState, type ChangeEvent } from 'react'
+import type React from 'react'
+import { type ChangeEvent, useCallback, useState } from 'react'
 import { joinURL } from 'ufo'
+import { Button } from '~/components/ui/button'
+import { Input } from '~/components/ui/input'
+import { Tooltip, TooltipContent, TooltipTrigger } from '~/components/ui/tooltip'
 
 export const UrlWithApiKeyLinkField: React.FC<AutoFormFieldProps> = ({ inputProps, error, id }) => {
   const [url, setUrl] = useState('')

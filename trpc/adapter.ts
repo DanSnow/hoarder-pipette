@@ -1,5 +1,5 @@
-import { type AnyTRPCRouter, type inferRouterContext, callTRPCProcedure } from '@trpc/server'
-import { onMessage, type TrpcMessage } from './channel'
+import { type AnyTRPCRouter, callTRPCProcedure, type inferRouterContext } from '@trpc/server'
+import { type TrpcMessage, onMessage } from './channel'
 
 export function createTrpcAdapter<TRouter extends AnyTRPCRouter>(
   router: TRouter,

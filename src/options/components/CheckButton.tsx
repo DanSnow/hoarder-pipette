@@ -1,7 +1,7 @@
+import { type VariantProps, cva } from 'class-variance-authority'
+import type { ComponentProps } from 'react'
 import { Button } from '~/components/ui/button'
 import { cn } from '~/lib/utils'
-import { cva, type VariantProps } from 'class-variance-authority'
-import type { ComponentProps } from 'react'
 
 export type State = 'disabled' | 'enabled' | 'partial'
 

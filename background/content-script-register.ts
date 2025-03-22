@@ -1,5 +1,5 @@
-import browser from 'webextension-polyfill'
 import { Effect } from 'effect'
+import browser from 'webextension-polyfill'
 
 export class ContentScriptMutex extends Effect.Service<ContentScriptMutex>()('@app/ContentScriptMutex', {
   effect: Effect.makeSemaphore(1),

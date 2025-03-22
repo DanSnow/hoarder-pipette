@@ -1,9 +1,9 @@
-import { defineConfig } from 'vitest/config'
-import { mergeConfig } from 'vite'
-import viteConfig from './vite.config'
-import Inspect from 'vite-plugin-inspect'
-import { resolve, dirname } from 'node:path'
+import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { mergeConfig } from 'vite'
+import Inspect from 'vite-plugin-inspect'
+import { defineConfig } from 'vitest/config'
+import viteConfig from './vite.config'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 

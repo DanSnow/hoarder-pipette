@@ -1,9 +1,9 @@
-import type { SupportSearchEngine } from '~/schemas/supported-engines'
-import { Card, CardContent, CardHeader } from '~/components/ui/card'
-import { SearchEngineMatchItem } from './SearchEngineMatch'
-import { Button } from '~/components/ui/button'
 import { useCallback } from 'react'
+import { Button } from '~/components/ui/button'
+import { Card, CardContent, CardHeader } from '~/components/ui/card'
+import type { SupportSearchEngine } from '~/schemas/supported-engines'
 import { useRequestUserSitePermission } from '../hooks/request-user-site-permission'
+import { SearchEngineMatchItem } from './SearchEngineMatch'
 
 export function SearchEngineDetail({
   engine,

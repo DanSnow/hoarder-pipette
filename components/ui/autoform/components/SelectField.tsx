@@ -1,6 +1,6 @@
+import type { AutoFormFieldProps } from '@autoform/react'
 import type React from 'react'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '~/components/ui/select'
-import type { AutoFormFieldProps } from '@autoform/react'
 
 export const SelectField: React.FC<AutoFormFieldProps> = ({ field, inputProps, error, id }) => (
   <Select {...inputProps}>

@@ -1,9 +1,9 @@
-import { createRouter, createHashHistory } from '@tanstack/react-router'
+import { createHashHistory, createRouter } from '@tanstack/react-router'
 
+import { Loading } from './components/Loading'
+import { context } from './context'
 // Import the generated route tree
 import { routeTree } from './routeTree.gen'
-import { context } from './context'
-import { Loading } from './components/Loading'
 
 // Create a new router instance
 export const router = createRouter({

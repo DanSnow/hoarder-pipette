@@ -1,11 +1,11 @@
-import { atom, type ExtractAtomArgs } from 'jotai'
+import { type ExtractAtomArgs, atom } from 'jotai'
 import { atomWithStorage } from 'jotai/utils'
-import { createClient } from '~/client'
-import { LooseOptionsSchema } from '~/schemas/options'
-import type { ZodType } from 'zod'
-import { storage, type StorageSchema } from '~/lib/storage'
 import type { AsyncStorage } from 'jotai/vanilla/utils/atomWithStorage'
-import { UserSitesSchema, type UserSite } from '~/schemas/user-sites'
+import type { ZodType } from 'zod'
+import { createClient } from '~/client'
+import { type StorageSchema, storage } from '~/lib/storage'
+import { LooseOptionsSchema } from '~/schemas/options'
+import { type UserSite, UserSitesSchema } from '~/schemas/user-sites'
 
 function atomWithBrowserStorage<
   Key extends keyof StorageSchema,
