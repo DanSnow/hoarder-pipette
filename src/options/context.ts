@@ -8,6 +8,9 @@ const chromeLink = createLink()
 
 export const queryClient = new QueryClient({
   defaultOptions: {
+    queries: {
+      staleTime: 60 * 1000,
+    },
     mutations: {
       onError: (err) => console.error('Mutation error:', err),
     },

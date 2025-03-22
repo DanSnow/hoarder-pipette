@@ -23,7 +23,7 @@ export function SearchEngine({ engine }: { engine: SupportSearchEngine }) {
   })
 
   return (
-    <ListBoxItem value={engine}>
+    <ListBoxItem value={engine} textValue={engine.name}>
       <div className="flex items-center gap-2">
         <SearchEngineStateButton engine={engine} onClick={requestSitePermission} />
         <h2 className="grow font-bold text-lg">{engine.name}</h2>
