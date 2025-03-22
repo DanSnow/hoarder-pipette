@@ -1,23 +1,23 @@
-import type { SupportSearchEngine } from '~/schemas/supported-engines'
 import { useMutation } from '@tanstack/react-query'
 import { Link, useRouteContext } from '@tanstack/react-router'
 import { Effect } from 'effect'
-import { requestSite } from '../permission'
-import { ListBoxItem } from '~/components/ui/listbox'
-import { SearchEngineStateButton } from './SearchEngineStateButton'
 import { Button } from '~/components/ui/button'
+import { ListBoxItem } from '~/components/ui/listbox'
+import type { SupportSearchEngine } from '~/schemas/supported-engines'
+import { requestSite } from '../permission'
+import { SearchEngineStateButton } from './SearchEngineStateButton'
 
 export function SearchEngine({ engine }: { engine: SupportSearchEngine }) {
-  const { trpc, trpcUtils } = useRouteContext({ from: '__root__' })
+  const { trpc, queryClient } = useRouteContext({ from: '__root__' })
 
-  const { mutate: registerAll } = trpc.registerAll.useMutation()
+  const { mutate: registerAll } = useMutation(trpc.registerAll.mutationOptions())
   const { mutate: requestSitePermission } = useMutation({
     mutationKey: ['requestSitePermission'],
     mutationFn: () => {
       return Effect.runPromise(requestSite(engine))
     },
     onSuccess: () => {
-      trpcUtils.listSupportedSearchEngines.invalidate()
+      queryClient.invalidateQueries(trpc.listSupportedSearchEngines.queryFilter())
       registerAll()
     },
   })

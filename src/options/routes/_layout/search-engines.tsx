@@ -1,10 +1,11 @@
-import { createFileRoute, Link } from '@tanstack/react-router'
-import { SearchEngine } from '../../components/SearchEngine'
-import { ListBox } from '~/components/ui/listbox'
-import { Button } from '~/components/ui/button'
-import { getCurrentTabUrl, isAllowUrl } from '../../utils'
+import { useQuery } from '@tanstack/react-query'
+import { Link, createFileRoute } from '@tanstack/react-router'
 import { useAtomValue } from 'jotai'
 import { userSitesAtom } from '~/atoms/storage'
+import { Button } from '~/components/ui/button'
+import { ListBox } from '~/components/ui/listbox'
+import { SearchEngine } from '../../components/SearchEngine'
+import { getCurrentTabUrl, isAllowUrl } from '../../utils'
 
 export const Route = createFileRoute('/_layout/search-engines')({
   component: RouteComponent,
@@ -20,7 +21,7 @@ export const Route = createFileRoute('/_layout/search-engines')({
 
 function RouteComponent() {
   const { trpc } = Route.useRouteContext()
-  const { data } = trpc.listSupportedSearchEngines.useQuery()
+  const { data } = useQuery(trpc.listSupportedSearchEngines.queryOptions())
   const { url, isAllowUrl } = Route.useLoaderData()
   const userSites = useAtomValue(userSitesAtom)
 

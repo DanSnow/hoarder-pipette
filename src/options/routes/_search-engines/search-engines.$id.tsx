@@ -1,12 +1,12 @@
 import { createFileRoute, redirect } from '@tanstack/react-router'
-import { Array, Effect, Option, pipe } from 'effect'
+import { Array, Option, pipe } from 'effect'
 import { SearchEngineDetail } from '../../components/SearchEngineDetail'
 import { getCurrentTabUrl, isAllowUrl } from '../../utils'
 
 export const Route = createFileRoute('/_search-engines/search-engines/$id')({
   component: RouteComponent,
-  loader: async ({ context: { trpcUtils }, params }) => {
-    const searchEngines = await trpcUtils.listSupportedSearchEngines.ensureData()
+  loader: async ({ context: { trpc, queryClient }, params }) => {
+    const searchEngines = await queryClient.ensureQueryData(trpc.listSupportedSearchEngines.queryOptions())
     const searchEngine = pipe(
       searchEngines,
       Array.findFirst((engine) => engine.id === params.id),

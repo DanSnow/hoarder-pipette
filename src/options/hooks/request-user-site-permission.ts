@@ -1,19 +1,15 @@
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useNavigate, useRouteContext } from '@tanstack/react-router'
-import { useSetAtom } from 'jotai'
-import { useMemo } from 'react'
-import { useForm } from 'react-hook-form'
-import { userSitesAtom } from '~/atoms/storage'
-import { supportedEngines } from '~/lib/search-engines'
-import { toOriginUrl } from '~/lib/utils'
-import { useRequestOriginPermission } from './request-origin-permission'
 import { useMutation } from '@tanstack/react-query'
+import { useRouteContext } from '@tanstack/react-router'
+import { useSetAtom } from 'jotai'
+import { userSitesAtom } from '~/atoms/storage'
+import { toOriginUrl } from '~/lib/utils'
 import type { UserSite } from '~/schemas/user-sites'
+import { useRequestOriginPermission } from './request-origin-permission'
 
 export function useRequestUserSitePermission() {
   const setUserSites = useSetAtom(userSitesAtom)
-  const { trpc, trpcUtils } = useRouteContext({ from: '__root__' })
-  const { mutate: registerAll } = trpc.registerAll.useMutation()
+  const { trpc, queryClient } = useRouteContext({ from: '__root__' })
+  const { mutate: registerAll } = useMutation(trpc.registerAll.mutationOptions())
   const { requestOriginPermission } = useRequestOriginPermission()
 
   const { mutateAsync } = useMutation({
@@ -27,7 +23,7 @@ export function useRequestUserSitePermission() {
       })
     },
     onSuccess: () => {
-      trpcUtils.listSupportedSearchEngines.invalidate()
+      queryClient.invalidateQueries(trpc.listSupportedSearchEngines.queryFilter())
       registerAll()
     },
   })

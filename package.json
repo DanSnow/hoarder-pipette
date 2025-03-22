@@ -7,11 +7,7 @@
   "name": "hoarder-pipette",
   "description": "An extension to inject bookmarks from your Hoarder app",
   "version": "1.2.1",
-  "keywords": [
-    "extension",
-    "browser-extension",
-    "hoarder"
-  ],
+  "keywords": ["extension", "browser-extension", "hoarder"],
   "scripts": {
     "build": "moon run build --",
     "start": "moon run start --",
@@ -25,18 +21,8 @@
     "overrides": {
       "react": "19.0.0"
     },
-    "ignoredBuiltDependencies": [
-      "core-js-pure",
-      "spawn-sync",
-      "svelte-preprocess"
-    ],
-    "onlyBuiltDependencies": [
-      "@biomejs/biome",
-      "@moonrepo/cli",
-      "@swc/core",
-      "esbuild",
-      "sharp"
-    ]
+    "ignoredBuiltDependencies": ["core-js-pure", "spawn-sync", "svelte-preprocess"],
+    "onlyBuiltDependencies": ["@biomejs/biome", "@moonrepo/cli", "@swc/core", "esbuild", "sharp"]
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
@@ -89,8 +75,8 @@
     "@tanstack/react-query": "5.69.0",
     "@tanstack/react-router": "1.114.27",
     "@trpc/client": "11.0.0",
-    "@trpc/react-query": "11.0.0",
     "@trpc/server": "11.0.0",
+    "@trpc/tanstack-react-query": "11.0.0",
     "@ts-rest/core": "3.52.1",
     "@webext-core/messaging": "2.2.0",
     "@webext-core/storage": "1.2.0",
