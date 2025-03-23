@@ -1,5 +1,36 @@
 # Changelog
 
+## [1.2.2](https://github.com/DanSnow/hoarder-pipette/compare/hoarder-pipette-v1.2.1...hoarder-pipette-v1.2.2) (2025-03-23)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @astrojs/starlight to v0.32.4 ([ddd3d97](https://github.com/DanSnow/hoarder-pipette/commit/ddd3d9799b9cb060b58d1a4ae2cb25756d4b8f17))
+* **deps:** update dependency @astrojs/starlight-tailwind to v3.0.1 ([#148](https://github.com/DanSnow/hoarder-pipette/issues/148)) ([8ccde55](https://github.com/DanSnow/hoarder-pipette/commit/8ccde558a84b4b81a51b3eb13a5a1a6b51c476e5))
+* **deps:** update dependency @iconify-json/lucide to v1.2.30 ([#117](https://github.com/DanSnow/hoarder-pipette/issues/117)) ([781c43a](https://github.com/DanSnow/hoarder-pipette/commit/781c43a9b797cecc2718751fa75d6e8fc28fd6c7))
+* **deps:** update dependency @iconify-json/lucide to v1.2.31 ([#131](https://github.com/DanSnow/hoarder-pipette/issues/131)) ([6a3f23b](https://github.com/DanSnow/hoarder-pipette/commit/6a3f23be6e2d7b2b76cf761d773482630d8c2385))
+* **deps:** update dependency @iconify-json/lucide to v1.2.32 ([#146](https://github.com/DanSnow/hoarder-pipette/issues/146)) ([c6fb81a](https://github.com/DanSnow/hoarder-pipette/commit/c6fb81a3e33aa6e4aac030d0a8b7fdb5688a1efd))
+* **deps:** update dependency @tanstack/react-query to v5.68.0 ([#116](https://github.com/DanSnow/hoarder-pipette/issues/116)) ([7720361](https://github.com/DanSnow/hoarder-pipette/commit/7720361971caf7dd72806efad9ae3fcbbd42a676))
+* **deps:** update dependency @tanstack/react-query to v5.69.0 ([#135](https://github.com/DanSnow/hoarder-pipette/issues/135)) ([4b1fbcb](https://github.com/DanSnow/hoarder-pipette/commit/4b1fbcb8ac91d9f81a572dd8c92ba7f03a0ac511))
+* **deps:** update dependency astro to v5.5.2 ([#112](https://github.com/DanSnow/hoarder-pipette/issues/112)) ([2de1e93](https://github.com/DanSnow/hoarder-pipette/commit/2de1e93623bf9ddd2f6e5433a2c6f5cf495d8f75))
+* **deps:** update dependency astro to v5.5.3 ([#133](https://github.com/DanSnow/hoarder-pipette/issues/133)) ([a70056a](https://github.com/DanSnow/hoarder-pipette/commit/a70056a0e00fada471aa73287fe9b17223d34ac7))
+* **deps:** update dependency astro to v5.5.4 ([#149](https://github.com/DanSnow/hoarder-pipette/issues/149)) ([0b679ef](https://github.com/DanSnow/hoarder-pipette/commit/0b679ef8cf924cda20e1284fcee373802e136177))
+* **deps:** update dependency effect to v3.13.11 ([#122](https://github.com/DanSnow/hoarder-pipette/issues/122)) ([d1ec9f4](https://github.com/DanSnow/hoarder-pipette/commit/d1ec9f4e566f40195e148c9e07aa805433197af4))
+* **deps:** update dependency effect to v3.13.12 ([#129](https://github.com/DanSnow/hoarder-pipette/issues/129)) ([d7a3420](https://github.com/DanSnow/hoarder-pipette/commit/d7a342072ea3378eacf79d14a8e5769a512582df))
+* **deps:** update dependency effect to v3.14.0 ([#142](https://github.com/DanSnow/hoarder-pipette/issues/142)) ([5103417](https://github.com/DanSnow/hoarder-pipette/commit/510341718771c4678831e0914832819e49fe4200))
+* **deps:** update dependency effect to v3.14.1 ([#143](https://github.com/DanSnow/hoarder-pipette/issues/143)) ([31e2a82](https://github.com/DanSnow/hoarder-pipette/commit/31e2a821a1bf1c2002be80b76506d4beb672d5bb))
+* **deps:** update dependency lucide-react to v0.483.0 ([a7aea8a](https://github.com/DanSnow/hoarder-pipette/commit/a7aea8aa81ea90a1c1e538cf344626f6c8ed7090))
+* **deps:** update tailwindcss monorepo to v4.0.14 ([#111](https://github.com/DanSnow/hoarder-pipette/issues/111)) ([5790c9a](https://github.com/DanSnow/hoarder-pipette/commit/5790c9a4bce99b179a76468cea49b83e581eea4a))
+* **deps:** update tailwindcss monorepo to v4.0.15 ([#144](https://github.com/DanSnow/hoarder-pipette/issues/144)) ([95fa6c2](https://github.com/DanSnow/hoarder-pipette/commit/95fa6c29f782bd03ca9949ea34dd2a329ca01b31))
+* **deps:** update tanstack-router monorepo to v1.114.22 ([#123](https://github.com/DanSnow/hoarder-pipette/issues/123)) ([9d8d2cf](https://github.com/DanSnow/hoarder-pipette/commit/9d8d2cff7d493fa8ea90872e4f058c60bb485f6c))
+* **deps:** update tanstack-router monorepo to v1.114.23 ([#124](https://github.com/DanSnow/hoarder-pipette/issues/124)) ([05555cc](https://github.com/DanSnow/hoarder-pipette/commit/05555cc20d2364d6f6281b5998ec7c78eecf220e))
+* **deps:** update tanstack-router monorepo to v1.114.25 ([#134](https://github.com/DanSnow/hoarder-pipette/issues/134)) ([adc9fdd](https://github.com/DanSnow/hoarder-pipette/commit/adc9fddff14f44593557713a13f4e830f35d2667))
+* **deps:** update tanstack-router monorepo to v1.114.27 ([#145](https://github.com/DanSnow/hoarder-pipette/issues/145)) ([6938631](https://github.com/DanSnow/hoarder-pipette/commit/69386317f594f0f3a73d22674e18a7e54a5e9455))
+* **deps:** update trpc monorepo to v11.0.0 ([#147](https://github.com/DanSnow/hoarder-pipette/issues/147)) ([3065dd7](https://github.com/DanSnow/hoarder-pipette/commit/3065dd703168f9ffa57ac34afd58a3bbfd5abce6))
+* **deps:** update trpc monorepo to v11.0.0-rc.833 ([#120](https://github.com/DanSnow/hoarder-pipette/issues/120)) ([a1958e5](https://github.com/DanSnow/hoarder-pipette/commit/a1958e50f855656cba741bb177a1e38ef3b5be23))
+* **deps:** update trpc monorepo to v11.0.0-rc.840 ([#138](https://github.com/DanSnow/hoarder-pipette/issues/138)) ([d4d360e](https://github.com/DanSnow/hoarder-pipette/commit/d4d360e8ffbbb422584288c361fb08af2c928796))
+* fix missing some search engines ([#153](https://github.com/DanSnow/hoarder-pipette/issues/153)) ([884b7c4](https://github.com/DanSnow/hoarder-pipette/commit/884b7c4373f1584d907bc7a869f3c4ebad7b9054)), closes [#47](https://github.com/DanSnow/hoarder-pipette/issues/47)
+
 ## [1.2.1](https://github.com/DanSnow/hoarder-pipette/compare/hoarder-pipette-v1.2.0...hoarder-pipette-v1.2.1) (2025-03-12)
 
 
