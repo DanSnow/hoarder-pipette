@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.2.3](https://github.com/DanSnow/hoarder-pipette/compare/hoarder-pipette-v1.2.2...hoarder-pipette-v1.2.3) (2025-03-29)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @iconify-json/lucide to v1.2.33 ([#168](https://github.com/DanSnow/hoarder-pipette/issues/168)) ([1dc9c29](https://github.com/DanSnow/hoarder-pipette/commit/1dc9c295fbe52e80576a717b72852f474991a175))
+* **deps:** update dependency @tanstack/react-query to v5.70.0 ([#170](https://github.com/DanSnow/hoarder-pipette/issues/170)) ([f521386](https://github.com/DanSnow/hoarder-pipette/commit/f521386c52d1198cd67c98d884cad27e063a70e2))
+* **deps:** update dependency astro to v5.5.5 ([#162](https://github.com/DanSnow/hoarder-pipette/issues/162)) ([31c9add](https://github.com/DanSnow/hoarder-pipette/commit/31c9add57d6f4236cf437c06abb06a7bbc513abf))
+* **deps:** update dependency effect to v3.14.2 ([#158](https://github.com/DanSnow/hoarder-pipette/issues/158)) ([90d5c24](https://github.com/DanSnow/hoarder-pipette/commit/90d5c2426045ef5606e9bf6412e79ec5b6a24389))
+* **deps:** update dependency react-hook-form to v7.55.0 ([#172](https://github.com/DanSnow/hoarder-pipette/issues/172)) ([61cacb6](https://github.com/DanSnow/hoarder-pipette/commit/61cacb6866df90b8a8732c0db75587d7ca9587da))
+* **deps:** update react monorepo to v19.1.0 ([#173](https://github.com/DanSnow/hoarder-pipette/issues/173)) ([718d30f](https://github.com/DanSnow/hoarder-pipette/commit/718d30fd92f030bd7622c8edb05d693b7e7e6ab1))
+* **deps:** update tailwindcss monorepo to v4.0.16 ([#160](https://github.com/DanSnow/hoarder-pipette/issues/160)) ([9be62cf](https://github.com/DanSnow/hoarder-pipette/commit/9be62cf2d540f118f2d1d51334ad5771b7683274))
+* **deps:** update tailwindcss monorepo to v4.0.17 ([#163](https://github.com/DanSnow/hoarder-pipette/issues/163)) ([aa36b46](https://github.com/DanSnow/hoarder-pipette/commit/aa36b46bb10a6815d40675d86a2c5834030732c7))
+* **deps:** update tanstack-router monorepo to v1.114.29 ([#167](https://github.com/DanSnow/hoarder-pipette/issues/167)) ([4ef9796](https://github.com/DanSnow/hoarder-pipette/commit/4ef97966f2f99270493f7aa0e136c472cba43d41))
+* **deps:** update trpc monorepo to v11.0.1 ([#171](https://github.com/DanSnow/hoarder-pipette/issues/171)) ([9408218](https://github.com/DanSnow/hoarder-pipette/commit/94082189aef58f10a8f756319f7483b47b43594e))
+
 ## [1.2.2](https://github.com/DanSnow/hoarder-pipette/compare/hoarder-pipette-v1.2.1...hoarder-pipette-v1.2.2) (2025-03-23)
 
 
