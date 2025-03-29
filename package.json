@@ -23,7 +23,7 @@
   },
   "pnpm": {
     "overrides": {
-      "react": "19.0.0"
+      "react": "19.1.0"
     },
     "ignoredBuiltDependencies": [
       "core-js-pure",
@@ -101,10 +101,10 @@
     "jotai": "2.12.2",
     "lucide-react": "0.483.0",
     "mutative": "1.1.0",
-    "react": "19.0.0",
+    "react": "19.1.0",
     "react-aria-components": "1.7.1",
     "react-day-picker": "8.10.1",
-    "react-dom": "19.0.0",
+    "react-dom": "19.1.0",
     "react-hook-form": "7.55.0",
     "react-twc": "1.4.2",
     "react-use": "17.6.0",
