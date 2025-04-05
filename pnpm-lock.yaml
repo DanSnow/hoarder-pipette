@@ -196,8 +196,8 @@ importers:
         specifier: 3.3.2
         version: 3.3.2
       extension:
-        specifier: 2.0.0-rc.4
-        version: 2.0.0-rc.4(@babel/core@7.26.9)(@prefresh/babel-plugin@0.5.1)(@types/express@4.17.21)(less@4.2.0)(postcss-load-config@4.0.2(postcss@8.5.3))(svelte@3.59.2)(typescript@5.8.3)(webpack@5.97.1(esbuild@0.25.0))
+        specifier: 2.0.0-rc.9
+        version: 2.0.0-rc.9(@babel/core@7.26.9)(@prefresh/babel-plugin@0.5.1)(@types/express@4.17.21)(less@4.2.0)(postcss-load-config@4.0.2(postcss@8.5.3))(svelte@3.59.2)(typescript@5.8.3)(webpack@5.97.1(esbuild@0.25.0))
       postcss:
         specifier: 8.5.3
         version: 8.5.3
@@ -2756,83 +2756,8 @@ packages:
     peerDependencies:
       storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
 
-  '@swc/core-darwin-arm64@1.10.4':
-    resolution: {integrity: sha512-sV/eurLhkjn/197y48bxKP19oqcLydSel42Qsy2zepBltqUx+/zZ8+/IS0Bi7kaWVFxerbW1IPB09uq8Zuvm3g==}
-    engines: {node: '>=10'}
-    cpu: [arm64]
-    os: [darwin]
-
-  '@swc/core-darwin-x64@1.10.4':
-    resolution: {integrity: sha512-gjYNU6vrAUO4+FuovEo9ofnVosTFXkF0VDuo1MKPItz6e2pxc2ale4FGzLw0Nf7JB1sX4a8h06CN16/pLJ8Q2w==}
-    engines: {node: '>=10'}
-    cpu: [x64]
-    os: [darwin]
-
-  '@swc/core-linux-arm-gnueabihf@1.10.4':
-    resolution: {integrity: sha512-zd7fXH5w8s+Sfvn2oO464KDWl+ZX1MJiVmE4Pdk46N3PEaNwE0koTfgx2vQRqRG4vBBobzVvzICC3618WcefOA==}
-    engines: {node: '>=10'}
-    cpu: [arm]
-    os: [linux]
-
-  '@swc/core-linux-arm64-gnu@1.10.4':
-    resolution: {integrity: sha512-+UGfoHDxsMZgFD3tABKLeEZHqLNOkxStu+qCG7atGBhS4Slri6h6zijVvf4yI5X3kbXdvc44XV/hrP/Klnui2A==}
-    engines: {node: '>=10'}
-    cpu: [arm64]
-    os: [linux]
-
-  '@swc/core-linux-arm64-musl@1.10.4':
-    resolution: {integrity: sha512-cDDj2/uYsOH0pgAnDkovLZvKJpFmBMyXkxEG6Q4yw99HbzO6QzZ5HDGWGWVq/6dLgYKlnnmpjZCPPQIu01mXEg==}
-    engines: {node: '>=10'}
-    cpu: [arm64]
-    os: [linux]
-
-  '@swc/core-linux-x64-gnu@1.10.4':
-    resolution: {integrity: sha512-qJXh9D6Kf5xSdGWPINpLGixAbB5JX8JcbEJpRamhlDBoOcQC79dYfOMEIxWPhTS1DGLyFakAx2FX/b2VmQmj0g==}
-    engines: {node: '>=10'}
-    cpu: [x64]
-    os: [linux]
-
-  '@swc/core-linux-x64-musl@1.10.4':
-    resolution: {integrity: sha512-A76lIAeyQnHCVt0RL/pG+0er8Qk9+acGJqSZOZm67Ve3B0oqMd871kPtaHBM0BW3OZAhoILgfHW3Op9Q3mx3Cw==}
-    engines: {node: '>=10'}
-    cpu: [x64]
-    os: [linux]
-
-  '@swc/core-win32-arm64-msvc@1.10.4':
-    resolution: {integrity: sha512-e6j5kBu4fIY7fFxFxnZI0MlEovRvp50Lg59Fw+DVbtqHk3C85dckcy5xKP+UoXeuEmFceauQDczUcGs19SRGSQ==}
-    engines: {node: '>=10'}
-    cpu: [arm64]
-    os: [win32]
-
-  '@swc/core-win32-ia32-msvc@1.10.4':
-    resolution: {integrity: sha512-RSYHfdKgNXV/amY5Tqk1EWVsyQnhlsM//jeqMLw5Fy9rfxP592W9UTumNikNRPdjI8wKKzNMXDb1U29tQjN0dg==}
-    engines: {node: '>=10'}
-    cpu: [ia32]
-    os: [win32]
-
-  '@swc/core-win32-x64-msvc@1.10.4':
-    resolution: {integrity: sha512-1ujYpaqfqNPYdwKBlvJnOqcl+Syn3UrQ4XE0Txz6zMYgyh6cdU6a3pxqLqIUSJ12MtXRA9ZUhEz1ekU3LfLWXw==}
-    engines: {node: '>=10'}
-    cpu: [x64]
-    os: [win32]
-
-  '@swc/core@1.10.4':
-    resolution: {integrity: sha512-ut3zfiTLORMxhr6y/GBxkHmzcGuVpwJYX4qyXWuBKkpw/0g0S5iO1/wW7RnLnZbAi8wS/n0atRZoaZlXWBkeJg==}
-    engines: {node: '>=10'}
-    peerDependencies:
-      '@swc/helpers': '*'
-    peerDependenciesMeta:
-      '@swc/helpers':
-        optional: true
-
-  '@swc/counter@0.1.3':
-    resolution: {integrity: sha512-e2BR4lsJkkRlKZ/qCHPw9ZaSxc0MVUd7gtbtaB7aMvHeJVYe8sOB8DBZkP2DtISHGSku9sCK6T6cnY0CtXrOCQ==}
-
   '@swc/helpers@0.5.15':
     resolution: {integrity: sha512-JQ5TuMi45Owi4/BIMAJBoSQoOJu12oOk/gADqlcUL9JEdHB8vyjUSsxqeNXnmXHjYKMi2WcYtezGEEhqUI/E2g==}
-
-  '@swc/types@0.1.17':
-    resolution: {integrity: sha512-V5gRru+aD8YVyCOMAjMpWR1Ui577DD5KSJsHP8RAxopAH22jFz6GZd/qxqjO6MJHQhcsjvjOFXyDhyLQUnMveQ==}
 
   '@tailwindcss/node@4.1.3':
     resolution: {integrity: sha512-H/6r6IPFJkCfBJZ2dKZiPJ7Ueb2wbL592+9bQEl2r73qbX6yGnmQVIfiUvDRB2YI0a3PWDrzUwkvQx1XW1bNkA==}
@@ -3349,10 +3274,6 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
 
-  adjust-sourcemap-loader@4.0.0:
-    resolution: {integrity: sha512-OXwN5b9pCUXNQHJpwwD2qP40byEmSgzj8B4ydSN0uMNYWiFmJ6x6KwUllMmfk8Rwu/HJDFR7U8ubsWBoN0Xp0A==}
-    engines: {node: '>=8.9'}
-
   adm-zip@0.5.16:
     resolution: {integrity: sha512-TGw5yVi4saajsSEgz25grObGHEUaDrniwvA2qwSC060KfqGPdglhvPMA2lPIoxs3PQIItj2iag35fONcQqgUaQ==}
     engines: {node: '>=12.0'}
@@ -3808,9 +3729,6 @@ packages:
   content-type@1.0.5:
     resolution: {integrity: sha512-nTjqfcBFEipKdXCv4YDQWCfmcLZKm81ldF0pAopTvyrFGVbcR6P/VAAd5G7N+0tTr8QqiU0tFadD6FK4NtJwOA==}
     engines: {node: '>= 0.6'}
-
-  convert-source-map@1.9.0:
-    resolution: {integrity: sha512-ASFBup0Mz1uyiIjANan1jzLQami9z1PoYSZCiiYW2FczPbenXc45FZdBZLzOT+r6+iciuEModtmCti+hjaAk0A==}
 
   convert-source-map@2.0.0:
     resolution: {integrity: sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg==}
@@ -4273,12 +4191,12 @@ packages:
     resolution: {integrity: sha512-AJfCvn3HGhWO1KPbXkj6MBbPTt9gvZMXWr6bIVlHdZaS9CKuKr5ZkiyF08FrG2rMCrnuGTz0MzJlWclutu5g2A==}
     engines: {node: '>=18'}
 
-  extension-develop@2.0.0:
-    resolution: {integrity: sha512-vMAYCAujobNtUTIyQylTaEfDgS5yrsKjVdZAZ2U/zaKwPrZqZMA/U1EWqV1UINwMan7Rc0oqg2qpWsq5Sp/oJA==}
+  extension-develop@2.0.0-rc.9:
+    resolution: {integrity: sha512-cOijLXd730T8W9Yvx8YvWvoq9Tf6TKBHK1C2XVGqH1o4gwMmg9hR8actJ4a25c6a6g8UQu7hzPZrz8OBL2SKfQ==}
     engines: {node: '>=18'}
 
-  extension@2.0.0-rc.4:
-    resolution: {integrity: sha512-c3dAn7ePZir+4VtKMiD1YjDKXEKvLywxrpqwDetgTzEEAlCQg1aSezgZN7E6A3DrHA9Dtk0iu/yAVB8lPNOsrA==}
+  extension@2.0.0-rc.9:
+    resolution: {integrity: sha512-BvLKe2UkWDyLES/KJXxSVgqtm/kClt4+HBrGidIKuNOMj0RMJRoMcpmApmDisgFlK90IqmCLZME3k5ani6l4sw==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -6135,9 +6053,6 @@ packages:
   regenerator-runtime@0.14.1:
     resolution: {integrity: sha512-dYnhHh0nJoMfnkZs6GmmhFknAGRrLznOu5nc9ML+EJxGvrx6H7teuevqVqCuPcPK//3eDrrjQhehXVx9cnkGdw==}
 
-  regex-parser@2.3.0:
-    resolution: {integrity: sha512-TVILVSz2jY5D47F4mA4MppkBrafEaiUWJO/TcZHEIuI13AqoZMkK1WMA4Om1YkYbTx+9Ki1/tSUXbceyr9saRg==}
-
   regex-recursion@5.1.1:
     resolution: {integrity: sha512-ae7SBCbzVNrIjgSbh7wMznPcQel1DNlDtzensnFxpiNpXt1U2ju/bHugH422r+4LAVS1FpW1YCwilmnNsjum9w==}
 
@@ -6223,10 +6138,6 @@ packages:
 
   resolve-pkg-maps@1.0.0:
     resolution: {integrity: sha512-seS2Tj26TBVOC2NIc2rOe2y2ZO7efxITtLZcGSOnHHNOQ7CkiUBfw0Iw2ck6xkIhPwLhKNLS8BO+hEpngQlqzw==}
-
-  resolve-url-loader@5.0.0:
-    resolution: {integrity: sha512-uZtduh8/8srhBoMx//5bwqjQ+rfYOUq8zC9NrMUGtjBiGTtFJM42s58/36+hTqeqINcnYe08Nj3LkK9lW4N8Xg==}
-    engines: {node: '>=12'}
 
   resolve@1.22.10:
     resolution: {integrity: sha512-NPRy+/ncIMeDlTAsuqwKIiferiawhefFJtkNSW0qZJEqMEb+qBt/77B/jGeeek+F0uOeN05CDa6HXbbIgtVX4w==}
@@ -10535,62 +10446,9 @@ snapshots:
     dependencies:
       storybook: 8.6.12(prettier@3.5.3)
 
-  '@swc/core-darwin-arm64@1.10.4':
-    optional: true
-
-  '@swc/core-darwin-x64@1.10.4':
-    optional: true
-
-  '@swc/core-linux-arm-gnueabihf@1.10.4':
-    optional: true
-
-  '@swc/core-linux-arm64-gnu@1.10.4':
-    optional: true
-
-  '@swc/core-linux-arm64-musl@1.10.4':
-    optional: true
-
-  '@swc/core-linux-x64-gnu@1.10.4':
-    optional: true
-
-  '@swc/core-linux-x64-musl@1.10.4':
-    optional: true
-
-  '@swc/core-win32-arm64-msvc@1.10.4':
-    optional: true
-
-  '@swc/core-win32-ia32-msvc@1.10.4':
-    optional: true
-
-  '@swc/core-win32-x64-msvc@1.10.4':
-    optional: true
-
-  '@swc/core@1.10.4(@swc/helpers@0.5.15)':
-    dependencies:
-      '@swc/counter': 0.1.3
-      '@swc/types': 0.1.17
-    optionalDependencies:
-      '@swc/core-darwin-arm64': 1.10.4
-      '@swc/core-darwin-x64': 1.10.4
-      '@swc/core-linux-arm-gnueabihf': 1.10.4
-      '@swc/core-linux-arm64-gnu': 1.10.4
-      '@swc/core-linux-arm64-musl': 1.10.4
-      '@swc/core-linux-x64-gnu': 1.10.4
-      '@swc/core-linux-x64-musl': 1.10.4
-      '@swc/core-win32-arm64-msvc': 1.10.4
-      '@swc/core-win32-ia32-msvc': 1.10.4
-      '@swc/core-win32-x64-msvc': 1.10.4
-      '@swc/helpers': 0.5.15
-
-  '@swc/counter@0.1.3': {}
-
   '@swc/helpers@0.5.15':
     dependencies:
       tslib: 2.8.1
-
-  '@swc/types@0.1.17':
-    dependencies:
-      '@swc/counter': 0.1.3
 
   '@tailwindcss/node@4.1.3':
     dependencies:
@@ -11209,12 +11067,6 @@ snapshots:
 
   acorn@8.14.1: {}
 
-  adjust-sourcemap-loader@4.0.0:
-    dependencies:
-      loader-utils: 2.0.4
-      regex-parser: 2.3.0
-    optional: true
-
   adm-zip@0.5.16: {}
 
   agent-base@7.1.3: {}
@@ -11406,7 +11258,7 @@ snapshots:
   autoprefixer@10.4.20(postcss@8.5.3):
     dependencies:
       browserslist: 4.24.4
-      caniuse-lite: 1.0.30001696
+      caniuse-lite: 1.0.30001710
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.1.1
@@ -11757,9 +11609,6 @@ snapshots:
   content-security-policy-parser@0.6.0: {}
 
   content-type@1.0.5: {}
-
-  convert-source-map@1.9.0:
-    optional: true
 
   convert-source-map@2.0.0: {}
 
@@ -12223,12 +12072,11 @@ snapshots:
       go-git-it: 2.0.4
       package-manager-detector: 0.2.9
 
-  extension-develop@2.0.0(@babel/core@7.26.9)(@prefresh/babel-plugin@0.5.1)(@types/express@4.17.21)(less@4.2.0)(postcss-load-config@4.0.2(postcss@8.5.3))(svelte@3.59.2)(typescript@5.8.3)(webpack@5.97.1(esbuild@0.25.0)):
+  extension-develop@2.0.0-rc.9(@babel/core@7.26.9)(@prefresh/babel-plugin@0.5.1)(@types/express@4.17.21)(less@4.2.0)(postcss-load-config@4.0.2(postcss@8.5.3))(svelte@3.59.2)(typescript@5.8.3)(webpack@5.97.1(esbuild@0.25.0)):
     dependencies:
       '@colors/colors': 1.6.0
       '@rspack/core': 1.3.2(@swc/helpers@0.5.15)
       '@rspack/dev-server': 1.1.1(@rspack/core@1.3.2(@swc/helpers@0.5.15))(@types/express@4.17.21)(webpack@5.97.1(esbuild@0.25.0))
-      '@swc/core': 1.10.4(@swc/helpers@0.5.15)
       '@swc/helpers': 0.5.15
       '@types/firefox-webext-browser': 120.0.4
       '@vue/compiler-sfc': 3.5.13
@@ -12274,7 +12122,6 @@ snapshots:
       postcss-loader: 8.1.1(@rspack/core@1.3.2(@swc/helpers@0.5.15))(postcss@8.5.3)(typescript@5.8.3)(webpack@5.97.1(esbuild@0.25.0))
       postcss-preset-env: 10.1.3(postcss@8.5.3)
       react-refresh: 0.14.2
-      resolve-url-loader: 5.0.0
       sass-loader: 16.0.4(@rspack/core@1.3.2(@swc/helpers@0.5.15))(webpack@5.97.1(esbuild@0.25.0))
       svelte-loader: 3.2.4(svelte@3.59.2)
       svelte-preprocess: 6.0.3(@babel/core@7.26.9)(less@4.2.0)(postcss-load-config@4.0.2(postcss@8.5.3))(postcss@8.5.3)(svelte@3.59.2)(typescript@5.8.3)
@@ -12306,7 +12153,7 @@ snapshots:
       - webpack-cli
       - webpack-hot-middleware
 
-  extension@2.0.0-rc.4(@babel/core@7.26.9)(@prefresh/babel-plugin@0.5.1)(@types/express@4.17.21)(less@4.2.0)(postcss-load-config@4.0.2(postcss@8.5.3))(svelte@3.59.2)(typescript@5.8.3)(webpack@5.97.1(esbuild@0.25.0)):
+  extension@2.0.0-rc.9(@babel/core@7.26.9)(@prefresh/babel-plugin@0.5.1)(@types/express@4.17.21)(less@4.2.0)(postcss-load-config@4.0.2(postcss@8.5.3))(svelte@3.59.2)(typescript@5.8.3)(webpack@5.97.1(esbuild@0.25.0)):
     dependencies:
       '@colors/colors': 1.6.0
       '@types/chrome': 0.0.287
@@ -12316,7 +12163,7 @@ snapshots:
       '@types/react-dom': 19.1.1(@types/react@19.1.0)
       commander: 12.1.0
       extension-create: 2.0.0
-      extension-develop: 2.0.0(@babel/core@7.26.9)(@prefresh/babel-plugin@0.5.1)(@types/express@4.17.21)(less@4.2.0)(postcss-load-config@4.0.2(postcss@8.5.3))(svelte@3.59.2)(typescript@5.8.3)(webpack@5.97.1(esbuild@0.25.0))
+      extension-develop: 2.0.0-rc.9(@babel/core@7.26.9)(@prefresh/babel-plugin@0.5.1)(@types/express@4.17.21)(less@4.2.0)(postcss-load-config@4.0.2(postcss@8.5.3))(svelte@3.59.2)(typescript@5.8.3)(webpack@5.97.1(esbuild@0.25.0))
       semver: 7.7.1
       update-check: 1.5.4
       webextension-polyfill: 0.12.0
@@ -14737,9 +14584,6 @@ snapshots:
 
   regenerator-runtime@0.14.1: {}
 
-  regex-parser@2.3.0:
-    optional: true
-
   regex-recursion@5.1.1:
     dependencies:
       regex: 5.1.1
@@ -14878,15 +14722,6 @@ snapshots:
   resolve-from@4.0.0: {}
 
   resolve-pkg-maps@1.0.0: {}
-
-  resolve-url-loader@5.0.0:
-    dependencies:
-      adjust-sourcemap-loader: 4.0.0
-      convert-source-map: 1.9.0
-      loader-utils: 2.0.4
-      postcss: 8.5.3
-      source-map: 0.6.1
-    optional: true
 
   resolve@1.22.10:
     dependencies:
