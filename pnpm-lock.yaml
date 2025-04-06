@@ -196,8 +196,8 @@ importers:
         specifier: 3.3.2
         version: 3.3.2
       extension:
-        specifier: 2.0.0-rc.9
-        version: 2.0.0-rc.9(@babel/core@7.26.9)(@prefresh/babel-plugin@0.5.1)(@types/express@4.17.21)(less@4.2.0)(postcss-load-config@4.0.2(postcss@8.5.3))(svelte@3.59.2)(typescript@5.8.3)(webpack@5.97.1(esbuild@0.25.0))
+        specifier: 2.0.0-rc.10
+        version: 2.0.0-rc.10(@babel/core@7.26.9)(@prefresh/babel-plugin@0.5.1)(@swc/helpers@0.5.15)(@types/express@4.17.21)(less@4.2.0)(postcss-load-config@4.0.2(postcss@8.5.3))(svelte@3.59.2)(typescript@5.8.3)(webpack@5.97.1(esbuild@0.25.0))
       postcss:
         specifier: 8.5.3
         version: 8.5.3
@@ -4191,12 +4191,12 @@ packages:
     resolution: {integrity: sha512-AJfCvn3HGhWO1KPbXkj6MBbPTt9gvZMXWr6bIVlHdZaS9CKuKr5ZkiyF08FrG2rMCrnuGTz0MzJlWclutu5g2A==}
     engines: {node: '>=18'}
 
-  extension-develop@2.0.0-rc.9:
-    resolution: {integrity: sha512-cOijLXd730T8W9Yvx8YvWvoq9Tf6TKBHK1C2XVGqH1o4gwMmg9hR8actJ4a25c6a6g8UQu7hzPZrz8OBL2SKfQ==}
+  extension-develop@2.0.0-rc.10:
+    resolution: {integrity: sha512-dMLJSwpZJXWF/kMKEDnnmqGuR0uWY1QJv1Wm1IIVScKlHqSyQuTkyPzqQ2mxaFTehFWySiFpfjRHVTFW4fa0NQ==}
     engines: {node: '>=18'}
 
-  extension@2.0.0-rc.9:
-    resolution: {integrity: sha512-BvLKe2UkWDyLES/KJXxSVgqtm/kClt4+HBrGidIKuNOMj0RMJRoMcpmApmDisgFlK90IqmCLZME3k5ani6l4sw==}
+  extension@2.0.0-rc.10:
+    resolution: {integrity: sha512-wNzo4HfaGAhaF+k3ObAzqhRBgnX+jcozKXl9ODIn1HtSwTeBJs+PZqTSymjP4sBuMdUgzDIkkpl8f+BoGnzPKA==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -10935,11 +10935,13 @@ snapshots:
       entities: 4.5.0
       estree-walker: 2.0.2
       source-map-js: 1.2.1
+    optional: true
 
   '@vue/compiler-dom@3.5.13':
     dependencies:
       '@vue/compiler-core': 3.5.13
       '@vue/shared': 3.5.13
+    optional: true
 
   '@vue/compiler-sfc@3.5.13':
     dependencies:
@@ -10952,13 +10954,16 @@ snapshots:
       magic-string: 0.30.17
       postcss: 8.5.3
       source-map-js: 1.2.1
+    optional: true
 
   '@vue/compiler-ssr@3.5.13':
     dependencies:
       '@vue/compiler-dom': 3.5.13
       '@vue/shared': 3.5.13
+    optional: true
 
-  '@vue/shared@3.5.13': {}
+  '@vue/shared@3.5.13':
+    optional: true
 
   '@webassemblyjs/ast@1.14.1':
     dependencies:
@@ -12072,14 +12077,12 @@ snapshots:
       go-git-it: 2.0.4
       package-manager-detector: 0.2.9
 
-  extension-develop@2.0.0-rc.9(@babel/core@7.26.9)(@prefresh/babel-plugin@0.5.1)(@types/express@4.17.21)(less@4.2.0)(postcss-load-config@4.0.2(postcss@8.5.3))(svelte@3.59.2)(typescript@5.8.3)(webpack@5.97.1(esbuild@0.25.0)):
+  extension-develop@2.0.0-rc.10(@babel/core@7.26.9)(@prefresh/babel-plugin@0.5.1)(@swc/helpers@0.5.15)(@types/express@4.17.21)(less@4.2.0)(postcss-load-config@4.0.2(postcss@8.5.3))(svelte@3.59.2)(typescript@5.8.3)(webpack@5.97.1(esbuild@0.25.0)):
     dependencies:
       '@colors/colors': 1.6.0
       '@rspack/core': 1.3.2(@swc/helpers@0.5.15)
       '@rspack/dev-server': 1.1.1(@rspack/core@1.3.2(@swc/helpers@0.5.15))(@types/express@4.17.21)(webpack@5.97.1(esbuild@0.25.0))
-      '@swc/helpers': 0.5.15
       '@types/firefox-webext-browser': 120.0.4
-      '@vue/compiler-sfc': 3.5.13
       adm-zip: 0.5.16
       axios: 1.7.9
       case-sensitive-paths-webpack-plugin: 2.4.0
@@ -12117,6 +12120,7 @@ snapshots:
       '@prefresh/webpack': 4.0.1(@prefresh/babel-plugin@0.5.1)(preact@10.24.3)(webpack@5.97.1(esbuild@0.25.0))
       '@rspack/plugin-preact-refresh': 1.1.2(@prefresh/core@1.5.3(preact@10.24.3))(@prefresh/utils@1.2.0)
       '@rspack/plugin-react-refresh': 1.1.0(react-refresh@0.14.2)
+      '@vue/compiler-sfc': 3.5.13
       babel-loader: 9.2.1(@babel/core@7.26.9)(webpack@5.97.1(esbuild@0.25.0))
       less-loader: 12.2.0(@rspack/core@1.3.2(@swc/helpers@0.5.15))(less@4.2.0)(webpack@5.97.1(esbuild@0.25.0))
       postcss-loader: 8.1.1(@rspack/core@1.3.2(@swc/helpers@0.5.15))(postcss@8.5.3)(typescript@5.8.3)(webpack@5.97.1(esbuild@0.25.0))
@@ -12132,6 +12136,7 @@ snapshots:
       - '@babel/core'
       - '@prefresh/babel-plugin'
       - '@rspack/tracing'
+      - '@swc/helpers'
       - '@types/express'
       - bufferutil
       - coffeescript
@@ -12153,7 +12158,7 @@ snapshots:
       - webpack-cli
       - webpack-hot-middleware
 
-  extension@2.0.0-rc.9(@babel/core@7.26.9)(@prefresh/babel-plugin@0.5.1)(@types/express@4.17.21)(less@4.2.0)(postcss-load-config@4.0.2(postcss@8.5.3))(svelte@3.59.2)(typescript@5.8.3)(webpack@5.97.1(esbuild@0.25.0)):
+  extension@2.0.0-rc.10(@babel/core@7.26.9)(@prefresh/babel-plugin@0.5.1)(@swc/helpers@0.5.15)(@types/express@4.17.21)(less@4.2.0)(postcss-load-config@4.0.2(postcss@8.5.3))(svelte@3.59.2)(typescript@5.8.3)(webpack@5.97.1(esbuild@0.25.0)):
     dependencies:
       '@colors/colors': 1.6.0
       '@types/chrome': 0.0.287
@@ -12163,7 +12168,7 @@ snapshots:
       '@types/react-dom': 19.1.1(@types/react@19.1.0)
       commander: 12.1.0
       extension-create: 2.0.0
-      extension-develop: 2.0.0-rc.9(@babel/core@7.26.9)(@prefresh/babel-plugin@0.5.1)(@types/express@4.17.21)(less@4.2.0)(postcss-load-config@4.0.2(postcss@8.5.3))(svelte@3.59.2)(typescript@5.8.3)(webpack@5.97.1(esbuild@0.25.0))
+      extension-develop: 2.0.0-rc.10(@babel/core@7.26.9)(@prefresh/babel-plugin@0.5.1)(@swc/helpers@0.5.15)(@types/express@4.17.21)(less@4.2.0)(postcss-load-config@4.0.2(postcss@8.5.3))(svelte@3.59.2)(typescript@5.8.3)(webpack@5.97.1(esbuild@0.25.0))
       semver: 7.7.1
       update-check: 1.5.4
       webextension-polyfill: 0.12.0
@@ -12171,6 +12176,7 @@ snapshots:
       - '@babel/core'
       - '@prefresh/babel-plugin'
       - '@rspack/tracing'
+      - '@swc/helpers'
       - '@types/express'
       - bufferutil
       - coffeescript

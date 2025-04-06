@@ -57,7 +57,7 @@
     "@types/webextension-polyfill": "0.12.3",
     "@webext-core/fake-browser": "1.3.2",
     "chrome-webstore-upload-cli": "3.3.2",
-    "extension": "2.0.0-rc.9",
+    "extension": "2.0.0-rc.10",
     "postcss": "8.5.3",
     "shadcn": "2.4.0-canary.17",
     "storybook": "8.6.12",
