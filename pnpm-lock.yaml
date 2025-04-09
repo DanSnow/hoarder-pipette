@@ -63,14 +63,14 @@ importers:
         specifier: 1.115.2
         version: 1.115.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@trpc/client':
-        specifier: 11.0.3
-        version: 11.0.3(@trpc/server@11.0.3(typescript@5.8.3))(typescript@5.8.3)
+        specifier: 11.0.4
+        version: 11.0.4(@trpc/server@11.0.4(typescript@5.8.3))(typescript@5.8.3)
       '@trpc/server':
-        specifier: 11.0.3
-        version: 11.0.3(typescript@5.8.3)
+        specifier: 11.0.4
+        version: 11.0.4(typescript@5.8.3)
       '@trpc/tanstack-react-query':
-        specifier: 11.0.3
-        version: 11.0.3(@tanstack/react-query@5.72.1(react@19.1.0))(@trpc/client@11.0.3(@trpc/server@11.0.3(typescript@5.8.3))(typescript@5.8.3))(@trpc/server@11.0.3(typescript@5.8.3))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.8.3)
+        specifier: 11.0.4
+        version: 11.0.4(@tanstack/react-query@5.72.1(react@19.1.0))(@trpc/client@11.0.4(@trpc/server@11.0.4(typescript@5.8.3))(typescript@5.8.3))(@trpc/server@11.0.4(typescript@5.8.3))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.8.3)
       '@ts-rest/core':
         specifier: 3.52.1
         version: 3.52.1(@types/node@22.14.0)(zod@3.24.2)
@@ -3028,23 +3028,23 @@ packages:
     peerDependencies:
       '@testing-library/dom': '>=7.21.4'
 
-  '@trpc/client@11.0.3':
-    resolution: {integrity: sha512-nUhRo/Ml3LQzs2USs5pfquNqETEQOMS6o9IR30cwn32oj4NuXXSqe9UqUc3hIBALtVzcfg6mLK43hGQA9O3X/Q==}
+  '@trpc/client@11.0.4':
+    resolution: {integrity: sha512-2xIXqRNc8wH3zgcGp1yZ8P2ZL15BoFWq2RS8S3ldjvxsdJfnoYmcvCNzySw8nIrWbKiXl9prdw+bGIUOdG/omw==}
     peerDependencies:
-      '@trpc/server': 11.0.3
+      '@trpc/server': 11.0.4
       typescript: '>=5.7.2'
 
-  '@trpc/server@11.0.3':
-    resolution: {integrity: sha512-/qlaFITZ5a9OCI5mZiW94C8q9mr/wxCmb8GfP3k7VF9RuY4ql+M1UWrzS7xAj8bHekqG9PcR8qEWlOJ6NnXbQg==}
+  '@trpc/server@11.0.4':
+    resolution: {integrity: sha512-beDEGEw+slNiYxLUpZ8HKU1mnZBoP/VLMtrKh2ABKl7VC0PQV9XcDMVjB0GcSW15nTSiOnGDGyFDeudp4dH2qw==}
     peerDependencies:
       typescript: '>=5.7.2'
 
-  '@trpc/tanstack-react-query@11.0.3':
-    resolution: {integrity: sha512-4U3oagLmWBQ1nxbfyvQInImWHoIGx8AQcSaB+wrynFN8u+VAk2AvYNXpSolsdbmkTH1IJlofp+NlsvU4kPW7wA==}
+  '@trpc/tanstack-react-query@11.0.4':
+    resolution: {integrity: sha512-8mCoJ0gfEaMfFDelnB1a6oWRjUP1uwJAOh3FHm6dGPtnycMpFj/yjg10/yE3Xgfoc3l4cL7WjugZRyrSi2XKig==}
     peerDependencies:
       '@tanstack/react-query': ^5.67.1
-      '@trpc/client': 11.0.3
-      '@trpc/server': 11.0.3
+      '@trpc/client': 11.0.4
+      '@trpc/server': 11.0.4
       react: 19.1.0
       react-dom: '>=18.2.0'
       typescript: '>=5.7.2'
@@ -10784,20 +10784,20 @@ snapshots:
     dependencies:
       '@testing-library/dom': 10.4.0
 
-  '@trpc/client@11.0.3(@trpc/server@11.0.3(typescript@5.8.3))(typescript@5.8.3)':
+  '@trpc/client@11.0.4(@trpc/server@11.0.4(typescript@5.8.3))(typescript@5.8.3)':
     dependencies:
-      '@trpc/server': 11.0.3(typescript@5.8.3)
+      '@trpc/server': 11.0.4(typescript@5.8.3)
       typescript: 5.8.3
 
-  '@trpc/server@11.0.3(typescript@5.8.3)':
+  '@trpc/server@11.0.4(typescript@5.8.3)':
     dependencies:
       typescript: 5.8.3
 
-  '@trpc/tanstack-react-query@11.0.3(@tanstack/react-query@5.72.1(react@19.1.0))(@trpc/client@11.0.3(@trpc/server@11.0.3(typescript@5.8.3))(typescript@5.8.3))(@trpc/server@11.0.3(typescript@5.8.3))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.8.3)':
+  '@trpc/tanstack-react-query@11.0.4(@tanstack/react-query@5.72.1(react@19.1.0))(@trpc/client@11.0.4(@trpc/server@11.0.4(typescript@5.8.3))(typescript@5.8.3))(@trpc/server@11.0.4(typescript@5.8.3))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.8.3)':
     dependencies:
       '@tanstack/react-query': 5.72.1(react@19.1.0)
-      '@trpc/client': 11.0.3(@trpc/server@11.0.3(typescript@5.8.3))(typescript@5.8.3)
-      '@trpc/server': 11.0.3(typescript@5.8.3)
+      '@trpc/client': 11.0.4(@trpc/server@11.0.4(typescript@5.8.3))(typescript@5.8.3)
+      '@trpc/server': 11.0.4(typescript@5.8.3)
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
       typescript: 5.8.3
