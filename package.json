@@ -54,7 +54,7 @@
     "@tailwindcss/postcss": "4.1.3",
     "@tanstack/router-plugin": "1.115.2",
     "@types/react": "19.1.0",
-    "@types/react-dom": "19.1.1",
+    "@types/react-dom": "19.1.2",
     "@types/webextension-polyfill": "0.12.3",
     "@webext-core/fake-browser": "1.3.2",
     "chrome-webstore-upload-cli": "3.3.2",
