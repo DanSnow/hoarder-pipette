@@ -44,7 +44,7 @@
     "@effect/vitest": "0.20.6",
     "@egoist/tailwindcss-icons": "1.9.0",
     "@iconify-json/simple-icons": "1.2.31",
-    "@moonrepo/cli": "1.34.2",
+    "@moonrepo/cli": "1.34.3",
     "@storybook/addon-essentials": "8.6.12",
     "@storybook/addon-interactions": "8.6.12",
     "@storybook/blocks": "8.6.12",
