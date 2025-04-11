@@ -10,8 +10,8 @@ export const startPage: SearchEngine = {
   matches: [],
   optionalMatches: ['https://www.startpage.com/sp/search'],
   getQuery: () => $('input.search-form-input')?.value ?? null,
-  getRenderRoot: () => {
-    const { container, renderRoot } = createMountContainer()
+  getRenderRoot: (ctx) => {
+    const { container, renderRoot } = createMountContainer(ctx)
     const sidebarContainer = $('#sidebar')
     invariant(sidebarContainer, 'inject point not found')
     sidebarContainer.prepend(container)

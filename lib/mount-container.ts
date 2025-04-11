@@ -1,15 +1,12 @@
+import type { RenderRootContext } from './search-engines/utils/types'
+
 export interface MountContainer {
   container: HTMLElement
+  shadowRoot: ShadowRoot
   renderRoot: HTMLElement
 }
 
-declare global {
-  interface Window {
-    __EXTENSION_SHADOW_ROOT__: ShadowRoot
-  }
-}
-
-export function createMountContainer(): MountContainer {
+export function createMountContainer(context: RenderRootContext): MountContainer {
   const container = document.createElement('div')
   container.id = 'extension-root'
 
@@ -18,14 +15,16 @@ export function createMountContainer(): MountContainer {
   // This way, styles from the extension won't leak into the host page.
   const shadowRoot = container.attachShadow({ mode: 'open' })
 
-  // Inform Extension.js that the shadow root is available.
-  window.__EXTENSION_SHADOW_ROOT__ = shadowRoot
+  const style = new CSSStyleSheet()
+  shadowRoot.adoptedStyleSheets = [style]
+  style.replace(context.style)
 
   const renderRoot = document.createElement('div')
   renderRoot.id = 'hoarder-inject'
   shadowRoot.append(renderRoot)
   return {
     container,
+    shadowRoot,
     renderRoot,
   }
 }

@@ -13,8 +13,8 @@ export const google: SearchEngine = {
   matches: [GOOGLE_URL],
   optionalMatches: ['https://www.google.de/search', 'https://www.google.ca/search'],
   getQuery: fromUrlQuery('q'),
-  getRenderRoot: () => {
-    const { container, renderRoot } = createMountContainer()
+  getRenderRoot: (ctx) => {
+    const { container, renderRoot } = createMountContainer(ctx)
     const searchContainer = $('#rso')
     invariant(searchContainer, 'inject point not found')
     searchContainer.prepend(container)

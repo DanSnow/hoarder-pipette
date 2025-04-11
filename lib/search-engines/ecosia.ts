@@ -12,8 +12,8 @@ export const ecosia: SearchEngine = {
   name: 'Ecosia',
   matches: [ECOSIA_URL],
   getQuery: fromUrlQuery('q'),
-  getRenderRoot: () => {
-    const { container, renderRoot } = createMountContainer()
+  getRenderRoot: (ctx) => {
+    const { container, renderRoot } = createMountContainer(ctx)
     const firstSearchResult = $('[data-test-id=mainline]')
     invariant(firstSearchResult, 'inject point not found')
     firstSearchResult.prepend(container)

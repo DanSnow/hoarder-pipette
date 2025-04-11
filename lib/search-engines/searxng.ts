@@ -10,8 +10,8 @@ export const searXNG: SearchEngine = {
   matches: [],
   allowUserSites: true,
   getQuery: () => $('input#q')?.value ?? null,
-  getRenderRoot: () => {
-    const { container, renderRoot } = createMountContainer()
+  getRenderRoot: (ctx) => {
+    const { container, renderRoot } = createMountContainer(ctx)
     const sidebarContainer = $('#sidebar')
     invariant(sidebarContainer, 'inject point not found')
     sidebarContainer.prepend(container)

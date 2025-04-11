@@ -1,3 +1,7 @@
+export interface RenderRootContext {
+  style: string
+}
+
 export interface SearchEngine {
   /**
    * Unique identifier of the search engine
@@ -32,5 +36,5 @@ export interface SearchEngine {
    * The root element to insert the bookmarks
    * @returns Root element where bookmarks will be rendered
    */
-  getRenderRoot: () => HTMLElement
+  getRenderRoot: (context: RenderRootContext) => HTMLElement
 }
