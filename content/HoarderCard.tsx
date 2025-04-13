@@ -35,9 +35,11 @@ export function HoarderCard({ className, userQuery }: { className?: string; user
 
   if (!options.apiKey || !options.url) {
     return (
-      <h2 className="text-center font-bold text-lg">
-        Hoarder's Pipette: Please open options page to configure your API key and URL
-      </h2>
+      <div className="rounded-md bg-background p-2">
+        <h2 className="text-center font-bold text-foreground text-lg">
+          Hoarder's Pipette: Please open options page to configure your API key and URL
+        </h2>
+      </div>
     )
   }
 
