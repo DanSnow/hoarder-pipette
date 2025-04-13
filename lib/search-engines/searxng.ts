@@ -1,5 +1,5 @@
 import invariant from 'tiny-invariant'
-import { createMountContainer } from '../mount-container'
+import { defineRenderRoot } from '../mount-container'
 import { $ } from '../utils'
 import type { SearchEngine } from './utils/types'
 
@@ -10,11 +10,9 @@ export const searXNG: SearchEngine = {
   matches: [],
   allowUserSites: true,
   getQuery: () => $('input#q')?.value ?? null,
-  getRenderRoot: (ctx) => {
-    const mountContainer = createMountContainer(ctx)
+  getRenderRoot: defineRenderRoot((container) => {
     const sidebarContainer = $('#sidebar')
     invariant(sidebarContainer, 'inject point not found')
-    sidebarContainer.prepend(mountContainer.container)
-    return mountContainer
-  },
+    sidebarContainer.prepend(container)
+  }),
 }

@@ -1,5 +1,5 @@
 import invariant from 'tiny-invariant'
-import { createMountContainer } from '../mount-container'
+import { defineRenderRoot } from '../mount-container'
 import { $ } from '../utils'
 import { fromUrlQuery } from './utils/get-query'
 import type { SearchEngine } from './utils/types'
@@ -12,11 +12,9 @@ export const ecosia: SearchEngine = {
   name: 'Ecosia',
   matches: [ECOSIA_URL],
   getQuery: fromUrlQuery('q'),
-  getRenderRoot: (ctx) => {
-    const mountContainer = createMountContainer(ctx)
+  getRenderRoot: defineRenderRoot((container) => {
     const firstSearchResult = $('[data-test-id=mainline]')
     invariant(firstSearchResult, 'inject point not found')
-    firstSearchResult.prepend(mountContainer.container)
-    return mountContainer
-  },
+    firstSearchResult.prepend(container)
+  }),
 }

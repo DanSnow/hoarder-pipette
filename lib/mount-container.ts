@@ -1,4 +1,4 @@
-import type { MountContainer, RenderRootContext } from './search-engines/utils/types'
+import type { GetRenderRoot, MountContainer, RenderRootContext } from './search-engines/utils/types'
 
 export function createMountContainer(context: RenderRootContext): MountContainer {
   const container = document.createElement('div')
@@ -20,5 +20,15 @@ export function createMountContainer(context: RenderRootContext): MountContainer
     container,
     shadowRoot,
     renderRoot,
+  }
+}
+
+type MountRenderRoot = (container: HTMLElement) => void
+
+export function defineRenderRoot(mount: MountRenderRoot): GetRenderRoot {
+  return (context: RenderRootContext) => {
+    const mountContainer = createMountContainer(context)
+    mount(mountContainer.container)
+    return mountContainer
   }
 }
