@@ -13,10 +13,10 @@ export const ecosia: SearchEngine = {
   matches: [ECOSIA_URL],
   getQuery: fromUrlQuery('q'),
   getRenderRoot: (ctx) => {
-    const { container, renderRoot } = createMountContainer(ctx)
+    const mountContainer = createMountContainer(ctx)
     const firstSearchResult = $('[data-test-id=mainline]')
     invariant(firstSearchResult, 'inject point not found')
-    firstSearchResult.prepend(container)
-    return renderRoot
+    firstSearchResult.prepend(mountContainer.container)
+    return mountContainer
   },
 }

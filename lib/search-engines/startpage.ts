@@ -11,10 +11,10 @@ export const startPage: SearchEngine = {
   optionalMatches: ['https://www.startpage.com/sp/search'],
   getQuery: () => $('input.search-form-input')?.value ?? null,
   getRenderRoot: (ctx) => {
-    const { container, renderRoot } = createMountContainer(ctx)
+    const mountContainer = createMountContainer(ctx)
     const sidebarContainer = $('#sidebar')
     invariant(sidebarContainer, 'inject point not found')
-    sidebarContainer.prepend(container)
-    return renderRoot
+    sidebarContainer.prepend(mountContainer.container)
+    return mountContainer
   },
 }

@@ -5,6 +5,13 @@ import { getRenderRoot } from '~/lib/search-engines'
 import { store } from '~/store'
 import { ContentRoot } from './ContentRoot'
 
+let unmount: (() => void) | undefined
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot?.accept()
+  import.meta.webpackHot?.dispose(() => unmount?.())
+}
+
 if (document.readyState === 'complete') {
   initial()
 } else {
@@ -16,9 +23,14 @@ if (document.readyState === 'complete') {
 async function initial() {
   const userSites = await store.get(userSitesAtom)
   const style = await fetchCSS()
-  const renderRoot = getRenderRoot(userSites, { style })
-  const root = createRoot(renderRoot)
+  const mountContainer = getRenderRoot(userSites, { style })
+  const root = createRoot(mountContainer.renderRoot)
   root.render(<ContentRoot />)
+
+  unmount = () => {
+    root.unmount()
+    mountContainer.container.remove()
+  }
 }
 
 async function fetchCSS() {

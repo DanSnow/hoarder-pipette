@@ -3,7 +3,7 @@ import { ecosia } from './ecosia'
 import { google } from './google'
 import { searXNG } from './searxng'
 import { startPage } from './startpage'
-import type { RenderRootContext, SearchEngine } from './utils/types'
+import type { MountContainer, RenderRootContext, SearchEngine } from './utils/types'
 
 export const supportedEngines = [ecosia, google, startPage, searXNG]
 
@@ -25,7 +25,7 @@ export function getUserQuery(userSites: UserSite[]): string | null {
   return getSearchEngine(userSites).getQuery()
 }
 
-export function getRenderRoot(userSites: UserSite[], context: RenderRootContext): HTMLElement {
+export function getRenderRoot(userSites: UserSite[], context: RenderRootContext): MountContainer {
   return getSearchEngine(userSites).getRenderRoot(context)
 }
 

@@ -1,10 +1,4 @@
-import type { RenderRootContext } from './search-engines/utils/types'
-
-export interface MountContainer {
-  container: HTMLElement
-  shadowRoot: ShadowRoot
-  renderRoot: HTMLElement
-}
+import type { MountContainer, RenderRootContext } from './search-engines/utils/types'
 
 export function createMountContainer(context: RenderRootContext): MountContainer {
   const container = document.createElement('div')
