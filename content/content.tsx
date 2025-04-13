@@ -23,7 +23,7 @@ if (document.readyState === 'complete') {
 async function initial() {
   const userSites = await store.get(userSitesAtom)
   const style = await fetchCSS()
-  const mountContainer = getRenderRoot(userSites, { style })
+  const mountContainer = await getRenderRoot(userSites, { style })
   const root = createRoot(mountContainer.renderRoot)
   root.render(<ContentRoot />)
 
