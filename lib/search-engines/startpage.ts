@@ -1,6 +1,7 @@
 import invariant from 'tiny-invariant'
-import { createMountContainer, defineRenderRoot } from '../mount-container'
+import { defineRenderRoot } from '../mount-container'
 import { $ } from '../utils'
+import { fromInput } from './utils/get-query'
 import type { SearchEngine } from './utils/types'
 
 export const startPage: SearchEngine = {
@@ -9,7 +10,7 @@ export const startPage: SearchEngine = {
   name: 'StartPage',
   matches: [],
   optionalMatches: ['https://www.startpage.com/sp/search'],
-  getQuery: () => $('input.search-form-input')?.value ?? null,
+  getQuery: fromInput('input.search-form-input'),
   getRenderRoot: defineRenderRoot((container) => {
     const sidebarContainer = $('#sidebar')
     invariant(sidebarContainer, 'inject point not found')

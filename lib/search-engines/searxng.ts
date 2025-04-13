@@ -1,6 +1,7 @@
 import invariant from 'tiny-invariant'
 import { defineRenderRoot } from '../mount-container'
 import { $ } from '../utils'
+import { fromInput } from './utils/get-query'
 import type { SearchEngine } from './utils/types'
 
 export const searXNG: SearchEngine = {
@@ -9,7 +10,7 @@ export const searXNG: SearchEngine = {
   name: 'SearXNG',
   matches: [],
   allowUserSites: true,
-  getQuery: () => $('input#q')?.value ?? null,
+  getQuery: fromInput('input#q'),
   getRenderRoot: defineRenderRoot((container) => {
     const sidebarContainer = $('#sidebar')
     invariant(sidebarContainer, 'inject point not found')
