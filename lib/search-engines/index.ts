@@ -1,11 +1,12 @@
 import type { UserSite } from '~/schemas/user-sites'
+import { duckduckgo } from './duckduckgo'
 import { ecosia } from './ecosia'
 import { google } from './google'
 import { searXNG } from './searxng'
 import { startPage } from './startpage'
 import type { MountContainer, RenderRootContext, SearchEngine } from './utils/types'
 
-export const supportedEngines = [ecosia, google, startPage, searXNG]
+export const supportedEngines = [ecosia, google, startPage, searXNG, duckduckgo]
 
 function getSearchEngine(userSites: UserSite[]): SearchEngine {
   for (const engine of supportedEngines) {
