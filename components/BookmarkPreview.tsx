@@ -15,7 +15,7 @@ export function BookmarkPreview({ bookmark }: { bookmark: z.infer<typeof Bookmar
       <a className="block h-full min-h-16" href={bookmark.content.url} target="_blank" rel="noreferrer noopener">
         <div
           className={cn(
-            'flex h-full items-center gap-2 p-2 shadow-none transition-all duration-200 hover:shadow-lg dark:shadow-gray-500',
+            'flex h-full @md:flex-row flex-col @md:items-center @md:gap-2 p-2 shadow-none transition-all duration-200 hover:shadow-lg dark:shadow-gray-500',
             {
               'px-4': !hasImage,
             },
