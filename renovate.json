@@ -1,11 +1,11 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:js-app"],
+  "extends": ["config:js-app", ":semanticPrefixChore", ":automergeStableNonMajor", ":maintainLockFilesWeekly"],
   "packageRules": [
     {
-      "matchUpdateTypes": ["minor", "patch"],
-      "matchCurrentVersion": "!/^0/",
-      "automerge": true
+      "automerge": true,
+      "matchDatasources": ["npm"],
+      "matchPackageNames": ["@astrojs/starlight", "lucide-react", "@effect/vitest"]
     }
   ]
 }
