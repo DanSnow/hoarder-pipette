@@ -90,8 +90,8 @@ importers:
         specifier: 4.1.0
         version: 4.1.0
       effect:
-        specifier: 3.14.8
-        version: 3.14.8
+        specifier: 3.14.9
+        version: 3.14.9
       jotai:
         specifier: 2.12.3
         version: 2.12.3(@types/react@19.1.2)(react@19.1.0)
@@ -146,7 +146,7 @@ importers:
         version: 1.9.4
       '@effect/vitest':
         specifier: 0.20.9
-        version: 0.20.9(effect@3.14.8)(vitest@3.1.1(@types/debug@4.1.12)(@types/node@22.14.0)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.2)(msw@2.7.3(@types/node@22.14.0)(typescript@5.8.3))(terser@5.39.0)(tsx@4.19.3)(yaml@2.7.1))
+        version: 0.20.9(effect@3.14.9)(vitest@3.1.1(@types/debug@4.1.12)(@types/node@22.14.0)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.2)(msw@2.7.3(@types/node@22.14.0)(typescript@5.8.3))(terser@5.39.0)(tsx@4.19.3)(yaml@2.7.1))
       '@egoist/tailwindcss-icons':
         specifier: 1.9.0
         version: 1.9.0(tailwindcss@4.1.4)
@@ -4134,8 +4134,8 @@ packages:
   ee-first@1.1.1:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
 
-  effect@3.14.8:
-    resolution: {integrity: sha512-cHV6Mc2gb1e6l+CxhCeZm1JOzE4C9Mp7MhqHNFuAcSds2c2f23ZAb1ef4gBRHMIcdJ5sr3KGm+Xn+4z/UByE8w==}
+  effect@3.14.9:
+    resolution: {integrity: sha512-VzcsPr7w2sw4R9HH1zrsqNMd2HWq2BTbW5PRd1dnx3RcRzdiUIBa8ogfumvSzjBY0TuJrADKMkBkuaE3V5WMpw==}
 
   electron-to-chromium@1.5.90:
     resolution: {integrity: sha512-C3PN4aydfW91Natdyd449Kw+BzhLmof6tzy5W1pFC5SpQxVXT+oyiyOG9AgYYSN9OdA/ik3YkCrpwqI8ug5Tug==}
@@ -8164,9 +8164,9 @@ snapshots:
 
   '@ctrl/tinycolor@4.1.0': {}
 
-  '@effect/vitest@0.20.9(effect@3.14.8)(vitest@3.1.1(@types/debug@4.1.12)(@types/node@22.14.0)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.2)(msw@2.7.3(@types/node@22.14.0)(typescript@5.8.3))(terser@5.39.0)(tsx@4.19.3)(yaml@2.7.1))':
+  '@effect/vitest@0.20.9(effect@3.14.9)(vitest@3.1.1(@types/debug@4.1.12)(@types/node@22.14.0)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.2)(msw@2.7.3(@types/node@22.14.0)(typescript@5.8.3))(terser@5.39.0)(tsx@4.19.3)(yaml@2.7.1))':
     dependencies:
-      effect: 3.14.8
+      effect: 3.14.9
       vitest: 3.1.1(@types/debug@4.1.12)(@types/node@22.14.0)(jiti@2.4.2)(less@4.2.0)(lightningcss@1.29.2)(msw@2.7.3(@types/node@22.14.0)(typescript@5.8.3))(terser@5.39.0)(tsx@4.19.3)(yaml@2.7.1)
 
   '@egoist/tailwindcss-icons@1.9.0(tailwindcss@4.1.4)':
@@ -12032,7 +12032,7 @@ snapshots:
 
   ee-first@1.1.1: {}
 
-  effect@3.14.8:
+  effect@3.14.9:
     dependencies:
       '@standard-schema/spec': 1.0.0
       fast-check: 3.23.2
