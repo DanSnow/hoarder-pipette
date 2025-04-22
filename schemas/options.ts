@@ -17,7 +17,7 @@ export const InstanceOptionsSchema = z.object({
       fieldConfig({
         label: 'URL',
         fieldType: 'urlWithApiLink',
-        description: 'Your Hoarder instance URL',
+        description: 'Your Karakeep instance URL',
       }),
     ),
   apiKey: z.string().superRefine(

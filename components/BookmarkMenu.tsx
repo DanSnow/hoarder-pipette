@@ -30,7 +30,7 @@ export function BookmarkMenu({
       <DropdownMenuContent>
         <a target="_blank" rel="nopener noreferrer" href={joinURL(url, '/dashboard/preview', bookmark.id)}>
           <DropdownMenuLabel>
-            <span className="i-lucide-eye" /> View in Hoarder
+            <span className="i-lucide-eye" /> View in Karakeep
           </DropdownMenuLabel>
         </a>
       </DropdownMenuContent>
