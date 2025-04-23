@@ -10,3 +10,9 @@ tasks:
       - astro.config.mjs
     outputs:
       - dist
+  dev:
+    command:
+      - astro
+      - dev
+    platform: node
+    local: true
