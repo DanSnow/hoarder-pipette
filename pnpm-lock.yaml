@@ -145,8 +145,8 @@ importers:
         specifier: 1.9.4
         version: 1.9.4
       '@effect/vitest':
-        specifier: 0.20.14
-        version: 0.20.14(effect@3.14.14)(vitest@3.1.2(@types/debug@4.1.12)(@types/node@22.14.1)(jiti@2.4.2)(less@4.3.0)(lightningcss@1.29.2)(msw@2.7.5(@types/node@22.14.1)(typescript@5.8.3))(terser@5.39.0)(tsx@4.19.3)(yaml@2.7.1))
+        specifier: 0.20.15
+        version: 0.20.15(effect@3.14.14)(vitest@3.1.2(@types/debug@4.1.12)(@types/node@22.14.1)(jiti@2.4.2)(less@4.3.0)(lightningcss@1.29.2)(msw@2.7.5(@types/node@22.14.1)(typescript@5.8.3))(terser@5.39.0)(tsx@4.19.3)(yaml@2.7.1))
       '@egoist/tailwindcss-icons':
         specifier: 1.9.0
         version: 1.9.0(tailwindcss@4.1.4)
@@ -800,8 +800,8 @@ packages:
     resolution: {integrity: sha512-WyOx8cJQ+FQus4Mm4uPIZA64gbk3Wxh0so5Lcii0aJifqwoVOlfFtorjLE0Hen4OYyHZMXDWqMmaQemBhgxFRQ==}
     engines: {node: '>=14'}
 
-  '@effect/vitest@0.20.14':
-    resolution: {integrity: sha512-b87XyeJi0lSkZda9n87C2zlJtOJxyGbKhhm1V+IEBZvyLfqd17BTWKEaxVuYS1zprMG/4S0hwDoz0k0IEKBJ1g==}
+  '@effect/vitest@0.20.15':
+    resolution: {integrity: sha512-rWvPgPP6jI0Tr9fxZDPYHc5vkWrayLJN6KCfzR2yq//0Rx6DOArySkeEt10lVe00DMAxK2F+dDlvMsrICzPruw==}
     peerDependencies:
       effect: ^3.14.14
       vitest: ^3.0.0
@@ -8239,7 +8239,7 @@ snapshots:
 
   '@ctrl/tinycolor@4.1.0': {}
 
-  '@effect/vitest@0.20.14(effect@3.14.14)(vitest@3.1.2(@types/debug@4.1.12)(@types/node@22.14.1)(jiti@2.4.2)(less@4.3.0)(lightningcss@1.29.2)(msw@2.7.5(@types/node@22.14.1)(typescript@5.8.3))(terser@5.39.0)(tsx@4.19.3)(yaml@2.7.1))':
+  '@effect/vitest@0.20.15(effect@3.14.14)(vitest@3.1.2(@types/debug@4.1.12)(@types/node@22.14.1)(jiti@2.4.2)(less@4.3.0)(lightningcss@1.29.2)(msw@2.7.5(@types/node@22.14.1)(typescript@5.8.3))(terser@5.39.0)(tsx@4.19.3)(yaml@2.7.1))':
     dependencies:
       effect: 3.14.14
       vitest: 3.1.2(@types/debug@4.1.12)(@types/node@22.14.1)(jiti@2.4.2)(less@4.3.0)(lightningcss@1.29.2)(msw@2.7.5(@types/node@22.14.1)(typescript@5.8.3))(terser@5.39.0)(tsx@4.19.3)(yaml@2.7.1)
