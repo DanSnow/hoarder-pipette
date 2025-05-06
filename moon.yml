@@ -74,8 +74,7 @@ tasks:
     type: run
     command:
       - tsx
-      - dev-scripts
-      - dev.mts
+      - dev-scripts/dev.mts
       - chrome
     local: true
     platform: node
@@ -83,8 +82,7 @@ tasks:
     type: run
     command:
       - tsx
-      - dev-scripts
-      - dev.mts
+      - dev-scripts/dev.mts
       - firefox
     local: true
     platform: node
