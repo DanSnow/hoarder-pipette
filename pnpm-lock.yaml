@@ -207,6 +207,9 @@ importers:
       extension:
         specifier: 2.0.0-rc.23
         version: 2.0.0-rc.23(@babel/core@7.27.1)(@prefresh/babel-plugin@0.5.1)(@types/express@4.17.21)(less@4.3.0)(postcss-load-config@4.0.2(postcss@8.5.3))(svelte@5.28.2)(typescript@5.8.3)(webpack@5.99.8(esbuild@0.25.4))
+      fx-runner:
+        specifier: 1.4.0
+        version: 1.4.0
       postcss:
         specifier: 8.5.3
         version: 8.5.3
