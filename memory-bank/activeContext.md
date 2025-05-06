@@ -10,7 +10,7 @@ Resolved the content script CSP issue in Firefox by proxying API calls through t
 - Removed the unused `clientAtom` from `atoms/storage.ts`.
 
 ## Next steps
-Task completed. Ready for the next task.
+- The image loaded in `components/BookmarkPreview.tsx` is also blocked by CSP in Firefox. Investigate how to resolve this issue. Consider using a different approach or proxying mechanism if possible.
 
 ## Active decisions and considerations
 - The primary decision was to leverage the existing tRPC infrastructure for inter-script communication to bypass the content script's strict CSP in Firefox.
