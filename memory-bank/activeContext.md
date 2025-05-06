@@ -5,7 +5,7 @@ Resolved the content script CSP issue in Firefox by proxying API calls through t
 
 ## Recent changes
 - Modified `trpc/index.ts` to add a `searchBookmark` procedure in the background script's tRPC router.
-- Modified `content/HoarderCard.tsx` to use the tRPC client from `src/options/context.ts` and `useQuery(trpc.searchBookmark.queryOptions(...))` to fetch data via the background script.
+- Modified `content/HoarderCard.tsx` to use the tRPC client from `shared/context.ts` and `useQuery(trpc.searchBookmark.queryOptions(...))` to fetch data via the background script.
 - Deleted the unused `hooks/use-client.ts` file.
 - Removed the unused `clientAtom` from `atoms/storage.ts`.
 
@@ -24,6 +24,6 @@ Resolved the content script CSP issue in Firefox by proxying API calls through t
 - Successfully implemented proxying of API calls through the background script using tRPC.
 - Learned the correct syntax for using `@tanstack/react-query`'s `useQuery` with tRPC's `queryOptions`.
 - Understood the nested structure of the API response and how to access the relevant data (`data.result.data.json.bookmarks`).
-- Confirmed that the tRPC client in `src/options/context.ts` is configured with a message-passing link suitable for extension communication.
+- Confirmed that the tRPC client in `shared/context.ts` is configured with a message-passing link suitable for extension communication.
 - The `ts-rest` client handles the JSON stringification of the query input internally based on the contract.
 - Jotai atoms outside of React components require using `store.get(atom)` to access their values.
