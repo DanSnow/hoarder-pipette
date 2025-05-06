@@ -5,7 +5,7 @@ import { optionsAtom } from '~/atoms/storage'
 import { BookmarkPreview } from '~/components/BookmarkPreview'
 import { Card, CardContent, CardHeader } from '~/components/ui/card'
 import { ScrollArea, ScrollBar } from '~/components/ui/scroll-area'
-import { trpc } from '~/src/options/context' // Import trpc client
+import { trpc } from '~/shared/context' // Import trpc client
 
 export function HoarderCard({ className, userQuery }: { className?: string; userQuery: string }) {
   const options = useAtomValue(optionsAtom)

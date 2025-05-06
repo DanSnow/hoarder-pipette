@@ -1,7 +1,7 @@
 import { createHashHistory, createRouter } from '@tanstack/react-router'
 
+import { context } from '../../shared/context'
 import { Loading } from './components/Loading'
-import { context } from './context'
 // Import the generated route tree
 import { routeTree } from './routeTree.gen'
 

@@ -2,7 +2,6 @@ import { useAtomValue } from 'jotai'
 import { joinURL } from 'ufo'
 import type { z } from 'zod'
 import { optionsAtom } from '~/atoms/storage'
-import type { BookmarkSchema } from '~/client'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,6 +9,7 @@ import {
   DropdownMenuTrigger,
 } from '~/components/ui/dropdown-menu'
 import { cn } from '~/lib/utils'
+import type { BookmarkSchema } from '~/shared/client'
 import { Button } from './ui/button'
 
 export function BookmarkMenu({
