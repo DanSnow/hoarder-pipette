@@ -1,26 +1,29 @@
 # Active Context: Hoarder's Pipette
 
 ## Current work focus
-Initializing the memory bank based on the project's README, file structure, and recent feedback including open issues and pull requests.
+Resolved the content script CSP issue in Firefox by proxying API calls through the background script.
 
 ## Recent changes
-Created initial versions of `projectbrief.md`, `productContext.md`, `systemPatterns.md`, `techContext.md`, and `progress.md`. Incorporated information about current priorities and related GitHub issues/PRs.
+- Modified `trpc/index.ts` to add a `searchBookmark` procedure in the background script's tRPC router.
+- Modified `content/HoarderCard.tsx` to use the tRPC client from `src/options/context.ts` and `useQuery(trpc.searchBookmark.queryOptions(...))` to fetch data via the background script.
+- Deleted the unused `hooks/use-client.ts` file.
+- Removed the unused `clientAtom` from `atoms/storage.ts`.
 
 ## Next steps
-- Review the main `README.md` to ensure all critical information is captured in the memory bank.
-- Explore the codebase, focusing on areas related to Firefox support, content scripts, and potential CSP implications.
-- Investigate the PRs (244, 294) and Issue (57) related to the top priorities.
-- Begin working on the top priority: Firefox support and CSP issues.
+Task completed. Ready for the next task.
 
 ## Active decisions and considerations
-- Ensuring the memory bank accurately reflects the project's current state, priorities, and known issues.
-- Understanding the existing work on Firefox support (PR 244) and the Karakeep rebranding (PR 294).
+- The primary decision was to leverage the existing tRPC infrastructure for inter-script communication to bypass the content script's strict CSP in Firefox.
+- Confirmed the correct usage of `useQuery` with tRPC's `queryOptions` and handling of nested response structures.
 
 ## Important patterns and preferences
-- Following the memory bank structure defined in `.clinerules/memory-bank.md`.
-- Utilizing GitHub issues and PRs as sources of truth for project status and planned work.
+- Utilizing tRPC for secure and type-safe communication between different parts of the browser extension (content script and background script).
+- Following the pattern of proxying network requests that are restricted by content script CSP through the background script.
 
 ## Learnings and project insights
-- The project has a working Chrome version.
-- Top priorities are Firefox support (with CSP), Karakeep rebranding, and note support.
-- There are existing GitHub items related to these priorities (PRs 244, 294 and Issue 57).
+- Successfully implemented proxying of API calls through the background script using tRPC.
+- Learned the correct syntax for using `@tanstack/react-query`'s `useQuery` with tRPC's `queryOptions`.
+- Understood the nested structure of the API response and how to access the relevant data (`data.result.data.json.bookmarks`).
+- Confirmed that the tRPC client in `src/options/context.ts` is configured with a message-passing link suitable for extension communication.
+- The `ts-rest` client handles the JSON stringification of the query input internally based on the contract.
+- Jotai atoms outside of React components require using `store.get(atom)` to access their values.

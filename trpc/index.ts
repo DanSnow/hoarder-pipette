@@ -1,7 +1,11 @@
-import { initTRPC } from '@trpc/server'
+import { TRPCError, initTRPC } from '@trpc/server'
+import { z } from 'zod' // Import z from zod
+import { optionsAtom } from '~/atoms/storage'
 import { getSupportedSearchEngines, registerAll } from '~/background/dynamic-search-engine'
 import { BackgroundRuntime } from '~/background/runtime'
+import { contract, createClient } from '~/client'
 import { SupportSearchEnginesSchema } from '~/schemas/supported-engines'
+import { store } from '~/store' // Import store
 
 const t = initTRPC.create({
   isServer: false,
@@ -21,6 +25,31 @@ export const appRouter = t.router({
   listSupportedSearchEngines: publicProcedure.output(SupportSearchEnginesSchema).query(() => {
     return BackgroundRuntime.runPromise(getSupportedSearchEngines())
   }),
+  searchBookmark: publicProcedure
+    .input(z.object({ input: z.object({ json: z.object({ text: z.string() }) }) })) // Correct input structure
+    .output(contract.searchBookmark.responses[200])
+    .query(async ({ input }) => {
+      const options = await store.get(optionsAtom) // Use store.get
+      if (!options.apiKey || !options.url) {
+        throw new TRPCError({
+          code: 'UNAUTHORIZED',
+          message: 'API key or URL is not configured.',
+        })
+      }
+      const client = createClient(options.url, options.apiKey)
+      const response = await client.searchBookmark({
+        query: input, // Pass input directly
+      })
+
+      if (response.status !== 200) {
+        throw new TRPCError({
+          code: 'INTERNAL_SERVER_ERROR',
+          message: `Failed to fetch bookmarks: ${response.status}`,
+        })
+      }
+
+      return response.body
+    }),
 })
 
 export type AppRouter = typeof appRouter

@@ -31,8 +31,3 @@ export const optionsAtom = atomWithBrowserStorage('options', LooseOptionsSchema,
 })
 
 export const userSitesAtom = atomWithBrowserStorage('sites', UserSitesSchema, [] as UserSite[])
-
-export const clientAtom = atom(async (get) => {
-  const { apiKey, url } = await get(optionsAtom)
-  return createClient(url, apiKey)
-})
