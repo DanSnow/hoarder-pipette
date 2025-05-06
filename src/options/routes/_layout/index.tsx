@@ -4,11 +4,11 @@ import { useAtom } from 'jotai'
 import { useCallback } from 'react'
 import type { z } from 'zod'
 import { optionsAtom } from '~/atoms/storage'
-import { createClient } from '~/client'
 import { AutoForm } from '~/components/ui/autoform'
 import { Button } from '~/components/ui/button'
 import { useToast } from '~/hooks/use-toast'
 import { InstanceOptionsSchema } from '~/schemas/options'
+import { createClient } from '~/shared/client'
 
 const schemaProvider = new ZodProvider(InstanceOptionsSchema)
 

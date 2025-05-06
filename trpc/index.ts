@@ -3,8 +3,8 @@ import { z } from 'zod' // Import z from zod
 import { optionsAtom } from '~/atoms/storage'
 import { getSupportedSearchEngines, registerAll } from '~/background/dynamic-search-engine'
 import { BackgroundRuntime } from '~/background/runtime'
-import { contract, createClient } from '~/client'
 import { SupportSearchEnginesSchema } from '~/schemas/supported-engines'
+import { contract, createClient } from '~/shared/client'
 import { store } from '~/store' // Import store
 
 const t = initTRPC.create({

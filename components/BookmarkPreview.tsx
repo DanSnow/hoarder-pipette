@@ -1,7 +1,7 @@
 import invariant from 'tiny-invariant'
 import type { z } from 'zod'
-import type { BookmarkSchema } from '~/client'
 import { cn, decodeEntities } from '~/lib/utils'
+import type { BookmarkSchema } from '~/shared/client'
 import { BookmarkMenu } from './BookmarkMenu'
 
 export function BookmarkPreview({ bookmark }: { bookmark: z.infer<typeof BookmarkSchema> }) {

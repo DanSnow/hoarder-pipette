@@ -4,7 +4,7 @@ import { Outlet, createRootRouteWithContext } from '@tanstack/react-router'
 import { useMedia } from 'react-use'
 import { Toaster } from '~/components/ui/toaster'
 import { cn } from '~/lib/utils'
-import type { Context } from '../context'
+import type { Context } from '../../../shared/context'
 
 export const Route = createRootRouteWithContext<Context>()({
   component: RouteComponent,
