@@ -78,12 +78,14 @@ tasks:
       - chrome
     local: true
     platform: node
-  dev-firefox:
+  dev-firefox: # extension.js currently can't load extension...
     type: run
     command:
       - tsx
       - dev-scripts/dev.mts
       - firefox
+    env:
+      npm_config_user_agent: pnpm # workaround to force extension.js to use pnpm
     local: true
     platform: node
   start:

@@ -25,7 +25,7 @@ const args = pipe(
   Match.when(['chrome', undefined], () => ['--browser=chrome']),
   Match.when(['firefox', undefined], () => ['--browser=firefox']),
   Match.when(['chrome', Match.string], ([, path]) => [`--chromium-binary=${path}`]),
-  Match.when(['firefox', Match.string], ([, path]) => [`--firefox-binary=${path}`]),
+  Match.when(['firefox', Match.string], ([, path]) => [`--gecko-binary=${path}`]),
   Match.exhaustive,
 )
 
