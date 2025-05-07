@@ -12,8 +12,8 @@ importers:
   .:
     dependencies:
       '@autoform/react':
-        specifier: 3.0.0
-        version: 3.0.0(react-hook-form@7.56.3(react@19.1.0))(react@19.1.0)(yup@1.6.1)(zod@3.24.4)
+        specifier: 3.1.0
+        version: 3.1.0(react-hook-form@7.56.3(react@19.1.0))(react@19.1.0)(yup@1.6.1)(zod@3.24.4)
       '@autoform/zod':
         specifier: 2.1.0
         version: 2.1.0(zod@3.24.4)
@@ -342,8 +342,8 @@ packages:
   '@autoform/core@2.1.0':
     resolution: {integrity: sha512-8eJIa4psajV3A5reJB3MFWfqSJkEQwU5NEuG+LzJNJlwy5c/T7Q/U1D+ofswGJOGWhDdAKUrLylkcnbL8pfkpg==}
 
-  '@autoform/react@3.0.0':
-    resolution: {integrity: sha512-YDntApZUeiKiSjrp6tZKy/SNxtXE8rkG7SfR2Dn02hhJy4V/iO2AYzN6fQ7kg9jSLtnj+RpbVKt5B71MdhBoHw==}
+  '@autoform/react@3.1.0':
+    resolution: {integrity: sha512-VmEom1uJ7f7e0Cx8NWI2bb1b+Y4LlM+tw3hTH6hh4kly9cTZVJufeFMk1drMHKJ4u08DCTGRjM83g6dtI6waDw==}
     peerDependencies:
       react: 19.1.0
       react-hook-form: ^7
@@ -7652,7 +7652,7 @@ snapshots:
 
   '@autoform/core@2.1.0': {}
 
-  '@autoform/react@3.0.0(react-hook-form@7.56.3(react@19.1.0))(react@19.1.0)(yup@1.6.1)(zod@3.24.4)':
+  '@autoform/react@3.1.0(react-hook-form@7.56.3(react@19.1.0))(react@19.1.0)(yup@1.6.1)(zod@3.24.4)':
     dependencies:
       '@autoform/core': 2.1.0
       '@autoform/yup': 2.1.0(yup@1.6.1)

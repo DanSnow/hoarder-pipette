@@ -75,7 +75,7 @@
   },
   "private": true,
   "dependencies": {
-    "@autoform/react": "3.0.0",
+    "@autoform/react": "3.1.0",
     "@autoform/zod": "2.1.0",
     "@hookform/resolvers": "5.0.1",
     "@iconify-json/lucide": "1.2.41",
