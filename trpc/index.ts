@@ -1,4 +1,5 @@
 import { TRPCError, initTRPC } from '@trpc/server'
+import browser from 'webextension-polyfill' // Import browser from polyfill
 import { z } from 'zod' // Import z from zod
 import { optionsAtom } from '~/atoms/storage'
 import { getSupportedSearchEngines, registerAll } from '~/background/dynamic-search-engine'
@@ -50,6 +51,15 @@ export const appRouter = t.router({
 
       return response.body
     }),
+  checkAllUrlsPermission: publicProcedure.query(async () => {
+    // Check for <all_urls> permission in the background script
+    if (browser.permissions) {
+      // Use browser from polyfill
+      return browser.permissions.contains({ origins: ['<all_urls>'] })
+    }
+    // Assume true in non-extension environments (e.g., Storybook)
+    return true
+  }),
 })
 
 export type AppRouter = typeof appRouter
