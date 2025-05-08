@@ -1,29 +1,36 @@
 # Active Context: Hoarder's Pipette
 
 ## Current work focus
-Resolved the content script CSP issue in Firefox by proxying API calls through the background script.
+Addressing the content script CSP issue for images in Firefox.
 
 ## Recent changes
-- Modified `trpc/index.ts` to add a `searchBookmark` procedure in the background script's tRPC router.
-- Modified `content/HoarderCard.tsx` to use the tRPC client from `shared/context.ts` and `useQuery(trpc.searchBookmark.queryOptions(...))` to fetch data via the background script.
-- Deleted the unused `hooks/use-client.ts` file.
-- Removed the unused `clientAtom` from `atoms/storage.ts`.
+- Modified `trpc/index.ts` to add a `searchBookmark` procedure in the background script's tRPC router (previously done).
+- Modified `content/HoarderCard.tsx` to use the tRPC client from `shared/context.ts` and `useQuery(trpc.searchBookmark.queryOptions(...))` to fetch data via the background script (previously done).
+- Deleted the unused `hooks/use-client.ts` file (previously done).
+- Removed the unused `clientAtom` from `atoms/storage.ts` (previously done).
+- Modified `trpc/index.ts` to add a `checkAllUrlsPermission` procedure in the background script's tRPC router to check for the `<all_urls>` permission.
+- Modified `components/BookmarkPreview.tsx` to use the `checkAllUrlsPermission` tRPC procedure to determine if the image should be displayed, conditionally hiding it based on browser environment (Firefox) and the presence of the `<all_urls>` permission.
 
 ## Next steps
-- The image loaded in `components/BookmarkPreview.tsx` is also blocked by CSP in Firefox. Investigate how to resolve this issue. Consider using a different approach or proxying mechanism if possible.
+- Implement image proxying through the background script for Firefox when the `<all_urls>` permission is granted.
+- Add an option in the settings page to allow users to enable/disable image display, which will trigger the permission request.
 
 ## Active decisions and considerations
-- The primary decision was to leverage the existing tRPC infrastructure for inter-script communication to bypass the content script's strict CSP in Firefox.
-- Confirmed the correct usage of `useQuery` with tRPC's `queryOptions` and handling of nested response structures.
+- Leveraging `import.meta.env.EXTENSION_BROWSER === 'firefox'` to reliably detect the Firefox environment within the content script.
+- Using a tRPC procedure (`checkAllUrlsPermission`) in the background script to check for the `<all_urls>` permission, as `browser.permissions` is not available in content scripts.
+- Conditionally rendering the image element in `components/BookmarkPreview.tsx` based on the Firefox environment and the result of the tRPC call for permission status.
+- The next step is to implement the image proxying mechanism via tRPC for the case where the permission *is* granted.
 
 ## Important patterns and preferences
 - Utilizing tRPC for secure and type-safe communication between different parts of the browser extension (content script and background script).
-- Following the pattern of proxying network requests that are restricted by content script CSP through the background script.
+- Following the pattern of proxying network requests and browser API calls that are restricted by content script CSP through the background script.
+- Using `webextension-polyfill` for cross-browser compatibility with browser APIs.
+- Using `import.meta.env.EXTENSION_BROWSER` for build-time environment checks.
 
 ## Learnings and project insights
-- Successfully implemented proxying of API calls through the background script using tRPC.
-- Learned the correct syntax for using `@tanstack/react-query`'s `useQuery` with tRPC's `queryOptions`.
-- Understood the nested structure of the API response and how to access the relevant data (`data.result.data.json.bookmarks`).
-- Confirmed that the tRPC client in `shared/context.ts` is configured with a message-passing link suitable for extension communication.
-- The `ts-rest` client handles the JSON stringification of the query input internally based on the contract.
-- Jotai atoms outside of React components require using `store.get(atom)` to access their values.
+- Successfully implemented conditional rendering of the bookmark image in `components/BookmarkPreview.tsx` based on the browser environment and granted permissions, by checking the permission status via a tRPC call to the background script.
+- Confirmed that `import.meta.env.EXTENSION_BROWSER` is the correct way to check the target browser during development/build.
+- Learned that `browser.permissions` is not available in content scripts and permission checks must be performed in the background script.
+- Successfully added a new tRPC procedure in the background script to handle the permission check.
+- Successfully updated `components/BookmarkPreview.tsx` to use the new tRPC procedure with `@tanstack/react-query`'s `useQuery` and `queryOptions`.
+- Corrected the `useEffect` dependency array based on feedback to resolve a linter error.
