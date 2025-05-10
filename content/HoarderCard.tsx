@@ -54,7 +54,7 @@ export function HoarderCard({ className, userQuery }: { className?: string; user
   return (
     <Card className={className}>
       <CardHeader>
-        <h2 className="font-bold text-xl">Hoarder Bookmarks</h2>
+        <h2 className="font-bold text-xl">Karakeep Bookmarks</h2>
       </CardHeader>
       <CardContent>
         <ScrollArea className="@container h-72 pr-8">
