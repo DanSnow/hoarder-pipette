@@ -199,8 +199,8 @@ importers:
         specifier: 3.3.2
         version: 3.3.2
       extension:
-        specifier: 2.0.0-rc.25
-        version: 2.0.0-rc.25(@babel/core@7.27.1)(@prefresh/babel-plugin@0.5.1)(@types/express@4.17.21)(less@4.3.0)(postcss-load-config@4.0.2(postcss@8.5.3))(svelte@5.28.2)(typescript@5.8.3)(webpack@5.99.8(esbuild@0.25.4))
+        specifier: 2.0.0-rc.26
+        version: 2.0.0-rc.26(@babel/core@7.27.1)(@prefresh/babel-plugin@0.5.1)(@types/express@4.17.21)(less@4.3.0)(svelte@5.28.2)(typescript@5.8.3)(webpack@5.99.8(esbuild@0.25.4))
       postcss:
         specifier: 8.5.3
         version: 8.5.3
@@ -539,10 +539,6 @@ packages:
 
   '@capsizecss/unpack@2.4.0':
     resolution: {integrity: sha512-GrSU71meACqcmIUxPYOJvGKF0yryjN/L1aCuE9DViCTJI7bfkjgYDPD1zbNDcINJwSSP6UaBZY9GAbYDO7re0Q==}
-
-  '@colors/colors@1.6.0':
-    resolution: {integrity: sha512-Ir+AOibqzrIsL6ajt3Rz3LskB7OiMVHqltZmspbW/TJuTVuyOMirVqAkjfY6JISiLHgyNqicAC8AyHHGzNd/dA==}
-    engines: {node: '>=0.1.90'}
 
   '@csstools/cascade-layer-name-parser@2.0.4':
     resolution: {integrity: sha512-7DFHlPuIxviKYZrOiwVU/PiHLm3lLUR23OMuEEtfEOQTOp9hzQ2JjdY6X5H18RVuUPJqSCI+qNnD5iOLMVE0bA==}
@@ -3718,9 +3714,8 @@ packages:
     resolution: {integrity: sha512-+IxzY9BZOQd/XuYPRmrvEVjF/nqj5kgT4kEq7VofrDoM1MxoRjEWkrCC3EtLi59TVawxTAn+orJwFQcrqEN1+g==}
     engines: {node: '>=18'}
 
-  chrome-location@1.2.1:
-    resolution: {integrity: sha512-NPuxEKQ43JlEPjHsgU6HWk4ViLCWf4mlo3dz5s5syPSsq2AaekXnK6qTRwMmXhpTYXAVi4g5ncVnAbD9naz5fw==}
-    hasBin: true
+  chrome-location2@2.0.0:
+    resolution: {integrity: sha512-sV8Cwl9chk0xNTKsN1IwOEaRZ4HKx+fQRUH4sUT/blnyo2yJ38iwbmjH1ixl+3xlo52r45I7sA1sVjh5vi4jVg==}
 
   chrome-trace-event@1.0.4:
     resolution: {integrity: sha512-rNjApaLzuwaOTjCiT8lSDdGN1APCiqkChLMJxJPWLunPAt5fy8xgU9/jNOchV84wfIxrA0lRQB7oCT8jrn/wrQ==}
@@ -4150,10 +4145,8 @@ packages:
   eastasianwidth@0.2.0:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
 
-  edge-location@1.0.0:
-    resolution: {integrity: sha512-0GpxuTszfSbJl9Lf6PYvtisoCgX8MOIw/ylj/mfs/K4YmWG2OQns4CJzcjVKw9b9+mmvZe8h1M3pgdkiDTC23Q==}
-    engines: {node: '>=10'}
-    hasBin: true
+  edge-location@1.1.1:
+    resolution: {integrity: sha512-wxQJjudQO0bwED1lwn6kDJf0tnuGFnvKk80I6FxiUSUr1yTp/9PrPfowrVMl+Eeb+4uazKoloDaDRuBQ65qo1g==}
 
   ee-first@1.1.1:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
@@ -4350,16 +4343,16 @@ packages:
   extend@3.0.2:
     resolution: {integrity: sha512-fjquC59cD7CyW6urNXK0FBufkZcoiGG80wTuPujX590cB5Ttln20E2UB4S/WARVqhXffZl2LNgS+gQdPIIim/g==}
 
-  extension-create@2.0.0-rc.25:
-    resolution: {integrity: sha512-3Qp1u7My6zEbnte0p90Pe0LzlMbYNtOiOMY8JRS2xEpeVb1PTuc9kXjkVrbA8VT9dQyOddNk5X+eNRzZ5JA2YQ==}
+  extension-create@2.0.0-rc.26:
+    resolution: {integrity: sha512-44O9ElRlIoJzK1AAkc3H5hXOoV0TOYLbdCiJMQNKFoAyVqwcFssg8Xa7jALHkeTmS2K16uQLyp4SdPuFNVCrcg==}
     engines: {node: '>=18'}
 
-  extension-develop@2.0.0-rc.25:
-    resolution: {integrity: sha512-db+c1QVTIImqiva+yyZCahfxqktJEgaK/HkpiLfbpcgas7Vp8yfqzJOeN+RZR3RDqcgAoctbLAkmvKmEDWKwnA==}
+  extension-develop@2.0.0-rc.26:
+    resolution: {integrity: sha512-pQyRLrGPTFfUDlMPf87DvkuSCPn+cDGjEJds9O9+Va2tG0aTUFu5ibujmN5SYeV6CrjeYDhmPrO4LwaV1OvymA==}
     engines: {node: '>=18'}
 
-  extension@2.0.0-rc.25:
-    resolution: {integrity: sha512-3fQdSyMwkDFjwS8N/M6kryx1CsQ7oeGYB55cG5YN+NDn5X1pHaKs3sJ409YssagjEUAMMjwcCR2A5LrEd5hVBg==}
+  extension@2.0.0-rc.26:
+    resolution: {integrity: sha512-5NJJuSW85sBSb9wds4Pgk6WIHQJhSyhCiSL7mUF5F9uMPTk+IXod9zuGD2bB0KC5wujfKR18q+V7+fn+ZgxnWw==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -4421,6 +4414,9 @@ packages:
   find-up@6.3.0:
     resolution: {integrity: sha512-v2ZsoEuVHYy8ZIlYqwPe/39Cy+cFDzp4dXPaxNvkEuouymu+2Jbz0PxpKarJHYJTmv2HWT3O382qY8l4jMWthw==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
+
+  firefox-location2@1.0.0:
+    resolution: {integrity: sha512-kADmu5wYzE2pcZMH6X/C+v9iFss2G9VHSsOkC7SKFe4/eFQTwXYNZq2/THgi/qtabDXG5kp02EqzlPk8s/4QTg==}
 
   firefox-profile@4.7.0:
     resolution: {integrity: sha512-aGApEu5bfCNbA4PGUZiRJAIU6jKmghV2UVdklXAofnNtiDjqYw0czLS46W7IfFqVKgKhFB8Ao2YoNGHY4BoIMQ==}
@@ -4556,8 +4552,8 @@ packages:
   globrex@0.1.2:
     resolution: {integrity: sha512-uHJgbwAMwNFf5mLst7IWLNg14x1CkeqglJb/K3doi4dw6q2IvAAmM/Y81kevy83wP+Sst+nutFTYOGg3d1lsxg==}
 
-  go-git-it@2.0.4:
-    resolution: {integrity: sha512-i9h+VZO8bXnX+Io5Z0L8QRivb3nb1iTzV1/0DLFuouvOh9e2YMKQC/lizI6cvuKoSjTel41eHiRCyVwxZFmEEw==}
+  go-git-it@4.0.0-1:
+    resolution: {integrity: sha512-d2AAE7NCg4uMEmfwbBNPta1qhk/KfbzG56eOWEpYjNb/TFwXsOZl1o1m6PiQtMFolx+XqLijGXogh3ENI4JEuQ==}
     engines: {node: '>=16'}
     hasBin: true
 
@@ -6726,43 +6722,6 @@ packages:
     peerDependencies:
       svelte: ^3.0.0 || ^4.0.0-next.0 || ^5.0.0-next.1
 
-  svelte-preprocess@6.0.3:
-    resolution: {integrity: sha512-PLG2k05qHdhmRG7zR/dyo5qKvakhm8IJ+hD2eFRQmMLHp7X3eJnjeupUtvuRpbNiF31RjVw45W+abDwHEmP5OA==}
-    engines: {node: '>= 18.0.0'}
-    peerDependencies:
-      '@babel/core': ^7.10.2
-      coffeescript: ^2.5.1
-      less: ^3.11.3 || ^4.0.0
-      postcss: ^7 || ^8
-      postcss-load-config: '>=3'
-      pug: ^3.0.0
-      sass: ^1.26.8
-      stylus: '>=0.55'
-      sugarss: ^2.0.0 || ^3.0.0 || ^4.0.0
-      svelte: ^4.0.0 || ^5.0.0-next.100 || ^5.0.0
-      typescript: ^5.0.0
-    peerDependenciesMeta:
-      '@babel/core':
-        optional: true
-      coffeescript:
-        optional: true
-      less:
-        optional: true
-      postcss:
-        optional: true
-      postcss-load-config:
-        optional: true
-      pug:
-        optional: true
-      sass:
-        optional: true
-      stylus:
-        optional: true
-      sugarss:
-        optional: true
-      typescript:
-        optional: true
-
   svelte@5.28.2:
     resolution: {integrity: sha512-FbWBxgWOpQfhKvoGJv/TFwzqb4EhJbwCD17dB0tEpQiw1XyUEKZJtgm4nA4xq3LLsMo7hu5UY/BOFmroAxKTMg==}
     engines: {node: '>=18'}
@@ -7403,10 +7362,6 @@ packages:
     resolution: {integrity: sha512-zDRAqDSBudazdfM9zpiI30Fu9ve47htYXcGi3ln0wfKu2a7SmrT6F3VDoYONu//48V8Vz4TdCRNPjtvyRO3yBA==}
     hasBin: true
 
-  which@1.3.1:
-    resolution: {integrity: sha512-HxJdYWq1MTIQbJ3nw0cqssHoTNU267KlrDuGZ1WYlxDStUtKUhOaJmh112/TZmHxxUfuJqPXSOm7tDyas0OSIQ==}
-    hasBin: true
-
   which@2.0.2:
     resolution: {integrity: sha512-BLI3Tl1TW3Pvl70l3yq3Y64i+awpwXqsGBYWkkqMtnbXgrMD+yj7rhW0kuEDxzJaYXGjEW5ogapKNMEKNMjibA==}
     engines: {node: '>= 8'}
@@ -7927,8 +7882,6 @@ snapshots:
       fontkit: 2.0.4
     transitivePeerDependencies:
       - encoding
-
-  '@colors/colors@1.6.0': {}
 
   '@csstools/cascade-layer-name-parser@2.0.4(@csstools/css-parser-algorithms@3.0.4(@csstools/css-tokenizer@3.0.3))(@csstools/css-tokenizer@3.0.3)':
     dependencies:
@@ -11754,10 +11707,10 @@ snapshots:
 
   chownr@3.0.0: {}
 
-  chrome-location@1.2.1:
+  chrome-location2@2.0.0:
     dependencies:
       userhome: 1.0.1
-      which: 1.3.1
+      which: 2.0.2
 
   chrome-trace-event@1.0.4: {}
 
@@ -12119,7 +12072,7 @@ snapshots:
 
   eastasianwidth@0.2.0: {}
 
-  edge-location@1.0.0:
+  edge-location@1.1.1:
     dependencies:
       userhome: 1.0.1
       which: 2.0.2
@@ -12373,17 +12326,17 @@ snapshots:
 
   extend@3.0.2: {}
 
-  extension-create@2.0.0-rc.25:
+  extension-create@2.0.0-rc.26:
     dependencies:
-      '@colors/colors': 1.6.0
       '@types/firefox-webext-browser': 120.0.4
+      chalk: 5.4.1
       cross-spawn: 7.0.6
-      go-git-it: 2.0.4
+      go-git-it: 4.0.0-1
       package-manager-detector: 0.2.11
+      tiny-glob: 0.2.9
 
-  extension-develop@2.0.0-rc.25(@babel/core@7.27.1)(@prefresh/babel-plugin@0.5.1)(@types/express@4.17.21)(less@4.3.0)(postcss-load-config@4.0.2(postcss@8.5.3))(svelte@5.28.2)(typescript@5.8.3)(webpack@5.99.8(esbuild@0.25.4)):
+  extension-develop@2.0.0-rc.26(@babel/core@7.27.1)(@prefresh/babel-plugin@0.5.1)(@types/express@4.17.21)(less@4.3.0)(svelte@5.28.2)(typescript@5.8.3)(webpack@5.99.8(esbuild@0.25.4)):
     dependencies:
-      '@colors/colors': 1.6.0
       '@rspack/core': 1.3.8(@swc/helpers@0.5.17)
       '@rspack/dev-server': 1.1.1(@rspack/core@1.3.8(@swc/helpers@0.5.17))(@types/express@4.17.21)(webpack@5.99.8(esbuild@0.25.4))
       '@swc/helpers': 0.5.17
@@ -12392,17 +12345,19 @@ snapshots:
       adm-zip: 0.5.16
       axios: 1.9.0
       case-sensitive-paths-webpack-plugin: 2.4.0
+      chalk: 5.4.1
       chokidar: 4.0.3
-      chrome-location: 1.2.1
+      chrome-location2: 2.0.0
       content-security-policy-parser: 0.6.0
       cross-spawn: 7.0.6
       csv-loader: 3.0.5
       dotenv: 16.5.0
       dotenv-webpack: 8.1.0(webpack@5.99.8(esbuild@0.25.4))
-      edge-location: 1.0.0
+      edge-location: 1.1.1
+      firefox-location2: 1.0.0
       firefox-profile: 4.7.0
       fx-runner: 1.4.0
-      go-git-it: 2.0.4
+      go-git-it: 4.0.0-1
       ignore: 6.0.2
       loader-utils: 3.3.1
       micromatch: 4.0.8
@@ -12433,7 +12388,6 @@ snapshots:
       react-refresh: 0.14.2
       sass-loader: 16.0.5(@rspack/core@1.3.8(@swc/helpers@0.5.17))(webpack@5.99.8(esbuild@0.25.4))
       svelte-loader: 3.2.4(svelte@5.28.2)
-      svelte-preprocess: 6.0.3(@babel/core@7.27.1)(less@4.3.0)(postcss-load-config@4.0.2(postcss@8.5.3))(postcss@8.5.3)(svelte@5.28.2)(typescript@5.8.3)
       vue-loader: 17.4.2(@vue/compiler-sfc@3.5.13)(webpack@5.99.8(esbuild@0.25.4))
       vue-style-loader: 4.1.3
       vue-template-compiler: 2.7.16
@@ -12442,16 +12396,11 @@ snapshots:
       - '@prefresh/babel-plugin'
       - '@types/express'
       - bufferutil
-      - coffeescript
       - debug
       - less
       - node-sass
-      - postcss-load-config
-      - pug
       - sass
       - sass-embedded
-      - stylus
-      - sugarss
       - supports-color
       - svelte
       - typescript
@@ -12461,17 +12410,17 @@ snapshots:
       - webpack-cli
       - webpack-hot-middleware
 
-  extension@2.0.0-rc.25(@babel/core@7.27.1)(@prefresh/babel-plugin@0.5.1)(@types/express@4.17.21)(less@4.3.0)(postcss-load-config@4.0.2(postcss@8.5.3))(svelte@5.28.2)(typescript@5.8.3)(webpack@5.99.8(esbuild@0.25.4)):
+  extension@2.0.0-rc.26(@babel/core@7.27.1)(@prefresh/babel-plugin@0.5.1)(@types/express@4.17.21)(less@4.3.0)(svelte@5.28.2)(typescript@5.8.3)(webpack@5.99.8(esbuild@0.25.4)):
     dependencies:
-      '@colors/colors': 1.6.0
       '@types/chrome': 0.0.287
       '@types/firefox-webext-browser': 120.0.4
       '@types/node': 22.15.12
       '@types/react': 19.1.4
       '@types/react-dom': 19.1.5(@types/react@19.1.4)
+      chalk: 5.4.1
       commander: 12.1.0
-      extension-create: 2.0.0-rc.25
-      extension-develop: 2.0.0-rc.25(@babel/core@7.27.1)(@prefresh/babel-plugin@0.5.1)(@types/express@4.17.21)(less@4.3.0)(postcss-load-config@4.0.2(postcss@8.5.3))(svelte@5.28.2)(typescript@5.8.3)(webpack@5.99.8(esbuild@0.25.4))
+      extension-create: 2.0.0-rc.26
+      extension-develop: 2.0.0-rc.26(@babel/core@7.27.1)(@prefresh/babel-plugin@0.5.1)(@types/express@4.17.21)(less@4.3.0)(svelte@5.28.2)(typescript@5.8.3)(webpack@5.99.8(esbuild@0.25.4))
       semver: 7.7.1
       update-check: 1.5.4
       webextension-polyfill: 0.12.0
@@ -12480,16 +12429,11 @@ snapshots:
       - '@prefresh/babel-plugin'
       - '@types/express'
       - bufferutil
-      - coffeescript
       - debug
       - less
       - node-sass
-      - postcss-load-config
-      - pug
       - sass
       - sass-embedded
-      - stylus
-      - sugarss
       - supports-color
       - svelte
       - typescript
@@ -12568,6 +12512,11 @@ snapshots:
       locate-path: 7.2.0
       path-exists: 5.0.0
     optional: true
+
+  firefox-location2@1.0.0:
+    dependencies:
+      userhome: 1.0.1
+      which: 2.0.2
 
   firefox-profile@4.7.0:
     dependencies:
@@ -12705,9 +12654,8 @@ snapshots:
 
   globrex@0.1.2: {}
 
-  go-git-it@2.0.4:
+  go-git-it@4.0.0-1:
     dependencies:
-      '@colors/colors': 1.6.0
       progress: 2.0.3
 
   gopd@1.2.0: {}
@@ -15597,17 +15545,6 @@ snapshots:
       svelte-hmr: 0.14.12(svelte@5.28.2)
     optional: true
 
-  svelte-preprocess@6.0.3(@babel/core@7.27.1)(less@4.3.0)(postcss-load-config@4.0.2(postcss@8.5.3))(postcss@8.5.3)(svelte@5.28.2)(typescript@5.8.3):
-    dependencies:
-      svelte: 5.28.2
-    optionalDependencies:
-      '@babel/core': 7.27.1
-      less: 4.3.0
-      postcss: 8.5.3
-      postcss-load-config: 4.0.2(postcss@8.5.3)
-      typescript: 5.8.3
-    optional: true
-
   svelte@5.28.2:
     dependencies:
       '@ampproject/remapping': 2.3.0
@@ -16251,10 +16188,6 @@ snapshots:
     dependencies:
       is-absolute: 0.1.7
       isexe: 1.1.2
-
-  which@1.3.1:
-    dependencies:
-      isexe: 2.0.0
 
   which@2.0.2:
     dependencies:
