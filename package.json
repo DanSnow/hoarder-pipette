@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
-    "@effect/vitest": "0.22.1",
+    "@effect/vitest": "0.22.2",
     "@egoist/tailwindcss-icons": "1.9.0",
     "@iconify-json/simple-icons": "1.2.34",
     "@moonrepo/cli": "1.35.7",
