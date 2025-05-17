@@ -2,16 +2,20 @@
 
 ## Introduction
 
-Hoarder's Pipette is a Chrome extension that injects your bookmarks from your [Hoarder app](https://hoarder.app) into your search results. This helps you avoid missing relevant information that you might have already saved in your bookmarks. 
+Hoarder's Pipette is a Chrome extension that injects your bookmarks from your [Karakeep](https://karakeep.app)(formerly Hoarder) into your search results. This helps you avoid missing relevant information that you might have already saved in your bookmarks.
 
 ![demo](/assets/demo.png)
 
-Hoarder's Pipette integrates directly with the Hoarder app by utilizing its API. 
+Hoarder's Pipette integrates directly with Karakeep by using its API.
 
 ### Support Search Engines
 
 - Google
 - Ecosia
+- Startpage (can be enabled in settings)
+- Searxng (can be enabled in settings)
+- Brave (can be enabled in settings)
+- DuckDuckGo (can be enabled in settings)
 
 I plan to add support for more search engines in the future. If you'd like to see support for a specific search engine, please open an issue on this repository.
 
