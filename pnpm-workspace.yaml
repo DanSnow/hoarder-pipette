@@ -1,3 +1,19 @@
 packages:
   - .
   - docs
+
+overrides:
+  react: "19.1.0"
+
+ignoredBuiltDependencies:
+  - core-js-pure
+  - spawn-sync
+  - svelte-preprocess
+
+onlyBuiltDependencies:
+  - "@biomejs/biome"
+  - "@moonrepo/cli"
+  - "@swc/core"
+  - esbuild
+  - msw
+  - sharp

@@ -2,10 +2,10 @@ import { type ExtractAtomArgs, atom } from 'jotai'
 import { atomWithStorage } from 'jotai/utils'
 import type { AsyncStorage } from 'jotai/vanilla/utils/atomWithStorage'
 import type { ZodType } from 'zod'
-import { createClient } from '~/client'
 import { type StorageSchema, storage } from '~/lib/storage'
 import { LooseOptionsSchema } from '~/schemas/options'
 import { type UserSite, UserSitesSchema } from '~/schemas/user-sites'
+import { createClient } from '~/shared/client'
 
 function atomWithBrowserStorage<
   Key extends keyof StorageSchema,
@@ -31,8 +31,3 @@ export const optionsAtom = atomWithBrowserStorage('options', LooseOptionsSchema,
 })
 
 export const userSitesAtom = atomWithBrowserStorage('sites', UserSitesSchema, [] as UserSite[])
-
-export const clientAtom = atom(async (get) => {
-  const { apiKey, url } = await get(optionsAtom)
-  return createClient(url, apiKey)
-})

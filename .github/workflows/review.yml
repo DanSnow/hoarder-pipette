@@ -29,3 +29,26 @@ jobs:
           reporter: github-pr-review
           level: error
       - run: pnpm run typecheck
+
+  biome:
+    name: runner / biome
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: moonrepo/setup-toolchain@v0
+      - uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22.15.1"
+          cache: pnpm
+      - run: pnpm install
+      - name: Run Biome with reviewdog
+        uses: mongolyy/reviewdog-action-biome@v1.12.0
+        with:
+          github_token: ${{ secrets.github_token }}
+          reporter: github-pr-review
+      - run: pnpm run lint

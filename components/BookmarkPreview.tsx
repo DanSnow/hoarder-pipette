@@ -1,14 +1,35 @@
+import { useQuery } from '@tanstack/react-query' // Import useQuery
+import { useEffect, useState } from 'react'
 import invariant from 'tiny-invariant'
 import type { z } from 'zod'
-import type { BookmarkSchema } from '~/client'
 import { cn, decodeEntities } from '~/lib/utils'
+import type { BookmarkSchema } from '~/shared/client'
+import { trpc } from '~/shared/context' // Import trpc client
 import { BookmarkMenu } from './BookmarkMenu'
 
 export function BookmarkPreview({ bookmark }: { bookmark: z.infer<typeof BookmarkSchema> }) {
   invariant(bookmark.content.type === 'link', 'bookmark is not link')
 
   const { imageUrl, title, description } = bookmark.content
-  const hasImage = !!imageUrl
+
+  const isFirefox = import.meta.env.EXTENSION_BROWSER === 'firefox'
+  const [hasAllUrlsPermission, setHasAllUrlsPermission] = useState(!isFirefox) // Assume true if not Firefox
+
+  // Use tRPC to check for <all_urls> permission in the background script
+  const { data: permissionData, isLoading } = useQuery(
+    trpc.checkAllUrlsPermission.queryOptions(undefined, {
+      enabled: isFirefox, // Only check permission if in Firefox
+    }),
+  )
+
+  useEffect(() => {
+    if (isFirefox && !isLoading && permissionData !== undefined) {
+      setHasAllUrlsPermission(permissionData)
+    }
+  }, [isLoading, permissionData])
+
+  // Image should be displayed if imageUrl exists AND (it's not Firefox OR it is Firefox and has <all_urls> permission)
+  const shouldDisplayImage = imageUrl && (!isFirefox || hasAllUrlsPermission)
 
   return (
     <div className="relative">
@@ -17,11 +38,11 @@ export function BookmarkPreview({ bookmark }: { bookmark: z.infer<typeof Bookmar
           className={cn(
             'flex h-full @md:flex-row flex-col @md:items-center @md:gap-2 p-2 shadow-none transition-all duration-200 hover:shadow-lg dark:shadow-gray-500',
             {
-              'px-4': !hasImage,
+              'px-4': !shouldDisplayImage, // Adjust padding if image is not displayed
             },
           )}
         >
-          {imageUrl && (
+          {shouldDisplayImage && (
             <div className="relative aspect-square size-32 overflow-clip">
               <img className="absolute inset-0 m-auto object-contain" src={imageUrl} alt={title || 'image'} />
             </div>

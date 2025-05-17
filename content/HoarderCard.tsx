@@ -5,33 +5,27 @@ import { optionsAtom } from '~/atoms/storage'
 import { BookmarkPreview } from '~/components/BookmarkPreview'
 import { Card, CardContent, CardHeader } from '~/components/ui/card'
 import { ScrollArea, ScrollBar } from '~/components/ui/scroll-area'
-import { useClient } from '~/hooks/use-client'
+import { trpc } from '~/shared/context' // Import trpc client
 
 export function HoarderCard({ className, userQuery }: { className?: string; userQuery: string }) {
   const options = useAtomValue(optionsAtom)
-  const client = useClient()
-  const { data } = useQuery({
-    placeholderData: [],
-    enabled: Boolean(userQuery),
-    queryKey: ['bookmarksSearch', userQuery],
-    gcTime: 600_000, // 10 minutes,
-    staleTime: 300_000, // 5 minutes,
-    queryFn: async () => {
-      const response = await client.searchBookmark({
-        query: {
-          input: {
-            json: {
-              text: userQuery,
-            },
+  const { data } = useQuery(
+    // Use useQuery with trpc.searchBookmark.queryOptions
+    trpc.searchBookmark.queryOptions(
+      {
+        input: {
+          json: {
+            text: userQuery,
           },
         },
-      })
-      if (response.status !== 200) {
-        throw new Error('Failed to fetch bookmarks')
-      }
-      return response.body.result.data.json.bookmarks
-    },
-  })
+      },
+      {
+        enabled: Boolean(userQuery),
+        gcTime: 600_000, // 10 minutes,
+        staleTime: 300_000, // 5 minutes,
+      },
+    ),
+  )
 
   if (!options.apiKey || !options.url) {
     return (
@@ -47,7 +41,9 @@ export function HoarderCard({ className, userQuery }: { className?: string; user
     return null
   }
 
-  if (!data || data.length === 0) {
+  const bookmarks = data?.result?.data?.json?.bookmarks
+
+  if (!bookmarks || bookmarks.length === 0) {
     return null
   }
 
@@ -60,7 +56,7 @@ export function HoarderCard({ className, userQuery }: { className?: string; user
         <ScrollArea className="@container h-72 pr-8">
           <div className="flex flex-col gap-2">
             {pipe(
-              data,
+              bookmarks, // Use the bookmarks array
               Array.filter((bookmark) => bookmark.content.type === 'link'),
               Array.map((bookmark) => <BookmarkPreview key={bookmark.id} bookmark={bookmark} />),
             )}
