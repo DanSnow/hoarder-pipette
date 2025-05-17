@@ -12,6 +12,7 @@
       "docs/.astro/**/*",
       "**/node_modules/**/*",
       "src/options/routeTree.gen.ts",
+      "components/ui/**/*",
       ".vite-inspect/**/*",
       ".moon/cache/**/*"
     ]
