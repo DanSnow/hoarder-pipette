@@ -14,6 +14,7 @@ onlyBuiltDependencies:
   - "@biomejs/biome"
   - "@moonrepo/cli"
   - "@swc/core"
+  - "@tailwindcss/oxide"
   - esbuild
   - msw
   - sharp
