@@ -13,6 +13,12 @@ export const ecosia: SearchEngine = {
   matches: [ECOSIA_URL],
   getQuery: fromUrlQuery('q'),
   getRenderRoot: defineRenderRoot((container) => {
+    const aside = $('[data-test-id=sidebar]')
+    if (aside) {
+      aside.prepend(container)
+      return
+    }
+    // TODO: create sidebar if not exist
     const firstSearchResult = $('[data-test-id=mainline]')
     invariant(firstSearchResult, 'inject point not found')
     firstSearchResult.prepend(container)
