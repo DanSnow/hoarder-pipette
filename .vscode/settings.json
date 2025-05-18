@@ -10,6 +10,13 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "biomejs.biome"
   },
+  "[json]": {
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "editor.suggest.insertMode": "replace",
+    "editor.defaultFormatter": "biomejs.biome"
+  },
   "harper-ls.linters.spaces": false,
   "files.watcherExclude": {
     "**/.git/objects/**": true,
