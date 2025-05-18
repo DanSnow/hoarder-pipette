@@ -14,8 +14,14 @@ export const google: SearchEngine = {
   optionalMatches: ['https://www.google.de/search', 'https://www.google.ca/search'],
   getQuery: fromUrlQuery('q'),
   getRenderRoot: defineRenderRoot((container) => {
-    const searchContainer = $('#rso')
-    invariant(searchContainer, 'inject point not found')
-    searchContainer.prepend(container)
+    const aside = $('#rhs')
+    if (aside) {
+      aside.prepend(container)
+    } else {
+      const center = $('#center_col')
+      invariant(center, 'inject point not found')
+      container.id = 'rhs'
+      center.parentElement?.append(container)
+    }
   }),
 }
