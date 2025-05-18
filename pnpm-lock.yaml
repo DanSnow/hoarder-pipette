@@ -175,7 +175,7 @@ importers:
         specifier: 8.6.14
         version: 8.6.14(storybook@8.6.14(prettier@3.5.3))
       '@t3-oss/env-core':
-        specifier: ^0.13.4
+        specifier: 0.13.4
         version: 0.13.4(arktype@2.1.20)(typescript@5.8.3)(zod@3.24.4)
       '@tailwindcss/postcss':
         specifier: 4.1.7
@@ -202,7 +202,7 @@ importers:
         specifier: 3.3.2
         version: 3.3.2
       dotenv:
-        specifier: ^16.5.0
+        specifier: 16.5.0
         version: 16.5.0
       extension:
         specifier: 2.0.0-rc.23
@@ -247,7 +247,7 @@ importers:
         specifier: 6.0.1
         version: 6.0.1
       zx:
-        specifier: ^8.5.4
+        specifier: 8.5.4
         version: 8.5.4
 
   docs:
