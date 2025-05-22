@@ -99,8 +99,8 @@ importers:
         specifier: 0.511.0
         version: 0.511.0(react@19.1.0)
       mutative:
-        specifier: 1.1.0
-        version: 1.1.0
+        specifier: 1.2.0
+        version: 1.2.0
       react:
         specifier: 19.1.0
         version: 19.1.0
@@ -5546,8 +5546,8 @@ packages:
     resolution: {integrity: sha512-2eznPJP8z2BFLX50tf0LuODrpINqP1RVIm/CObbTcBRITQgmC/TjcREF1NeTBzIcR5XO/ukWo+YHOjBbFwIupg==}
     hasBin: true
 
-  mutative@1.1.0:
-    resolution: {integrity: sha512-2PJADREjOusk3iJkD3rXV2YjAxTuaLxdfqtqTEt6vcY07LtEBR1seHuBHXWEIuscqRDGvbauYPs+A4Rj/KTczQ==}
+  mutative@1.2.0:
+    resolution: {integrity: sha512-1muFw45Lwjso6TSBGiXfbjKS01fVSD/qaqBfTo/gXgp79e8KM4Sa1XP/S4iN2/DvSdIZgjFJI+JIhC7eKf3GTg==}
     engines: {node: '>=14.0'}
 
   mute-stream@2.0.0:
@@ -14052,7 +14052,7 @@ snapshots:
       dns-packet: 5.6.1
       thunky: 1.1.0
 
-  mutative@1.1.0: {}
+  mutative@1.2.0: {}
 
   mute-stream@2.0.0: {}
 
