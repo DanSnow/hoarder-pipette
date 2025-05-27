@@ -145,7 +145,7 @@ importers:
         specifier: 1.9.4
         version: 1.9.4
       '@effect/language-service':
-        specifier: ^0.17.1
+        specifier: 0.17.1
         version: 0.17.1
       '@effect/vitest':
         specifier: 0.22.4
