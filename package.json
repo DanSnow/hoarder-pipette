@@ -86,7 +86,7 @@
     "clsx": "2.1.1",
     "date-fns": "4.1.0",
     "effect": "3.15.4",
-    "jotai": "2.12.4",
+    "jotai": "2.12.5",
     "lucide-react": "0.511.0",
     "mutative": "1.2.0",
     "react": "19.1.0",
