@@ -148,8 +148,8 @@ importers:
         specifier: 0.17.1
         version: 0.17.1
       '@effect/vitest':
-        specifier: 0.23.1
-        version: 0.23.1(effect@3.16.1)(vitest@3.1.4(@types/debug@4.1.12)(@types/node@22.15.19)(jiti@2.4.2)(less@4.3.0)(lightningcss@1.30.1)(msw@2.8.4(@types/node@22.15.19)(typescript@5.8.3))(terser@5.39.2)(tsx@4.19.4))
+        specifier: 0.23.2
+        version: 0.23.2(effect@3.16.1)(vitest@3.1.4(@types/debug@4.1.12)(@types/node@22.15.19)(jiti@2.4.2)(less@4.3.0)(lightningcss@1.30.1)(msw@2.8.4(@types/node@22.15.19)(typescript@5.8.3))(terser@5.39.2)(tsx@4.19.4))
       '@egoist/tailwindcss-icons':
         specifier: 1.9.0
         version: 1.9.0(tailwindcss@4.1.8)
@@ -824,10 +824,10 @@ packages:
   '@effect/language-service@0.17.1':
     resolution: {integrity: sha512-dA0DamelGlQtCppi8k4Bqq/Exr2L6anjtqzlj9Xf27eAyNdapvnqrwzDiQXMYD8zb4Xvul3gQuYBzvfFVz0baQ==}
 
-  '@effect/vitest@0.23.1':
-    resolution: {integrity: sha512-spu4DvTiKVmlA4oUq5DVpgI5Vr+yEIcDKJavY41zfjiIWWvAFzXv5buJ+FhKVoAiwtLaDeJs4F1gxwWyzeZiZQ==}
+  '@effect/vitest@0.23.2':
+    resolution: {integrity: sha512-ghbhui0agtF8uuW0V5wZLcyQgIlnKpwz/W3qyImRdnOtwwP5keiBy68aCJFgtSF+UJ1JIYuBBpftzPTR/8h5MQ==}
     peerDependencies:
-      effect: ^3.16.1
+      effect: ^3.16.2
       vitest: ^3.0.0
 
   '@egoist/tailwindcss-icons@1.9.0':
@@ -8280,7 +8280,7 @@ snapshots:
 
   '@effect/language-service@0.17.1': {}
 
-  '@effect/vitest@0.23.1(effect@3.16.1)(vitest@3.1.4(@types/debug@4.1.12)(@types/node@22.15.19)(jiti@2.4.2)(less@4.3.0)(lightningcss@1.30.1)(msw@2.8.4(@types/node@22.15.19)(typescript@5.8.3))(terser@5.39.2)(tsx@4.19.4))':
+  '@effect/vitest@0.23.2(effect@3.16.1)(vitest@3.1.4(@types/debug@4.1.12)(@types/node@22.15.19)(jiti@2.4.2)(less@4.3.0)(lightningcss@1.30.1)(msw@2.8.4(@types/node@22.15.19)(typescript@5.8.3))(terser@5.39.2)(tsx@4.19.4))':
     dependencies:
       effect: 3.16.1
       vitest: 3.1.4(@types/debug@4.1.12)(@types/node@22.15.19)(jiti@2.4.2)(less@4.3.0)(lightningcss@1.30.1)(msw@2.8.4(@types/node@22.15.19)(typescript@5.8.3))(terser@5.39.2)(tsx@4.19.4)
