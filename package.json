@@ -43,7 +43,7 @@
     "dotenv": "16.5.0",
     "extension": "2.0.0-rc.23",
     "fx-runner": "1.4.0",
-    "image-size": "^2.0.2",
+    "image-size": "2.0.2",
     "postcss": "8.5.4",
     "shadcn": "2.6.0",
     "storybook": "8.6.14",
