@@ -16,11 +16,11 @@ tasks:
   build-logo:
     type: build
     script: |
-      rsvg-convert -h 16 assets/logo.svg > assets/logo16.png
-      rsvg-convert -h 48 assets/logo.svg > assets/logo48.png
-      rsvg-convert -h 96 assets/logo.svg > assets/logo96.png
-      rsvg-convert -h 128 assets/logo.svg > assets/logo128.png
-      rsvg-convert -h 256 assets/logo.svg > assets/logo256.png
+      rsvg-convert -w 16 -h 16 assets/logo.svg > assets/logo16.png
+      rsvg-convert -w 48 -h 48 assets/logo.svg > assets/logo48.png
+      rsvg-convert -w 96 -h 96 assets/logo.svg > assets/logo96.png
+      rsvg-convert -w 128 -h 128 assets/logo.svg > assets/logo128.png
+      rsvg-convert -w 256 -h 256 assets/logo.svg > assets/logo256.png
       magick -size 128x128 xc:transparent assets/canvas.png
       magick assets/canvas.png assets/logo96.png -gravity center -composite assets/logo96-extent.png
       rm assets/canvas.png
