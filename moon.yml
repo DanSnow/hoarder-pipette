@@ -15,22 +15,10 @@ fileGroups:
 tasks:
   build-logo:
     type: build
-    script: |
-      rsvg-convert -w 16 assets/logo.svg > assets/tmp/logo16.png
-      rsvg-convert -w 48 assets/logo.svg > assets/tmp/logo48.png
-      rsvg-convert -w 96 assets/logo.svg > assets/tmp/logo96.png
-      rsvg-convert -w 128 assets/logo.svg > assets/tmp/logo128.png
-      rsvg-convert -w 256 assets/logo.svg > assets/tmp/logo256.png
-      magick assets/tmp/logo16.png -resize 16x16 -background none -gravity center -extent 16x16 assets/logo16.png
-      magick assets/tmp/logo48.png -resize 48x48 -background none -gravity center -extent 48x48 assets/logo48.png
-      magick assets/tmp/logo96.png -resize 96x96 -background none -gravity center -extent 96x96 assets/logo96.png
-      magick assets/tmp/logo128.png -resize 128x128 -background none -gravity center -extent 128x128 assets/logo128.png
-      magick assets/tmp/logo256.png -resize 256x256 -background none -gravity center -extent 256x256 assets/logo256.png
-      magick -size 128x128 xc:transparent assets/canvas.png
-      magick assets/canvas.png assets/logo96.png -gravity center -composite assets/logo96-extent.png
-      rm assets/canvas.png
-      cp assets/logo.svg docs/public/favicon.svg
-      cp assets/logo.svg docs/src/assets/logo.svg
+    command:
+      - tsx
+      - build/build-logo.mts
+    platform: node
     inputs:
       - assets/logo.svg
     outputs:
