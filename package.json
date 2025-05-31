@@ -28,7 +28,7 @@
     "@storybook/addon-docs": "^9.0.2",
     "@storybook/react": "9.0.2",
     "@storybook/react-vite": "9.0.2",
-    "@t3-oss/env-core": "0.13.4",
+    "@t3-oss/env-core": "0.13.6",
     "@tailwindcss/postcss": "4.1.8",
     "@tanstack/router-plugin": "1.120.13",
     "@types/react": "19.1.6",
