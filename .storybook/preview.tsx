@@ -1,7 +1,6 @@
 import type { Preview } from '@storybook/react'
 import { RouterProvider, createMemoryHistory } from '@tanstack/react-router'
 import { Provider, createStore } from 'jotai'
-import React from 'react'
 import { router } from '../src/options/router'
 import '../styles/tailwind.css'
 import { StoryContext } from '../src/options/components/StoryRenderer'
