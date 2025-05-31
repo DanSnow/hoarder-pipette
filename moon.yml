@@ -79,7 +79,7 @@ tasks:
     type: run
     command:
       - tsx
-      - dev-scripts/dev.mts
+      - build/dev.mts
       - chrome
     local: true
     platform: node
