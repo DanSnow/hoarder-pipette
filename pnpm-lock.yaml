@@ -169,8 +169,8 @@ importers:
         specifier: 9.0.2
         version: 9.0.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(rollup@4.41.1)(storybook@9.0.2(@testing-library/dom@10.4.0)(prettier@3.5.3))(typescript@5.8.3)(vite@6.3.5(@types/node@22.15.29)(jiti@2.4.2)(less@4.3.0)(lightningcss@1.30.1)(terser@5.40.0)(tsx@4.19.4))
       '@t3-oss/env-core':
-        specifier: 0.13.4
-        version: 0.13.4(arktype@2.1.20)(typescript@5.8.3)(zod@3.25.42)
+        specifier: 0.13.6
+        version: 0.13.6(arktype@2.1.20)(typescript@5.8.3)(zod@3.25.42)
       '@tailwindcss/postcss':
         specifier: 4.1.8
         version: 4.1.8
@@ -2791,14 +2791,16 @@ packages:
   '@swc/helpers@0.5.17':
     resolution: {integrity: sha512-5IKx/Y13RsYd+sauPb2x+U/xZikHjolzfuDgTAl/Tdf3Q8rslRvC19NKDLgAJQ6wsqADk10ntlv08nPFw/gO/A==}
 
-  '@t3-oss/env-core@0.13.4':
-    resolution: {integrity: sha512-zVOiYO0+CF7EnBScz8s0O5JnJLPTU0lrUi8qhKXfIxIJXvI/jcppSiXXsEJwfB4A6XZawY/Wg/EQGKANi/aPmQ==}
+  '@t3-oss/env-core@0.13.6':
+    resolution: {integrity: sha512-rH7FgcB1YGbv/tvv7mdJAxnNvRkK/gEqdVYBwO1AVvaWOTNuftqskxkEYyhM2O+lkNPJmTq5YBE7H+Unl7CLjg==}
     peerDependencies:
       arktype: ^2.1.0
       typescript: '>=5.0.0'
       valibot: ^1.0.0-beta.7 || ^1.0.0
       zod: ^3.24.0 || ^4.0.0-beta.0
     peerDependenciesMeta:
+      arktype:
+        optional: true
       typescript:
         optional: true
       valibot:
@@ -7502,8 +7504,10 @@ snapshots:
   '@ark/schema@0.46.0':
     dependencies:
       '@ark/util': 0.46.0
+    optional: true
 
-  '@ark/util@0.46.0': {}
+  '@ark/util@0.46.0':
+    optional: true
 
   '@astrojs/compiler@2.12.0': {}
 
@@ -10526,10 +10530,9 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  '@t3-oss/env-core@0.13.4(arktype@2.1.20)(typescript@5.8.3)(zod@3.25.42)':
-    dependencies:
-      arktype: 2.1.20
+  '@t3-oss/env-core@0.13.6(arktype@2.1.20)(typescript@5.8.3)(zod@3.25.42)':
     optionalDependencies:
+      arktype: 2.1.20
       typescript: 5.8.3
       zod: 3.25.42
 
@@ -11228,6 +11231,7 @@ snapshots:
     dependencies:
       '@ark/schema': 0.46.0
       '@ark/util': 0.46.0
+    optional: true
 
   array-flatten@1.1.1: {}
 
