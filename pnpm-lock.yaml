@@ -213,6 +213,9 @@ importers:
       fx-runner:
         specifier: 1.4.0
         version: 1.4.0
+      image-size:
+        specifier: ^2.0.2
+        version: 2.0.2
       postcss:
         specifier: 8.5.4
         version: 8.5.4
@@ -4850,6 +4853,11 @@ packages:
   image-size@0.5.5:
     resolution: {integrity: sha512-6TDAlDPZxUFCv+fuOkIoXT/V/f3Qbq8e37p+YOiYrUv3v9cc3/6x78VdfPgFVaB9dZYeLUfKgHRebpkm/oP2VQ==}
     engines: {node: '>=0.10.0'}
+    hasBin: true
+
+  image-size@2.0.2:
+    resolution: {integrity: sha512-IRqXKlaXwgSMAMtpNzZa1ZAe8m+Sa1770Dhk8VkSsP9LS+iHD62Zd8FQKs8fbPiagBE7BzoFX23cxFnwshpV6w==}
+    engines: {node: '>=16.x'}
     hasBin: true
 
   import-fresh@3.3.1:
@@ -13338,6 +13346,8 @@ snapshots:
 
   image-size@0.5.5:
     optional: true
+
+  image-size@2.0.2: {}
 
   import-fresh@3.3.1:
     dependencies:
