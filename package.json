@@ -6,8 +6,12 @@
   },
   "name": "hoarder-pipette",
   "description": "An extension to inject bookmarks from your Hoarder app",
-  "version": "1.4.0",
-  "keywords": ["extension", "browser-extension", "hoarder"],
+  "version": "1.4.1",
+  "keywords": [
+    "extension",
+    "browser-extension",
+    "hoarder"
+  ],
   "scripts": {
     "build": "moon run build --",
     "start": "moon run start --",
