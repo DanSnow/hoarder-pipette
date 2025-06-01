@@ -8,15 +8,9 @@
   "author": "David Peng",
   "background": {
     "chromium:service_worker": "./background/index.ts",
-    "firefox:scripts": [
-      "./background/index.ts"
-    ]
+    "firefox:scripts": ["./background/index.ts"]
   },
-  "permissions": [
-    "storage",
-    "activeTab",
-    "scripting"
-  ],
+  "permissions": ["storage", "activeTab", "scripting"],
   "options_ui": {
     "page": "./src/options.html"
   },
@@ -31,18 +25,11 @@
   },
   "content_scripts": [
     {
-      "matches": [
-        "https://www.google.com/search*",
-        "https://www.ecosia.org/search*"
-      ],
-      "js": [
-        "./content/content.tsx"
-      ]
+      "matches": ["https://www.google.com/search*", "https://www.ecosia.org/search*"],
+      "js": ["./content/content.tsx"]
     }
   ],
-  "optional_host_permissions": [
-    "*://*/*"
-  ],
+  "optional_host_permissions": ["*://*/*"],
   "firefox:browser_specific_settings": {
     "gecko": {
       "id": "hoarder-pipette@dansnow.github.io"
