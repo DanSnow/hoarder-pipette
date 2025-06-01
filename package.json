@@ -23,7 +23,7 @@
     "@effect/language-service": "0.17.1",
     "@effect/vitest": "0.23.3",
     "@egoist/tailwindcss-icons": "1.9.0",
-    "@iconify-json/simple-icons": "1.2.36",
+    "@iconify-json/simple-icons": "1.2.37",
     "@moonrepo/cli": "1.36.3",
     "@storybook/addon-a11y": "9.0.3",
     "@storybook/addon-docs": "9.0.3",
