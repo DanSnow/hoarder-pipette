@@ -29,6 +29,7 @@
     "@egoist/tailwindcss-icons": "1.9.0",
     "@iconify-json/simple-icons": "1.2.36",
     "@moonrepo/cli": "1.36.3",
+    "@storybook/addon-a11y": "9.0.3",
     "@storybook/addon-docs": "9.0.3",
     "@storybook/addon-vitest": "9.0.3",
     "@storybook/react": "9.0.3",

@@ -159,6 +159,9 @@ importers:
       '@moonrepo/cli':
         specifier: 1.36.3
         version: 1.36.3
+      '@storybook/addon-a11y':
+        specifier: 9.0.3
+        version: 9.0.3(storybook@9.0.3(@testing-library/dom@10.4.0)(prettier@3.5.3))
       '@storybook/addon-docs':
         specifier: 9.0.3
         version: 9.0.3(@types/react@19.1.6)(storybook@9.0.3(@testing-library/dom@10.4.0)(prettier@3.5.3))
@@ -2749,6 +2752,11 @@ packages:
   '@standard-schema/utils@0.3.0':
     resolution: {integrity: sha512-e7Mew686owMaPJVNNLs55PUvgz371nKgwsc4vxE49zsODpJEnxgxRo2y/OKrqueavXgZNMDVj3DdHFlaSAeU8g==}
 
+  '@storybook/addon-a11y@9.0.3':
+    resolution: {integrity: sha512-ydhNJZP9MaTv4dxViE9LbRhEFrDOS9I3/LqoOFrRm2oZZLmEUHPoJLuy46U2GIiPgMqiQ1j5xsc8b/ZeUhJ35g==}
+    peerDependencies:
+      storybook: ^9.0.3
+
   '@storybook/addon-docs@9.0.3':
     resolution: {integrity: sha512-t9QjjSZJjw43D9fXqwPjzY/VeBx8kpb9qWzhzsFIWbFgqTGx7OdWV9JYfeqDwiQ73jCPUUyiZM1NCJeIrJeLfw==}
     peerDependencies:
@@ -3514,6 +3522,10 @@ packages:
     hasBin: true
     peerDependencies:
       postcss: ^8.1.0
+
+  axe-core@4.10.3:
+    resolution: {integrity: sha512-Xm7bpRXnDSX2YE2YFfBk2FnF0ep6tmG7xPh8iHee8MIcrgq762Nkce856dYtJYLkuIoYZvGfTs/PbZhideTcEg==}
+    engines: {node: '>=4'}
 
   axios@1.9.0:
     resolution: {integrity: sha512-re4CqKTJaURpzbLHtIi6XpDv20/CnpXOtjRY5/CU32L8gU8ek9UIivcfvSWvmKEngmVbrUtPpdDwWDWL7DNHvg==}
@@ -10557,6 +10569,12 @@ snapshots:
 
   '@standard-schema/utils@0.3.0': {}
 
+  '@storybook/addon-a11y@9.0.3(storybook@9.0.3(@testing-library/dom@10.4.0)(prettier@3.5.3))':
+    dependencies:
+      '@storybook/global': 5.0.0
+      axe-core: 4.10.3
+      storybook: 9.0.3(@testing-library/dom@10.4.0)(prettier@3.5.3)
+
   '@storybook/addon-docs@9.0.3(@types/react@19.1.6)(storybook@9.0.3(@testing-library/dom@10.4.0)(prettier@3.5.3))':
     dependencies:
       '@mdx-js/react': 3.1.0(@types/react@19.1.6)(react@19.1.0)
@@ -11520,6 +11538,8 @@ snapshots:
       postcss: 8.5.4
       postcss-value-parser: 4.2.0
     optional: true
+
+  axe-core@4.10.3: {}
 
   axios@1.9.0:
     dependencies:
