@@ -9,8 +9,6 @@ name: test
 jobs:
   test:
     runs-on: ubuntu-latest
-    container:
-      image: mcr.microsoft.com/playwright:v1.52.0-noble
     steps:
       - uses: actions/checkout@v4
         with:
@@ -24,6 +22,15 @@ jobs:
           node-version: "22.16.0"
           cache: "pnpm"
       - run: pnpm install
+      - run: pnpx playwright install chromium --with-deps
+      - id: playwright_version
+        run: |
+          echo "playwright_version=$(pnpm why playwright --json | jq -r '.[0].devDependencies.playwright.version')" >> $GITHUB_OUTPUT
+      - uses: actions/cache@v4
+        with:
+          path: '~/.cache/ms-playwright'
+          key: ${{ runner.os }}-moon-${{ steps.playwright_version.outputs.playwright_version }}
+
       - uses: actions/cache@v4
         with:
           path: .moon/cache
