@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
+import { expect } from 'storybook/test'
 import { SearchEngineDetail } from './SearchEngineDetail'
 
 const meta = {
@@ -28,5 +29,9 @@ export const Default: Story = {
         },
       ],
     },
+  },
+  play: async ({ canvas }) => {
+    await expect(canvas.getByText('Google')).toBeVisible()
+    await expect(canvas.getByText('https://google.com/search')).toBeVisible()
   },
 }

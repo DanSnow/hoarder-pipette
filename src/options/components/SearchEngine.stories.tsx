@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { expect } from 'storybook/test'
 
 import { ListBox } from '~/components/ui/listbox'
 import { SearchEngine } from './SearchEngine'
@@ -35,6 +36,9 @@ export const Default: Story = {
       ],
     },
   },
+  play: async ({ canvas }) => {
+    await expect(canvas.getByText('Google')).toBeVisible()
+  },
 }
 
 export const PartialEnabled: Story = {
@@ -60,6 +64,9 @@ export const PartialEnabled: Story = {
       ],
     },
   },
+  play: async ({ canvas }) => {
+    await expect(canvas.getByText('Google')).toBeVisible()
+  },
 }
 
 export const Disabled: Story = {
@@ -78,5 +85,8 @@ export const Disabled: Story = {
         },
       ],
     },
+  },
+  play: async ({ canvas }) => {
+    await expect(canvas.getByText('StartPage')).toBeVisible()
   },
 }
