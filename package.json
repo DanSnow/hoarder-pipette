@@ -34,7 +34,7 @@
     "@tailwindcss/postcss": "4.1.8",
     "@tanstack/router-plugin": "1.120.15",
     "@types/react": "19.1.6",
-    "@types/react-dom": "19.1.5",
+    "@types/react-dom": "19.1.6",
     "@types/webextension-polyfill": "0.12.3",
     "@types/webpack-env": "1.18.8",
     "@vitest/browser": "3.2.1",
