@@ -7,7 +7,7 @@ import tailwindcss from '@tailwindcss/vite'
 // https://astro.build/config
 export default defineConfig({
   site: 'https://dansnow.github.io',
-  base: 'hoarder-pipette',
+  base: process.env.NODE_ENV === 'production' ? '/hoarder-pipette' : '/',
 
   integrations: [
     starlight({
