@@ -10,9 +10,7 @@ Hoarder's Pipette integrates directly with Karakeep by using its API.
 
 ### Firefox Support
 
-Starting from version 1.4.0, Hoarder's Pipette supports Firefox. While it's not yet available on the official Firefox Add-ons store, it is planned for future release.
-
-If you want to try it out on Firefox, you can download the `.xpi` file from the [latest release page](https://github.com/DanSnow/hoarder-pipette/releases/latest) on GitHub and install it manually.
+Hoarder's Pipette is now available on the official [Firefox Add-ons store](https://addons.mozilla.org/zh-TW/firefox/addon/hoarder-s-pipette/).
 
 ### Supported Search Engines
 

@@ -6,13 +6,29 @@ sidebar:
 ---
 
 import ChromeWebstore from '@/components/ChromeWebstore.astro'
+import FirefoxAddonStore from '@/components/FirefoxAddonStore.astro'
 import { Aside } from '@astrojs/starlight/components';
 
 ## Install from extension store
 
+### Chrome
+
 <ChromeWebstore />
 
+### Firefox
+
+<FirefoxAddonStore />
+
 ## Install from GitHub
+
+### Chrome
+
+1. Download the [latest release](https://github.com/DanSnow/hoarder-pipette/releases/latest) of the extension from GitHub
+2. Unzip the downloaded file
+3. Open Chrome and go to `chrome://extensions/`
+4. Make sure you have developer mode enabled
+5. Click on the "Load unpacked" button
+6. Select the folder containing the `manifest.json` file in the unzipped file
 
 ### Firefox
 
@@ -24,12 +40,3 @@ import { Aside } from '@astrojs/starlight/components';
 <Aside type="caution">
 Add-ons installed using the "Load Temporary Add-on..." method are **temporary** and will be removed when you close and restart Firefox. This is the current method for manual installation until Hoarder's Pipette is available on the official Firefox Add-ons store. For a persistent installation, please await the official store release.
 </Aside>
-
-### Chrome
-
-1. Download the [latest release](https://github.com/DanSnow/hoarder-pipette/releases/latest) of the extension from GitHub
-2. Unzip the downloaded file
-3. Open Chrome and go to `chrome://extensions/`
-4. Make sure you have developer mode enabled
-5. Click on the "Load unpacked" button
-6. Select the folder containing the `manifest.json` file in the unzipped file
