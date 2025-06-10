@@ -45,7 +45,7 @@
     "extension": "2.0.0-rc.23",
     "fx-runner": "1.4.0",
     "image-size": "2.0.2",
-    "playwright": "1.52.0",
+    "playwright": "1.53.0",
     "postcss": "8.5.4",
     "shadcn": "2.6.1",
     "storybook": "9.0.8",
