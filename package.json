@@ -47,7 +47,7 @@
     "image-size": "2.0.2",
     "playwright": "1.53.0",
     "postcss": "8.5.5",
-    "shadcn": "2.6.1",
+    "shadcn": "2.6.3",
     "storybook": "9.0.8",
     "tailwindcss": "4.1.8",
     "typed-query-selector": "2.12.0",
