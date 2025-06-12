@@ -21,8 +21,8 @@ importers:
         specifier: 5.1.1
         version: 5.1.1(react-hook-form@7.57.0(react@19.1.0))
       '@iconify-json/lucide':
-        specifier: 1.2.47
-        version: 1.2.47
+        specifier: 1.2.48
+        version: 1.2.48
       '@radix-ui/react-checkbox':
         specifier: 1.3.2
         version: 1.3.2(@types/react-dom@19.1.6(@types/react@19.1.8))(@types/react@19.1.8)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -1055,8 +1055,8 @@ packages:
     peerDependencies:
       react-hook-form: ^7.55.0
 
-  '@iconify-json/lucide@1.2.47':
-    resolution: {integrity: sha512-kI7IK5I3iWRcJeAZv9yBSEQ26EETgTVeUYJNXkJ9QN8raWvmRMLB/PICdcfyOWBTaaEosru8MNxKEwbJfnrnUQ==}
+  '@iconify-json/lucide@1.2.48':
+    resolution: {integrity: sha512-jDVqOHEF7XUwHJzx7fhwVXnx638lL89wOfmBob5UJofSGGIYV544zktmHr4CzKePslDBgl3MPKEpmFU/RfzppQ==}
 
   '@iconify-json/simple-icons@1.2.38':
     resolution: {integrity: sha512-mvMeFQgVjoHanQE9Q7ihmriEXAorjLZW+crUgQspDjFpzWuQp2RZMTppl1MN6TQztMVTsNFgF6LDKsp+v1RYRg==}
@@ -8485,7 +8485,7 @@ snapshots:
       '@standard-schema/utils': 0.3.0
       react-hook-form: 7.57.0(react@19.1.0)
 
-  '@iconify-json/lucide@1.2.47':
+  '@iconify-json/lucide@1.2.48':
     dependencies:
       '@iconify/types': 2.0.0
 
