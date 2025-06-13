@@ -13,10 +13,10 @@ importers:
     dependencies:
       '@autoform/react':
         specifier: 3.1.0
-        version: 3.1.0(react-hook-form@7.57.0(react@19.1.0))(react@19.1.0)(yup@1.6.1)(zod@3.25.63)
+        version: 3.1.0(react-hook-form@7.57.0(react@19.1.0))(react@19.1.0)(yup@1.6.1)(zod@3.25.64)
       '@autoform/zod':
         specifier: 2.2.0
-        version: 2.2.0(zod@3.25.63)
+        version: 2.2.0(zod@3.25.64)
       '@hookform/resolvers':
         specifier: 5.1.1
         version: 5.1.1(react-hook-form@7.57.0(react@19.1.0))
@@ -73,7 +73,7 @@ importers:
         version: 11.3.1(@tanstack/react-query@5.80.7(react@19.1.0))(@trpc/client@11.3.1(@trpc/server@11.3.1(typescript@5.8.3))(typescript@5.8.3))(@trpc/server@11.3.1(typescript@5.8.3))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.8.3)
       '@ts-rest/core':
         specifier: 3.52.1
-        version: 3.52.1(@types/node@22.15.29)(zod@3.25.63)
+        version: 3.52.1(@types/node@22.15.29)(zod@3.25.64)
       '@webext-core/messaging':
         specifier: 2.2.0
         version: 2.2.0
@@ -138,8 +138,8 @@ importers:
         specifier: 0.12.0
         version: 0.12.0
       zod:
-        specifier: 3.25.63
-        version: 3.25.63
+        specifier: 3.25.64
+        version: 3.25.64
     devDependencies:
       '@biomejs/biome':
         specifier: 1.9.4
@@ -176,7 +176,7 @@ importers:
         version: 9.0.9(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(rollup@4.41.1)(storybook@9.0.9(@testing-library/dom@10.4.0)(prettier@3.5.3))(typescript@5.8.3)(vite@6.3.5(@types/node@22.15.29)(jiti@2.4.2)(less@4.3.0)(lightningcss@1.30.1)(terser@5.40.0)(tsx@4.19.4))
       '@t3-oss/env-core':
         specifier: 0.13.4
-        version: 0.13.4(arktype@2.1.20)(typescript@5.8.3)(zod@3.25.63)
+        version: 0.13.4(arktype@2.1.20)(typescript@5.8.3)(zod@3.25.64)
       '@tailwindcss/postcss':
         specifier: 4.1.8
         version: 4.1.8
@@ -7609,6 +7609,9 @@ packages:
   zod@3.25.63:
     resolution: {integrity: sha512-3ttCkqhtpncYXfP0f6dsyabbYV/nEUW+Xlu89jiXbTBifUfjaSqXOG6JnQPLtqt87n7KAmnMqcjay6c0Wq0Vbw==}
 
+  zod@3.25.64:
+    resolution: {integrity: sha512-hbP9FpSZf7pkS7hRVUrOjhwKJNyampPgtXKc3AN6DsWtoHsg2Sb4SQaS4Tcay380zSwd2VPo9G9180emBACp5g==}
+
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
 
@@ -7700,7 +7703,7 @@ snapshots:
     dependencies:
       sitemap: 8.0.0
       stream-replace-string: 2.0.0
-      zod: 3.25.63
+      zod: 3.25.64
 
   '@astrojs/starlight-tailwind@4.0.1(@astrojs/starlight@0.34.4(astro@5.9.3(@types/node@22.15.29)(jiti@2.4.2)(less@4.3.0)(lightningcss@1.30.1)(rollup@4.41.1)(terser@5.40.0)(tsx@4.19.4)(typescript@5.8.3)))(tailwindcss@4.1.8)':
     dependencies:
@@ -7754,11 +7757,11 @@ snapshots:
 
   '@autoform/core@2.2.0': {}
 
-  '@autoform/react@3.1.0(react-hook-form@7.57.0(react@19.1.0))(react@19.1.0)(yup@1.6.1)(zod@3.25.63)':
+  '@autoform/react@3.1.0(react-hook-form@7.57.0(react@19.1.0))(react@19.1.0)(yup@1.6.1)(zod@3.25.64)':
     dependencies:
       '@autoform/core': 2.2.0
       '@autoform/yup': 2.2.0(yup@1.6.1)
-      '@autoform/zod': 2.2.0(zod@3.25.63)
+      '@autoform/zod': 2.2.0(zod@3.25.64)
       '@hookform/resolvers': 3.10.0(react-hook-form@7.57.0(react@19.1.0))
       react: 19.1.0
       react-hook-form: 7.57.0(react@19.1.0)
@@ -7771,10 +7774,10 @@ snapshots:
       '@autoform/core': 2.2.0
       yup: 1.6.1
 
-  '@autoform/zod@2.2.0(zod@3.25.63)':
+  '@autoform/zod@2.2.0(zod@3.25.64)':
     dependencies:
       '@autoform/core': 2.2.0
-      zod: 3.25.63
+      zod: 3.25.64
 
   '@babel/code-frame@7.27.1':
     dependencies:
@@ -8814,8 +8817,8 @@ snapshots:
       express-rate-limit: 7.5.0(express@5.1.0)
       pkce-challenge: 5.0.0
       raw-body: 3.0.0
-      zod: 3.25.63
-      zod-to-json-schema: 3.24.5(zod@3.25.63)
+      zod: 3.25.64
+      zod-to-json-schema: 3.24.5(zod@3.25.64)
     transitivePeerDependencies:
       - supports-color
 
@@ -10691,12 +10694,12 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  '@t3-oss/env-core@0.13.4(arktype@2.1.20)(typescript@5.8.3)(zod@3.25.63)':
+  '@t3-oss/env-core@0.13.4(arktype@2.1.20)(typescript@5.8.3)(zod@3.25.64)':
     dependencies:
       arktype: 2.1.20
     optionalDependencies:
       typescript: 5.8.3
-      zod: 3.25.63
+      zod: 3.25.64
 
   '@tailwindcss/node@4.1.8':
     dependencies:
@@ -10815,7 +10818,7 @@ snapshots:
       '@tanstack/virtual-file-routes': 1.120.17
       prettier: 3.5.3
       tsx: 4.19.4
-      zod: 3.25.63
+      zod: 3.25.64
     optionalDependencies:
       '@tanstack/react-router': 1.120.20(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
 
@@ -10837,7 +10840,7 @@ snapshots:
       babel-dead-code-elimination: 1.0.10
       chokidar: 3.6.0
       unplugin: 2.3.5
-      zod: 3.25.63
+      zod: 3.25.64
     optionalDependencies:
       '@tanstack/react-router': 1.120.20(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       vite: 6.3.5(@types/node@22.15.29)(jiti@2.4.2)(less@4.3.0)(lightningcss@1.30.1)(terser@5.40.0)(tsx@4.19.4)
@@ -10906,10 +10909,10 @@ snapshots:
       mkdirp: 2.1.6
       path-browserify: 1.0.1
 
-  '@ts-rest/core@3.52.1(@types/node@22.15.29)(zod@3.25.63)':
+  '@ts-rest/core@3.52.1(@types/node@22.15.29)(zod@3.25.64)':
     optionalDependencies:
       '@types/node': 22.15.29
-      zod: 3.25.63
+      zod: 3.25.64
 
   '@types/aria-query@5.0.4': {}
 
@@ -15422,8 +15425,8 @@ snapshots:
       stringify-object: 5.0.0
       ts-morph: 18.0.0
       tsconfig-paths: 4.2.0
-      zod: 3.25.63
-      zod-to-json-schema: 3.24.5(zod@3.25.63)
+      zod: 3.25.64
+      zod-to-json-schema: 3.24.5(zod@3.25.64)
     transitivePeerDependencies:
       - '@types/node'
       - supports-color
@@ -16527,12 +16530,18 @@ snapshots:
     dependencies:
       zod: 3.25.63
 
+  zod-to-json-schema@3.24.5(zod@3.25.64):
+    dependencies:
+      zod: 3.25.64
+
   zod-to-ts@1.2.0(typescript@5.8.3)(zod@3.25.63):
     dependencies:
       typescript: 5.8.3
       zod: 3.25.63
 
   zod@3.25.63: {}
+
+  zod@3.25.64: {}
 
   zwitch@2.0.4: {}
 
