@@ -39,20 +39,11 @@ function OptionsForm() {
           return
         }
 
-        if (res.status !== 200) {
-          if (res.message) {
-            toast({
-              title: 'Invalid config, please check your config and try again.',
-              description: res.message,
-            })
-          } else {
-            toast({
-              title: 'Invalid config, please check your config and try again.',
-              description: `Expected status 200, but got ${res.status}`,
-            })
-          }
-          return
-        }
+        toast({
+          title: 'Invalid config, please check your config and try again.',
+          description: res.message || `Expected status 200, but got ${res.status}`,
+        })
+        return
 
         console.log(res)
       } catch (error) {
