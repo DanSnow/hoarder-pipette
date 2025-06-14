@@ -8,118 +8,160 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-// Import Routes
+import { Route as rootRouteImport } from './routes/__root'
+import { Route as StoryRenderRouteImport } from './routes/story-render'
+import { Route as SearchEnginesRouteImport } from './routes/_search-engines'
+import { Route as LayoutRouteImport } from './routes/_layout'
+import { Route as LayoutIndexRouteImport } from './routes/_layout/index'
+import { Route as LayoutSearchEnginesRouteImport } from './routes/_layout/search-engines'
+import { Route as SearchEnginesSearchEnginesApplyRouteImport } from './routes/_search-engines/search-engines.apply'
+import { Route as SearchEnginesSearchEnginesIdRouteImport } from './routes/_search-engines/search-engines.$id'
 
-import { Route as rootRoute } from './routes/__root'
-import { Route as StoryRenderImport } from './routes/story-render'
-import { Route as SearchEnginesImport } from './routes/_search-engines'
-import { Route as LayoutImport } from './routes/_layout'
-import { Route as LayoutIndexImport } from './routes/_layout/index'
-import { Route as LayoutSearchEnginesImport } from './routes/_layout/search-engines'
-import { Route as SearchEnginesSearchEnginesApplyImport } from './routes/_search-engines/search-engines.apply'
-import { Route as SearchEnginesSearchEnginesIdImport } from './routes/_search-engines/search-engines.$id'
-
-// Create/Update Routes
-
-const StoryRenderRoute = StoryRenderImport.update({
+const StoryRenderRoute = StoryRenderRouteImport.update({
   id: '/story-render',
   path: '/story-render',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any)
-
-const SearchEnginesRoute = SearchEnginesImport.update({
+const SearchEnginesRoute = SearchEnginesRouteImport.update({
   id: '/_search-engines',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any)
-
-const LayoutRoute = LayoutImport.update({
+const LayoutRoute = LayoutRouteImport.update({
   id: '/_layout',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any)
-
-const LayoutIndexRoute = LayoutIndexImport.update({
+const LayoutIndexRoute = LayoutIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => LayoutRoute,
 } as any)
-
-const LayoutSearchEnginesRoute = LayoutSearchEnginesImport.update({
+const LayoutSearchEnginesRoute = LayoutSearchEnginesRouteImport.update({
   id: '/search-engines',
   path: '/search-engines',
   getParentRoute: () => LayoutRoute,
 } as any)
-
 const SearchEnginesSearchEnginesApplyRoute =
-  SearchEnginesSearchEnginesApplyImport.update({
+  SearchEnginesSearchEnginesApplyRouteImport.update({
     id: '/search-engines/apply',
     path: '/search-engines/apply',
     getParentRoute: () => SearchEnginesRoute,
   } as any)
-
 const SearchEnginesSearchEnginesIdRoute =
-  SearchEnginesSearchEnginesIdImport.update({
+  SearchEnginesSearchEnginesIdRouteImport.update({
     id: '/search-engines/$id',
     path: '/search-engines/$id',
     getParentRoute: () => SearchEnginesRoute,
   } as any)
 
-// Populate the FileRoutesByPath interface
+export interface FileRoutesByFullPath {
+  '/story-render': typeof StoryRenderRoute
+  '/search-engines': typeof LayoutSearchEnginesRoute
+  '/': typeof LayoutIndexRoute
+  '/search-engines/$id': typeof SearchEnginesSearchEnginesIdRoute
+  '/search-engines/apply': typeof SearchEnginesSearchEnginesApplyRoute
+}
+export interface FileRoutesByTo {
+  '/story-render': typeof StoryRenderRoute
+  '/search-engines': typeof LayoutSearchEnginesRoute
+  '/': typeof LayoutIndexRoute
+  '/search-engines/$id': typeof SearchEnginesSearchEnginesIdRoute
+  '/search-engines/apply': typeof SearchEnginesSearchEnginesApplyRoute
+}
+export interface FileRoutesById {
+  __root__: typeof rootRouteImport
+  '/_layout': typeof LayoutRouteWithChildren
+  '/_search-engines': typeof SearchEnginesRouteWithChildren
+  '/story-render': typeof StoryRenderRoute
+  '/_layout/search-engines': typeof LayoutSearchEnginesRoute
+  '/_layout/': typeof LayoutIndexRoute
+  '/_search-engines/search-engines/$id': typeof SearchEnginesSearchEnginesIdRoute
+  '/_search-engines/search-engines/apply': typeof SearchEnginesSearchEnginesApplyRoute
+}
+export interface FileRouteTypes {
+  fileRoutesByFullPath: FileRoutesByFullPath
+  fullPaths:
+    | '/story-render'
+    | '/search-engines'
+    | '/'
+    | '/search-engines/$id'
+    | '/search-engines/apply'
+  fileRoutesByTo: FileRoutesByTo
+  to:
+    | '/story-render'
+    | '/search-engines'
+    | '/'
+    | '/search-engines/$id'
+    | '/search-engines/apply'
+  id:
+    | '__root__'
+    | '/_layout'
+    | '/_search-engines'
+    | '/story-render'
+    | '/_layout/search-engines'
+    | '/_layout/'
+    | '/_search-engines/search-engines/$id'
+    | '/_search-engines/search-engines/apply'
+  fileRoutesById: FileRoutesById
+}
+export interface RootRouteChildren {
+  LayoutRoute: typeof LayoutRouteWithChildren
+  SearchEnginesRoute: typeof SearchEnginesRouteWithChildren
+  StoryRenderRoute: typeof StoryRenderRoute
+}
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/_layout': {
-      id: '/_layout'
-      path: ''
-      fullPath: ''
-      preLoaderRoute: typeof LayoutImport
-      parentRoute: typeof rootRoute
+    '/story-render': {
+      id: '/story-render'
+      path: '/story-render'
+      fullPath: '/story-render'
+      preLoaderRoute: typeof StoryRenderRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/_search-engines': {
       id: '/_search-engines'
       path: ''
       fullPath: ''
-      preLoaderRoute: typeof SearchEnginesImport
-      parentRoute: typeof rootRoute
+      preLoaderRoute: typeof SearchEnginesRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/story-render': {
-      id: '/story-render'
-      path: '/story-render'
-      fullPath: '/story-render'
-      preLoaderRoute: typeof StoryRenderImport
-      parentRoute: typeof rootRoute
-    }
-    '/_layout/search-engines': {
-      id: '/_layout/search-engines'
-      path: '/search-engines'
-      fullPath: '/search-engines'
-      preLoaderRoute: typeof LayoutSearchEnginesImport
-      parentRoute: typeof LayoutImport
+    '/_layout': {
+      id: '/_layout'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof LayoutRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/_layout/': {
       id: '/_layout/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof LayoutIndexImport
-      parentRoute: typeof LayoutImport
+      preLoaderRoute: typeof LayoutIndexRouteImport
+      parentRoute: typeof LayoutRoute
     }
-    '/_search-engines/search-engines/$id': {
-      id: '/_search-engines/search-engines/$id'
-      path: '/search-engines/$id'
-      fullPath: '/search-engines/$id'
-      preLoaderRoute: typeof SearchEnginesSearchEnginesIdImport
-      parentRoute: typeof SearchEnginesImport
+    '/_layout/search-engines': {
+      id: '/_layout/search-engines'
+      path: '/search-engines'
+      fullPath: '/search-engines'
+      preLoaderRoute: typeof LayoutSearchEnginesRouteImport
+      parentRoute: typeof LayoutRoute
     }
     '/_search-engines/search-engines/apply': {
       id: '/_search-engines/search-engines/apply'
       path: '/search-engines/apply'
       fullPath: '/search-engines/apply'
-      preLoaderRoute: typeof SearchEnginesSearchEnginesApplyImport
-      parentRoute: typeof SearchEnginesImport
+      preLoaderRoute: typeof SearchEnginesSearchEnginesApplyRouteImport
+      parentRoute: typeof SearchEnginesRoute
+    }
+    '/_search-engines/search-engines/$id': {
+      id: '/_search-engines/search-engines/$id'
+      path: '/search-engines/$id'
+      fullPath: '/search-engines/$id'
+      preLoaderRoute: typeof SearchEnginesSearchEnginesIdRouteImport
+      parentRoute: typeof SearchEnginesRoute
     }
   }
 }
-
-// Create and export the route tree
 
 interface LayoutRouteChildren {
   LayoutSearchEnginesRoute: typeof LayoutSearchEnginesRoute
@@ -148,124 +190,11 @@ const SearchEnginesRouteWithChildren = SearchEnginesRoute._addFileChildren(
   SearchEnginesRouteChildren,
 )
 
-export interface FileRoutesByFullPath {
-  '': typeof SearchEnginesRouteWithChildren
-  '/story-render': typeof StoryRenderRoute
-  '/search-engines': typeof LayoutSearchEnginesRoute
-  '/': typeof LayoutIndexRoute
-  '/search-engines/$id': typeof SearchEnginesSearchEnginesIdRoute
-  '/search-engines/apply': typeof SearchEnginesSearchEnginesApplyRoute
-}
-
-export interface FileRoutesByTo {
-  '': typeof SearchEnginesRouteWithChildren
-  '/story-render': typeof StoryRenderRoute
-  '/search-engines': typeof LayoutSearchEnginesRoute
-  '/': typeof LayoutIndexRoute
-  '/search-engines/$id': typeof SearchEnginesSearchEnginesIdRoute
-  '/search-engines/apply': typeof SearchEnginesSearchEnginesApplyRoute
-}
-
-export interface FileRoutesById {
-  __root__: typeof rootRoute
-  '/_layout': typeof LayoutRouteWithChildren
-  '/_search-engines': typeof SearchEnginesRouteWithChildren
-  '/story-render': typeof StoryRenderRoute
-  '/_layout/search-engines': typeof LayoutSearchEnginesRoute
-  '/_layout/': typeof LayoutIndexRoute
-  '/_search-engines/search-engines/$id': typeof SearchEnginesSearchEnginesIdRoute
-  '/_search-engines/search-engines/apply': typeof SearchEnginesSearchEnginesApplyRoute
-}
-
-export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | ''
-    | '/story-render'
-    | '/search-engines'
-    | '/'
-    | '/search-engines/$id'
-    | '/search-engines/apply'
-  fileRoutesByTo: FileRoutesByTo
-  to:
-    | ''
-    | '/story-render'
-    | '/search-engines'
-    | '/'
-    | '/search-engines/$id'
-    | '/search-engines/apply'
-  id:
-    | '__root__'
-    | '/_layout'
-    | '/_search-engines'
-    | '/story-render'
-    | '/_layout/search-engines'
-    | '/_layout/'
-    | '/_search-engines/search-engines/$id'
-    | '/_search-engines/search-engines/apply'
-  fileRoutesById: FileRoutesById
-}
-
-export interface RootRouteChildren {
-  LayoutRoute: typeof LayoutRouteWithChildren
-  SearchEnginesRoute: typeof SearchEnginesRouteWithChildren
-  StoryRenderRoute: typeof StoryRenderRoute
-}
-
 const rootRouteChildren: RootRouteChildren = {
   LayoutRoute: LayoutRouteWithChildren,
   SearchEnginesRoute: SearchEnginesRouteWithChildren,
   StoryRenderRoute: StoryRenderRoute,
 }
-
-export const routeTree = rootRoute
+export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-/* ROUTE_MANIFEST_START
-{
-  "routes": {
-    "__root__": {
-      "filePath": "__root.tsx",
-      "children": [
-        "/_layout",
-        "/_search-engines",
-        "/story-render"
-      ]
-    },
-    "/_layout": {
-      "filePath": "_layout.tsx",
-      "children": [
-        "/_layout/search-engines",
-        "/_layout/"
-      ]
-    },
-    "/_search-engines": {
-      "filePath": "_search-engines.tsx",
-      "children": [
-        "/_search-engines/search-engines/$id",
-        "/_search-engines/search-engines/apply"
-      ]
-    },
-    "/story-render": {
-      "filePath": "story-render.tsx"
-    },
-    "/_layout/search-engines": {
-      "filePath": "_layout/search-engines.tsx",
-      "parent": "/_layout"
-    },
-    "/_layout/": {
-      "filePath": "_layout/index.tsx",
-      "parent": "/_layout"
-    },
-    "/_search-engines/search-engines/$id": {
-      "filePath": "_search-engines/search-engines.$id.tsx",
-      "parent": "/_search-engines"
-    },
-    "/_search-engines/search-engines/apply": {
-      "filePath": "_search-engines/search-engines.apply.tsx",
-      "parent": "/_search-engines"
-    }
-  }
-}
-ROUTE_MANIFEST_END */
