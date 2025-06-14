@@ -90,7 +90,7 @@
     "date-fns": "4.1.0",
     "effect": "3.16.7",
     "jotai": "2.12.5",
-    "lucide-react": "0.514.0",
+    "lucide-react": "0.515.0",
     "mutative": "1.2.0",
     "react": "19.1.0",
     "react-aria-components": "1.9.0",
