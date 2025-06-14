@@ -1,14 +1,17 @@
 import { ZodProvider } from '@autoform/zod'
 import { createFileRoute } from '@tanstack/react-router'
+import { Effect, pipe } from 'effect'
 import { useAtom } from 'jotai'
 import { useCallback } from 'react'
+import { withTrailingSlash } from 'ufo'
 import type { z } from 'zod'
 import { optionsAtom } from '~/atoms/storage'
 import { AutoForm } from '~/components/ui/autoform'
 import { Button } from '~/components/ui/button'
 import { useToast } from '~/hooks/use-toast'
+import { toOriginUrl } from '~/lib/utils'
 import { InstanceOptionsSchema } from '~/schemas/options'
-import { createClient } from '~/shared/client'
+import { requestOrigin } from '../../permission'
 
 const schemaProvider = new ZodProvider(InstanceOptionsSchema)
 
@@ -18,20 +21,36 @@ export const Route = createFileRoute('/_layout/')({
 })
 
 function OptionsForm() {
+  const { queryClient, trpc } = Route.useRouteContext()
   const [initialValues, setOptions] = useAtom(optionsAtom)
   const { toast } = useToast()
   console.log(initialValues)
   const handleSubmit = useCallback(
     async (data: z.infer<typeof InstanceOptionsSchema>) => {
-      const client = createClient(data.url, data.apiKey)
-
       try {
-        const res = await client.getLists()
-        if (res.status !== 200) {
+        await pipe(data.url, withTrailingSlash, toOriginUrl, requestOrigin, Effect.runPromise)
+
+        const res = await queryClient.fetchQuery(trpc.checkInstance.queryOptions(data))
+        if (res.ok) {
+          await setOptions(data)
           toast({
-            title: 'Invalid config, please check your config and try again.',
-            description: `Expected status 200, but got ${res.status}`,
+            title: 'Config Saved',
           })
+          return
+        }
+
+        if (res.status !== 200) {
+          if (res.message) {
+            toast({
+              title: 'Invalid config, please check your config and try again.',
+              description: res.message,
+            })
+          } else {
+            toast({
+              title: 'Invalid config, please check your config and try again.',
+              description: `Expected status 200, but got ${res.status}`,
+            })
+          }
           return
         }
 
@@ -43,12 +62,8 @@ function OptionsForm() {
         })
         return
       }
-      await setOptions(data)
-      toast({
-        title: 'Config Saved',
-      })
     },
-    [toast, setOptions],
+    [toast, setOptions, queryClient, trpc],
   )
 
   return (

@@ -26,6 +26,38 @@ export const appRouter = t.router({
   listSupportedSearchEngines: publicProcedure.output(SupportSearchEnginesSchema).query(() => {
     return BackgroundRuntime.runPromise(getSupportedSearchEngines())
   }),
+  checkInstance: publicProcedure
+    .input(
+      z.object({
+        url: z.string(),
+        apiKey: z.string(),
+      }),
+    )
+    .output(
+      z.object({
+        ok: z.boolean(),
+        status: z.number(),
+        message: z.string().optional(),
+      }),
+    )
+    .query(async ({ input }) => {
+      const client = createClient(input.url, input.apiKey)
+
+      try {
+        const res = await client.getLists()
+        console.log(res)
+        return {
+          ok: res.status === 200,
+          status: res.status,
+        }
+      } catch (error) {
+        return {
+          ok: false,
+          status: 0,
+          message: (error as Error).message,
+        }
+      }
+    }),
   searchBookmark: publicProcedure
     .input(z.object({ input: z.object({ json: z.object({ text: z.string() }) }) })) // Correct input structure
     .output(contract.searchBookmark.responses[200])
