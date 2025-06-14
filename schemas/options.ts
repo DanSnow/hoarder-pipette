@@ -1,8 +1,5 @@
-import { buildZodFieldConfig } from '@autoform/react'
-import { z } from 'zod'
-import type { FieldTypes } from '~/components/ui/autoform'
-
-const fieldConfig = buildZodFieldConfig<FieldTypes>()
+import { fieldConfig } from '@autoform/zod/v4'
+import { z } from 'zod/v4'
 
 export const LooseOptionsSchema = z.object({
   url: z.string(),
@@ -10,18 +7,15 @@ export const LooseOptionsSchema = z.object({
 })
 
 export const InstanceOptionsSchema = z.object({
-  url: z
-    .string()
-    .url()
-    .superRefine(
-      fieldConfig({
-        label: 'URL',
-        fieldType: 'urlWithApiLink',
-        description: 'Your Karakeep instance URL',
-      }),
-    ),
-  apiKey: z.string().superRefine(
-    fieldConfig({
+  url: z.url().register(
+    ...fieldConfig({
+      label: 'URL',
+      fieldType: 'urlWithApiLink',
+      description: 'Your Karakeep instance URL',
+    }),
+  ),
+  apiKey: z.string().register(
+    ...fieldConfig({
       label: 'API Key',
       description: 'Your API key',
       inputProps: {

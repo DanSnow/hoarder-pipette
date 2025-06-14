@@ -1,6 +1,6 @@
 import { TRPCError, initTRPC } from '@trpc/server'
 import browser from 'webextension-polyfill' // Import browser from polyfill
-import { z } from 'zod' // Import z from zod
+import { z } from 'zod/v4' // Import z from zod
 import { optionsAtom } from '~/atoms/storage'
 import { getSupportedSearchEngines, registerAll } from '~/background/dynamic-search-engine'
 import { BackgroundRuntime } from '~/background/runtime'

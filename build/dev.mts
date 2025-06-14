@@ -2,7 +2,7 @@ import process from 'node:process'
 import { createEnv } from '@t3-oss/env-core'
 import { Match, pipe } from 'effect'
 import { loadEnv } from 'vite'
-import { z } from 'zod'
+import { z } from 'zod/v4'
 import { $ } from 'zx'
 
 const supportBrowser = z.enum(['chrome', 'firefox'])
