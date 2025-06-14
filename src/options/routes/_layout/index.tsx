@@ -31,6 +31,8 @@ function OptionsForm() {
         await pipe(data.url, withTrailingSlash, toOriginUrl, requestOrigin, Effect.runPromise)
 
         const res = await queryClient.fetchQuery(trpc.checkInstance.queryOptions(data))
+
+        console.log(res)
         if (res.ok) {
           await setOptions(data)
           toast({
@@ -44,8 +46,6 @@ function OptionsForm() {
           description: res.message || `Expected status 200, but got ${res.status}`,
         })
         return
-
-        console.log(res)
       } catch (error) {
         toast({
           title: 'Invalid config, please check your config and try again.',
