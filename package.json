@@ -83,7 +83,7 @@
     "@trpc/server": "11.4.1",
     "@trpc/tanstack-react-query": "11.4.1",
     "@ts-rest/core": "3.52.1",
-    "@webext-core/messaging": "2.2.0",
+    "@webext-core/messaging": "2.3.0",
     "@webext-core/storage": "1.2.0",
     "class-variance-authority": "0.7.1",
     "clsx": "2.1.1",
