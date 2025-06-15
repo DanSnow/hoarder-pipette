@@ -53,7 +53,7 @@
     "typed-query-selector": "2.12.0",
     "typescript": "5.8.3",
     "vite": "6.3.5",
-    "vite-plugin-inspect": "11.1.0",
+    "vite-plugin-inspect": "11.2.0",
     "vite-plugin-tsconfig-paths": "1.4.1",
     "vitest": "3.2.3",
     "webpack": "5.99.9",
