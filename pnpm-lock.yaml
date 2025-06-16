@@ -145,8 +145,8 @@ importers:
         specifier: 1.9.4
         version: 1.9.4
       '@effect/language-service':
-        specifier: 0.20.1
-        version: 0.20.1
+        specifier: 0.21.1
+        version: 0.21.1
       '@effect/vitest':
         specifier: 0.23.7
         version: 0.23.7(effect@3.16.7)(vitest@3.2.3)
@@ -848,8 +848,8 @@ packages:
   '@date-fns/tz@1.2.0':
     resolution: {integrity: sha512-LBrd7MiJZ9McsOgxqWX7AaxrDjcFVjWH/tIKJd7pnR7McaslGYOP1QmmiBXdJH/H/yLCT+rcQ7FaPBUxRGUtrg==}
 
-  '@effect/language-service@0.20.1':
-    resolution: {integrity: sha512-AgFazqxD2rlE0mc8V03BZw1XKghfOv9rrvR0M2xBv5haT4jHw5j07UK+Ln+dyeGmvrVXUT3a8Uc3pEkRJb+XHw==}
+  '@effect/language-service@0.21.1':
+    resolution: {integrity: sha512-0jMFSTYoY2oUsnXGXhs+uyJ9wpdEgTg+M8mz3dj74ChRLL42dMAagexv7ej0ppH/CRJYZeTze6yx/INE13TCmg==}
 
   '@effect/vitest@0.23.7':
     resolution: {integrity: sha512-WUe8mW4C+7oUjpPoUSsOsFOY5eC7tzPaZPygZ6F9W0LXuYhZksE19fc3jJYiHPbR+lHT/48ypBsS/BiQEJet+w==}
@@ -8358,7 +8358,7 @@ snapshots:
 
   '@date-fns/tz@1.2.0': {}
 
-  '@effect/language-service@0.20.1': {}
+  '@effect/language-service@0.21.1': {}
 
   '@effect/vitest@0.23.7(effect@3.16.7)(vitest@3.2.3)':
     dependencies:
