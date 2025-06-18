@@ -1,6 +1,6 @@
 import { useAtomValue } from 'jotai'
 import { joinURL } from 'ufo'
-import type { z } from 'zod'
+import type { z } from 'zod/v4'
 import { optionsAtom } from '~/atoms/storage'
 import {
   DropdownMenu,
@@ -9,14 +9,14 @@ import {
   DropdownMenuTrigger,
 } from '~/components/ui/dropdown-menu'
 import { cn } from '~/lib/utils'
-import type { BookmarkSchema } from '~/shared/client'
+import type { zBookmark } from '~/shared/client/zod.gen'
 import { Button } from './ui/button'
 
 export function BookmarkMenu({
   bookmark,
   className,
 }: {
-  bookmark: z.infer<typeof BookmarkSchema>
+  bookmark: z.infer<typeof zBookmark>
   className?: string
 }) {
   const { url } = useAtomValue(optionsAtom)
