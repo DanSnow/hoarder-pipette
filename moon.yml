@@ -103,3 +103,7 @@ tasks:
     command: tsc --noEmit --watch
     platform: node
     local: true
+  generate-client:
+    type: build
+    command: openapi-ts
+    platform: node

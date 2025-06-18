@@ -1,13 +1,13 @@
 import { useQuery } from '@tanstack/react-query' // Import useQuery
 import { useEffect, useState } from 'react'
 import invariant from 'tiny-invariant'
-import type { z } from 'zod'
+import type { z } from 'zod/v4'
 import { cn, decodeEntities } from '~/lib/utils'
-import type { BookmarkSchema } from '~/shared/client'
-import { trpc } from '~/shared/context' // Import trpc client
+import type { zBookmark } from '~/shared/client/zod.gen'
+import { orpc } from '~/shared/context' // Import orpc client
 import { BookmarkMenu } from './BookmarkMenu'
 
-export function BookmarkPreview({ bookmark }: { bookmark: z.infer<typeof BookmarkSchema> }) {
+export function BookmarkPreview({ bookmark }: { bookmark: z.infer<typeof zBookmark> }) {
   invariant(bookmark.content.type === 'link', 'bookmark is not link')
 
   const { imageUrl, title, description } = bookmark.content
@@ -15,9 +15,9 @@ export function BookmarkPreview({ bookmark }: { bookmark: z.infer<typeof Bookmar
   const isFirefox = import.meta.env.EXTENSION_BROWSER === 'firefox'
   const [hasAllUrlsPermission, setHasAllUrlsPermission] = useState(!isFirefox) // Assume true if not Firefox
 
-  // Use tRPC to check for <all_urls> permission in the background script
+  // Use oRPC to check for <all_urls> permission in the background script
   const { data: permissionData, isLoading } = useQuery(
-    trpc.checkAllUrlsPermission.queryOptions(undefined, {
+    orpc.checkAllUrlsPermission.queryOptions({
       enabled: isFirefox, // Only check permission if in Firefox
     }),
   )

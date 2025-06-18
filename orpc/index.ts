@@ -1,32 +1,26 @@
-import { TRPCError, initTRPC } from '@trpc/server'
+import { os, ORPCError } from '@orpc/server'
+import { joinURL } from 'ufo'
 import browser from 'webextension-polyfill' // Import browser from polyfill
 import { z } from 'zod/v4' // Import z from zod
 import { optionsAtom } from '~/atoms/storage'
 import { getSupportedSearchEngines, registerAll } from '~/background/dynamic-search-engine'
 import { BackgroundRuntime } from '~/background/runtime'
 import { SupportSearchEnginesSchema } from '~/schemas/supported-engines'
-import { contract, createClient } from '~/shared/client'
+import { createClient } from '~/shared/client/client'
+import { zBookmark } from '~/shared/client/zod.gen'
+import { karakeep } from '~/shared/karakeep'
 import { store } from '~/store' // Import store
 
-const t = initTRPC.create({
-  isServer: false,
-  allowOutsideOfServer: true,
-})
+const API_PREFIX = '/api/v1'
 
-const publicProcedure = t.procedure.use(async ({ input, next }) => {
-  const output = await next()
-  console.log({ input, output })
-  return output
-})
-
-export const appRouter = t.router({
-  registerAll: publicProcedure.mutation(() => {
+export const appRouter = os.router({
+  registerAll: os.output(z.void()).handler(() => {
     return BackgroundRuntime.runPromise(registerAll())
   }),
-  listSupportedSearchEngines: publicProcedure.output(SupportSearchEnginesSchema).query(() => {
+  listSupportedSearchEngines: os.output(SupportSearchEnginesSchema).handler(() => {
     return BackgroundRuntime.runPromise(getSupportedSearchEngines())
   }),
-  checkInstance: publicProcedure
+  checkInstance: os
     .input(
       z.object({
         url: z.string(),
@@ -40,17 +34,21 @@ export const appRouter = t.router({
         message: z.string().optional(),
       }),
     )
-    .query(async ({ input }) => {
-      const client = createClient(input.url, input.apiKey)
-
+    .handler(async ({ input }) => {
       try {
-        const res = await client.getLists()
-        console.log(res)
+        const { body, response } = await karakeep.getLists({
+          client: createClient({
+            baseUrl: joinURL(input.url, API_PREFIX),
+            auth: () => input.apiKey,
+          }),
+        })
+        console.log(body)
         return {
-          ok: res.status === 200,
-          status: res.status,
+          ok: response.status === 200,
+          status: response.status,
         }
       } catch (error) {
+        console.log(error)
         return {
           ok: false,
           status: 0,
@@ -58,32 +56,35 @@ export const appRouter = t.router({
         }
       }
     }),
-  searchBookmark: publicProcedure
-    .input(z.object({ input: z.object({ json: z.object({ text: z.string() }) }) })) // Correct input structure
-    .output(contract.searchBookmark.responses[200])
-    .query(async ({ input }) => {
+  searchBookmark: os
+    .input(z.object({ text: z.string() })) // Correct input structure
+    .output(z.array(zBookmark))
+    .handler(async ({ input }) => {
       const options = await store.get(optionsAtom) // Use store.get
       if (!options.apiKey || !options.url) {
-        throw new TRPCError({
-          code: 'UNAUTHORIZED',
+        throw new ORPCError('UNAUTHORIZED', {
           message: 'API key or URL is not configured.',
         })
       }
-      const client = createClient(options.url, options.apiKey)
-      const response = await client.searchBookmark({
-        query: input, // Pass input directly
+      const { body, response } = await karakeep.getBookmarksSearch({
+        query: {
+          q: input.text,
+        },
+        client: createClient({
+          baseUrl: joinURL(options.url, API_PREFIX),
+          auth: () => options.apiKey,
+        }),
       })
 
       if (response.status !== 200) {
-        throw new TRPCError({
-          code: 'INTERNAL_SERVER_ERROR',
+        throw new ORPCError('INTERNAL_SERVER_ERROR', {
           message: `Failed to fetch bookmarks: ${response.status}`,
         })
       }
 
-      return response.body
+      return body.bookmarks
     }),
-  checkAllUrlsPermission: publicProcedure.query(async () => {
+  checkAllUrlsPermission: os.output(z.boolean()).handler(async () => {
     // Check for <all_urls> permission in the background script
     if (browser.permissions) {
       // Use browser from polyfill

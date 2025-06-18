@@ -9,9 +9,9 @@ import { getCurrentTabUrl, isAllowUrl } from '../../utils'
 
 export const Route = createFileRoute('/_layout/search-engines')({
   component: RouteComponent,
-  loader: async ({ context: { trpc, queryClient } }) => {
+  loader: async ({ context: { orpc, queryClient } }) => {
     const url = await getCurrentTabUrl()
-    const engines = await queryClient.ensureQueryData(trpc.listSupportedSearchEngines.queryOptions())
+    const engines = await queryClient.ensureQueryData(orpc.listSupportedSearchEngines.queryOptions())
     return {
       url,
       isAllowUrl: isAllowUrl(url),
@@ -22,10 +22,10 @@ export const Route = createFileRoute('/_layout/search-engines')({
 })
 
 function RouteComponent() {
-  const { trpc } = Route.useRouteContext()
+  const { orpc } = Route.useRouteContext()
   const { url, isAllowUrl, engines } = Route.useLoaderData()
   const { data } = useQuery(
-    trpc.listSupportedSearchEngines.queryOptions(undefined, {
+    orpc.listSupportedSearchEngines.queryOptions({
       initialData: engines,
     }),
   )

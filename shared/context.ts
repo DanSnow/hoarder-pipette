@@ -1,10 +1,10 @@
+import { createORPCClient } from '@orpc/client'
+import { experimental_RPCLink as RPCLink } from '@orpc/client/message-port'
+import type { RouterClient } from '@orpc/server'
+import { createTanstackQueryUtils } from '@orpc/tanstack-query'
 import { QueryClient } from '@tanstack/react-query'
-import { createTRPCClient } from '@trpc/client'
-import { createTRPCOptionsProxy } from '@trpc/tanstack-react-query'
-import type { AppRouter } from '~/trpc'
-import { createLink } from '~/trpc/link'
-
-const chromeLink = createLink()
+import browser from 'webextension-polyfill'
+import type { AppRouter } from '~/orpc'
 
 export const queryClient = new QueryClient({
   defaultOptions: {
@@ -17,17 +17,18 @@ export const queryClient = new QueryClient({
   },
 })
 
-export const client = createTRPCClient<AppRouter>({
-  links: [chromeLink],
+const port = browser.runtime.connect()
+
+const link = new RPCLink({
+  port,
 })
 
-export const trpc = createTRPCOptionsProxy<AppRouter>({
-  client,
-  queryClient,
-})
+export const client: RouterClient<AppRouter> = createORPCClient(link)
+
+export const orpc = createTanstackQueryUtils(client)
 
 export const context = {
-  trpc,
+  orpc,
   queryClient,
   client,
 } as const

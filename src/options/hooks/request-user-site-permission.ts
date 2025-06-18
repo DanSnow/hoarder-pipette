@@ -8,8 +8,8 @@ import { useRequestOriginPermission } from './request-origin-permission'
 
 export function useRequestUserSitePermission() {
   const setUserSites = useSetAtom(userSitesAtom)
-  const { trpc, queryClient } = useRouteContext({ from: '__root__' })
-  const { mutate: registerAll } = useMutation(trpc.registerAll.mutationOptions())
+  const { orpc, queryClient } = useRouteContext({ from: '__root__' })
+  const { mutate: registerAll } = useMutation(orpc.registerAll.mutationOptions())
   const { requestOriginPermission } = useRequestOriginPermission()
 
   const { mutateAsync } = useMutation({
@@ -23,8 +23,8 @@ export function useRequestUserSitePermission() {
       })
     },
     onSuccess: () => {
-      queryClient.invalidateQueries(trpc.listSupportedSearchEngines.queryFilter())
-      registerAll()
+      queryClient.invalidateQueries({ queryKey: orpc.listSupportedSearchEngines.queryKey() })
+      registerAll({})
     },
   })
 

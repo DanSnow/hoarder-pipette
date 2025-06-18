@@ -8,17 +8,17 @@ import { requestSite } from '../permission'
 import { SearchEngineStateButton } from './SearchEngineStateButton'
 
 export function SearchEngine({ engine }: { engine: SupportSearchEngine }) {
-  const { trpc, queryClient } = useRouteContext({ from: '__root__' })
+  const { orpc, queryClient } = useRouteContext({ from: '__root__' })
 
-  const { mutate: registerAll } = useMutation(trpc.registerAll.mutationOptions())
+  const { mutate: registerAll } = useMutation(orpc.registerAll.mutationOptions())
   const { mutate: requestSitePermission } = useMutation({
     mutationKey: ['requestSitePermission'],
     mutationFn: () => {
       return Effect.runPromise(requestSite(engine))
     },
     onSuccess: () => {
-      queryClient.invalidateQueries(trpc.listSupportedSearchEngines.queryFilter())
-      registerAll()
+      queryClient.invalidateQueries({ queryKey: orpc.listSupportedSearchEngines.queryKey() })
+      registerAll({})
     },
   })
 

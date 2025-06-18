@@ -21,7 +21,7 @@ export const Route = createFileRoute('/_layout/')({
 })
 
 function OptionsForm() {
-  const { queryClient, trpc } = Route.useRouteContext()
+  const { queryClient, orpc } = Route.useRouteContext()
   const [initialValues, setOptions] = useAtom(optionsAtom)
   const { toast } = useToast()
   console.log(initialValues)
@@ -30,7 +30,7 @@ function OptionsForm() {
       try {
         await pipe(data.url, withTrailingSlash, toOriginUrl, requestOrigin, Effect.runPromise)
 
-        const res = await queryClient.fetchQuery(trpc.checkInstance.queryOptions(data))
+        const res = await queryClient.fetchQuery(orpc.checkInstance.queryOptions({ input: data }))
 
         console.log(res)
         if (res.ok) {
@@ -54,7 +54,7 @@ function OptionsForm() {
         return
       }
     },
-    [toast, setOptions, queryClient, trpc],
+    [toast, setOptions, queryClient, orpc],
   )
 
   return (

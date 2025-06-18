@@ -5,8 +5,8 @@ import { getCurrentTabUrl, isAllowUrl } from '../../utils'
 
 export const Route = createFileRoute('/_search-engines/search-engines/$id')({
   component: RouteComponent,
-  loader: async ({ context: { trpc, queryClient }, params }) => {
-    const searchEngines = await queryClient.ensureQueryData(trpc.listSupportedSearchEngines.queryOptions())
+  loader: async ({ context: { orpc, queryClient }, params }) => {
+    const searchEngines = await queryClient.ensureQueryData(orpc.listSupportedSearchEngines.queryOptions())
     const searchEngine = pipe(
       searchEngines,
       Array.findFirst((engine) => engine.id === params.id),

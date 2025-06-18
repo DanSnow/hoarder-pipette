@@ -15,7 +15,8 @@
       "src/options/routeTree.gen.ts",
       "storybook-static/**/*",
       ".vite-inspect/**/*",
-      ".moon/cache/**/*"
+      ".moon/cache/**/*",
+      "shared/client/**/*"
     ]
   },
   "formatter": {

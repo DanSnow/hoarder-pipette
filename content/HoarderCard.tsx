@@ -5,26 +5,20 @@ import { optionsAtom } from '~/atoms/storage'
 import { BookmarkPreview } from '~/components/BookmarkPreview'
 import { Card, CardContent, CardHeader } from '~/components/ui/card'
 import { ScrollArea, ScrollBar } from '~/components/ui/scroll-area'
-import { trpc } from '~/shared/context' // Import trpc client
+import { orpc } from '~/shared/context' // Import orpc client
 
 export function HoarderCard({ className, userQuery }: { className?: string; userQuery: string }) {
   const options = useAtomValue(optionsAtom)
-  const { data } = useQuery(
-    // Use useQuery with trpc.searchBookmark.queryOptions
-    trpc.searchBookmark.queryOptions(
-      {
-        input: {
-          json: {
-            text: userQuery,
-          },
-        },
+  const { data: bookmarks, error } = useQuery(
+    // Use useQuery with orpc.searchBookmark.queryOptions
+    orpc.searchBookmark.queryOptions({
+      input: {
+        text: userQuery,
       },
-      {
-        enabled: Boolean(userQuery),
-        gcTime: 600_000, // 10 minutes,
-        staleTime: 300_000, // 5 minutes,
-      },
-    ),
+      enabled: Boolean(userQuery),
+      gcTime: 600_000, // 10 minutes,
+      staleTime: 300_000, // 5 minutes,
+    }),
   )
 
   if (!options.apiKey || !options.url) {
@@ -40,8 +34,6 @@ export function HoarderCard({ className, userQuery }: { className?: string; user
   if (!userQuery) {
     return null
   }
-
-  const bookmarks = data?.result?.data?.json?.bookmarks
 
   if (!bookmarks || bookmarks.length === 0) {
     return null
