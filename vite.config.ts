@@ -4,9 +4,6 @@ import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
   plugins: [TsConfigPaths(), tanstackRouter()],
-  optimizeDeps: {
-    include: ['@ts-rest/core'],
-  },
   test: {
     setupFiles: ['vitest.setup.ts'],
 

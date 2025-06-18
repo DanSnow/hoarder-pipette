@@ -20,7 +20,7 @@ export default mergeConfig(
       alias: { 'webextension-polyfill': resolve(__dirname, '__mocks__/webextension-polyfill.ts') },
     },
     optimizeDeps: {
-      include: ['react/jsx-dev-runtime', '@ts-rest/core'],
+      include: ['react/jsx-dev-runtime'],
     },
     test: {
       setupFiles: ['vitest.setup.ts'],
