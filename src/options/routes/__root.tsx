@@ -1,6 +1,6 @@
 import { TooltipProvider } from '@radix-ui/react-tooltip'
 import { QueryClientProvider } from '@tanstack/react-query'
-import { Outlet, createRootRouteWithContext } from '@tanstack/react-router'
+import { createRootRouteWithContext, Outlet } from '@tanstack/react-router'
 import { useMedia } from 'react-use'
 import { Toaster } from '~/components/ui/toaster'
 import { cn } from '~/lib/utils'

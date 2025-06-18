@@ -94,9 +94,11 @@ function Calendar({
         ...classNames,
       }}
       components={{
+        // biome-ignore lint/nursery/noNestedComponentDefinitions: disable for shadcn
         Root: ({ className, rootRef, ...props }) => {
           return <div data-slot="calendar" ref={rootRef} className={cn(className)} {...props} />
         },
+        // biome-ignore lint/nursery/noNestedComponentDefinitions: disable for shadcn
         Chevron: ({ className, orientation, ...props }) => {
           if (orientation === 'left') {
             return <ChevronLeftIcon className={cn('size-4', className)} {...props} />
@@ -109,6 +111,7 @@ function Calendar({
           return <ChevronDownIcon className={cn('size-4', className)} {...props} />
         },
         DayButton: CalendarDayButton,
+        // biome-ignore lint/nursery/noNestedComponentDefinitions: disable for shadcn
         WeekNumber: ({ children, ...props }) => {
           return (
             <td {...props}>

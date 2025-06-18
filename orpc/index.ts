@@ -1,4 +1,4 @@
-import { os, ORPCError } from '@orpc/server'
+import { ORPCError, os } from '@orpc/server'
 import { joinURL } from 'ufo'
 import browser from 'webextension-polyfill' // Import browser from polyfill
 import { z } from 'zod/v4' // Import z from zod

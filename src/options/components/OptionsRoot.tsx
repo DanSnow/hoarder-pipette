@@ -1,5 +1,5 @@
 import { RouterProvider } from '@tanstack/react-router'
-import { Provider, createStore } from 'jotai'
+import { createStore, Provider } from 'jotai'
 import { useState } from 'react'
 import { router } from '../router'
 

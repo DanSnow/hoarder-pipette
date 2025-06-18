@@ -1,5 +1,5 @@
 import { Predicate } from 'effect'
-import { parseURL, stringifyParsedURL, withoutFragment } from 'ufo'
+import { parseURL, stringifyParsedURL } from 'ufo'
 import browser from 'webextension-polyfill'
 
 export async function getCurrentTab() {

@@ -9,7 +9,11 @@ export function SearchEngineDetail({
   engine,
   url,
   isAllowUrl,
-}: { engine: SupportSearchEngine; url: string | undefined; isAllowUrl: boolean }) {
+}: {
+  engine: SupportSearchEngine
+  url: string | undefined
+  isAllowUrl: boolean
+}) {
   const { requestUserSitePermission } = useRequestUserSitePermission()
 
   const handleClick = useCallback(() => {

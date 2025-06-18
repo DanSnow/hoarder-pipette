@@ -12,13 +12,7 @@ import { cn } from '~/lib/utils'
 import type { zBookmark } from '~/shared/client/zod.gen'
 import { Button } from './ui/button'
 
-export function BookmarkMenu({
-  bookmark,
-  className,
-}: {
-  bookmark: z.infer<typeof zBookmark>
-  className?: string
-}) {
+export function BookmarkMenu({ bookmark, className }: { bookmark: z.infer<typeof zBookmark>; className?: string }) {
   const { url } = useAtomValue(optionsAtom)
   return (
     <DropdownMenu>

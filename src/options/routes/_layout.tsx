@@ -1,4 +1,4 @@
-import { Link, Outlet, createFileRoute, linkOptions } from '@tanstack/react-router'
+import { createFileRoute, Link, linkOptions, Outlet } from '@tanstack/react-router'
 import {
   NavigationMenu,
   NavigationMenuItem,

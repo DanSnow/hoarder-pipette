@@ -1,4 +1,4 @@
-import { type ExtractAtomArgs, atom } from 'jotai'
+import { atom, type ExtractAtomArgs } from 'jotai'
 import { atomWithStorage } from 'jotai/utils'
 import type { AsyncStorage } from 'jotai/vanilla/utils/atomWithStorage'
 import type { ZodType } from 'zod/v4'

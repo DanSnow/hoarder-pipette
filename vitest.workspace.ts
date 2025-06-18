@@ -1,9 +1,7 @@
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-
-import { defineWorkspace } from 'vitest/config'
-
 import { storybookTest } from '@storybook/addon-vitest/vitest-plugin'
+import { defineWorkspace } from 'vitest/config'
 
 const dirname = typeof __dirname !== 'undefined' ? __dirname : path.dirname(fileURLToPath(import.meta.url))
 
