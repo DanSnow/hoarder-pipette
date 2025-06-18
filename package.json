@@ -67,7 +67,7 @@
     "@autoform/react": "3.1.0",
     "@autoform/zod": "3.1.0",
     "@hookform/resolvers": "5.1.1",
-    "@iconify-json/lucide": "1.2.49",
+    "@iconify-json/lucide": "1.2.50",
     "@orpc/client": "^1.5.2",
     "@orpc/hey-api": "^1.5.2",
     "@orpc/server": "^1.5.2",
