@@ -24,7 +24,7 @@
     "@effect/vitest": "0.23.8",
     "@egoist/tailwindcss-icons": "1.9.0",
     "@hey-api/openapi-ts": "^0.73.0",
-    "@iconify-json/simple-icons": "1.2.38",
+    "@iconify-json/simple-icons": "1.2.39",
     "@moonrepo/cli": "1.37.3",
     "@storybook/addon-a11y": "9.0.11",
     "@storybook/addon-docs": "9.0.11",
