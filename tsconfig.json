@@ -27,5 +27,5 @@
     ]
   },
   "include": ["./"],
-  "exclude": ["node_modules", "dist", "docs"]
+  "exclude": ["node_modules", "dist", "docs", ".tanstack", "storybook-static"]
 }
