@@ -1,0 +1,14 @@
+{
+  "$schema": "https://unpkg.com/knip@5/schema.json",
+  "entry": [
+    "src/options/index.{js,ts,tsx}",
+    "background/index.ts",
+    "content/content.tsx",
+    "build/*.mts",
+    "scripts/*.ts",
+    "openapi-ts.config.ts",
+    "extension.config.js"
+  ],
+  "ignore": ["components/ui/**/*", "shared/client/**/*", "src/options/routeTree.gen.ts"],
+  "moonrepo": false
+}
