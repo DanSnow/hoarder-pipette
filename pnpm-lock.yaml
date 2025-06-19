@@ -229,8 +229,8 @@ importers:
         specifier: 8.5.6
         version: 8.5.6
       shadcn:
-        specifier: 2.6.4
-        version: 2.6.4(@types/node@24.0.1)(typescript@5.8.3)
+        specifier: 2.7.0
+        version: 2.7.0(@types/node@24.0.1)(typescript@5.8.3)
       storybook:
         specifier: 9.0.12
         version: 9.0.12(@testing-library/dom@10.4.0)(prettier@3.5.3)
@@ -6659,8 +6659,8 @@ packages:
   setprototypeof@1.2.0:
     resolution: {integrity: sha512-E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw==}
 
-  shadcn@2.6.4:
-    resolution: {integrity: sha512-DSHnwXDFgneMkpS/l2XLZ5TFxn5dZwdERE1DEnovSuHtYxWj77xXuI0eSSt/Cgd34NtJ/7g/SCTARHApSoTFmw==}
+  shadcn@2.7.0:
+    resolution: {integrity: sha512-NzkUf58HI3AxcrdnmAgdN3oT0f2J5CyFKMi2exdVLtoRW+A5GxADxWqhWKRvBmdWoiPDuqYeb3ScZxhlS9aflA==}
     hasBin: true
 
   shallow-clone@3.0.1:
@@ -15694,7 +15694,7 @@ snapshots:
 
   setprototypeof@1.2.0: {}
 
-  shadcn@2.6.4(@types/node@24.0.1)(typescript@5.8.3):
+  shadcn@2.7.0(@types/node@24.0.1)(typescript@5.8.3):
     dependencies:
       '@antfu/ni': 23.3.1
       '@babel/core': 7.27.4
