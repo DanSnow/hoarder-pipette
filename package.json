@@ -23,7 +23,7 @@
     "typecheck-watch": "moon run typecheck-watch --"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.0.4",
+    "@biomejs/biome": "2.0.5",
     "@effect/language-service": "0.21.4",
     "@effect/vitest": "0.23.8",
     "@egoist/tailwindcss-icons": "1.9.0",
