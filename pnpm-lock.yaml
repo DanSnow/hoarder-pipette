@@ -136,8 +136,8 @@ importers:
         specifier: 1.9.0
         version: 1.9.0(tailwindcss@4.1.10)
       '@hey-api/openapi-ts':
-        specifier: 0.74.0
-        version: 0.74.0(magicast@0.3.5)(typescript@5.8.3)
+        specifier: 0.77.0
+        version: 0.77.0(magicast@0.3.5)(typescript@5.8.3)
       '@iconify-json/simple-icons':
         specifier: 1.2.40
         version: 1.2.40
@@ -1049,8 +1049,8 @@ packages:
     resolution: {integrity: sha512-yktiFZoWPtEW8QKS65eqKwA5MTKp88CyiL8q72WynrBs/73SAaxlSWlA2zW/DZlywZ5hX1OYzrCC0wFdvO9c2w==}
     engines: {node: '>= 16'}
 
-  '@hey-api/openapi-ts@0.74.0':
-    resolution: {integrity: sha512-nRh51kF8xIzG93VVXOMFlPFz8XGcvfglf+4XFFjv0DtKUhmkafx6IR4jD99Jpaau95UfqvKbGSbwL7RyfvdXFw==}
+  '@hey-api/openapi-ts@0.77.0':
+    resolution: {integrity: sha512-HAJbd8QfxeBPZ788Ghiw7bzzzTKxW+wW+34foleEztyZJnRV20barvevu8YAK1BtyiIGIpEtAfoqO8KUj4VuBw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=22.10.0}
     hasBin: true
     peerDependencies:
@@ -8673,7 +8673,7 @@ snapshots:
       js-yaml: 4.1.0
       lodash: 4.17.21
 
-  '@hey-api/openapi-ts@0.74.0(magicast@0.3.5)(typescript@5.8.3)':
+  '@hey-api/openapi-ts@0.77.0(magicast@0.3.5)(typescript@5.8.3)':
     dependencies:
       '@hey-api/json-schema-ref-parser': 1.0.6
       ansi-colors: 4.1.3
