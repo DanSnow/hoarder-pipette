@@ -193,8 +193,8 @@ importers:
         specifier: 3.3.2
         version: 3.3.2
       dotenv:
-        specifier: 16.6.0
-        version: 16.6.0
+        specifier: 16.6.1
+        version: 16.6.1
       extension:
         specifier: 2.0.0-rc.23
         version: 2.0.0-rc.23(@babel/core@7.27.4)(@prefresh/babel-plugin@0.5.1)(@types/express@4.17.23)(less@4.3.0)(svelte@5.34.3)(typescript@5.8.3)(webpack@5.99.9(esbuild@0.25.5))
@@ -4244,8 +4244,8 @@ packages:
     peerDependencies:
       webpack: ^4 || ^5
 
-  dotenv@16.6.0:
-    resolution: {integrity: sha512-Omf1L8paOy2VJhILjyhrhqwLIdstqm1BvcDPKg4NGAlkwEu9ODyrFbvk8UymUOMCT+HXo31jg1lArIrVAAhuGA==}
+  dotenv@16.6.1:
+    resolution: {integrity: sha512-uBq4egWHTcTt33a72vpSG0z3HnPuIl6NqYcTrKEg2azoEyl2hpW0zqlxysq2pK9HlDIHyHyakeYaYnSAwd8bow==}
     engines: {node: '>=12'}
 
   dotenv@8.6.0:
@@ -12071,7 +12071,7 @@ snapshots:
       chokidar: 4.0.3
       confbox: 0.1.8
       defu: 6.1.4
-      dotenv: 16.6.0
+      dotenv: 16.6.1
       giget: 1.2.5
       jiti: 2.4.2
       mlly: 1.7.4
@@ -12519,7 +12519,7 @@ snapshots:
       dotenv-defaults: 2.0.2
       webpack: 5.99.9(esbuild@0.25.5)
 
-  dotenv@16.6.0: {}
+  dotenv@16.6.1: {}
 
   dotenv@8.6.0: {}
 
@@ -12853,7 +12853,7 @@ snapshots:
       content-security-policy-parser: 0.6.0
       cross-spawn: 7.0.6
       csv-loader: 3.0.5
-      dotenv: 16.6.0
+      dotenv: 16.6.1
       dotenv-webpack: 8.1.0(webpack@5.99.9(esbuild@0.25.5))
       edge-location: 1.1.1
       firefox-profile: 4.7.0
