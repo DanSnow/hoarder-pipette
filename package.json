@@ -74,7 +74,7 @@
     "@hookform/resolvers": "5.1.1",
     "@iconify-json/lucide": "1.2.54",
     "@orpc/client": "1.6.3",
-    "@orpc/hey-api": "1.6.0",
+    "@orpc/hey-api": "1.6.3",
     "@orpc/server": "1.6.0",
     "@orpc/tanstack-query": "1.6.0",
     "@radix-ui/react-checkbox": "1.3.2",
