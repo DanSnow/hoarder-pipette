@@ -24,8 +24,8 @@ importers:
         specifier: 1.2.54
         version: 1.2.54
       '@orpc/client':
-        specifier: 1.6.3
-        version: 1.6.3
+        specifier: 1.6.4
+        version: 1.6.4
       '@orpc/hey-api':
         specifier: 1.6.3
         version: 1.6.3
@@ -34,7 +34,7 @@ importers:
         version: 1.6.3(crossws@0.3.5)(ws@8.18.2)
       '@orpc/tanstack-query':
         specifier: 1.6.3
-        version: 1.6.3(@orpc/client@1.6.3)(@tanstack/query-core@5.81.5)
+        version: 1.6.3(@orpc/client@1.6.4)(@tanstack/query-core@5.81.5)
       '@radix-ui/react-checkbox':
         specifier: 1.3.2
         version: 1.3.2(@types/react-dom@19.1.6(@types/react@19.1.8))(@types/react@19.1.8)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -1509,6 +1509,9 @@ packages:
   '@orpc/client@1.6.3':
     resolution: {integrity: sha512-bsUj4zm+g9xfC8rLwd9ZkETtRTDRUJW/ss6TdvrLJ1GNfnc2X1ahGmZtVESCJkoDfVmCDtre5hBdpIuYk7/ttw==}
 
+  '@orpc/client@1.6.4':
+    resolution: {integrity: sha512-rKRS+PIJmJE2ozBg0DEkP7lEdczmp0IVyF3gl49uL/+xsW4FyoYDQDa2BcwECQP3K752AmS0lTWtY3nxOAP0NA==}
+
   '@orpc/contract@1.6.3':
     resolution: {integrity: sha512-RYQuLgYSnSWdjEhiO/BGdHqRLQTsM84vI5tlzzelKvGQlmrUkXRhymzS2NEHu4hnW1FkknfjMK+qYTdlMQE/jQ==}
 
@@ -1529,11 +1532,17 @@ packages:
   '@orpc/shared@1.6.3':
     resolution: {integrity: sha512-8sAcnhLTRa6dHAYCmi5sB4rrJ3PpTgzfzz3CVeGud7wgMud+jaefTsDLF89rPOFPOgYJx4fBMFIjrFtR3NqGfQ==}
 
+  '@orpc/shared@1.6.4':
+    resolution: {integrity: sha512-UuQZ/ok78Bdin3YlOkZ2id10kq/8r4cvhN8OSlI/SWy3mshWnJLdTDkbGOrVl0TNkndzIDMF3pY6Ur8BRy5jEw==}
+
   '@orpc/standard-server-aws-lambda@1.6.3':
     resolution: {integrity: sha512-35qhL7uHkb2qF5rAWy6pT1bHZNU4LyhlbEJkyRBvJKNKcr7eEOY4r9B7umKTbO5xic+GgmkgNyJaq5mm/O3X8g==}
 
   '@orpc/standard-server-fetch@1.6.3':
     resolution: {integrity: sha512-tErF3Na5q1WN86iv6qUr3sivtw76tBu2fwwue/qjlAwhaKoqOTxII+QtVk5DtYOYYf3ipBpURwIM0KqsjWOjQQ==}
+
+  '@orpc/standard-server-fetch@1.6.4':
+    resolution: {integrity: sha512-Kjg+DqNEiA6REbuhczLGxl82biEXTgyutZnCKj8N5ccfmWEsmcrJ9Mf2oScy8Rm5RwVB12DelIFA9fsZ8vGj7w==}
 
   '@orpc/standard-server-node@1.6.3':
     resolution: {integrity: sha512-nyrqmhAWBfkgwDexOKXXmOo3CwcY3WPB9S3JYSxAVAtE7Ygn3qxzsfyWKLb3AATLhy9VfP7aLA8I2226otwqDw==}
@@ -1541,8 +1550,14 @@ packages:
   '@orpc/standard-server-peer@1.6.3':
     resolution: {integrity: sha512-3BWg22pMuD/4BoDfvf9oVMuw7BfF7NCzXLtR6GLqN6xe2RuXJKxbtOdn/HWKxa6t/pnQCZsa5IE/8GdcCg4PlA==}
 
+  '@orpc/standard-server-peer@1.6.4':
+    resolution: {integrity: sha512-F3Dp2ooUlFR74jUEnEDeA+uLGzDoXX5oexLrau5tDUtJNyjn9KpVoY3b38dBCdvAc0iAJDD5zhrvuJfVKgDHAA==}
+
   '@orpc/standard-server@1.6.3':
     resolution: {integrity: sha512-6pm8lobrb/RFcGgwqIwBVeakLEWJSFpaztrnpG9f6+LD0FN4rQNGlCJ3QnrCo4ITqwKhWoL4L2PtyTqG8p6cCA==}
+
+  '@orpc/standard-server@1.6.4':
+    resolution: {integrity: sha512-u2npKeDbu6KCcbjn2cJDdVlnlrX0KN+qfGszBxOS8yQowGI0DBO29BE8RrUeEs0+XZjgjQGzFzBYmha9Q2s4bA==}
 
   '@orpc/tanstack-query@1.6.3':
     resolution: {integrity: sha512-yxwLTSc32qRaBer8it1L1FhiIVOxOsWl+8ccQD11QsQM8l+Mj8EkxEk4la5TS8OOTCZQrXEYn+5dQMSnoy62Hg==}
@@ -9164,6 +9179,13 @@ snapshots:
       '@orpc/standard-server-fetch': 1.6.3
       '@orpc/standard-server-peer': 1.6.3
 
+  '@orpc/client@1.6.4':
+    dependencies:
+      '@orpc/shared': 1.6.4
+      '@orpc/standard-server': 1.6.4
+      '@orpc/standard-server-fetch': 1.6.4
+      '@orpc/standard-server-peer': 1.6.4
+
   '@orpc/contract@1.6.3':
     dependencies:
       '@orpc/client': 1.6.3
@@ -9195,6 +9217,11 @@ snapshots:
       radash: 12.1.1
       type-fest: 4.41.0
 
+  '@orpc/shared@1.6.4':
+    dependencies:
+      radash: 12.1.1
+      type-fest: 4.41.0
+
   '@orpc/standard-server-aws-lambda@1.6.3':
     dependencies:
       '@orpc/shared': 1.6.3
@@ -9207,6 +9234,11 @@ snapshots:
       '@orpc/shared': 1.6.3
       '@orpc/standard-server': 1.6.3
 
+  '@orpc/standard-server-fetch@1.6.4':
+    dependencies:
+      '@orpc/shared': 1.6.4
+      '@orpc/standard-server': 1.6.4
+
   '@orpc/standard-server-node@1.6.3':
     dependencies:
       '@orpc/shared': 1.6.3
@@ -9218,13 +9250,22 @@ snapshots:
       '@orpc/shared': 1.6.3
       '@orpc/standard-server': 1.6.3
 
+  '@orpc/standard-server-peer@1.6.4':
+    dependencies:
+      '@orpc/shared': 1.6.4
+      '@orpc/standard-server': 1.6.4
+
   '@orpc/standard-server@1.6.3':
     dependencies:
       '@orpc/shared': 1.6.3
 
-  '@orpc/tanstack-query@1.6.3(@orpc/client@1.6.3)(@tanstack/query-core@5.81.5)':
+  '@orpc/standard-server@1.6.4':
     dependencies:
-      '@orpc/client': 1.6.3
+      '@orpc/shared': 1.6.4
+
+  '@orpc/tanstack-query@1.6.3(@orpc/client@1.6.4)(@tanstack/query-core@5.81.5)':
+    dependencies:
+      '@orpc/client': 1.6.4
       '@orpc/shared': 1.6.3
       '@tanstack/query-core': 5.81.5
 

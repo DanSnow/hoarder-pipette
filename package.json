@@ -73,7 +73,7 @@
     "@autoform/zod": "3.1.0",
     "@hookform/resolvers": "5.1.1",
     "@iconify-json/lucide": "1.2.54",
-    "@orpc/client": "1.6.3",
+    "@orpc/client": "1.6.4",
     "@orpc/hey-api": "1.6.3",
     "@orpc/server": "1.6.3",
     "@orpc/tanstack-query": "1.6.3",
