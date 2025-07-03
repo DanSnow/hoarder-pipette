@@ -12,8 +12,8 @@ importers:
   .:
     dependencies:
       '@autoform/react':
-        specifier: 3.1.0
-        version: 3.1.0(react-hook-form@7.59.0(react@19.1.0))(react@19.1.0)(yup@1.6.1)(zod@3.25.71)
+        specifier: 4.0.0
+        version: 4.0.0(@hookform/resolvers@5.1.1(react-hook-form@7.59.0(react@19.1.0)))(react-hook-form@7.59.0(react@19.1.0))(react@19.1.0)
       '@autoform/zod':
         specifier: 3.1.0
         version: 3.1.0(zod@3.25.71)
@@ -350,16 +350,12 @@ packages:
   '@autoform/core@2.2.0':
     resolution: {integrity: sha512-OLZ87RV5zrbSYaToTbCX1jgaHIYHzVi7m/F3dwm1Y3pwjPCQMxWemx0hb+Bqz2tTBna9kZZXzJbmFn7x+c9fhw==}
 
-  '@autoform/react@3.1.0':
-    resolution: {integrity: sha512-VmEom1uJ7f7e0Cx8NWI2bb1b+Y4LlM+tw3hTH6hh4kly9cTZVJufeFMk1drMHKJ4u08DCTGRjM83g6dtI6waDw==}
+  '@autoform/react@4.0.0':
+    resolution: {integrity: sha512-OVYRY7u+KnNxEZY6RF4tOmKgO3R68Y0amqyourU9vrFL/mi/4bW/6mi6hkWK8HwHK6a8C7clSm73/4nGQPSuaw==}
     peerDependencies:
+      '@hookform/resolvers': ^3.9.0
       react: 19.1.0
       react-hook-form: ^7
-
-  '@autoform/yup@2.2.0':
-    resolution: {integrity: sha512-arvUnXVDoOoQfLeoL83+geTStvZ/lDZ06KQXiCZsM5pGeBzoxcFYafhoqWStKxn1SXoABmRuK7RB05oK49naRg==}
-    peerDependencies:
-      yup: ^1.4.0
 
   '@autoform/zod@3.1.0':
     resolution: {integrity: sha512-XvNTp5pc+ZwhH+5TSsuuXdNbMjI7srbpKSCuhOqrXQJyYAksI3/vGz1pf0J2WeTBf5dDtlPi44qrYBKRz7vlaQ==}
@@ -1055,11 +1051,6 @@ packages:
     hasBin: true
     peerDependencies:
       typescript: ^5.5.3
-
-  '@hookform/resolvers@3.10.0':
-    resolution: {integrity: sha512-79Dv+3mDF7i+2ajj7SkypSKHhl1cbln1OGavqrsF7p6mbUv11xpqpacPsGDCTRvCSjEEIez2ef1NveSVL3b0Ag==}
-    peerDependencies:
-      react-hook-form: ^7.0.0
 
   '@hookform/resolvers@5.1.1':
     resolution: {integrity: sha512-J/NVING3LMAEvexJkyTLjruSm7aOFx7QX21pzkiJfMoNG0wl5aFEjLTl7ay7IQb9EWY6AkrBy7tHL2Alijpdcg==}
@@ -6237,9 +6228,6 @@ packages:
     resolution: {integrity: sha512-NxNv/kLguCA7p3jE8oL2aEBsrJWgAakBpgmgK6lpPWV+WuOmY6r2/zbAVnP+T8bQlA0nzHXSJSJW0Hq7ylaD2Q==}
     engines: {node: '>= 6'}
 
-  property-expr@2.0.6:
-    resolution: {integrity: sha512-SVtmxhRE/CGkn3eZY1T6pC8Nln6Fr/lu1mKSgRud0eC73whjGfoAogbn78LkD8aFL0zz3bAFerKSnOl7NlErBA==}
-
   property-information@6.5.0:
     resolution: {integrity: sha512-PgTgs/BlvHxOu8QuEN7wi5A0OmXaBcHpmCSTehcs6Uuu9IkDIEo13Hy7n898RHfrQ49vKCoGeWZSaAK01nwVig==}
 
@@ -7036,9 +7024,6 @@ packages:
   thunky@1.1.0:
     resolution: {integrity: sha512-eHY7nBftgThBqOyHGVN+l8gF0BucP09fMo0oO/Lb0w1OF80dJv+lDVpXG60WMQvkcxAkNybKsrEIE3ZtKGmPrA==}
 
-  tiny-case@1.0.3:
-    resolution: {integrity: sha512-Eet/eeMhkO6TX8mnUteS9zgPbUMQa4I6Kkp5ORiBD5476/m+PIRiumP5tmh5ioJpH7k51Kehawy2UDfsnxxY8Q==}
-
   tiny-glob@0.2.9:
     resolution: {integrity: sha512-g/55ssRPUjShh+xkfx9UPDXqhckHEsHr4Vd9zX55oSdGZc/MD0m3sferOkwWtp98bv+kcVfEHtRJgBVJzelrzg==}
 
@@ -7086,9 +7071,6 @@ packages:
   toidentifier@1.0.1:
     resolution: {integrity: sha512-o5sSPKEkg/DIQNmH43V0/uerLrpzVedkUh8tGNvaeXpfpuwjKenlSox/2O/BTlZUtEe+JG7s5YhEz608PlAHRA==}
     engines: {node: '>=0.6'}
-
-  toposort@2.0.2:
-    resolution: {integrity: sha512-0a5EOkAUp8D4moMi2W8ZF8jcga7BgZd91O/yabJCFY8az+XSzeGyTKs0Aoo897iV1Nj6guFq8orWDS96z91oGg==}
 
   totalist@3.0.1:
     resolution: {integrity: sha512-sf4i37nQ2LBx4m3wB74y+ubopq6W/dIzXg0FDGjsYnZHVa1Da8FH853wlL2gtUhg+xJXjfk3kUZS3BRoQeoQBQ==}
@@ -7148,10 +7130,6 @@ packages:
   type-fest@0.21.3:
     resolution: {integrity: sha512-t0rzBq87m3fVcduHDUFhKmyyX+9eo6WQjZvf51Ea/M0Q7+T374Jp1aUiyUl0GKxp8M/OETVHSDvmkyPgvX+X2w==}
     engines: {node: '>=10'}
-
-  type-fest@2.19.0:
-    resolution: {integrity: sha512-RAH822pAdBgcNMAfWnCBU3CFZcfZ/i1eZjwFU/dsLKumyuuP3niueg2UAukXYF0E2AAoc82ZSSf9J0WQBinzHA==}
-    engines: {node: '>=12.20'}
 
   type-fest@4.41.0:
     resolution: {integrity: sha512-TeTSQ6H5YHvpqVwBRcnLDCBnDOHWYu7IvGbHT6N8AOymcr9PJGjc1GTtiWZTYg0NCgYwvnYWEkVChQAr9bjfwA==}
@@ -7778,9 +7756,6 @@ packages:
     resolution: {integrity: sha512-GQHQqAopRhwU8Kt1DDM8NjibDXHC8eoh1erhGAJPEyveY9qqVeXvVikNKrDz69sHowPMorbPUrH/mx8c50eiBQ==}
     engines: {node: '>=18'}
 
-  yup@1.6.1:
-    resolution: {integrity: sha512-JED8pB50qbA4FOkDol0bYF/p60qSEDQqBD0/qeIrUCG1KbPBIQ776fCUNb9ldbPcSTxA69g/47XTo4TqWiuXOA==}
-
   zimmerframe@1.1.2:
     resolution: {integrity: sha512-rAbqEGa8ovJy4pyBxZM70hg4pE6gDgaQ0Sl9M3enG3I0d6H4XSAM3GeNGLKnsBpuijUow064sf7ww1nutC5/3w==}
 
@@ -7946,22 +7921,12 @@ snapshots:
 
   '@autoform/core@2.2.0': {}
 
-  '@autoform/react@3.1.0(react-hook-form@7.59.0(react@19.1.0))(react@19.1.0)(yup@1.6.1)(zod@3.25.71)':
+  '@autoform/react@4.0.0(@hookform/resolvers@5.1.1(react-hook-form@7.59.0(react@19.1.0)))(react-hook-form@7.59.0(react@19.1.0))(react@19.1.0)':
     dependencies:
       '@autoform/core': 2.2.0
-      '@autoform/yup': 2.2.0(yup@1.6.1)
-      '@autoform/zod': 3.1.0(zod@3.25.71)
-      '@hookform/resolvers': 3.10.0(react-hook-form@7.59.0(react@19.1.0))
+      '@hookform/resolvers': 5.1.1(react-hook-form@7.59.0(react@19.1.0))
       react: 19.1.0
       react-hook-form: 7.59.0(react@19.1.0)
-    transitivePeerDependencies:
-      - yup
-      - zod
-
-  '@autoform/yup@2.2.0(yup@1.6.1)':
-    dependencies:
-      '@autoform/core': 2.2.0
-      yup: 1.6.1
 
   '@autoform/zod@3.1.0(zod@3.25.71)':
     dependencies:
@@ -8712,10 +8677,6 @@ snapshots:
       typescript: 5.8.3
     transitivePeerDependencies:
       - magicast
-
-  '@hookform/resolvers@3.10.0(react-hook-form@7.59.0(react@19.1.0))':
-    dependencies:
-      react-hook-form: 7.59.0(react@19.1.0)
 
   '@hookform/resolvers@5.1.1(react-hook-form@7.59.0(react@19.1.0))':
     dependencies:
@@ -15112,8 +15073,6 @@ snapshots:
       kleur: 3.0.3
       sisteransi: 1.0.5
 
-  property-expr@2.0.6: {}
-
   property-information@6.5.0: {}
 
   property-information@7.1.0: {}
@@ -16253,8 +16212,6 @@ snapshots:
 
   thunky@1.1.0: {}
 
-  tiny-case@1.0.3: {}
-
   tiny-glob@0.2.9:
     dependencies:
       globalyzer: 0.1.0
@@ -16290,8 +16247,6 @@ snapshots:
   toggle-selection@1.0.6: {}
 
   toidentifier@1.0.1: {}
-
-  toposort@2.0.2: {}
 
   totalist@3.0.1: {}
 
@@ -16341,8 +16296,6 @@ snapshots:
       fsevents: 2.3.3
 
   type-fest@0.21.3: {}
-
-  type-fest@2.19.0: {}
 
   type-fest@4.41.0: {}
 
@@ -16944,13 +16897,6 @@ snapshots:
   yoctocolors-cjs@2.1.2: {}
 
   yoctocolors@2.1.1: {}
-
-  yup@1.6.1:
-    dependencies:
-      property-expr: 2.0.6
-      tiny-case: 1.0.3
-      toposort: 2.0.2
-      type-fest: 2.19.0
 
   zimmerframe@1.1.2:
     optional: true
