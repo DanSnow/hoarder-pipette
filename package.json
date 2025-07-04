@@ -70,7 +70,7 @@
   "private": true,
   "dependencies": {
     "@autoform/react": "4.0.0",
-    "@autoform/zod": "3.1.0",
+    "@autoform/zod": "4.0.0",
     "@hookform/resolvers": "5.1.1",
     "@iconify-json/lucide": "1.2.55",
     "@orpc/client": "1.6.4",
