@@ -34,7 +34,7 @@ importers:
         version: 1.6.6(crossws@0.3.5)(ws@8.18.2)
       '@orpc/tanstack-query':
         specifier: 1.6.6
-        version: 1.6.6(@orpc/client@1.6.6)(@tanstack/query-core@5.81.5)
+        version: 1.6.6(@orpc/client@1.6.6)(@tanstack/query-core@5.82.0)
       '@radix-ui/react-checkbox':
         specifier: 1.3.2
         version: 1.3.2(@types/react-dom@19.1.6(@types/react@19.1.8))(@types/react@19.1.8)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -63,8 +63,8 @@ importers:
         specifier: 1.2.7
         version: 1.2.7(@types/react-dom@19.1.6(@types/react@19.1.8))(@types/react@19.1.8)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@tanstack/react-query':
-        specifier: 5.81.5
-        version: 5.81.5(react@19.1.0)
+        specifier: 5.82.0
+        version: 5.82.0(react@19.1.0)
       '@tanstack/react-router':
         specifier: 1.125.6
         version: 1.125.6(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -3043,11 +3043,11 @@ packages:
     resolution: {integrity: sha512-YL8dGi5ZU+xvtav2boRlw4zrRghkY6hvdcmHhA0RGSJ/CBgzv+cbADW9eYJLx74XMZvIQ1pp6VMbrpXnnM5gHA==}
     engines: {node: '>=12'}
 
-  '@tanstack/query-core@5.81.5':
-    resolution: {integrity: sha512-ZJOgCy/z2qpZXWaj/oxvodDx07XcQa9BF92c0oINjHkoqUPsmm3uG08HpTaviviZ/N9eP1f9CM7mKSEkIo7O1Q==}
+  '@tanstack/query-core@5.82.0':
+    resolution: {integrity: sha512-JrjoVuaajBQtnoWSg8iaPHaT4mW73lK2t+exxHNOSMqy0+13eKLqJgTKXKImLejQIfdAHQ6Un0njEhOvUtOd5w==}
 
-  '@tanstack/react-query@5.81.5':
-    resolution: {integrity: sha512-lOf2KqRRiYWpQT86eeeftAGnjuTR35myTP8MXyvHa81VlomoAWNEd8x5vkcAfQefu0qtYCvyqLropFZqgI2EQw==}
+  '@tanstack/react-query@5.82.0':
+    resolution: {integrity: sha512-mnk8/ofKEthFeMdhV1dV8YXRf+9HqvXAcciXkoo755d/ocfWq7N/Y9jGOzS3h7ZW9dDGwSIhs3/HANWUBsyqYg==}
     peerDependencies:
       react: 19.1.0
 
@@ -9180,11 +9180,11 @@ snapshots:
     dependencies:
       '@orpc/shared': 1.6.6
 
-  '@orpc/tanstack-query@1.6.6(@orpc/client@1.6.6)(@tanstack/query-core@5.81.5)':
+  '@orpc/tanstack-query@1.6.6(@orpc/client@1.6.6)(@tanstack/query-core@5.82.0)':
     dependencies:
       '@orpc/client': 1.6.6
       '@orpc/shared': 1.6.6
-      '@tanstack/query-core': 5.81.5
+      '@tanstack/query-core': 5.82.0
 
   '@oslojs/encoding@1.1.0': {}
 
@@ -11072,11 +11072,11 @@ snapshots:
 
   '@tanstack/history@1.121.34': {}
 
-  '@tanstack/query-core@5.81.5': {}
+  '@tanstack/query-core@5.82.0': {}
 
-  '@tanstack/react-query@5.81.5(react@19.1.0)':
+  '@tanstack/react-query@5.82.0(react@19.1.0)':
     dependencies:
-      '@tanstack/query-core': 5.81.5
+      '@tanstack/query-core': 5.82.0
       react: 19.1.0
 
   '@tanstack/react-router@1.125.6(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
