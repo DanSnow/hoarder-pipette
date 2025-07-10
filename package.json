@@ -59,7 +59,7 @@
     "tsx": "4.20.3",
     "typed-query-selector": "2.12.0",
     "typescript": "5.8.3",
-    "vite": "7.0.3",
+    "vite": "7.0.4",
     "vite-plugin-inspect": "11.3.0",
     "vite-plugin-tsconfig-paths": "1.4.1",
     "vitest": "3.2.4",
