@@ -130,8 +130,8 @@ importers:
         specifier: 0.23.5
         version: 0.23.5
       '@effect/vitest':
-        specifier: 0.23.12
-        version: 0.23.12(effect@3.16.12)(vitest@3.2.4)
+        specifier: 0.23.13
+        version: 0.23.13(effect@3.16.12)(vitest@3.2.4)
       '@egoist/tailwindcss-icons':
         specifier: 1.9.0
         version: 1.9.0(tailwindcss@4.1.11)
@@ -833,10 +833,10 @@ packages:
   '@effect/language-service@0.23.5':
     resolution: {integrity: sha512-aQN24eziWuqK/EdFhhZ2Jr/CZgYxNfsP9r7DT7jCYgJWhZ8HPO39hyHcij14cMv41ZM8j0p8lmBnHYZwYN1Wyg==}
 
-  '@effect/vitest@0.23.12':
-    resolution: {integrity: sha512-kUR6Npn9gXsO+PlxnZQ9kmd7RzjT1Bl0foyypvCKctvRtG/CmqNgDNNZU9s/GZXvVAtbChjULXe1APyE2smrAw==}
+  '@effect/vitest@0.23.13':
+    resolution: {integrity: sha512-F3x2phMXuVzqWexdcYp8v0z1qQHkKxp2UaHNbqZaEjPEp8FBz/iMwbi6iS/oIWzLfGF8XqdP8BGJptvGIJONNw==}
     peerDependencies:
-      effect: ^3.16.12
+      effect: ^3.16.13
       vitest: ^3.0.0
 
   '@egoist/tailwindcss-icons@1.9.0':
@@ -8497,7 +8497,7 @@ snapshots:
 
   '@effect/language-service@0.23.5': {}
 
-  '@effect/vitest@0.23.12(effect@3.16.12)(vitest@3.2.4)':
+  '@effect/vitest@0.23.13(effect@3.16.12)(vitest@3.2.4)':
     dependencies:
       effect: 3.16.12
       vitest: 3.2.4(@types/debug@4.1.12)(@types/node@24.0.10)(@vitest/browser@3.2.4)(jiti@2.4.2)(less@4.3.0)(lightningcss@1.30.1)(msw@2.10.2(@types/node@24.0.10)(typescript@5.8.3))(terser@5.42.0)(tsx@4.20.3)
