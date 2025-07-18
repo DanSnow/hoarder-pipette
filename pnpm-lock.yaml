@@ -99,8 +99,8 @@ importers:
         specifier: 7.60.0
         version: 7.60.0(react@19.1.0)
       react-twc:
-        specifier: 1.5.0
-        version: 1.5.0(@types/react@19.1.8)(react@19.1.0)
+        specifier: 1.5.1
+        version: 1.5.1(@types/react@19.1.8)(react@19.1.0)
       react-use:
         specifier: 17.6.0
         version: 17.6.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -6388,8 +6388,8 @@ packages:
       '@types/react':
         optional: true
 
-  react-twc@1.5.0:
-    resolution: {integrity: sha512-9swU4CSxwGGUQ17faIxaK25ByeWqKBqXuOydZ2mScatZo6AjcO8BTPQfXAhZFZU7F55glpfwpOsB9pYgL/3HTg==}
+  react-twc@1.5.1:
+    resolution: {integrity: sha512-PuyxdfBjE4TkxU5OcMakrPhOpqrdruqn6ePa4j4e41+9nMqIHh1NnclpiGYsk6mITLYkZgj//8bAnNNT0L8J+g==}
 
   react-universal-interface@0.6.2:
     resolution: {integrity: sha512-dg8yXdcQmvgR13RIlZbTRQOoUrDciFVoSBZILwjE2LFISxZZ8loVJKAkuzswl5js8BHda79bIb2b84ehU8IjXw==}
@@ -15360,7 +15360,7 @@ snapshots:
     optionalDependencies:
       '@types/react': 19.1.8
 
-  react-twc@1.5.0(@types/react@19.1.8)(react@19.1.0):
+  react-twc@1.5.1(@types/react@19.1.8)(react@19.1.0):
     dependencies:
       '@radix-ui/react-slot': 1.2.3(@types/react@19.1.8)(react@19.1.0)
       clsx: 2.1.1
