@@ -78,8 +78,8 @@ importers:
         specifier: 2.1.1
         version: 2.1.1
       effect:
-        specifier: 3.16.16
-        version: 3.16.16
+        specifier: 3.17.0
+        version: 3.17.0
       jotai:
         specifier: 2.12.5
         version: 2.12.5(@types/react@19.1.8)(react@19.1.0)
@@ -131,7 +131,7 @@ importers:
         version: 0.27.2
       '@effect/vitest':
         specifier: 0.25.0
-        version: 0.25.0(effect@3.16.16)(vitest@3.2.4)
+        version: 0.25.0(effect@3.17.0)(vitest@3.2.4)
       '@egoist/tailwindcss-icons':
         specifier: 1.9.0
         version: 1.9.0(tailwindcss@4.1.11)
@@ -4300,8 +4300,8 @@ packages:
   ee-first@1.1.1:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
 
-  effect@3.16.16:
-    resolution: {integrity: sha512-q8jsuAJykQJJ9jDkR9VaAR1JeHnEDn49g6+LkveIcfW3nIPUJw6BrC9ZPaVCJWmU23vKoVj9XqJmC/EW8kiI8g==}
+  effect@3.17.0:
+    resolution: {integrity: sha512-szMlUsbPhP9lsrU+sDPXL9pQT2ew8PhcZvPm0p5dzYFbc+Jn/lH2i5thtmPQdm6Ut1rS4fS67SbuG7Qm0E0oZA==}
 
   electron-to-chromium@1.5.187:
     resolution: {integrity: sha512-cl5Jc9I0KGUoOoSbxvTywTa40uspGJt/BDBoDLoxJRSBpWh4FFXBsjNRHfQrONsV/OoEjDfHUmZQa2d6Ze4YgA==}
@@ -8557,9 +8557,9 @@ snapshots:
 
   '@effect/language-service@0.27.2': {}
 
-  '@effect/vitest@0.25.0(effect@3.16.16)(vitest@3.2.4)':
+  '@effect/vitest@0.25.0(effect@3.17.0)(vitest@3.2.4)':
     dependencies:
-      effect: 3.16.16
+      effect: 3.17.0
       vitest: 3.2.4(@types/debug@4.1.12)(@types/node@24.0.15)(@vitest/browser@3.2.4)(jiti@2.4.2)(less@4.4.0)(lightningcss@1.30.1)(msw@2.10.4(@types/node@24.0.15)(typescript@5.8.3))(terser@5.43.1)(tsx@4.20.3)
 
   '@egoist/tailwindcss-icons@1.9.0(tailwindcss@4.1.11)':
@@ -12573,7 +12573,7 @@ snapshots:
 
   ee-first@1.1.1: {}
 
-  effect@3.16.16:
+  effect@3.17.0:
     dependencies:
       '@standard-schema/spec': 1.0.0
       fast-check: 3.23.2
