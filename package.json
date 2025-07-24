@@ -27,7 +27,7 @@
     "@effect/language-service": "0.27.2",
     "@effect/vitest": "0.25.0",
     "@egoist/tailwindcss-icons": "1.9.0",
-    "@hey-api/openapi-ts": "0.77.0",
+    "@hey-api/openapi-ts": "0.80.1",
     "@iconify-json/simple-icons": "1.2.44",
     "@moonrepo/cli": "1.38.6",
     "@storybook/addon-a11y": "9.0.18",
