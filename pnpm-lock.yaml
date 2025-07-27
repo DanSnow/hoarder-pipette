@@ -235,8 +235,8 @@ importers:
         specifier: 7.0.6
         version: 7.0.6(@types/node@24.0.15)(jiti@2.4.2)(less@4.4.0)(lightningcss@1.30.1)(terser@5.43.1)(tsx@4.20.3)
       vite-plugin-inspect:
-        specifier: 11.3.0
-        version: 11.3.0(vite@7.0.6(@types/node@24.0.15)(jiti@2.4.2)(less@4.4.0)(lightningcss@1.30.1)(terser@5.43.1)(tsx@4.20.3))
+        specifier: 11.3.2
+        version: 11.3.2(vite@7.0.6(@types/node@24.0.15)(jiti@2.4.2)(less@4.4.0)(lightningcss@1.30.1)(terser@5.43.1)(tsx@4.20.3))
       vite-plugin-tsconfig-paths:
         specifier: 1.4.1
         version: 1.4.1(typescript@5.8.3)(vite@7.0.6(@types/node@24.0.15)(jiti@2.4.2)(less@4.4.0)(lightningcss@1.30.1)(terser@5.43.1)(tsx@4.20.3))
@@ -7459,8 +7459,8 @@ packages:
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
     hasBin: true
 
-  vite-plugin-inspect@11.3.0:
-    resolution: {integrity: sha512-vmt7K1WVKQkuiwvsM6e5h3HDJ2pSWTnzoj+JP9Kvu3Sh2G+nFap1F1V7tqpyA4qFxM1GQ84ryffWFGQrwShERQ==}
+  vite-plugin-inspect@11.3.2:
+    resolution: {integrity: sha512-nzwvyFQg58XSMAmKVLr2uekAxNYvAbz1lyPmCAFVIBncCgN9S/HPM+2UM9Q9cvc4JEbC5ZBgwLAdaE2onmQuKg==}
     engines: {node: '>=14'}
     peerDependencies:
       '@nuxt/kit': '*'
@@ -16669,7 +16669,7 @@ snapshots:
       - tsx
       - yaml
 
-  vite-plugin-inspect@11.3.0(vite@7.0.6(@types/node@24.0.15)(jiti@2.4.2)(less@4.4.0)(lightningcss@1.30.1)(terser@5.43.1)(tsx@4.20.3)):
+  vite-plugin-inspect@11.3.2(vite@7.0.6(@types/node@24.0.15)(jiti@2.4.2)(less@4.4.0)(lightningcss@1.30.1)(terser@5.43.1)(tsx@4.20.3)):
     dependencies:
       ansis: 4.1.0
       debug: 4.4.1
