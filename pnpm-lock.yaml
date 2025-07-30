@@ -21,8 +21,8 @@ importers:
         specifier: 5.2.1
         version: 5.2.1(react-hook-form@7.61.1(react@19.1.0))
       '@iconify-json/lucide':
-        specifier: 1.2.58
-        version: 1.2.58
+        specifier: 1.2.59
+        version: 1.2.59
       '@orpc/client':
         specifier: 1.7.5
         version: 1.7.5
@@ -1068,8 +1068,8 @@ packages:
     peerDependencies:
       react-hook-form: ^7.55.0
 
-  '@iconify-json/lucide@1.2.58':
-    resolution: {integrity: sha512-4ONe3ONaauEaf7wEQIvlWz2xHaMXUXuQeJVRBMu4PmsBrMEfdnc2vRZRyAudmcQo8yWmEsLu6WM7/5qWUdDJHQ==}
+  '@iconify-json/lucide@1.2.59':
+    resolution: {integrity: sha512-qHVs++9sGUxSNf8nJ0U/0UxHyVaut9TV4V7dc3i4K9jqxL/eg/sDpgKsX3+GrsWP3IwE8cARRgQHoLEb3Eru2Q==}
 
   '@iconify-json/simple-icons@1.2.45':
     resolution: {integrity: sha512-POOz+NjYQDy2fy1u+sIZi05N6r6oSooIGBaBcZLh7w8QOmLgJAZ6mBt+7Messp7ku9ucRua61if33BPoOZCwRQ==}
@@ -8756,7 +8756,7 @@ snapshots:
       '@standard-schema/utils': 0.3.0
       react-hook-form: 7.61.1(react@19.1.0)
 
-  '@iconify-json/lucide@1.2.58':
+  '@iconify-json/lucide@1.2.59':
     dependencies:
       '@iconify/types': 2.0.0
 
