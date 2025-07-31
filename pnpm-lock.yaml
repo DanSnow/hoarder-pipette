@@ -27,8 +27,8 @@ importers:
         specifier: 1.7.6
         version: 1.7.6
       '@orpc/hey-api':
-        specifier: 1.7.5
-        version: 1.7.5
+        specifier: 1.7.6
+        version: 1.7.6
       '@orpc/server':
         specifier: 1.7.5
         version: 1.7.5(crossws@0.3.5)(ws@8.18.3)
@@ -1521,8 +1521,8 @@ packages:
   '@orpc/contract@1.7.5':
     resolution: {integrity: sha512-Q2XaOJEBzxc7PZ40DIoFJgAPBn6Z8SUYE/tb4N3ynUOjsqMsexhm++cyPzsp+qDG5okO+t3cPY2H5K2YdgTNdw==}
 
-  '@orpc/hey-api@1.7.5':
-    resolution: {integrity: sha512-isUMWxz77azLBGiytk3sXDa2UQIyM9zxHjnFz+JsljSLb1mxeltYOx7YnaIwg1uknpkDmjuFFOMNbCMwgOmqkg==}
+  '@orpc/hey-api@1.7.6':
+    resolution: {integrity: sha512-8zS4wuz9drRpR6smd92GOhFGE/BuLiorE8/9tlnzD+jXdVGhx3oRpznxLO05yXTNyMyFW+JtfEibCtLs5siLOw==}
 
   '@orpc/server@1.7.5':
     resolution: {integrity: sha512-Z26apO5CEfPcOH9bLPEAnUgEdS0Vawrpb6Qe9/UJsKRwRaxYJ3CoFXMQ+h7hcRH+BDFOKxlDBOLgcFrUwHsN+w==}
@@ -9237,10 +9237,10 @@ snapshots:
       '@standard-schema/spec': 1.0.0
       openapi-types: 12.1.3
 
-  '@orpc/hey-api@1.7.5':
+  '@orpc/hey-api@1.7.6':
     dependencies:
-      '@orpc/client': 1.7.5
-      '@orpc/shared': 1.7.5
+      '@orpc/client': 1.7.6
+      '@orpc/shared': 1.7.6
 
   '@orpc/server@1.7.5(crossws@0.3.5)(ws@8.18.3)':
     dependencies:
