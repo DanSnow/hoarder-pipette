@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://github.com/DanSnow/hoarder-pipette/compare/hoarder-pipette-v1.4.1...hoarder-pipette-v1.5.0) (2025-08-05)
+
+
+### Features
+
+* request karakeep host permission ([#569](https://github.com/DanSnow/hoarder-pipette/issues/569)) ([26f2d87](https://github.com/DanSnow/hoarder-pipette/commit/26f2d875d2d424aeddec46dea5f9bcc5866e0891))
+
 ## [1.4.1](https://github.com/DanSnow/hoarder-pipette/compare/hoarder-pipette-v1.4.0...hoarder-pipette-v1.4.1) (2025-05-31)
 
 

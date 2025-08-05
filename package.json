@@ -6,7 +6,7 @@
   },
   "name": "hoarder-pipette",
   "description": "An extension to inject bookmarks from your Hoarder app",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "keywords": [
     "extension",
     "browser-extension",
@@ -27,7 +27,7 @@
     "@effect/language-service": "0.34.0",
     "@effect/vitest": "0.25.0",
     "@egoist/tailwindcss-icons": "1.9.0",
-    "@hey-api/openapi-ts": "0.80.2",
+    "@hey-api/openapi-ts": "0.80.1",
     "@iconify-json/simple-icons": "1.2.46",
     "@moonrepo/cli": "1.39.3",
     "@storybook/addon-a11y": "9.1.1",
