@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.1](https://github.com/DanSnow/hoarder-pipette/compare/hoarder-pipette-v1.5.0...hoarder-pipette-v1.5.1) (2025-08-05)
+
+
+### Bug Fixes
+
+* update lockfile ([ec16c5d](https://github.com/DanSnow/hoarder-pipette/commit/ec16c5d5a29ae45ed989763d66f2439e4f585bd5))
+
 ## [1.5.0](https://github.com/DanSnow/hoarder-pipette/compare/hoarder-pipette-v1.4.1...hoarder-pipette-v1.5.0) (2025-08-05)
 
 
