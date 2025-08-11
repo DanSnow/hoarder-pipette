@@ -39,7 +39,7 @@ jobs:
     needs: release-please
     if: ${{ needs.release-please.outputs.prs_created && needs.release-please.outputs.pr_number }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           ref: refs/pull/${{ needs.release-please.outputs.pr_number }}
       - uses: moonrepo/setup-toolchain@v0
@@ -66,7 +66,7 @@ jobs:
     needs: release-please
     if: ${{ needs.release-please.outputs.release_created }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           ref: ${{ needs.release-please.outputs.tag_name }}
           fetch-depth: 0
