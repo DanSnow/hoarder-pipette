@@ -51,7 +51,7 @@ jobs:
         uses: reviewdog/action-setup@v1.3.2
       - run: pnpm install
       - name: Run Biome with reviewdog
-        uses: mongolyy/reviewdog-action-biome@v2.0.0
+        uses: mongolyy/reviewdog-action-biome@v2.1.0
         with:
           github_token: ${{ secrets.github_token }}
           reporter: github-pr-review
