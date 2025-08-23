@@ -90,7 +90,7 @@
     "@webext-core/storage": "1.2.0",
     "class-variance-authority": "0.7.1",
     "clsx": "2.1.1",
-    "effect": "3.17.8",
+    "effect": "3.17.9",
     "jotai": "2.13.1",
     "lucide-react": "0.541.0",
     "next-themes": "0.4.6",
