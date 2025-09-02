@@ -100,7 +100,8 @@ export function getRegisterableScripts(): Effect.Effect<string[], never, Storage
   )
 }
 
-const CONTENT_SCRIPT = '/scripts/content-script.js'
+// https://wxt.dev/guide/essentials/entrypoints.html#content-scripts
+const CONTENT_SCRIPT = '/content-scripts/content.js'
 
 export function registerAll() {
   return pipe(

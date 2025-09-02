@@ -1,7 +1,9 @@
 {
+  "extends": "./.wxt/tsconfig.json",
   "compilerOptions": {
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
+    "allowImportingTsExtensions": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
@@ -18,7 +20,7 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./*"]
+      "~/*": ["./src/*"]
     },
     "plugins": [
       {
@@ -26,6 +28,6 @@
       }
     ]
   },
-  "include": ["./"],
+  "include": ["./**/*", ".wxt/**/*"],
   "exclude": ["node_modules", "dist", "docs", ".tanstack", "storybook-static"]
 }

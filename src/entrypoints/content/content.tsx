@@ -12,12 +12,14 @@ if (import.meta.webpackHot) {
   import.meta.webpackHot?.dispose(() => unmount?.())
 }
 
-if (document.readyState === 'complete') {
-  initial()
-} else {
-  document.addEventListener('readystatechange', () => {
-    if (document.readyState === 'complete') initial()
-  })
+export function main() {
+  if (document.readyState === 'complete') {
+    initial()
+  } else {
+    document.addEventListener('readystatechange', () => {
+      if (document.readyState === 'complete') initial()
+    })
+  }
 }
 
 async function initial() {
