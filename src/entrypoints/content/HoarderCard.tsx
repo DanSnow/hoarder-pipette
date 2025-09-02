@@ -9,7 +9,7 @@ import { orpc } from '~/shared/context' // Import orpc client
 
 export function HoarderCard({ className, userQuery }: { className?: string; userQuery: string }) {
   const options = useAtomValue(optionsAtom)
-  const { data: bookmarks, error } = useQuery(
+  const { data: bookmarks } = useQuery(
     // Use useQuery with orpc.searchBookmark.queryOptions
     orpc.searchBookmark.queryOptions({
       input: {

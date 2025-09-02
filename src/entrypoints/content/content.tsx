@@ -7,9 +7,9 @@ import { ContentRoot } from './ContentRoot'
 
 let unmount: (() => void) | undefined
 
-if (import.meta.webpackHot) {
-  import.meta.webpackHot?.accept()
-  import.meta.webpackHot?.dispose(() => unmount?.())
+if (import.meta.hot) {
+  import.meta.hot?.accept()
+  import.meta.hot?.dispose(() => unmount?.())
 }
 
 export function main() {
