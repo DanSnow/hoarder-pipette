@@ -1,4 +1,6 @@
+import tailwindcss from '@tailwindcss/vite'
 import { tanstackRouter } from '@tanstack/router-plugin/vite'
+import TsConfigPaths from 'vite-plugin-tsconfig-paths'
 import { defineConfig } from 'wxt'
 
 // See https://wxt.dev/api/config.html
@@ -6,7 +8,7 @@ export default defineConfig({
   srcDir: 'src',
   modules: ['@wxt-dev/module-react'],
   vite: () => ({
-    plugins: [tanstackRouter()],
+    plugins: [tanstackRouter(), TsConfigPaths(), tailwindcss()],
   }),
   manifest: {
     permissions: ['storage', 'activeTab', 'scripting'],
