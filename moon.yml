@@ -1,15 +1,6 @@
 fileGroups:
   sources:
-    - atoms/**/*
-    - components/**/*
-    - content/**/*
-    - hooks/**/*
-    - lib/**/*
-    - schemas/**/*
     - src/**/*
-    - styles/**/*
-    - client.ts
-    - store.ts
     - tailwind.config.js
     - postcss.config.js
     - manifest.json
@@ -30,10 +21,8 @@ tasks:
   build-ext-chrome:
     type: build
     command:
-      - extension
-      - build
-      - --zip
-      - --browser=chrome
+      - wxt
+      - zip
     platform: node
     inputs:
       - "@group(sources)"
@@ -42,10 +31,10 @@ tasks:
   build-ext-firefox:
     type: build
     command:
-      - extension
-      - build
-      - --zip
-      - --browser=firefox
+      - wxt
+      - zip
+      - -b
+      - firefox
     platform: node
     inputs:
       - "@group(sources)"
@@ -60,8 +49,7 @@ tasks:
   dev:
     type: run
     command:
-      - extension
-      - dev
+      - wxt
     local: true
     platform: node
   dev-chrome:

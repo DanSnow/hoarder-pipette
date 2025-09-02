@@ -3,8 +3,8 @@ import { joinURL } from 'ufo'
 import browser from 'webextension-polyfill' // Import browser from polyfill
 import { z } from 'zod/v4' // Import z from zod
 import { optionsAtom } from '~/atoms/storage'
-import { getSupportedSearchEngines, registerAll } from '~/background/dynamic-search-engine'
-import { BackgroundRuntime } from '~/background/runtime'
+import { getSupportedSearchEngines, registerAll } from '~/entrypoints/background/dynamic-search-engine'
+import { BackgroundRuntime } from '~/entrypoints/background/runtime'
 import { SupportSearchEnginesSchema } from '~/schemas/supported-engines'
 import { createClient } from '~/shared/client/client'
 import { zBookmark } from '~/shared/client/zod.gen'
