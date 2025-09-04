@@ -5,14 +5,17 @@ import type {z} from 'zod/v4'
 import {decodeEntities} from '~/lib/utils'
 import type {zBookmark} from '~/shared/client/zod.gen'
 import {orpc} from '~/shared/context' // Import orpc client
-import {BookmarkMenu} from './BookmarkMenu'
 import {Clock, ExternalLink, Star} from "lucide-react";
 import {Button} from "~/components/ui/button";
+import {useAtomValue} from 'jotai'
+import {joinURL} from 'ufo'
+import {optionsAtom} from '~/atoms/storage'
 
 export function BookmarkPreview({bookmark}: { bookmark: z.infer<typeof zBookmark> }) {
   invariant(bookmark.content.type === 'link', 'bookmark is not link')
 
   const {imageUrl, title, description} = bookmark.content
+  const {url} = useAtomValue(optionsAtom)
 
   const isFirefox = import.meta.env.EXTENSION_BROWSER === 'firefox'
   const [hasAllUrlsPermission, setHasAllUrlsPermission] = useState(!isFirefox) // Assume true if not Firefox
@@ -82,10 +85,6 @@ export function BookmarkPreview({bookmark}: { bookmark: z.infer<typeof zBookmark
               >
                 <Star className="h-3.5 w-3.5"/>
               </Button>
-              <BookmarkMenu
-                bookmark={bookmark}
-                className="opacity-0 group-hover:opacity-100 transition-opacity"
-              />
             </div>
           </div>
 
@@ -103,17 +102,17 @@ export function BookmarkPreview({bookmark}: { bookmark: z.infer<typeof zBookmark
               </div>
             )}
 
-            {bookmark.content.url && (
+            {bookmark.content.url && url && (
               <>
                 <span className="mx-2">•</span>
                 <a
-                  href={bookmark.content.url}
                   target="_blank"
                   rel="noopener noreferrer"
+                  href={joinURL(url, '/dashboard/preview', bookmark.id)}
                   className="flex items-center text-blue-600 hover:underline dark:text-blue-400"
                   onClick={(e) => e.stopPropagation()}
                 >
-                  {new URL(bookmark.content.url).hostname.replace('www.', '')}
+                  View in Karakeep
                   <ExternalLink className="ml-1 h-3 w-3"/>
                 </a>
               </>
