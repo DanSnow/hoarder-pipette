@@ -23,7 +23,7 @@ jobs:
           node-version: "22.19.0"
           cache: pnpm
       - name: Setup reviewdog
-        uses: reviewdog/action-setup@v1.3.2
+        uses: reviewdog/action-setup@v1.4.0
       - run: pnpm install
       - uses: EPMatt/reviewdog-action-tsc@v1
         with:
@@ -48,7 +48,7 @@ jobs:
           node-version: "22.19.0"
           cache: pnpm
       - name: Setup reviewdog
-        uses: reviewdog/action-setup@v1.3.2
+        uses: reviewdog/action-setup@v1.4.0
       - run: pnpm install
       - name: Run Biome with reviewdog
         uses: mongolyy/reviewdog-action-biome@v2.3.0
