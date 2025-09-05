@@ -23,7 +23,7 @@ export function HoarderCard({className, userQuery}: { className?: string; userQu
 
   if (!options.apiKey || !options.url) {
     return (
-      <Card className="w-full max-w-2xl border-0 shadow-lg">
+      <Card className="w-full max-w-2xl shadow-lg">
         <CardHeader className="border-b border-gray-200 dark:border-gray-700">
           <h2 className="text-lg font-semibold text-foreground">Hoarder's Pipette</h2>
         </CardHeader>
@@ -45,7 +45,7 @@ export function HoarderCard({className, userQuery}: { className?: string; userQu
   }
 
   return (
-    <Card className={`${className} w-full max-w-2xl border-0 shadow-lg`}>
+    <Card className={`${className} w-full max-w-2xl shadow-lg`}>
       <CardHeader className="border-b border-gray-200 px-6 py-4 dark:border-gray-700">
         <div className="flex items-center justify-between">
           <h2 className="text-xl font-semibold text-foreground">Karakeep Bookmarks</h2>
@@ -55,17 +55,15 @@ export function HoarderCard({className, userQuery}: { className?: string; userQu
 
       <CardContent className="p-0">
         <ScrollArea className="h-[400px] w-full">
-          <div className="space-y-1 p-2">
-            {pipe(
-              bookmarks,
-              Array.filter((bookmark) => bookmark.content.type === 'link'),
-              Array.map((bookmark) => (
-                <div key={bookmark.id} className="rounded-lg transition-colors hover:bg-accent/50">
-                  <BookmarkPreview bookmark={bookmark}/>
-                </div>
-              )),
-            )}
-          </div>
+          {pipe(
+            bookmarks,
+            Array.filter((bookmark) => bookmark.content.type === 'link'),
+            Array.map((bookmark) => (
+              <div key={bookmark.id} className="rounded-lg transition-colors hover:bg-accent/50">
+                <BookmarkPreview bookmark={bookmark}/>
+              </div>
+            )),
+          )}
           <ScrollBar orientation="vertical"/>
         </ScrollArea>
       </CardContent>

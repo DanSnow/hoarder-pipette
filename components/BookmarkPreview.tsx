@@ -5,8 +5,7 @@ import type {z} from 'zod/v4'
 import {decodeEntities} from '~/lib/utils'
 import type {zBookmark} from '~/shared/client/zod.gen'
 import {orpc} from '~/shared/context' // Import orpc client
-import {Clock, ExternalLink, Star} from "lucide-react";
-import {Button} from "~/components/ui/button";
+import {Clock, ExternalLink} from "lucide-react";
 import {useAtomValue} from 'jotai'
 import {joinURL} from 'ufo'
 import {optionsAtom} from '~/atoms/storage'
@@ -41,7 +40,7 @@ export function BookmarkPreview({bookmark}: { bookmark: z.infer<typeof zBookmark
 
   return (
     <div className="group relative p-3 transition-colors">
-      <div className="flex items-start gap-3">
+      <div className="flex flex-wrap items-start gap-3">
         {/* Thumbnail */}
         {shouldDisplayImage && (
           <div
@@ -66,26 +65,12 @@ export function BookmarkPreview({bookmark}: { bookmark: z.infer<typeof zBookmark
               href={bookmark.content.url}
               target="_blank"
               rel="noreferrer noopener"
-              className="block group-hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm -mx-1 px-1 -my-0.5"
+              className="block hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm -mx-1 px-1 -my-0.5"
             >
               <h3 className="text-sm font-medium text-foreground line-clamp-2">
                 {decodeEntities(title || 'Untitled Bookmark')}
               </h3>
             </a>
-            <div className="flex items-center gap-1">
-              <Button
-                variant="ghost"
-                size="icon"
-                className="h-6 w-6 opacity-0 group-hover:opacity-100 transition-opacity"
-                onClick={(e) => {
-                  e.preventDefault()
-                  e.stopPropagation()
-                  // TODO: Implement favorite functionality
-                }}
-              >
-                <Star className="h-3.5 w-3.5"/>
-              </Button>
-            </div>
           </div>
 
           {description && (
