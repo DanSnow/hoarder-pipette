@@ -2,7 +2,7 @@ import {useQuery} from '@tanstack/react-query' // Import useQuery
 import {useEffect, useState} from 'react'
 import invariant from 'tiny-invariant'
 import type {z} from 'zod/v4'
-import {decodeEntities, formattedDate} from '~/lib/utils'
+import {BOOKMARK_PLACEHOLDER_SVG, decodeEntities, formattedDate} from '~/lib/utils'
 import type {zBookmark} from '~/shared/client/zod.gen'
 import {orpc} from '~/shared/context' // Import orpc client
 import {Clock, ExternalLink} from "lucide-react";
@@ -52,7 +52,7 @@ export function BookmarkPreview({bookmark}: { bookmark: z.infer<typeof zBookmark
               onError={(e) => {
                 // Fallback to a placeholder if image fails to load
                 const target = e.target as HTMLImageElement
-                target.src = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiA3N2FhZTYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1ib29rbWFyayI+PHBhdGggZD0iTTYgNHYxNmE1IDUgMCAwIDAgNy4zMDEgNC41ODFMMTIgMjMuMzE2bC0xLjMwMS0xLjczNUExLjgxIDEuODEgMCAwIDEgMTAgMjAuNjVWN2E1IDUgMCAwIDEgMTAgMHYxMy42NWEuODY1Ljg2NSAwIDAgMS0xLjI0OC44MzRMMTIgMjEuNzYiLz48L3N2Zz4='
+                target.src = BOOKMARK_PLACEHOLDER_SVG
               }}
             />
           </div>
