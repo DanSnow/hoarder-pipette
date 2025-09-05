@@ -110,10 +110,16 @@ export function BookmarkPreview({bookmark}: { bookmark: z.infer<typeof zBookmark
           {bookmark.tags && bookmark.tags.length > 0 && (
             <div className="mt-2 flex flex-wrap gap-1">
               {bookmark.tags.map(tag => (
-                <span key={tag.id}
-                      className="rounded-full bg-gray-100 px-2 py-0.5 text-xs text-gray-600 dark:bg-gray-800 dark:text-gray-300">
+                <a
+                  key={tag.id}
+                  href={joinURL(url, '/dashboard/tags', tag.id)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-full bg-gray-100 px-2 py-0.5 text-xs text-gray-600 dark:bg-gray-800 dark:text-gray-300 hover:underline"
+                  onClick={(e) => e.stopPropagation()}
+                >
                   {tag.name}
-                </span>
+                </a>
               ))}
             </div>
           )}
