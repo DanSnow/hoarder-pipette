@@ -24,7 +24,7 @@ export function HoarderCard({className, userQuery}: { className?: string; userQu
 
   if (!options.apiKey || !options.url) {
     return (
-      <Card className="w-full max-w-2xl shadow-lg">
+      <Card className="w-full max-w-2xl">
         <CardHeader className="border-b border-gray-200 dark:border-gray-700">
           <h2 className="text-lg font-semibold text-foreground">Hoarder's Pipette</h2>
         </CardHeader>
@@ -46,7 +46,7 @@ export function HoarderCard({className, userQuery}: { className?: string; userQu
   }
 
   return (
-    <Card className={cn(className, 'w-full max-w-2xl shadow-lg')}>
+    <Card className={cn(className, 'w-full max-w-2xl')}>
       <CardHeader className="border-b border-gray-200 px-6 py-4 dark:border-gray-700">
         <div className="flex items-center justify-between">
           <h2 className="text-xl font-semibold text-foreground">Karakeep Bookmarks</h2>
