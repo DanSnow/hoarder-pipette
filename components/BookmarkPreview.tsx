@@ -97,8 +97,10 @@ export function BookmarkPreview({bookmark}: { bookmark: z.infer<typeof zBookmark
                   className="flex items-center text-blue-600 hover:underline dark:text-blue-400"
                   onClick={(e) => e.stopPropagation()}
                 >
+                  <span className="mx-2">
                   View in Karakeep
-                  <ExternalLink className="ml-1 h-3 w-3"/>
+                  <ExternalLink className="ml-1 h-3 w-3 inline-block"/>
+                  </span>
                 </a>
               </>
             )}
