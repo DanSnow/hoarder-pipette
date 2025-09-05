@@ -105,15 +105,16 @@ export function BookmarkPreview({bookmark}: { bookmark: z.infer<typeof zBookmark
           </div>
 
           {/* Tags would go here if available */}
-          {/* {bookmark.tags && bookmark.tags.length > 0 && (
+          {bookmark.tags && bookmark.tags.length > 0 && (
             <div className="mt-2 flex flex-wrap gap-1">
               {bookmark.tags.map(tag => (
-                <span key={tag} className="rounded-full bg-gray-100 px-2 py-0.5 text-xs text-gray-600 dark:bg-gray-800 dark:text-gray-300">
-                  {tag}
+                <span key={tag.id}
+                      className="rounded-full bg-gray-100 px-2 py-0.5 text-xs text-gray-600 dark:bg-gray-800 dark:text-gray-300">
+                  {tag.name}
                 </span>
               ))}
             </div>
-          )} */}
+          )}
         </div>
       </div>
     </div>
