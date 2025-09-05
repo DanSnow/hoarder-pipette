@@ -1,9 +1,9 @@
 import '~/styles/tailwind.css'
-import { createRoot } from 'react-dom/client'
-import { userSitesAtom } from '~/atoms/storage'
-import { getRenderRoot } from '~/lib/search-engines'
-import { store } from '~/store'
-import { ContentRoot } from './ContentRoot'
+import {createRoot} from 'react-dom/client'
+import {userSitesAtom} from '~/atoms/storage'
+import {getRenderRoot} from '~/lib/search-engines'
+import {store} from '~/store'
+import {ContentRoot} from './ContentRoot'
 
 let unmount: (() => void) | undefined
 
@@ -23,6 +23,13 @@ if (document.readyState === 'complete') {
 async function initial() {
   const userSites = await store.get(userSitesAtom)
   const style = await fetchCSS()
+  const idx = style.indexOf('@property');
+  if (idx !== -1) {
+    const atProperties = style.slice(idx);
+    const styleElement = document.createElement('style');
+    styleElement.innerText = atProperties;
+    document.head.appendChild(styleElement);
+  }
   const mountContainer = await getRenderRoot(userSites, { style })
   const root = createRoot(mountContainer.renderRoot)
   root.render(<ContentRoot />)
