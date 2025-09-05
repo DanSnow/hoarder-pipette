@@ -21,10 +21,13 @@ if (document.readyState === 'loading') {
 async function initial() {
   const userSites = await store.get(userSitesAtom)
   const style = await fetchCSS()
-  let atProperties = style.slice(style.indexOf('@property'))
-  let styleElement = document.createElement('style')
-  styleElement.innerText = atProperties
-  document.head.appendChild(styleElement)
+  const idx = style.indexOf('@property');
+  if (idx !== -1) {
+    const atProperties = style.slice(idx);
+    const styleElement = document.createElement('style');
+    styleElement.innerText = atProperties;
+    document.head.appendChild(styleElement);
+  }
   const mountContainer = await getRenderRoot(userSites, { style })
   const root = createRoot(mountContainer.renderRoot)
   root.render(<ContentRoot />)
