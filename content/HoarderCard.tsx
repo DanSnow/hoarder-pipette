@@ -5,7 +5,8 @@ import {optionsAtom} from '~/atoms/storage'
 import {BookmarkPreview} from '~/components/BookmarkPreview'
 import {Card, CardContent, CardFooter, CardHeader} from '~/components/ui/card'
 import {ScrollArea, ScrollBar} from '~/components/ui/scroll-area'
-import {orpc} from '~/shared/context' // Import orpc client
+import {orpc} from '~/shared/context'
+import {cn} from "~/lib/utils"; // Import orpc client
 
 export function HoarderCard({className, userQuery}: { className?: string; userQuery: string }) {
   const options = useAtomValue(optionsAtom)
@@ -45,7 +46,7 @@ export function HoarderCard({className, userQuery}: { className?: string; userQu
   }
 
   return (
-    <Card className={`${className} w-full max-w-2xl shadow-lg`}>
+    <Card className={cn(className, 'w-full max-w-2xl shadow-lg')}>
       <CardHeader className="border-b border-gray-200 px-6 py-4 dark:border-gray-700">
         <div className="flex items-center justify-between">
           <h2 className="text-xl font-semibold text-foreground">Karakeep Bookmarks</h2>
