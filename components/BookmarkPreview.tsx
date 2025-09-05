@@ -115,7 +115,7 @@ export function BookmarkPreview({bookmark}: { bookmark: z.infer<typeof zBookmark
                   href={joinURL(url, '/dashboard/tags', tag.id)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full bg-gray-100 px-2 py-0.5 text-xs text-gray-600 dark:bg-gray-800 dark:text-gray-300 hover:underline"
+                  className="rounded-full bg-gray-100 px-2 py-0.5 text-xs text-gray-600 dark:bg-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
                   onClick={(e) => e.stopPropagation()}
                 >
                   {tag.name}
