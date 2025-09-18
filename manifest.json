@@ -34,5 +34,15 @@
     "gecko": {
       "id": "hoarder-pipette@dansnow.github.io"
     }
-  }
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "content_scripts/*.css"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ]
 }
