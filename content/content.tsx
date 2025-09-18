@@ -1,9 +1,9 @@
 import '~/styles/tailwind.css'
-import { createRoot } from 'react-dom/client'
-import { userSitesAtom } from '~/atoms/storage'
-import { getRenderRoot } from '~/lib/search-engines'
-import { store } from '~/store'
-import { ContentRoot } from './ContentRoot'
+import {createRoot} from 'react-dom/client'
+import {userSitesAtom} from '~/atoms/storage'
+import {getRenderRoot} from '~/lib/search-engines'
+import {store} from '~/store'
+import {ContentRoot} from './ContentRoot'
 
 let unmount: (() => void) | undefined
 
@@ -12,12 +12,10 @@ if (import.meta.webpackHot) {
   import.meta.webpackHot?.dispose(() => unmount?.())
 }
 
-if (document.readyState === 'complete') {
-  initial()
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initial)
 } else {
-  document.addEventListener('readystatechange', () => {
-    if (document.readyState === 'complete') initial()
-  })
+  initial()
 }
 
 async function initial() {
