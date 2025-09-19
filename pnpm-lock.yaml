@@ -193,8 +193,8 @@ importers:
         specifier: 1.3.2
         version: 1.3.2
       chrome-webstore-upload-cli:
-        specifier: 3.3.2
-        version: 3.3.2
+        specifier: 3.4.0
+        version: 3.4.0
       dotenv:
         specifier: 17.2.2
         version: 17.2.2
@@ -3817,13 +3817,13 @@ packages:
     resolution: {integrity: sha512-rNjApaLzuwaOTjCiT8lSDdGN1APCiqkChLMJxJPWLunPAt5fy8xgU9/jNOchV84wfIxrA0lRQB7oCT8jrn/wrQ==}
     engines: {node: '>=6.0'}
 
-  chrome-webstore-upload-cli@3.3.2:
-    resolution: {integrity: sha512-SitIJt3dO1wQEfcTBBj0yRh38+Thq+JJ/uVK0GT8t0bfvk0x8zk3Ar4U5zqmou1pjcR+exGOhdRoLwGLLQItkw==}
+  chrome-webstore-upload-cli@3.4.0:
+    resolution: {integrity: sha512-cLvOqdbaZDcfVSF+104sOYVxQIFfmDcVseH8RY6wqPIYw3chx4jGIh8JHOLntCHFUlxHmYYkGQOAr4YqSV5uJg==}
     engines: {node: '>=18'}
     hasBin: true
 
-  chrome-webstore-upload@3.1.4:
-    resolution: {integrity: sha512-xOfGsFeVv+0ZxZylMoCdMlXVvXY4cvzR8GEDvnuRc6uWz4YR/3RNK6wUb5s2Wulk8SDhNQ259JWP8c8HNL93ng==}
+  chrome-webstore-upload@3.2.0:
+    resolution: {integrity: sha512-ghFzqGFpPzEvDfam7qzokj07KsPn39fOdoj9KwqgQdjcHpFCJ1/wnKi2IHP6zCcHKWEBv9vI7VVbllbDRnypXw==}
     engines: {node: '>=18'}
 
   ci-info@4.3.0:
@@ -12285,15 +12285,15 @@ snapshots:
 
   chrome-trace-event@1.0.4: {}
 
-  chrome-webstore-upload-cli@3.3.2:
+  chrome-webstore-upload-cli@3.4.0:
     dependencies:
-      chrome-webstore-upload: 3.1.4
+      chrome-webstore-upload: 3.2.0
       junk: 4.0.1
       meow: 12.1.1
       recursive-readdir: 2.2.3
       yazl: 2.5.1
 
-  chrome-webstore-upload@3.1.4: {}
+  chrome-webstore-upload@3.2.0: {}
 
   ci-info@4.3.0: {}
 
