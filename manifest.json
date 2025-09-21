@@ -37,12 +37,8 @@
   },
   "web_accessible_resources": [
     {
-      "resources": [
-        "content_scripts/*.css"
-      ],
-      "matches": [
-        "<all_urls>"
-      ]
+      "resources": ["content_scripts/*.css"],
+      "matches": ["<all_urls>"]
     }
   ]
 }
