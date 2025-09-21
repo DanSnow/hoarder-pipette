@@ -4,7 +4,6 @@ import {useAtomValue} from 'jotai'
 import {optionsAtom} from '~/atoms/storage'
 import {BookmarkPreview} from '~/components/BookmarkPreview'
 import {Card, CardContent, CardFooter, CardHeader} from '~/components/ui/card'
-import {ScrollArea, ScrollBar} from '~/components/ui/scroll-area'
 import {orpc} from '~/shared/context'
 import {cn} from "~/lib/utils"; // Import orpc client
 
@@ -76,7 +75,7 @@ export function HoarderCard({className, userQuery}: { className?: string; userQu
           }
 
           return (
-            <ScrollArea className="h-[400px] w-full">
+            <div className="max-h-[400px] overflow-y-auto w-full">
               {pipe(
                 bookmarks,
                 Array.filter((bookmark) => bookmark.content.type === 'link'),
@@ -86,8 +85,7 @@ export function HoarderCard({className, userQuery}: { className?: string; userQu
                   </div>
                 )),
               )}
-              <ScrollBar orientation="vertical"/>
-            </ScrollArea>
+            </div>
           )
         })()}
       </CardContent>
