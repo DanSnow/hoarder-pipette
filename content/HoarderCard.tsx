@@ -4,7 +4,7 @@ import { useAtomValue } from 'jotai'
 import { optionsAtom } from '~/atoms/storage'
 import { BookmarkPreview } from '~/components/BookmarkPreview'
 import { Card, CardContent, CardFooter, CardHeader } from '~/components/ui/card'
-import { cn } from '~/lib/utils' // Import orpc client
+import { cn } from '~/lib/utils'
 import { orpc } from '~/shared/context'
 
 export function HoarderCard({ className, userQuery }: { className?: string; userQuery: string }) {
