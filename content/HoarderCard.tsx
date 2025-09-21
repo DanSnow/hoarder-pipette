@@ -10,7 +10,7 @@ import {cn} from "~/lib/utils"; // Import orpc client
 
 export function HoarderCard({className, userQuery}: { className?: string; userQuery: string }) {
   const options = useAtomValue(optionsAtom)
-  const {data: bookmarks, error} = useQuery(
+  const {data: bookmarks, isPending, error} = useQuery(
     // Use useQuery with orpc.searchBookmark.queryOptions
     orpc.searchBookmark.queryOptions({
       input: {
@@ -29,9 +29,7 @@ export function HoarderCard({className, userQuery}: { className?: string; userQu
           <h2 className="text-lg font-semibold text-foreground">Hoarder's Pipette</h2>
         </CardHeader>
         <CardContent className="p-6 text-center">
-          <p className="text-foreground/80">
-            Please open options page to configure your API key and URL
-          </p>
+          <p className="text-foreground/80">Please open options page to configure your API key and URL</p>
         </CardContent>
       </Card>
     )
@@ -41,9 +39,7 @@ export function HoarderCard({className, userQuery}: { className?: string; userQu
     return null
   }
 
-  if (!bookmarks || bookmarks.length === 0) {
-    return null
-  }
+  const hasBookmarks = bookmarks && bookmarks.length > 0
 
   return (
     <Card className={cn(className, 'w-full max-w-2xl')}>
@@ -51,29 +47,60 @@ export function HoarderCard({className, userQuery}: { className?: string; userQu
         <div className="flex items-center justify-between">
           <h2 className="text-xl font-semibold text-foreground">Karakeep Bookmarks</h2>
         </div>
-
       </CardHeader>
 
       <CardContent className="p-0">
-        <ScrollArea className="h-[400px] w-full">
-          {pipe(
-            bookmarks,
-            Array.filter((bookmark) => bookmark.content.type === 'link'),
-            Array.map((bookmark) => (
-              <div key={bookmark.id} className="rounded-lg transition-colors hover:bg-accent/50">
-                <BookmarkPreview bookmark={bookmark}/>
+        {(() => {
+          if (isPending) {
+            return (
+              <div className="p-6 text-center">
+                <p className="text-foreground/80">Searching...</p>
               </div>
-            )),
-          )}
-          <ScrollBar orientation="vertical"/>
-        </ScrollArea>
+            )
+          }
+
+          if (error) {
+            return (
+              <div className="p-6 text-center">
+                <p className="text-destructive">An error occurred: {error.message}</p>
+              </div>
+            )
+          }
+
+          if (!hasBookmarks) {
+            return (
+              <div className="p-6 text-center">
+                <p className="text-foreground/80">No bookmarks found.</p>
+              </div>
+            )
+          }
+
+          return (
+            <ScrollArea className="h-[400px] w-full">
+              {pipe(
+                bookmarks,
+                Array.filter((bookmark) => bookmark.content.type === 'link'),
+                Array.map((bookmark) => (
+                  <div key={bookmark.id} className="rounded-lg transition-colors hover:bg-accent/50">
+                    <BookmarkPreview bookmark={bookmark}/>
+                  </div>
+                )),
+              )}
+              <ScrollBar orientation="vertical"/>
+            </ScrollArea>
+          )
+        })()}
       </CardContent>
 
-      <CardFooter className="flex items-center justify-between border-t border-gray-200 px-6 py-3 dark:border-gray-700">
-        <span className="text-sm text-muted-foreground">
-          {bookmarks.length} {bookmarks.length === 1 ? 'bookmark' : 'bookmarks'} found
-        </span>
-      </CardFooter>
+      {hasBookmarks && (
+        <CardFooter
+          className="flex items-center justify-between border-t border-gray-200 px-6 py-3 dark:border-gray-700"
+        >
+          <span className="text-sm text-muted-foreground">
+            {bookmarks.length} {bookmarks.length === 1 ? 'bookmark' : 'bookmarks'} found
+          </span>
+        </CardFooter>
+      )}
     </Card>
   )
 }
