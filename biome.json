@@ -38,7 +38,8 @@
     "rules": {
       "recommended": true,
       "suspicious": {
-        "noShadowRestrictedNames": "off"
+        "noShadowRestrictedNames": "off",
+        "noUnknownAtRules": "off"
       },
       "nursery": {
         "useSortedClasses": {
