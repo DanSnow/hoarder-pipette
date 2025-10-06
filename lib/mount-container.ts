@@ -22,7 +22,7 @@ export function createMountContainer(context: RenderRootContext): MountContainer
 
   const renderRoot = document.createElement('div')
   renderRoot.id = 'hoarder-inject'
-  renderRoot.className="min-w-[25rem]"
+  renderRoot.className = 'min-w-[25rem]'
   shadowRoot.append(renderRoot)
   return {
     container,
