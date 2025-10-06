@@ -1,9 +1,8 @@
-import { createRoot } from 'react-dom/client'
-import { userSitesAtom } from '~/atoms/storage'
-import { getRenderRoot } from '~/lib/search-engines'
-import { store } from '~/store'
-import tailwindUrl from '~/styles/tailwind.css?url'
-import { ContentRoot } from './ContentRoot'
+import {createRoot} from 'react-dom/client'
+import {userSitesAtom} from '~/atoms/storage'
+import {getRenderRoot} from '~/lib/search-engines'
+import {store} from '~/store'
+import {ContentRoot} from './ContentRoot'
 
 let unmount: (() => void) | undefined
 
@@ -40,7 +39,7 @@ async function initial() {
 
 async function fetchCSS() {
   // extension.js has some specific process if you fetch the css in the entry point of content script.
-  const cssUrl = tailwindUrl
+  const cssUrl = new URL('~/styles/tailwind.css', import.meta.url)
   const response = await fetch(cssUrl)
   const text = await response.text()
   return response.ok ? text : Promise.reject(text)
