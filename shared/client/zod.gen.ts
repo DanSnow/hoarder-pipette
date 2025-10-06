@@ -170,6 +170,7 @@ export const zBookmark = z.object({
             'video',
             'bookmarkAsset',
             'precrawledArchive',
+            'linkHtmlContent',
             'unknown'
         ])
     }))
