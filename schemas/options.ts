@@ -1,4 +1,4 @@
-import { fieldConfig } from '@autoform/zod/v4'
+import { fieldConfig } from '@autoform/zod'
 import { z } from 'zod/v4'
 
 export const LooseOptionsSchema = z.object({
@@ -7,15 +7,15 @@ export const LooseOptionsSchema = z.object({
 })
 
 export const InstanceOptionsSchema = z.object({
-  url: z.url().register(
-    ...fieldConfig({
+  url: z.url().check(
+    fieldConfig({
       label: 'URL',
       fieldType: 'urlWithApiLink',
       description: 'Your Karakeep instance URL',
     }),
   ),
-  apiKey: z.string().register(
-    ...fieldConfig({
+  apiKey: z.string().check(
+    fieldConfig({
       label: 'API Key',
       description: 'Your API key',
       inputProps: {
