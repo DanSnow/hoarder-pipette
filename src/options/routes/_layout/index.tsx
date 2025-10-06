@@ -1,4 +1,4 @@
-import { ZodProvider } from '@autoform/zod/v4'
+import { ZodProvider } from '@autoform/zod'
 import { createFileRoute } from '@tanstack/react-router'
 import { Effect, pipe } from 'effect'
 import { useAtom } from 'jotai'
