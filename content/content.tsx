@@ -1,8 +1,8 @@
-import {createRoot} from 'react-dom/client'
-import {userSitesAtom} from '~/atoms/storage'
-import {getRenderRoot} from '~/lib/search-engines'
-import {store} from '~/store'
-import {ContentRoot} from './ContentRoot'
+import { createRoot } from 'react-dom/client'
+import { userSitesAtom } from '~/atoms/storage'
+import { getRenderRoot } from '~/lib/search-engines'
+import { store } from '~/store'
+import { ContentRoot } from './ContentRoot'
 
 let unmount: (() => void) | undefined
 
