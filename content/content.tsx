@@ -12,12 +12,10 @@ if (import.meta.webpackHot) {
   import.meta.webpackHot?.dispose(() => unmount?.())
 }
 
-if (document.readyState === 'complete') {
-  initial()
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initial)
 } else {
-  document.addEventListener('readystatechange', () => {
-    if (document.readyState === 'complete') initial()
-  })
+  initial()
 }
 
 async function initial() {
