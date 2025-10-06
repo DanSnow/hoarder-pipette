@@ -1,12 +1,12 @@
 import {Array, pipe} from 'effect'
 import type {z} from 'zod/v4'
-import type {zBookmark} from '~/shared/client/zod.gen'
 import {BookmarkPreview} from '~/components/BookmarkPreview'
+import type {zBookmark} from '~/shared/client/zod.gen'
 
 interface BookmarkListProps {
-  bookmarks: z.infer<typeof zBookmark>[]|undefined;
-  isPending: boolean;
-  error: Error | null;
+  bookmarks: z.infer<typeof zBookmark>[] | undefined
+  isPending: boolean
+  error: Error | null
 }
 
 export function BookmarkList({ bookmarks, isPending, error }: BookmarkListProps) {
@@ -35,7 +35,7 @@ export function BookmarkList({ bookmarks, isPending, error }: BookmarkListProps)
   }
 
   return (
-    <div className="max-h-[400px] overflow-y-auto w-full">
+    <div className="max-h-[400px] w-full overflow-y-auto">
       {pipe(
         bookmarks,
         Array.filter((bookmark) => bookmark.content.type === 'link'),
