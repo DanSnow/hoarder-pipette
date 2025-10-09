@@ -1,15 +1,18 @@
 import { useQuery } from '@tanstack/react-query'
-import { Array, pipe } from 'effect'
 import { useAtomValue } from 'jotai'
 import { optionsAtom } from '~/atoms/storage'
-import { BookmarkPreview } from '~/components/BookmarkPreview'
-import { Card, CardContent, CardHeader } from '~/components/ui/card'
-import { ScrollArea, ScrollBar } from '~/components/ui/scroll-area'
-import { orpc } from '~/shared/context' // Import orpc client
+import { BookmarkList } from '~/components/BookmarkList'
+import { Card, CardContent, CardFooter, CardHeader } from '~/components/ui/card'
+import { cn } from '~/lib/utils'
+import { orpc } from '~/shared/context'
 
 export function HoarderCard({ className, userQuery }: { className?: string; userQuery: string }) {
   const options = useAtomValue(optionsAtom)
-  const { data: bookmarks, error } = useQuery(
+  const {
+    data: bookmarks,
+    isPending,
+    error,
+  } = useQuery(
     // Use useQuery with orpc.searchBookmark.queryOptions
     orpc.searchBookmark.queryOptions({
       input: {
@@ -23,11 +26,14 @@ export function HoarderCard({ className, userQuery }: { className?: string; user
 
   if (!options.apiKey || !options.url) {
     return (
-      <div className="rounded-md bg-background p-2">
-        <h2 className="text-center font-bold text-foreground text-lg">
-          Hoarder's Pipette: Please open options page to configure your API key and URL
-        </h2>
-      </div>
+      <Card className="w-full max-w-2xl">
+        <CardHeader className="border-gray-200 border-b dark:border-gray-700">
+          <h2 className="font-semibold text-foreground text-lg">Hoarder's Pipette</h2>
+        </CardHeader>
+        <CardContent className="p-6 text-center">
+          <p className="text-foreground/80">Please open options page to configure your API key and URL</p>
+        </CardContent>
+      </Card>
     )
   }
 
@@ -35,27 +41,27 @@ export function HoarderCard({ className, userQuery }: { className?: string; user
     return null
   }
 
-  if (!bookmarks || bookmarks.length === 0) {
-    return null
-  }
+  const hasBookmarks = bookmarks && bookmarks.length > 0
 
   return (
-    <Card className={className}>
-      <CardHeader>
-        <h2 className="font-bold text-xl">Karakeep Bookmarks</h2>
+    <Card className={cn(className, 'w-full max-w-2xl')}>
+      <CardHeader className="border-gray-200 border-b px-6 py-4 dark:border-gray-700">
+        <div className="flex items-center justify-between">
+          <h2 className="font-semibold text-foreground text-xl">Karakeep Bookmarks</h2>
+        </div>
       </CardHeader>
-      <CardContent>
-        <ScrollArea className="@container h-72 pr-8">
-          <div className="flex flex-col gap-2">
-            {pipe(
-              bookmarks, // Use the bookmarks array
-              Array.filter((bookmark) => bookmark.content.type === 'link'),
-              Array.map((bookmark) => <BookmarkPreview key={bookmark.id} bookmark={bookmark} />),
-            )}
-          </div>
-          <ScrollBar orientation="vertical" />
-        </ScrollArea>
+
+      <CardContent className="p-0">
+        <BookmarkList bookmarks={bookmarks} isPending={isPending} error={error} />
       </CardContent>
+
+      {hasBookmarks && (
+        <CardFooter className="flex items-center justify-between border-gray-200 border-t px-6 py-3 dark:border-gray-700">
+          <span className="text-muted-foreground text-sm">
+            {bookmarks.length} {bookmarks.length === 1 ? 'bookmark' : 'bookmarks'} found
+          </span>
+        </CardFooter>
+      )}
     </Card>
   )
 }
