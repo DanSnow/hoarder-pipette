@@ -16,7 +16,7 @@ importers:
         version: 4.0.0(@hookform/resolvers@5.2.2(react-hook-form@7.64.0(react@19.1.0)))(react-hook-form@7.64.0(react@19.1.0))(react@19.1.0)
       '@autoform/zod':
         specifier: 5.0.0
-        version: 5.0.0(zod@3.25.76)
+        version: 5.0.0(zod@4.1.12)
       '@hookform/resolvers':
         specifier: 5.2.2
         version: 5.2.2(react-hook-form@7.64.0(react@19.1.0))
@@ -123,8 +123,8 @@ importers:
         specifier: 0.12.0
         version: 0.12.0
       zod:
-        specifier: 3.25.76
-        version: 3.25.76
+        specifier: 4.1.12
+        version: 4.1.12
     devDependencies:
       '@biomejs/biome':
         specifier: 2.2.5
@@ -164,7 +164,7 @@ importers:
         version: 9.1.10(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(rollup@4.52.0)(storybook@9.1.10(@testing-library/dom@10.4.1)(msw@2.11.3(@types/node@24.5.2)(typescript@5.9.3))(prettier@3.6.2)(vite@7.1.9(@types/node@24.5.2)(jiti@2.6.0)(less@4.4.1)(lightningcss@1.30.1)(terser@5.44.0)(tsx@4.20.6)))(typescript@5.9.3)(vite@7.1.9(@types/node@24.5.2)(jiti@2.6.0)(less@4.4.1)(lightningcss@1.30.1)(terser@5.44.0)(tsx@4.20.6))
       '@t3-oss/env-core':
         specifier: 0.13.8
-        version: 0.13.8(typescript@5.9.3)(zod@3.25.76)
+        version: 0.13.8(typescript@5.9.3)(zod@4.1.12)
       '@tailwindcss/postcss':
         specifier: 4.1.14
         version: 4.1.14
@@ -7873,8 +7873,8 @@ packages:
   zod@3.25.76:
     resolution: {integrity: sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==}
 
-  zod@4.1.11:
-    resolution: {integrity: sha512-WPsqwxITS2tzx1bzhIKsEs19ABD5vmCVa4xBo2tq/SrV4RNZtfws1EnCWQXM6yh8bD08a1idvkB5MZSBiZsjwg==}
+  zod@4.1.12:
+    resolution: {integrity: sha512-JInaHOamG8pt5+Ey8kGmdcAcg3OL9reK8ltczgHTAwNhMys/6ThXHityHxVV2p3fkw/c+MAvBHFVYHFZDmjMCQ==}
 
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
@@ -8055,9 +8055,9 @@ snapshots:
       react: 19.1.0
       react-hook-form: 7.64.0(react@19.1.0)
 
-  '@autoform/zod@5.0.0(zod@3.25.76)':
+  '@autoform/zod@5.0.0(zod@4.1.12)':
     dependencies:
-      zod: 3.25.76
+      zod: 4.1.12
 
   '@babel/code-frame@7.27.1':
     dependencies:
@@ -11176,10 +11176,10 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  '@t3-oss/env-core@0.13.8(typescript@5.9.3)(zod@3.25.76)':
+  '@t3-oss/env-core@0.13.8(typescript@5.9.3)(zod@4.1.12)':
     optionalDependencies:
       typescript: 5.9.3
-      zod: 3.25.76
+      zod: 4.1.12
 
   '@tailwindcss/node@4.1.14':
     dependencies:
@@ -13902,7 +13902,7 @@ snapshots:
       smol-toml: 1.4.2
       strip-json-comments: 5.0.2
       typescript: 5.9.3
-      zod: 4.1.11
+      zod: 4.1.12
 
   kolorist@1.8.0: {}
 
@@ -17131,7 +17131,7 @@ snapshots:
 
   zod@3.25.76: {}
 
-  zod@4.1.11: {}
+  zod@4.1.12: {}
 
   zwitch@2.0.4: {}
 
