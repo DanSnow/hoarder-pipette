@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.5",
-    "@effect/language-service": "0.42.0",
+    "@effect/language-service": "0.43.2",
     "@effect/vitest": "0.26.0",
     "@egoist/tailwindcss-icons": "1.9.0",
     "@hey-api/openapi-ts": "0.85.0",
