@@ -50,7 +50,7 @@
     "extension": "2.0.0-rc.23",
     "fx-runner": "1.4.0",
     "image-size": "2.0.2",
-    "knip": "5.64.2",
+    "knip": "5.64.3",
     "playwright": "1.56.0",
     "postcss": "8.5.6",
     "shadcn": "3.4.0",
