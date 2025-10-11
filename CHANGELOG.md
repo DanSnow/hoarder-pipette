@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.6.0](https://github.com/DanSnow/hoarder-pipette/compare/hoarder-pipette-v1.5.1...hoarder-pipette-v1.6.0) (2025-10-11)
+
+
+### Features
+
+* **bookmark:** Refactor and Beautify Bookmark Preview for Enhanced UX ([#947](https://github.com/DanSnow/hoarder-pipette/issues/947)) ([1d51bd7](https://github.com/DanSnow/hoarder-pipette/commit/1d51bd7272fccb21c131ba0785b4267d9f6ec30c))
+
+
+### Bug Fixes
+
+* **bookmarks:** fix invalid assetType values causing output validation error ([#977](https://github.com/DanSnow/hoarder-pipette/issues/977)) ([2ab026d](https://github.com/DanSnow/hoarder-pipette/commit/2ab026d19ceaab3fbc85474b6a6722e6eb886c4a))
+* **content:** ensure card visibility in Google search results ([#942](https://github.com/DanSnow/hoarder-pipette/issues/942)) ([130a595](https://github.com/DanSnow/hoarder-pipette/commit/130a595978f5c09db37b88853ee62101fe999f0e))
+
+
+### Performance Improvements
+
+* Optimize content script initialization timing  ([#948](https://github.com/DanSnow/hoarder-pipette/issues/948)) ([479b95a](https://github.com/DanSnow/hoarder-pipette/commit/479b95af7a84efac02fae8cf88633439e59d0105))
+
 ## [1.5.1](https://github.com/DanSnow/hoarder-pipette/compare/hoarder-pipette-v1.5.0...hoarder-pipette-v1.5.1) (2025-08-05)
 
 
