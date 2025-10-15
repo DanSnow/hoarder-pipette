@@ -217,8 +217,8 @@ importers:
         specifier: 8.5.6
         version: 8.5.6
       shadcn:
-        specifier: 3.4.1
-        version: 3.4.1(@types/node@24.5.2)(typescript@5.9.3)
+        specifier: 3.4.2
+        version: 3.4.2(@types/node@24.5.2)(typescript@5.9.3)
       storybook:
         specifier: 9.1.10
         version: 9.1.10(@testing-library/dom@10.4.1)(msw@2.11.3(@types/node@24.5.2)(typescript@5.9.3))(prettier@3.6.2)(vite@7.1.10(@types/node@24.5.2)(jiti@2.6.0)(less@4.4.1)(lightningcss@1.30.1)(terser@5.44.0)(tsx@4.20.6))
@@ -6715,8 +6715,8 @@ packages:
   setprototypeof@1.2.0:
     resolution: {integrity: sha512-E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw==}
 
-  shadcn@3.4.1:
-    resolution: {integrity: sha512-gKLLCGN0lZ9vjbndoGY2cZJKvDtUYGRyF0XoyejHBbCr9lwE6NGlrtRQbA50Wcd/pDdYFyOzT/1wl//HUjSSkw==}
+  shadcn@3.4.2:
+    resolution: {integrity: sha512-afa1UIHC9UzWX2NMHHwaZf6GfT5VGkTDen77RtyUBMfJ5i6ZQuzXOFTE1bFHTaWwftb8wQnMiG8kXdEu3Kx9IQ==}
     hasBin: true
 
   shallow-clone@3.0.1:
@@ -15914,7 +15914,7 @@ snapshots:
 
   setprototypeof@1.2.0: {}
 
-  shadcn@3.4.1(@types/node@24.5.2)(typescript@5.9.3):
+  shadcn@3.4.2(@types/node@24.5.2)(typescript@5.9.3):
     dependencies:
       '@antfu/ni': 25.0.0
       '@babel/core': 7.28.4
