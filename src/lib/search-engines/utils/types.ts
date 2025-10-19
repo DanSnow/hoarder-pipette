@@ -4,7 +4,6 @@ export interface RenderRootContext {
 
 export interface MountContainer {
   container: HTMLElement
-  shadowRoot: ShadowRoot
   renderRoot: HTMLElement
 }
 
