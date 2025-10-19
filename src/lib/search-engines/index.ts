@@ -6,7 +6,7 @@ import { ecosia } from './ecosia'
 import { google } from './google'
 import { searXNG } from './searxng'
 import { startPage } from './startpage'
-import type { MountContainer, RenderRootContext, SearchEngine } from './utils/types'
+import type { MountContainer, SearchEngine } from './utils/types'
 
 export const supportedEngines = [ecosia, google, startPage, searXNG, duckduckgo, brave]
 
@@ -28,8 +28,8 @@ export function getUserQuery(userSites: UserSite[]): string | null {
   return getSearchEngine(userSites).getQuery()
 }
 
-export function getRenderRoot(userSites: UserSite[], context: RenderRootContext): Promise<MountContainer> {
-  return ensureRenderRoot(getSearchEngine(userSites), context)
+export function getRenderRoot(userSites: UserSite[]): Promise<MountContainer> {
+  return ensureRenderRoot(getSearchEngine(userSites))
 }
 
 /**
@@ -40,9 +40,9 @@ export function getRenderRoot(userSites: UserSite[], context: RenderRootContext)
  * @param context The context for render root
  * @returns mount container
  */
-export function ensureRenderRoot(searchEngine: SearchEngine, context: RenderRootContext): Promise<MountContainer> {
+export function ensureRenderRoot(searchEngine: SearchEngine): Promise<MountContainer> {
   return pipe(
-    Effect.sync(() => searchEngine.getRenderRoot(context)),
+    Effect.sync(() => searchEngine.getRenderRoot()),
     Effect.delay('500 millis'),
     Effect.filterOrFail((mountContainer: MountContainer) => mountContainer.container.isConnected),
     Effect.retry({

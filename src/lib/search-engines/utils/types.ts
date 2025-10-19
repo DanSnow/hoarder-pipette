@@ -7,7 +7,7 @@ export interface MountContainer {
   renderRoot: HTMLElement
 }
 
-export type GetRenderRoot = (context: RenderRootContext) => MountContainer
+export type GetRenderRoot = () => MountContainer
 
 export interface SearchEngine {
   /**
