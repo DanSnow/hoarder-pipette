@@ -1,5 +1,6 @@
 {
   "license": "MIT",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/DanSnow/hoarder-pipette.git"
