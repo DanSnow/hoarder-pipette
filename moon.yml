@@ -2,6 +2,7 @@ fileGroups:
   sources:
     - atoms/**/*
     - components/**/*
+    - content/**/*
     - hooks/**/*
     - lib/**/*
     - schemas/**/*

@@ -1,3 +1,4 @@
+import '~/styles/tailwind.css'
 import { createRoot } from 'react-dom/client'
 import { userSitesAtom } from '~/atoms/storage'
 import { getRenderRoot } from '~/lib/search-engines'
@@ -25,6 +26,7 @@ async function initial() {
     const atProperties = style.slice(idx)
     const styleElement = document.createElement('style')
     styleElement.innerText = atProperties
+    styleElement.id = 'hoarder-pipette-injection'
     document.head.appendChild(styleElement)
   }
   const mountContainer = await getRenderRoot(userSites, { style })
