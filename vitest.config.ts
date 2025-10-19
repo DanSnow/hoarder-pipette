@@ -1,7 +1,7 @@
-import { dirname, resolve } from 'node:path'
+import path, { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { storybookTest } from '@storybook/addon-vitest/vitest-plugin'
 import { mergeConfig } from 'vite'
-import Inspect from 'vite-plugin-inspect'
 import { defineConfig } from 'vitest/config'
 import viteConfig from './vite.config'
 
@@ -10,12 +10,6 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 export default mergeConfig(
   viteConfig,
   defineConfig({
-    plugins: [
-      Inspect({
-        build: true,
-        outputDir: '.vite-inspect',
-      }),
-    ],
     resolve: {
       alias: { 'webextension-polyfill': resolve(__dirname, '__mocks__/webextension-polyfill.ts') },
     },
@@ -27,15 +21,38 @@ export default mergeConfig(
 
       server: {
         deps: {
-          inline: [
-            '@webext-core/messaging',
-            '@webext-core/storage',
-            'extension',
-            'extension-develop',
-            'webextension-polyfill',
-          ],
+          inline: ['@webext-core/messaging', '@webext-core/storage', 'webextension-polyfill'],
         },
       },
+      projects: [
+        {
+          extends: true,
+          test: {
+            name: 'unit-test',
+          },
+        },
+        {
+          extends: true,
+          plugins: [
+            // The plugin will run tests for the stories defined in your Storybook config
+            // See options at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon#storybooktest
+            storybookTest({ configDir: path.join(__dirname, '.storybook') }),
+          ],
+          optimizeDeps: {
+            include: ['react/jsx-dev-runtime'],
+          },
+          test: {
+            name: 'storybook',
+            browser: {
+              enabled: true,
+              headless: true,
+              provider: 'playwright',
+              instances: [{ browser: 'chromium' }],
+            },
+            setupFiles: ['.storybook/vitest.setup.ts'],
+          },
+        },
+      ],
     },
   }),
 )

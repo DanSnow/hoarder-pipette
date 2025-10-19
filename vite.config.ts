@@ -9,13 +9,7 @@ export default defineConfig({
 
     server: {
       deps: {
-        inline: [
-          '@webext-core/messaging',
-          '@webext-core/storage',
-          'extension',
-          'extension-develop',
-          'webextension-polyfill',
-        ],
+        inline: ['@webext-core/messaging', '@webext-core/storage', 'webextension-polyfill'],
       },
     },
   },
