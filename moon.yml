@@ -1,8 +1,6 @@
 fileGroups:
   sources:
     - src/**/*
-    - tailwind.config.js
-    - postcss.config.js
     - manifest.json
 tasks:
   build-logo:
