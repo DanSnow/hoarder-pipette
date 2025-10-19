@@ -1,0 +1,20 @@
+import { Array, Effect, Equal, Predicate, pipe } from 'effect'
+import { browser } from 'wxt/browser'
+import type { SupportSearchEngine } from '~/schemas/supported-engines'
+
+export function requestOrigins(origins: string[]) {
+  return Effect.promise(() => browser.permissions.request({ origins }))
+}
+
+export function requestOrigin(origin: string) {
+  return requestOrigins([origin])
+}
+
+export function requestSite(engine: SupportSearchEngine) {
+  return pipe(
+    engine.matches,
+    Array.filter(Predicate.struct({ isEnabled: Equal.equals(false)<boolean> })),
+    Array.map((match) => match.originUrl),
+    (origins) => requestOrigins(origins),
+  )
+}

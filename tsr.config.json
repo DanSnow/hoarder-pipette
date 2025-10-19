@@ -1,4 +1,4 @@
 {
-  "routesDirectory": "./src/options/routes",
-  "generatedRouteTree": "./src/options/routeTree.gen.ts"
+  "routesDirectory": "./src/entrypoints/options/routes",
+  "generatedRouteTree": "./src//entrypoints/options/routeTree.gen.ts"
 }

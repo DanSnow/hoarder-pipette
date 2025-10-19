@@ -1,10 +1,10 @@
 # System Patterns: Hoarder's Pipette
 
 ## System Architecture
-The project is structured as a browser extension using the Extension.js framework. Inter-script communication, particularly between the content script and background script, is handled using tRPC to enable secure and type-safe data exchange and proxying of network requests.
+The project is structured as a browser extension using the WXT framework. Inter-script communication, particularly between the content script and background script, is handled using tRPC to enable secure and type-safe data exchange and proxying of network requests.
 
 ## Key Technical Decisions
-- Use of Extension.js for extension development.
+- Use of WXT for extension development.
 - Content scripts are injected into supported search engine pages.
 - Background script handles communication with the Hoarder app API.
 - UI components built with React and `@tanstack/react-query` for data fetching.

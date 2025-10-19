@@ -3,7 +3,7 @@
 @layer base, starlight, theme, components, utilities;
 
 @import "@astrojs/starlight-tailwind";
-@config '../tailwind.config.ts';
+@plugin '@egoist/tailwindcss-icons';
 
 /*
   The default border color has changed to `currentColor` in Tailwind CSS v4,

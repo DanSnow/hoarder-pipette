@@ -1,17 +1,6 @@
 fileGroups:
   sources:
-    - atoms/**/*
-    - components/**/*
-    - content/**/*
-    - hooks/**/*
-    - lib/**/*
-    - schemas/**/*
     - src/**/*
-    - styles/**/*
-    - client.ts
-    - store.ts
-    - tailwind.config.js
-    - postcss.config.js
     - manifest.json
 tasks:
   build-logo:
@@ -30,27 +19,25 @@ tasks:
   build-ext-chrome:
     type: build
     command:
-      - extension
-      - build
-      - --zip
-      - --browser=chrome
+      - wxt
+      - zip
     platform: node
     inputs:
       - "@group(sources)"
     outputs:
-      - dist/chrome/**/*
+      - .output/chrome-mv3/**/*
   build-ext-firefox:
     type: build
     command:
-      - extension
-      - build
-      - --zip
-      - --browser=firefox
+      - wxt
+      - zip
+      - -b
+      - firefox
     platform: node
     inputs:
       - "@group(sources)"
     outputs:
-      - dist/firefox/**/*
+      - .output/firefox-mv2/**/*
   build:
     type: build
     command: noop
@@ -60,33 +47,7 @@ tasks:
   dev:
     type: run
     command:
-      - extension
-      - dev
-    local: true
-    platform: node
-  dev-chrome:
-    type: run
-    command:
-      - tsx
-      - build/dev.mts
-      - chrome
-    local: true
-    platform: node
-  dev-firefox: # extension.js currently can't load extension...
-    type: run
-    command:
-      - tsx
-      - dev-scripts/dev.mts
-      - firefox
-    env:
-      npm_config_user_agent: pnpm # workaround to force extension.js to use pnpm
-    local: true
-    platform: node
-  start:
-    type: run
-    command:
-      - extension
-      - start
+      - wxt
     local: true
     platform: node
   test:

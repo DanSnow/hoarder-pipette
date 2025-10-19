@@ -1,12 +1,18 @@
-import { fakeBrowser } from '@webext-core/fake-browser'
 import { beforeEach, vi } from 'vitest'
-import browser from 'webextension-polyfill'
-
-vi.mock('webextension-polyfill')
+import { browser } from 'wxt/browser'
+import { fakeBrowser } from 'wxt/testing/fake-browser'
 
 beforeEach(() => {
   // Reset the in-memory state before every test
   fakeBrowser.reset()
+})
+
+// @ts-expect-error mocking
+browser.permissions ??= {}
+
+vi.mock('wxt/browser', async () => {
+  const { fakeBrowser } = await vi.importActual('wxt/testing/fake-browser')
+  return { browser: fakeBrowser }
 })
 
 Object.defineProperty(browser, 'permissions', {
@@ -15,5 +21,19 @@ Object.defineProperty(browser, 'permissions', {
     getAll: vi.fn(),
     remove: vi.fn(),
     request: vi.fn(),
-  } satisfies Omit<typeof browser.permissions, 'onAdded' | 'onRemoved'>,
+  } satisfies Pick<typeof browser.permissions, 'contains' | 'getAll' | 'remove' | 'request'>,
 })
+
+vi.spyOn(browser.runtime, 'connect').mockImplementation(() => ({
+  name: '',
+  // @ts-expect-error mocking
+  onDisconnect: {
+    addListener: vi.fn(),
+  },
+  // @ts-expect-error mocking
+  onMessage: {
+    addListener: vi.fn(),
+  },
+  disconnect: vi.fn(),
+  postMessage: vi.fn(),
+}))
