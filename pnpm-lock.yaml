@@ -21,9 +21,6 @@ importers:
       '@hookform/resolvers':
         specifier: 5.2.2
         version: 5.2.2(react-hook-form@7.65.0(react@19.1.0))
-      '@iconify-json/lucide':
-        specifier: 1.2.70
-        version: 1.2.70
       '@orpc/client':
         specifier: 1.9.4
         version: 1.9.4
@@ -148,6 +145,9 @@ importers:
       '@hey-api/openapi-ts':
         specifier: 0.85.1
         version: 0.85.1(magicast@0.3.5)(typescript@5.9.3)
+      '@iconify-json/lucide':
+        specifier: 1.2.70
+        version: 1.2.70
       '@iconify-json/simple-icons':
         specifier: 1.2.54
         version: 1.2.54
