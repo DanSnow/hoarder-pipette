@@ -27,7 +27,7 @@ tasks:
     inputs:
       - "@group(sources)"
     outputs:
-      - dist/chrome/**/*
+      - .output/chrome-mv3/**/*
   build-ext-firefox:
     type: build
     command:
@@ -39,7 +39,7 @@ tasks:
     inputs:
       - "@group(sources)"
     outputs:
-      - dist/firefox/**/*
+      - .output/firefox-mv2/**/*
   build:
     type: build
     command: noop
