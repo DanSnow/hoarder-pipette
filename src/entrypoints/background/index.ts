@@ -1,5 +1,5 @@
 import { RPCHandler } from '@orpc/server/message-port'
-import browser from 'webextension-polyfill'
+import { browser } from 'wxt/browser'
 import { appRouter } from '~/orpc'
 import { registerAll } from './dynamic-search-engine'
 import { migrateData } from './migrate'

@@ -3,7 +3,7 @@ import { RPCLink } from '@orpc/client/message-port'
 import type { RouterClient } from '@orpc/server'
 import { createTanstackQueryUtils } from '@orpc/tanstack-query'
 import { QueryClient } from '@tanstack/react-query'
-import browser from 'webextension-polyfill'
+import { browser } from 'wxt/browser'
 import type { AppRouter } from '~/orpc'
 
 export const queryClient = new QueryClient({

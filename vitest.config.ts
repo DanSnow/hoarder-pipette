@@ -3,6 +3,7 @@ import { fileURLToPath } from 'node:url'
 import { storybookTest } from '@storybook/addon-vitest/vitest-plugin'
 import { mergeConfig } from 'vite'
 import { defineConfig } from 'vitest/config'
+import { WxtVitest } from 'wxt/testing/vitest-plugin'
 import viteConfig from './vite.config'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
@@ -27,6 +28,7 @@ export default mergeConfig(
       projects: [
         {
           extends: true,
+          plugins: [WxtVitest()],
           test: {
             name: 'unit-test',
           },

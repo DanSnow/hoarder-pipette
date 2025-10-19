@@ -1,6 +1,9 @@
-import { resolve } from 'node:path'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 import type { StorybookConfig } from '@storybook/react-vite'
 import { mergeConfig } from 'vite'
+
+const dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const config: StorybookConfig = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
@@ -12,7 +15,10 @@ const config: StorybookConfig = {
   viteFinal: (config) =>
     mergeConfig(config, {
       resolve: {
-        alias: { 'webextension-polyfill': resolve(__dirname, '../__mocks__/webextension-polyfill.ts') },
+        alias: {
+          'wxt/browser': path.resolve(dirname, './fake-browser.ts'),
+          'webextension-polyfill': path.resolve(dirname, './fake-browser.ts'),
+        },
       },
     }),
 }

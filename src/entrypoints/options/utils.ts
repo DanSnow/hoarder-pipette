@@ -1,6 +1,6 @@
 import { Predicate } from 'effect'
 import { parseURL, stringifyParsedURL } from 'ufo'
-import browser from 'webextension-polyfill'
+import { browser } from 'wxt/browser'
 
 export async function getCurrentTab() {
   const [tab] = await browser.tabs.query({ active: true, lastFocusedWindow: true })

@@ -1,5 +1,5 @@
 import { Array, Effect, Equal, Predicate, pipe } from 'effect'
-import browser from 'webextension-polyfill'
+import { browser } from 'wxt/browser'
 import type { SupportSearchEngine } from '~/schemas/supported-engines'
 
 export function requestOrigins(origins: string[]) {

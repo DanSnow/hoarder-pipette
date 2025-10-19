@@ -1,6 +1,6 @@
 import { ORPCError, os } from '@orpc/server'
 import { joinURL } from 'ufo'
-import browser from 'webextension-polyfill' // Import browser from polyfill
+import { browser } from 'wxt/browser'
 import { z } from 'zod/v4' // Import z from zod
 import { optionsAtom } from '~/atoms/storage'
 import { getSupportedSearchEngines, registerAll } from '~/entrypoints/background/dynamic-search-engine'

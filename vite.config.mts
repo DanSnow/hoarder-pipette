@@ -1,15 +1,16 @@
+import tailwindcss from '@tailwindcss/vite'
 import { tanstackRouter } from '@tanstack/router-plugin/vite'
 import TsConfigPaths from 'vite-plugin-tsconfig-paths'
 import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
-  plugins: [TsConfigPaths(), tanstackRouter()],
+  plugins: [TsConfigPaths(), tanstackRouter(), tailwindcss()],
   test: {
     setupFiles: ['vitest.setup.ts'],
 
     server: {
       deps: {
-        inline: ['@webext-core/messaging', '@webext-core/storage', 'webextension-polyfill'],
+        inline: ['@webext-core/messaging', '@webext-core/storage', 'webextension-polyfill', 'wxt/browser'],
       },
     },
   },
