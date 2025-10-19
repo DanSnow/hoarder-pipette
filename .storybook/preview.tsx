@@ -1,9 +1,9 @@
 import type { Preview } from '@storybook/react'
 import { createMemoryHistory, RouterProvider } from '@tanstack/react-router'
 import { createStore, Provider } from 'jotai'
-import { router } from '../src/options/router'
-import '../styles/tailwind.css'
-import { StoryContext } from '../src/options/components/StoryRenderer'
+import { router } from '../src/entrypoints/options/router'
+import '../src/styles/tailwind.css'
+import { StoryContext } from '../src/entrypoints/options/components/StoryRenderer'
 
 const store = createStore()
 
