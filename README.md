@@ -68,4 +68,4 @@ pnpm build
 ## Credits
 
 - Inspired by https://github.com/fivefold/linkding-injector
-- Based on the [Extension.js](https://extension.js.org) framework
+- Based on the [WXT](https://wxt.dev/) framework

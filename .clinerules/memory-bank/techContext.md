@@ -3,7 +3,7 @@
 ## Technologies used
 - Node.js
 - pnpm
-- Extension.js
+- WXT
 - React (likely for UI components)
 
 ## Development setup
