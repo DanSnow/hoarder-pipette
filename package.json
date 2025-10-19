@@ -41,7 +41,7 @@
     "@t3-oss/env-core": "0.13.8",
     "@tailwindcss/postcss": "4.1.14",
     "@tanstack/router-plugin": "1.131.28",
-    "@tailwindcss/vite": "4.1.12",
+    "@tailwindcss/vite": "4.1.14",
     "@types/react": "19.1.9",
     "@types/react-dom": "19.1.7",
     "@types/webextension-polyfill": "0.12.4",
