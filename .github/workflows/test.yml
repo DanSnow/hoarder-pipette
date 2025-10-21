@@ -22,15 +22,6 @@ jobs:
           node-version: "22.20.0"
           cache: "pnpm"
       - run: pnpm install
-      - id: playwright_version
-        run: |
-          echo "playwright_version=$(pnpm why playwright --json | jq -r '.[0].devDependencies.playwright.version')" >> $GITHUB_OUTPUT
-      - uses: actions/cache@v4
-        with:
-          path: '~/.cache/ms-playwright'
-          key: ${{ runner.os }}-moon-${{ steps.playwright_version.outputs.playwright_version }}
-      - run: pnpx playwright install chromium --with-deps
-
       - uses: actions/cache@v4
         with:
           path: .moon/cache
