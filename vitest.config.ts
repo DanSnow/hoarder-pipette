@@ -49,7 +49,14 @@ export default mergeConfig(
               enabled: true,
               headless: true,
               provider: 'playwright',
-              instances: [{ browser: 'chromium' }],
+              instances: [
+                {
+                  browser: 'chromium',
+                  launch: {
+                    channel: process.env.CI ? 'chrome' : undefined,
+                  },
+                },
+              ],
             },
             setupFiles: ['.storybook/vitest.setup.ts'],
           },
