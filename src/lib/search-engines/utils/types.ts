@@ -1,7 +1,3 @@
-export interface RenderRootContext {
-  style: string
-}
-
 export interface MountContainer {
   container: HTMLElement
   renderRoot: HTMLElement
