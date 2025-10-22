@@ -60,7 +60,6 @@ jobs:
           git commit -m "style: lint"
           git push
 
-
   build-extension:
     runs-on: ubuntu-latest
     needs: release-please
@@ -84,9 +83,8 @@ jobs:
         uses: actions/attest-build-provenance@v3
         with:
           subject-path: |
-            ./dist/chrome/hoarders-pipette-*.zip
-            ./dist/firefox/hoarders-pipette-*.xpi
-      - run: gh release upload ${{ needs.release-please.outputs.tag_name }} ./dist/chrome/hoarders-pipette-*.zip ./dist/firefox/hoarders-pipette-*.xpi
+            ./.output/hoarder-pipette-*.zip
+      - run: gh release upload ${{ needs.release-please.outputs.tag_name }} ./.output/hoarder-pipette-*.zip
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
