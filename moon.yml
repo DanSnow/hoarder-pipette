@@ -1,7 +1,6 @@
 fileGroups:
   sources:
     - src/**/*
-    - manifest.json
 tasks:
   build-logo:
     type: build
