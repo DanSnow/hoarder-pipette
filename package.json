@@ -25,7 +25,7 @@
     "postinstall": "wxt prepare"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.2.6",
+    "@biomejs/biome": "2.2.7",
     "@effect/language-service": "0.45.1",
     "@effect/vitest": "0.26.0",
     "@egoist/tailwindcss-icons": "1.9.0",
