@@ -10024,7 +10024,7 @@ snapshots:
 
   '@types/sax@1.2.7':
     dependencies:
-      '@types/node': 17.0.45
+      '@types/node': 24.8.1
 
   '@types/statuses@2.0.6': {}
 
