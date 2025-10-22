@@ -1,14 +1,12 @@
 {
   "$schema": "https://unpkg.com/knip@5/schema.json",
   "entry": [
-    "src/options/index.{js,ts,tsx}",
-    "background/index.ts",
-    "content/content.tsx",
+    "src/entrypoints/*/index.{js,ts,tsx}",
     "build/*.mts",
-    "scripts/*.ts",
     "openapi-ts.config.ts",
-    "extension.config.js"
+    ".storybook/fake-browser.ts",
+    "wxt.config.ts"
   ],
-  "ignore": ["components/ui/**/*", "shared/client/**/*", "src/options/routeTree.gen.ts"],
+  "ignore": ["src/components/ui/**/*", "src/shared/client/**/*", "src/entrypoints/options/routeTree.gen.ts"],
   "moonrepo": false
 }
