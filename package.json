@@ -29,7 +29,7 @@
     "@effect/language-service": "0.48.0",
     "@effect/vitest": "0.26.0",
     "@egoist/tailwindcss-icons": "1.9.0",
-    "@hey-api/openapi-ts": "0.86.0",
+    "@hey-api/openapi-ts": "0.86.2",
     "@iconify-json/simple-icons": "1.2.55",
     "@iconify-json/lucide": "1.2.70",
     "@moonrepo/cli": "1.41.5",
