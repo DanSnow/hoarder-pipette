@@ -52,7 +52,7 @@
     "image-size": "2.0.2",
     "knip": "5.66.2",
     "playwright": "1.56.1",
-    "shadcn": "3.4.2",
+    "shadcn": "3.5.0",
     "storybook": "9.1.13",
     "tailwindcss": "4.1.16",
     "tsx": "4.20.6",
