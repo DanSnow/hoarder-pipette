@@ -31,7 +31,7 @@
     "@egoist/tailwindcss-icons": "1.9.0",
     "@hey-api/openapi-ts": "0.86.2",
     "@iconify-json/simple-icons": "1.2.55",
-    "@iconify-json/lucide": "1.2.70",
+    "@iconify-json/lucide": "1.2.71",
     "@moonrepo/cli": "1.41.5",
     "@storybook/addon-a11y": "9.1.15",
     "@storybook/addon-docs": "9.1.15",
