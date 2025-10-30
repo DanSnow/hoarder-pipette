@@ -20,7 +20,7 @@ jobs:
           run_install: false
       - uses: actions/setup-node@v6
         with:
-          node-version: "22.21.0"
+          node-version: "22.21.1"
           cache: pnpm
       - name: Setup reviewdog
         uses: reviewdog/action-setup@v1.4.0
@@ -45,7 +45,7 @@ jobs:
           run_install: false
       - uses: actions/setup-node@v6
         with:
-          node-version: "22.21.0"
+          node-version: "22.21.1"
           cache: pnpm
       - name: Setup reviewdog
         uses: reviewdog/action-setup@v1.4.0
