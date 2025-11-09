@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.6.2](https://github.com/DanSnow/hoarder-pipette/compare/hoarder-pipette-v1.6.1...hoarder-pipette-v1.6.2) (2025-11-09)
+
+
+### Bug Fixes
+
+* add firefox manifest v2 compatibility and optional host permissions ([#1149](https://github.com/DanSnow/hoarder-pipette/issues/1149)) ([8bda6af](https://github.com/DanSnow/hoarder-pipette/commit/8bda6af1fc9a1c4d6b12f0743102b2f45c8b8d7f))
+* release ([cfd1e3f](https://github.com/DanSnow/hoarder-pipette/commit/cfd1e3f937a3d5f27d85fedbe32364bf5fb87764))
+
 ## [1.6.1](https://github.com/DanSnow/hoarder-pipette/compare/hoarder-pipette-v1.6.0...hoarder-pipette-v1.6.1) (2025-10-22)
 
 
