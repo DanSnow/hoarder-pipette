@@ -10,8 +10,9 @@ export default defineConfig({
   vite: () => ({
     plugins: [tanstackRouter(), TsConfigPaths(), tailwindcss()],
   }),
-  manifest: {
+  manifest: ({ manifestVersion }) => ({
     permissions: ['storage', 'activeTab', 'scripting'],
+    optional_permissions: manifestVersion === 2 ? ['*://*/*'] : undefined,
     optional_host_permissions: ['*://*/*'],
     homepage_url: 'https://dansnow.github.io/hoarder-pipette/',
     name: "Hoarder's Pipette",
@@ -21,5 +22,5 @@ export default defineConfig({
         id: 'hoarder-pipette@dansnow.github.io',
       },
     },
-  },
+  }),
 })
