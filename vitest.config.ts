@@ -1,6 +1,7 @@
 import path, { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { storybookTest } from '@storybook/addon-vitest/vitest-plugin'
+import { playwright } from '@vitest/browser-playwright'
 import { mergeConfig } from 'vite'
 import { defineConfig } from 'vitest/config'
 import { WxtVitest } from 'wxt/testing/vitest-plugin'
@@ -48,13 +49,14 @@ export default mergeConfig(
             browser: {
               enabled: true,
               headless: true,
-              provider: 'playwright',
+              provider: playwright({
+                launchOptions: {
+                  channel: process.env.CI ? 'chrome' : undefined,
+                },
+              }),
               instances: [
                 {
                   browser: 'chromium',
-                  launch: {
-                    channel: process.env.CI ? 'chrome' : undefined,
-                  },
                 },
               ],
             },
