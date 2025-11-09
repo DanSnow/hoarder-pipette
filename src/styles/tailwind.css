@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@plugin '@egoist/tailwindcss-icons';
+@plugin "@egoist/tailwindcss-icons";
 
 @custom-variant dark (&:is(.dark, .dark *));
 
