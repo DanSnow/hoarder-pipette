@@ -32,7 +32,7 @@
     "@hey-api/openapi-ts": "0.87.1",
     "@iconify-json/lucide": "1.2.73",
     "@iconify-json/simple-icons": "1.2.58",
-    "@moonrepo/cli": "1.41.6",
+    "@moonrepo/cli": "1.41.7",
     "@storybook/addon-a11y": "10.0.6",
     "@storybook/addon-docs": "10.0.6",
     "@storybook/addon-vitest": "10.0.6",
