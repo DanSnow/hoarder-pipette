@@ -42,7 +42,7 @@
     "@tailwindcss/vite": "4.1.17",
     "@tanstack/router-plugin": "1.135.2",
     "@types/react": "19.2.3",
-    "@types/react-dom": "19.2.2",
+    "@types/react-dom": "19.2.3",
     "@types/webextension-polyfill": "0.12.4",
     "@types/webpack-env": "1.18.8",
     "@vitest/browser": "4.0.8",
