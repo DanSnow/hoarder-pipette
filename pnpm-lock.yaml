@@ -143,8 +143,8 @@ importers:
         specifier: 1.9.0
         version: 1.9.0(tailwindcss@4.1.17)
       '@hey-api/openapi-ts':
-        specifier: 0.87.1
-        version: 0.87.1(magicast@0.3.5)(typescript@5.9.3)
+        specifier: 0.87.5
+        version: 0.87.5(magicast@0.3.5)(typescript@5.9.3)
       '@iconify-json/lucide':
         specifier: 1.2.73
         version: 1.2.73
@@ -831,8 +831,8 @@ packages:
     resolution: {integrity: sha512-inPeksRLq+j3ArnuGOzQPQE//YrhezQG0+9Y9yizScBN2qatJ78fIByhEgKdNAbtguDCn4RPxmEhcrePwHxs4A==}
     engines: {node: '>= 16'}
 
-  '@hey-api/openapi-ts@0.87.1':
-    resolution: {integrity: sha512-IFjwE11VPebjbCJqtTnszx22IWeabWWIOAkKKsn6AlV4i2voiUUolB/a/vSnvbwdoolnzB+jOhkYyww2odoJaQ==}
+  '@hey-api/openapi-ts@0.87.5':
+    resolution: {integrity: sha512-WtmBCfbRKzsz578haTe1bh7FJWbqGyPmZ4dD8bynvQjQ6qtXk7mmI/3Nmev70Hl41VHoEoQNEL+BulfwJiJO/g==}
     engines: {node: '>=20.19.0'}
     hasBin: true
     peerDependencies:
@@ -3238,6 +3238,14 @@ packages:
       magicast:
         optional: true
 
+  c12@3.3.2:
+    resolution: {integrity: sha512-QkikB2X5voO1okL3QsES0N690Sn/K9WokXqUsDQsWy5SnYb+psYQFGA10iy1bZHj3fjISKsI67Q90gruvWWM3A==}
+    peerDependencies:
+      magicast: '*'
+    peerDependenciesMeta:
+      magicast:
+        optional: true
+
   cac@6.7.14:
     resolution: {integrity: sha512-b6Ilus+c3RrdDk+JhLKUAQfzzgLEPy6wcXqS7f/xe1EETvsDP6GORG7SFuOs6cID5YkqchW/LXZbX5bc8j7ZcQ==}
     engines: {node: '>=8'}
@@ -3867,6 +3875,9 @@ packages:
 
   exsolve@1.0.7:
     resolution: {integrity: sha512-VO5fQUzZtI6C+vx4w/4BWJpg3s/5l+6pRQEHzFRM8WFi4XffSP1Z+4qi7GbjWbvRQEbdIco5mIMq+zX4rPuLrw==}
+
+  exsolve@1.0.8:
+    resolution: {integrity: sha512-LmDxfWXwcTArk8fUEnOfSZpHOJ6zOMUJKOtFLFqJLoKJetuQG874Uc7/Kki7zFLzYybmZhp1M7+98pfMqeX8yA==}
 
   extend@3.0.2:
     resolution: {integrity: sha512-fjquC59cD7CyW6urNXK0FBufkZcoiGG80wTuPujX590cB5Ttln20E2UB4S/WARVqhXffZl2LNgS+gQdPIIim/g==}
@@ -7268,12 +7279,12 @@ snapshots:
       js-yaml: 4.1.0
       lodash: 4.17.21
 
-  '@hey-api/openapi-ts@0.87.1(magicast@0.3.5)(typescript@5.9.3)':
+  '@hey-api/openapi-ts@0.87.5(magicast@0.3.5)(typescript@5.9.3)':
     dependencies:
       '@hey-api/codegen-core': 0.3.3(typescript@5.9.3)
       '@hey-api/json-schema-ref-parser': 1.2.1
       ansi-colors: 4.1.3
-      c12: 3.3.1(magicast@0.3.5)
+      c12: 3.3.2(magicast@0.3.5)
       color-support: 1.1.3
       commander: 14.0.1
       open: 10.2.0
@@ -10273,6 +10284,23 @@ snapshots:
     optionalDependencies:
       magicast: 0.3.5
 
+  c12@3.3.2(magicast@0.3.5):
+    dependencies:
+      chokidar: 4.0.3
+      confbox: 0.2.2
+      defu: 6.1.4
+      dotenv: 17.2.3
+      exsolve: 1.0.8
+      giget: 2.0.0
+      jiti: 2.6.1
+      ohash: 2.0.11
+      pathe: 2.0.3
+      perfect-debounce: 2.0.0
+      pkg-types: 2.3.0
+      rc9: 2.1.2
+    optionalDependencies:
+      magicast: 0.3.5
+
   cac@6.7.14: {}
 
   call-bind-apply-helpers@1.0.2:
@@ -10879,6 +10907,8 @@ snapshots:
       '@expressive-code/plugin-text-markers': 0.41.3
 
   exsolve@1.0.7: {}
+
+  exsolve@1.0.8: {}
 
   extend@3.0.2: {}
 
@@ -12634,7 +12664,7 @@ snapshots:
   pkg-types@2.3.0:
     dependencies:
       confbox: 0.2.2
-      exsolve: 1.0.7
+      exsolve: 1.0.8
       pathe: 2.0.3
 
   playwright-core@1.56.1: {}
