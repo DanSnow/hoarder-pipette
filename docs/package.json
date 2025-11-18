@@ -16,7 +16,7 @@
     "astro": "5.15.9",
     "class-variance-authority": "0.7.1",
     "clsx": "2.1.1",
-    "sharp": "0.34.4",
+    "sharp": "0.34.5",
     "tailwind-merge": "3.4.0",
     "tailwindcss": "4.1.17"
   },
