@@ -149,8 +149,8 @@ importers:
         specifier: 1.2.75
         version: 1.2.75
       '@iconify-json/simple-icons':
-        specifier: 1.2.59
-        version: 1.2.59
+        specifier: 1.2.60
+        version: 1.2.60
       '@moonrepo/cli':
         specifier: 1.41.7
         version: 1.41.7
@@ -846,8 +846,8 @@ packages:
   '@iconify-json/lucide@1.2.75':
     resolution: {integrity: sha512-sWBN0t/rTo1FxWG/46xKgkIcDerHpsjyNgMH48nvtC4/kUG88sFQXI+7mxX3SD8eSUaQQ2kS9C7ZKWm2DKgBlw==}
 
-  '@iconify-json/simple-icons@1.2.59':
-    resolution: {integrity: sha512-fYx/InyQsWFW4wVxWka3CGDJ6m/fXoTqWBSl+oA3FBXO5RhPAb6S3Y5bRgCPnrYevErH8VjAL0TZevIqlN2PhQ==}
+  '@iconify-json/simple-icons@1.2.60':
+    resolution: {integrity: sha512-KlwLBKCdMCqfySdkAA+jehdUx6VSjnj6lvzQKus7HjkPSQ6QP58d6xiptkIp0jd/Hw3PW2++nRuGvCvSYaF0Mg==}
 
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
@@ -7329,7 +7329,7 @@ snapshots:
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-json/simple-icons@1.2.59':
+  '@iconify-json/simple-icons@1.2.60':
     dependencies:
       '@iconify/types': 2.0.0
 
