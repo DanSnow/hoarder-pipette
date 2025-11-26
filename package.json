@@ -52,7 +52,7 @@
     "chrome-webstore-upload-cli": "3.5.0",
     "image-size": "2.0.2",
     "knip": "5.70.2",
-    "playwright": "1.56.1",
+    "playwright": "1.57.0",
     "shadcn": "3.5.0",
     "storybook": "10.0.8",
     "tailwindcss": "4.1.17",
