@@ -14,13 +14,13 @@ importers:
     dependencies:
       '@autoform/react':
         specifier: 4.0.0
-        version: 4.0.0(@hookform/resolvers@5.2.2(react-hook-form@7.66.1(react@19.2.0)))(react-hook-form@7.66.1(react@19.2.0))(react@19.2.0)
+        version: 4.0.0(@hookform/resolvers@5.2.2(react-hook-form@7.67.0(react@19.2.0)))(react-hook-form@7.67.0(react@19.2.0))(react@19.2.0)
       '@autoform/zod':
         specifier: 5.0.0
         version: 5.0.0(zod@3.25.76)
       '@hookform/resolvers':
         specifier: 5.2.2
-        version: 5.2.2(react-hook-form@7.66.1(react@19.2.0))
+        version: 5.2.2(react-hook-form@7.67.0(react@19.2.0))
       '@orpc/client':
         specifier: 1.11.3
         version: 1.11.3
@@ -97,8 +97,8 @@ importers:
         specifier: 19.2.0
         version: 19.2.0(react@19.2.0)
       react-hook-form:
-        specifier: 7.66.1
-        version: 7.66.1(react@19.2.0)
+        specifier: 7.67.0
+        version: 7.67.0(react@19.2.0)
       react-twc:
         specifier: 1.5.1
         version: 1.5.1(@types/react@19.2.7)(react@19.2.0)
@@ -5430,8 +5430,8 @@ packages:
     peerDependencies:
       react: ^19.2.0
 
-  react-hook-form@7.66.1:
-    resolution: {integrity: sha512-2KnjpgG2Rhbi+CIiIBQQ9Df6sMGH5ExNyFl4Hw9qO7pIqMBR8Bvu9RQyjl3JM4vehzCh9soiNUM/xYMswb2EiA==}
+  react-hook-form@7.67.0:
+    resolution: {integrity: sha512-E55EOwKJHHIT/I6J9DmQbCWToAYSw9nN5R57MZw9rMtjh+YQreMDxRLfdjfxQbiJ3/qbg3Z02wGzBX4M+5fMtQ==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       react: ^16.8.0 || ^17 || ^18 || ^19
@@ -6833,12 +6833,12 @@ snapshots:
 
   '@autoform/core@3.0.0': {}
 
-  '@autoform/react@4.0.0(@hookform/resolvers@5.2.2(react-hook-form@7.66.1(react@19.2.0)))(react-hook-form@7.66.1(react@19.2.0))(react@19.2.0)':
+  '@autoform/react@4.0.0(@hookform/resolvers@5.2.2(react-hook-form@7.67.0(react@19.2.0)))(react-hook-form@7.67.0(react@19.2.0))(react@19.2.0)':
     dependencies:
       '@autoform/core': 3.0.0
-      '@hookform/resolvers': 5.2.2(react-hook-form@7.66.1(react@19.2.0))
+      '@hookform/resolvers': 5.2.2(react-hook-form@7.67.0(react@19.2.0))
       react: 19.2.0
-      react-hook-form: 7.66.1(react@19.2.0)
+      react-hook-form: 7.67.0(react@19.2.0)
 
   '@autoform/zod@5.0.0(zod@3.25.76)':
     dependencies:
@@ -7320,10 +7320,10 @@ snapshots:
     transitivePeerDependencies:
       - magicast
 
-  '@hookform/resolvers@5.2.2(react-hook-form@7.66.1(react@19.2.0))':
+  '@hookform/resolvers@5.2.2(react-hook-form@7.67.0(react@19.2.0))':
     dependencies:
       '@standard-schema/utils': 0.3.0
-      react-hook-form: 7.66.1(react@19.2.0)
+      react-hook-form: 7.67.0(react@19.2.0)
 
   '@iconify-json/lucide@1.2.76':
     dependencies:
@@ -12939,7 +12939,7 @@ snapshots:
       react: 19.2.0
       scheduler: 0.27.0
 
-  react-hook-form@7.66.1(react@19.2.0):
+  react-hook-form@7.67.0(react@19.2.0):
     dependencies:
       react: 19.2.0
 
