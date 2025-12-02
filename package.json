@@ -51,7 +51,7 @@
     "@webext-core/fake-browser": "1.3.2",
     "chrome-webstore-upload-cli": "3.5.0",
     "image-size": "2.0.2",
-    "knip": "5.70.2",
+    "knip": "5.71.0",
     "playwright": "1.57.0",
     "shadcn": "3.5.1",
     "storybook": "10.1.2",
