@@ -146,8 +146,8 @@ importers:
         specifier: 0.87.1
         version: 0.87.1(magicast@0.3.5)(typescript@5.9.3)
       '@iconify-json/lucide':
-        specifier: 1.2.78
-        version: 1.2.78
+        specifier: 1.2.79
+        version: 1.2.79
       '@iconify-json/simple-icons':
         specifier: 1.2.61
         version: 1.2.61
@@ -999,8 +999,8 @@ packages:
     peerDependencies:
       react-hook-form: ^7.55.0
 
-  '@iconify-json/lucide@1.2.78':
-    resolution: {integrity: sha512-TqIzEzBCjs1IOUre/NBKhg29DkL6+Vqh93SD9V189TwIEl5Kl2dBSL7OZ0pjjF1ru8HQ1bllBo/oS0YYVUTPgA==}
+  '@iconify-json/lucide@1.2.79':
+    resolution: {integrity: sha512-CcwoXfC2Y7UVW0PXopmXtB4Do/eUJkhAqQqOnVENEiw3FwU707TK4uyIUqdo9tlvBaFBl95wnJf3smqsTnSyKA==}
 
   '@iconify-json/simple-icons@1.2.61':
     resolution: {integrity: sha512-DG6z3VEAxtDEw/SuZssZ/E8EvhjBhFQqxpEo3uckRKiia3LfZHmM4cx4RsaO2qX1Bqo9uadR5c/hYavvUQVuHw==}
@@ -7561,7 +7561,7 @@ snapshots:
       '@standard-schema/utils': 0.3.0
       react-hook-form: 7.68.0(react@19.2.1)
 
-  '@iconify-json/lucide@1.2.78':
+  '@iconify-json/lucide@1.2.79':
     dependencies:
       '@iconify/types': 2.0.0
 
