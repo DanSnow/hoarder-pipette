@@ -89,7 +89,7 @@
     "class-variance-authority": "0.7.1",
     "clsx": "2.1.1",
     "effect": "3.19.10",
-    "jotai": "2.15.2",
+    "jotai": "2.16.0",
     "lucide-react": "0.556.0",
     "next-themes": "0.4.6",
     "react": "19.2.1",
