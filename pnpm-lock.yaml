@@ -215,8 +215,8 @@ importers:
         specifier: 1.57.0
         version: 1.57.0
       shadcn:
-        specifier: 3.6.0
-        version: 3.6.0(@types/node@24.10.1)(typescript@5.9.3)
+        specifier: 3.6.1
+        version: 3.6.1(@types/node@24.10.1)(typescript@5.9.3)
       storybook:
         specifier: 10.1.8
         version: 10.1.8(@testing-library/dom@10.4.1)(prettier@3.6.2)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -5936,8 +5936,8 @@ packages:
   setprototypeof@1.2.0:
     resolution: {integrity: sha512-E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw==}
 
-  shadcn@3.6.0:
-    resolution: {integrity: sha512-6uXnm38JWRtVHnULsTxV3J1IUsI1efZM5qqKhab1j32IFxAhKWIOoIFwtjrMYRgtcBrKwPXKaVfyhs1JPHRXpA==}
+  shadcn@3.6.1:
+    resolution: {integrity: sha512-ClAtlvtyWVVzM87NCQyivSNSEPQEPLOAVCvey8rr6CukNyK2JeLNzJTdo9+4kpS/BSpx2MvQT+g+/V6ymZWmoQ==}
     hasBin: true
 
   sharp@0.34.5:
@@ -13759,7 +13759,7 @@ snapshots:
 
   setprototypeof@1.2.0: {}
 
-  shadcn@3.6.0(@types/node@24.10.1)(typescript@5.9.3):
+  shadcn@3.6.1(@types/node@24.10.1)(typescript@5.9.3):
     dependencies:
       '@antfu/ni': 25.0.0
       '@babel/core': 7.28.5
