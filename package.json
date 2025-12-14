@@ -30,7 +30,7 @@
     "@effect/vitest": "0.27.0",
     "@egoist/tailwindcss-icons": "1.9.0",
     "@hey-api/openapi-ts": "0.87.1",
-    "@iconify-json/lucide": "1.2.80",
+    "@iconify-json/lucide": "1.2.81",
     "@iconify-json/simple-icons": "1.2.62",
     "@moonrepo/cli": "1.41.7",
     "@storybook/addon-a11y": "10.1.8",
