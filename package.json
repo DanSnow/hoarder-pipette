@@ -25,13 +25,13 @@
     "postinstall": "wxt prepare"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.3.5",
-    "@effect/language-service": "0.56.0",
+    "@biomejs/biome": "2.3.8",
+    "@effect/language-service": "0.59.0",
     "@effect/vitest": "0.27.0",
     "@egoist/tailwindcss-icons": "1.9.0",
-    "@hey-api/openapi-ts": "0.87.1",
     "@iconify-json/lucide": "1.2.81",
     "@iconify-json/simple-icons": "1.2.63",
+    "@hey-api/openapi-ts": "0.88.0",
     "@moonrepo/cli": "1.41.7",
     "@storybook/addon-a11y": "10.1.8",
     "@storybook/addon-docs": "10.1.8",
