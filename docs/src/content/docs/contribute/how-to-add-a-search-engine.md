@@ -56,7 +56,7 @@ You can find it at [here](https://github.com/DanSnow/hoarder-pipette/blob/main/l
 
 ## How to Add a Search Engine
 
-Define Your Search Engine: Create an object that conforms to the `SearchEngine` interface. Here¡¦s an example based on how Google is defined:
+Define Your Search Engine: Create an object that conforms to the `SearchEngine` interface. Here is an example based on how Google is defined:
 
 ```ts
 import invariant from 'tiny-invariant'
