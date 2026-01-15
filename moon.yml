@@ -1,6 +1,7 @@
 fileGroups:
   sources:
     - src/**/*
+    - wxt.config.ts
 tasks:
   build-logo:
     type: build
