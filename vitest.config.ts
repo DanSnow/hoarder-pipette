@@ -1,10 +1,12 @@
 import path, { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
+
 import { storybookTest } from '@storybook/addon-vitest/vitest-plugin'
 import { playwright } from '@vitest/browser-playwright'
 import { mergeConfig } from 'vite'
 import { defineConfig } from 'vitest/config'
 import { WxtVitest } from 'wxt/testing/vitest-plugin'
+
 import viteConfig from './vite.config'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))

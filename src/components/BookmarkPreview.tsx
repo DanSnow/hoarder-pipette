@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 import invariant from 'tiny-invariant'
 import { joinURL } from 'ufo'
 import type { z } from 'zod/v4'
+
 import { optionsAtom } from '~/atoms/storage'
 import { BOOKMARK_PLACEHOLDER_SVG, decodeEntities, formattedDate } from '~/lib/utils'
 import type { zBookmark } from '~/shared/client/zod.gen'
@@ -30,6 +31,7 @@ export function BookmarkPreview({ bookmark }: { bookmark: z.infer<typeof zBookma
     if (isFirefox && !isLoading && permissionData !== undefined) {
       setHasAllUrlsPermission(permissionData)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- isFirefox is a build-time constant
   }, [isLoading, permissionData])
 
   // Image should be displayed if imageUrl exists AND (it's not Firefox OR it is Firefox and has <all_urls> permission)
@@ -64,19 +66,19 @@ export function BookmarkPreview({ bookmark }: { bookmark: z.infer<typeof zBookma
               href={bookmark.content.url}
               target="_blank"
               rel="noreferrer noopener"
-              className="-mx-1 -my-0.5 block rounded-sm px-1 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+              className="-mx-1 -my-0.5 block rounded-sm px-1 hover:underline focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none"
             >
-              <h3 className="line-clamp-2 font-medium text-foreground text-sm">
+              <h3 className="line-clamp-2 text-sm font-medium text-foreground">
                 {decodeEntities(title || 'Untitled Bookmark')}
               </h3>
             </a>
           </div>
 
           {description && (
-            <p className="mt-1 line-clamp-2 text-muted-foreground text-xs">{decodeEntities(description)}</p>
+            <p className="mt-1 line-clamp-2 text-xs text-muted-foreground">{decodeEntities(description)}</p>
           )}
 
-          <div className="mt-2 flex items-center text-muted-foreground text-xs">
+          <div className="mt-2 flex items-center text-xs text-muted-foreground">
             {formattedDateString && (
               <div className="flex items-center">
                 <Clock className="mr-1 h-3 w-3" />
@@ -112,7 +114,7 @@ export function BookmarkPreview({ bookmark }: { bookmark: z.infer<typeof zBookma
                   href={joinURL(url, '/dashboard/tags', tag.id)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full bg-gray-100 px-2 py-0.5 text-gray-600 text-xs hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
+                  className="rounded-full bg-gray-100 px-2 py-0.5 text-xs text-gray-600 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
                   onClick={(e) => e.stopPropagation()}
                 >
                   {tag.name}

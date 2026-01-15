@@ -1,5 +1,7 @@
 import { useCallback } from 'react'
+
 import type { SearchEngineMatch } from '~/schemas/supported-engines'
+
 import { useRequestOriginPermission } from '../hooks/request-origin-permission'
 import { CheckButton } from './CheckButton'
 

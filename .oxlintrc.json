@@ -1,0 +1,50 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "react", "import"],
+  "categories": {
+    "correctness": "error"
+  },
+  "rules": {
+    "eslint/no-param-reassign": "error",
+    "eslint/default-param-last": "error",
+    "typescript/prefer-as-const": "error",
+    "typescript/no-inferrable-types": "error",
+    "react/self-closing-comp": "error",
+    "eslint/no-else-return": "error",
+
+    "eslint/sort-imports": "off",
+    "eslint/sort-keys": "off",
+    "eslint/new-cap": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-no-useless-fragment": "off",
+    "import/no-named-export": "off",
+    "import/prefer-default-export": "off",
+    "import/group-exports": "off",
+    "import/no-namespace": "off",
+    "import/extensions": "off",
+    "import/no-default-export": "off",
+    "typescript/consistent-type-definitions": "off",
+    "eslint/no-unassigned-vars": "off"
+  },
+  "ignorePatterns": [
+    "**/dist/**",
+    "**/docs/.astro/**",
+    "**/node_modules/**",
+    "**/components/ui/autoform/**",
+    "**/src/entrypoints/options/routeTree.gen.ts",
+    "**/storybook-static/**",
+    "**/.vite-inspect/**",
+    "**/.moon/cache/**",
+    "src/shared/client/**",
+    ".output/**",
+    ".wxt/**"
+  ],
+  "overrides": [
+    {
+      "files": ["**/*.astro"],
+      "rules": {
+        "eslint/no-unused-vars": "off"
+      }
+    }
+  ]
+}

@@ -5,8 +5,8 @@ on:
     branches:
       - main
     paths:
-      - ".github/workflows/docs.yml"
-      - "docs/**"
+      - '.github/workflows/docs.yml'
+      - 'docs/**'
   pull_request:
 
 jobs:
@@ -26,8 +26,8 @@ jobs:
           run_install: false
       - uses: actions/setup-node@v6
         with:
-          node-version: "22.21.1"
-          cache: "pnpm"
+          node-version: '22.21.1'
+          cache: 'pnpm'
 
       - run: pnpm install
       - uses: actions/cache@v4

@@ -1,10 +1,12 @@
 import { useStore } from 'jotai'
 import { useCallback } from 'react'
 import { useMedia } from 'react-use'
+
 import { containerAtom } from '~/atoms/container'
 import { Toaster } from '~/components/ui/sonner'
 import { useUserQuery } from '~/hooks/use-user-query'
 import { cn } from '~/lib/utils'
+
 import { HoarderCard } from './HoarderCard'
 
 export function ContentUI() {

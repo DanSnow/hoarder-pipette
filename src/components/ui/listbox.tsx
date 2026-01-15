@@ -8,6 +8,7 @@ import {
   Separator as AriaSeparator,
   type ListBoxSectionProps,
 } from 'react-aria-components'
+
 import { cn } from '~/lib/utils'
 
 function ListBox<T extends object>({
@@ -19,7 +20,7 @@ function ListBox<T extends object>({
     <AriaListBox
       ref={ref}
       className={cn(
-        'max-h-72 min-h-20 space-y-2 overflow-auto bg-background p-1 text-sm shadow-black/5 shadow-sm transition-shadow',
+        'max-h-72 min-h-20 space-y-2 overflow-auto bg-background p-1 text-sm shadow-sm shadow-black/5 transition-shadow',
         className,
       )}
       {...props}
@@ -33,7 +34,7 @@ function ListBoxItem({ className, ref, ...props }: React.ComponentProps<typeof A
     <AriaListBoxItem
       ref={ref}
       className={cn(
-        'relative rounded-md px-2 py-1.5 outline-none data-[disabled]:cursor-not-allowed data-[selected=true]:bg-accent data-[selected=true]:text-accent-foreground data-[disabled]:opacity-50',
+        'relative rounded-md px-2 py-1.5 outline-none data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50 data-[selected=true]:bg-accent data-[selected=true]:text-accent-foreground',
         className,
       )}
       {...props}
@@ -55,7 +56,7 @@ function ListBoxHeader({ className, ref, ...props }: React.ComponentProps<typeof
   return (
     <AriaHeader
       ref={ref}
-      className={cn('px-2 py-1.5 font-medium text-muted-foreground text-xs', className)}
+      className={cn('px-2 py-1.5 text-xs font-medium text-muted-foreground', className)}
       {...props}
     />
   )

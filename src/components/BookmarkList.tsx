@@ -1,5 +1,6 @@
 import { Array, pipe } from 'effect'
 import type { z } from 'zod/v4'
+
 import { BookmarkPreview } from '~/components/BookmarkPreview'
 import type { zBookmark } from '~/shared/client/zod.gen'
 

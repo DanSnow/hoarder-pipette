@@ -23,7 +23,7 @@ tasks:
       - zip
     platform: node
     inputs:
-      - "@group(sources)"
+      - '@group(sources)'
     outputs:
       - .output/chrome-mv3/**/*
   build-ext-firefox:
@@ -35,7 +35,7 @@ tasks:
       - firefox
     platform: node
     inputs:
-      - "@group(sources)"
+      - '@group(sources)'
     outputs:
       - .output/firefox-mv2/**/*
   build:

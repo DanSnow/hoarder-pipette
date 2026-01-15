@@ -1,9 +1,11 @@
 import { useMutation } from '@tanstack/react-query'
 import { useRouteContext } from '@tanstack/react-router'
 import { useSetAtom } from 'jotai'
+
 import { userSitesAtom } from '~/atoms/storage'
 import { toOriginUrl } from '~/lib/utils'
 import type { UserSite } from '~/schemas/user-sites'
+
 import { useRequestOriginPermission } from './request-origin-permission'
 
 export function useRequestUserSitePermission() {

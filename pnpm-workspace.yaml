@@ -8,15 +8,15 @@ ignoredBuiltDependencies:
   - svelte-preprocess
 
 onlyBuiltDependencies:
-  - "@biomejs/biome"
-  - "@moonrepo/cli"
-  - "@swc/core"
-  - "@tailwindcss/oxide"
+  - '@biomejs/biome'
+  - '@moonrepo/cli'
+  - '@swc/core'
+  - '@tailwindcss/oxide'
   - esbuild
   - msw
   - oxc-resolver
   - sharp
 
 overrides:
-  "@wxt-dev/browser": "0.1.4"
-  "@wxt-dev/storage": "1.2.5"
+  '@wxt-dev/browser': '0.1.4'
+  '@wxt-dev/storage': '1.2.5'

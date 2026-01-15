@@ -3,8 +3,8 @@ title: How to add a Search Engine
 ---
 
 ## Overview
-To add a new search engine, you need to define an implementation that adheres to the `SearchEngine` interface. Here is the structure of the interface:
 
+To add a new search engine, you need to define an implementation that adheres to the `SearchEngine` interface. Here is the structure of the interface:
 
 ```ts
 export interface SearchEngine {
@@ -55,8 +55,8 @@ export interface SearchEngine {
 You can find it at [here](https://github.com/DanSnow/hoarder-pipette/blob/main/lib/search-engines/utils/types.ts)
 
 ## How to Add a Search Engine
-Define Your Search Engine: Create an object that conforms to the `SearchEngine` interface. Here¡¦s an example based on how Google is defined:
 
+Define Your Search Engine: Create an object that conforms to the `SearchEngine` interface. Here is an example based on how Google is defined:
 
 ```ts
 import invariant from 'tiny-invariant'
@@ -72,16 +72,16 @@ export const mySearchEngine: SearchEngine = {
   icon: 'i-simple-icons-myservice', // Replace with the appropriate icon
   name: 'My Service',
   matches: [],
-  optionalMatches: [MY_SEARCH_ENGINE_URL],  // Customize as needed
+  optionalMatches: [MY_SEARCH_ENGINE_URL], // Customize as needed
   allowUserSites: true, // Set to `true` if your service allows user sites. Like SearXNG
-  getQuery: fromUrlQuery('q'),  // This extracts the query from URL parameters. Adjust based on your requirement.
+  getQuery: fromUrlQuery('q'), // This extracts the query from URL parameters. Adjust based on your requirement.
   getRenderRoot: () => {
     const { container, renderRoot } = createMountContainer()
     const searchContainer = $('#myRootElement') // Replace 'myRootElement' with an appropriate selector
     invariant(searchContainer, 'Injection point not found.')
     searchContainer.prepend(container)
     return renderRoot
-  }
+  },
 }
 ```
 

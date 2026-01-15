@@ -1,7 +1,9 @@
-import '~/styles/tailwind.css'
 import { createRoot } from 'react-dom/client'
 import invariant from 'tiny-invariant'
+
 import { $ } from '~/lib/utils'
+import '~/styles/tailwind.css'
+
 import { OptionsRoot } from './components/OptionsRoot'
 
 const $container = $('#root')

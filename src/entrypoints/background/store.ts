@@ -1,5 +1,6 @@
 import { type Context, Effect, Layer } from 'effect'
 import { createStore } from 'jotai'
+
 import { userSitesAtom } from '~/atoms/storage'
 
 export class Store extends Effect.Service<Store>()('@app/Store', {
