@@ -1,7 +1,9 @@
 import { useCallback } from 'react'
+
 import { Button } from '~/components/ui/button'
 import { Card, CardContent, CardHeader } from '~/components/ui/card'
 import type { SupportSearchEngine } from '~/schemas/supported-engines'
+
 import { useRequestUserSitePermission } from '../hooks/request-user-site-permission'
 import { SearchEngineMatchItem } from './SearchEngineMatch'
 
@@ -31,7 +33,7 @@ export function SearchEngineDetail({
   return (
     <Card className="border-none">
       <CardHeader className="pt-1">
-        <h2 className="grow font-bold text-lg">{engine.name}</h2>
+        <h2 className="grow text-lg font-bold">{engine.name}</h2>
         {engine.allowUserSites && Boolean(url) && (
           <Button className="w-full" disabled={!isAllowUrl || isAlreadyEnabled} onClick={handleClick}>
             Enable on this page

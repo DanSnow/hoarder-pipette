@@ -48,8 +48,8 @@ jobs:
           run_install: false
       - uses: actions/setup-node@v6
         with:
-          node-version: "22.21.1"
-          cache: "pnpm"
+          node-version: '22.21.1'
+          cache: 'pnpm'
       - run: pnpm install
       - run: pnpm run lint --fix
       - name: commit
@@ -75,8 +75,8 @@ jobs:
           run_install: false
       - uses: actions/setup-node@v6
         with:
-          node-version: "22.21.1"
-          cache: "pnpm"
+          node-version: '22.21.1'
+          cache: 'pnpm'
       - run: pnpm install
       - run: pnpm build
       - name: Attest

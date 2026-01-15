@@ -1,5 +1,6 @@
 import { Array, pipe } from 'effect'
 import type { z } from 'zod/v4'
+
 import { BookmarkPreview } from '~/components/BookmarkPreview'
 import type { zBookmark } from '~/shared/client/zod.gen'
 
@@ -40,7 +41,7 @@ export function BookmarkList({ bookmarks, isPending, error }: BookmarkListProps)
         bookmarks,
         Array.filter((bookmark) => bookmark.content.type === 'link'),
         Array.map((bookmark) => (
-          <div key={bookmark.id} className="rounded-lg transition-colors hover:bg-accent/50">
+          <div key={bookmark.id} className="hover:bg-accent/50 rounded-lg transition-colors">
             <BookmarkPreview bookmark={bookmark} />
           </div>
         )),

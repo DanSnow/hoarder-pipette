@@ -1,4 +1,5 @@
 import { createFileRoute, Link, Outlet } from '@tanstack/react-router'
+
 import { Button } from '~/components/ui/button'
 import {
   NavigationMenu,
@@ -7,6 +8,7 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from '~/components/ui/navigation-menu'
+
 import { OptionsContainer } from '../components/OptionsContainer'
 
 export const Route = createFileRoute('/_search-engines')({

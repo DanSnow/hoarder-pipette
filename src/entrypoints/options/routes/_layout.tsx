@@ -1,4 +1,5 @@
 import { createFileRoute, Link, linkOptions, Outlet } from '@tanstack/react-router'
+
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -6,6 +7,7 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from '~/components/ui/navigation-menu'
+
 import { OptionsContainer } from '../components/OptionsContainer'
 
 export const Route = createFileRoute('/_layout')({

@@ -1,5 +1,6 @@
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
+
 import { imageSizeFromFile } from 'image-size/fromFile'
 import { expect, it } from 'vitest'
 

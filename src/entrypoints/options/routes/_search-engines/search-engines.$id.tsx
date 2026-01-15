@@ -1,5 +1,6 @@
 import { createFileRoute, redirect } from '@tanstack/react-router'
 import { Array, Option, pipe } from 'effect'
+
 import { SearchEngineDetail } from '../../components/SearchEngineDetail'
 import { getCurrentTabUrl, isAllowUrl } from '../../utils'
 

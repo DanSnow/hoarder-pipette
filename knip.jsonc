@@ -5,8 +5,8 @@
     "build/*.mts",
     "openapi-ts.config.ts",
     ".storybook/fake-browser.ts",
-    "wxt.config.ts"
+    "wxt.config.ts",
   ],
   "ignore": ["src/components/ui/**/*", "src/shared/client/**/*", "src/entrypoints/options/routeTree.gen.ts"],
-  "moonrepo": false
+  "moonrepo": false,
 }

@@ -1,8 +1,10 @@
 import { Array, Effect, pipe } from 'effect'
 import { browser } from 'wxt/browser'
+
 import { supportedEngines } from '~/lib/search-engines'
 import { toOriginUrl } from '~/lib/utils'
 import type { SearchEngineMatch, SupportSearchEngine, SupportSearchEngines } from '~/schemas/supported-engines'
+
 import { ContentScriptRegister } from './content-script-register'
 import { Storage } from './store'
 

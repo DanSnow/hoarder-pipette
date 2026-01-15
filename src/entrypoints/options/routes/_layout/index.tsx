@@ -6,11 +6,13 @@ import { useCallback } from 'react'
 import { toast } from 'sonner'
 import { withTrailingSlash } from 'ufo'
 import type { z } from 'zod/v4'
+
 import { optionsAtom } from '~/atoms/storage'
 import { AutoForm } from '~/components/ui/autoform'
 import { Button } from '~/components/ui/button'
 import { toOriginUrl } from '~/lib/utils'
 import { InstanceOptionsSchema } from '~/schemas/options'
+
 import { requestOrigin } from '../../permission'
 
 const schemaProvider = new ZodProvider(InstanceOptionsSchema)

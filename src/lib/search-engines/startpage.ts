@@ -1,4 +1,5 @@
 import invariant from 'tiny-invariant'
+
 import { defineRenderRoot } from '../mount-container'
 import { $ } from '../utils'
 import { fromInput } from './utils/get-query'

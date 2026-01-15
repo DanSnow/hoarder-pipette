@@ -36,7 +36,6 @@ Please visit the [document site](https://dansnow.github.io/hoarder-pipette/guide
 - librsvg (for converting logo to png)
 - imagick (for processing logo)
 
-
 ### Available Scripts
 
 In the project directory, you can run the following scripts:

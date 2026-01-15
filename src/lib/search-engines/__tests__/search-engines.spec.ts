@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest'
+
 import { google } from '../google'
 import { isMatchSearchEngine } from '../index'
 

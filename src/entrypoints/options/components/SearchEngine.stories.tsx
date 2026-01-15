@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { expect } from 'storybook/test'
 
 import { ListBox } from '~/components/ui/listbox'
+
 import { SearchEngine } from './SearchEngine'
 
 const meta = {

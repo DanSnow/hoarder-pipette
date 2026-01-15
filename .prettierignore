@@ -1,0 +1,22 @@
+dist/
+docs/.astro/
+node_modules/
+components/ui/autoform/
+src/entrypoints/options/routeTree.gen.ts
+storybook-static/
+.vite-inspect/
+.moon/cache/
+src/shared/client/
+.output/
+.wxt/
+pnpm-lock.yaml
+
+# Oxfmt handles JS/TS files
+*.js
+*.jsx
+*.ts
+*.tsx
+*.mjs
+*.cjs
+*.mts
+*.cts

@@ -1,6 +1,8 @@
 import { Match, pipe } from 'effect'
+
 import { Tooltip, TooltipContent, TooltipTrigger } from '~/components/ui/tooltip'
 import type { SupportSearchEngine } from '~/schemas/supported-engines'
+
 import { CheckButton, type State } from './CheckButton'
 
 const tooltipContent: Record<State, string> = {
