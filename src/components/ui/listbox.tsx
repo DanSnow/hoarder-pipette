@@ -20,7 +20,7 @@ function ListBox<T extends object>({
     <AriaListBox
       ref={ref}
       className={cn(
-        'bg-background max-h-72 min-h-20 space-y-2 overflow-auto p-1 text-sm shadow-sm shadow-black/5 transition-shadow',
+        'max-h-72 min-h-20 space-y-2 overflow-auto bg-background p-1 text-sm shadow-sm shadow-black/5 transition-shadow',
         className,
       )}
       {...props}
@@ -34,7 +34,7 @@ function ListBoxItem({ className, ref, ...props }: React.ComponentProps<typeof A
     <AriaListBoxItem
       ref={ref}
       className={cn(
-        'data-[selected=true]:bg-accent data-[selected=true]:text-accent-foreground relative rounded-md px-2 py-1.5 outline-none data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50',
+        'relative rounded-md px-2 py-1.5 outline-none data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50 data-[selected=true]:bg-accent data-[selected=true]:text-accent-foreground',
         className,
       )}
       {...props}
@@ -56,7 +56,7 @@ function ListBoxHeader({ className, ref, ...props }: React.ComponentProps<typeof
   return (
     <AriaHeader
       ref={ref}
-      className={cn('text-muted-foreground px-2 py-1.5 text-xs font-medium', className)}
+      className={cn('px-2 py-1.5 text-xs font-medium text-muted-foreground', className)}
       {...props}
     />
   )
@@ -64,7 +64,7 @@ function ListBoxHeader({ className, ref, ...props }: React.ComponentProps<typeof
 ListBoxHeader.displayName = 'ListBoxHeader'
 
 function ListBoxSeparator({ className, ref, ...props }: React.ComponentProps<typeof AriaSeparator>) {
-  return <AriaSeparator ref={ref} className={cn('bg-border -mx-1 my-1 h-px', className)} {...props} />
+  return <AriaSeparator ref={ref} className={cn('-mx-1 my-1 h-px bg-border', className)} {...props} />
 }
 ListBoxSeparator.displayName = 'ListBoxSeparator'
 

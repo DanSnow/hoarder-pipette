@@ -41,7 +41,7 @@ export function BookmarkList({ bookmarks, isPending, error }: BookmarkListProps)
         bookmarks,
         Array.filter((bookmark) => bookmark.content.type === 'link'),
         Array.map((bookmark) => (
-          <div key={bookmark.id} className="hover:bg-accent/50 rounded-lg transition-colors">
+          <div key={bookmark.id} className="rounded-lg transition-colors hover:bg-accent/50">
             <BookmarkPreview bookmark={bookmark} />
           </div>
         )),

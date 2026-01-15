@@ -66,19 +66,19 @@ export function BookmarkPreview({ bookmark }: { bookmark: z.infer<typeof zBookma
               href={bookmark.content.url}
               target="_blank"
               rel="noreferrer noopener"
-              className="focus-visible:ring-ring -mx-1 -my-0.5 block rounded-sm px-1 hover:underline focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
+              className="-mx-1 -my-0.5 block rounded-sm px-1 hover:underline focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none"
             >
-              <h3 className="text-foreground line-clamp-2 text-sm font-medium">
+              <h3 className="line-clamp-2 text-sm font-medium text-foreground">
                 {decodeEntities(title || 'Untitled Bookmark')}
               </h3>
             </a>
           </div>
 
           {description && (
-            <p className="text-muted-foreground mt-1 line-clamp-2 text-xs">{decodeEntities(description)}</p>
+            <p className="mt-1 line-clamp-2 text-xs text-muted-foreground">{decodeEntities(description)}</p>
           )}
 
-          <div className="text-muted-foreground mt-2 flex items-center text-xs">
+          <div className="mt-2 flex items-center text-xs text-muted-foreground">
             {formattedDateString && (
               <div className="flex items-center">
                 <Clock className="mr-1 h-3 w-3" />

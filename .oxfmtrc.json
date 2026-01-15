@@ -10,7 +10,8 @@
   "bracketSpacing": true,
   "experimentalTailwindcss": {
     "attributes": ["className"],
-    "functions": ["cn"]
+    "functions": ["cn"],
+    "stylesheet": "src/styles/tailwind.css"
   },
   "experimentalSortImports": {
     "groups": [["builtin"], ["external"], ["internal"], ["parent", "sibling", "index"]],

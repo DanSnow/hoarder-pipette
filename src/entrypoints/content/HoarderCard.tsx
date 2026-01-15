@@ -29,7 +29,7 @@ export function HoarderCard({ className, userQuery }: { className?: string; user
     return (
       <Card className="w-full max-w-2xl">
         <CardHeader className="border-b border-gray-200 dark:border-gray-700">
-          <h2 className="text-foreground text-lg font-semibold">Hoarder's Pipette</h2>
+          <h2 className="text-lg font-semibold text-foreground">Hoarder's Pipette</h2>
         </CardHeader>
         <CardContent className="p-6 text-center">
           <p className="text-foreground/80">Please open options page to configure your API key and URL</p>
@@ -48,7 +48,7 @@ export function HoarderCard({ className, userQuery }: { className?: string; user
     <Card className={cn(className, 'w-full max-w-2xl')}>
       <CardHeader className="border-b border-gray-200 px-6 py-4 dark:border-gray-700">
         <div className="flex items-center justify-between">
-          <h2 className="text-foreground text-xl font-semibold">Karakeep Bookmarks</h2>
+          <h2 className="text-xl font-semibold text-foreground">Karakeep Bookmarks</h2>
         </div>
       </CardHeader>
 
@@ -58,7 +58,7 @@ export function HoarderCard({ className, userQuery }: { className?: string; user
 
       {hasBookmarks && (
         <CardFooter className="flex items-center justify-between border-t border-gray-200 px-6 py-3 dark:border-gray-700">
-          <span className="text-muted-foreground text-sm">
+          <span className="text-sm text-muted-foreground">
             {bookmarks.length} {bookmarks.length === 1 ? 'bookmark' : 'bookmarks'} found
           </span>
         </CardFooter>
