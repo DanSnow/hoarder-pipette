@@ -82,7 +82,7 @@
     "@storybook/addon-vitest": "10.1.11",
     "@storybook/react": "10.1.11",
     "@storybook/react-vite": "10.1.11",
-    "@t3-oss/env-core": "0.13.8",
+    "@t3-oss/env-core": "0.13.10",
     "@tailwindcss/vite": "4.1.18",
     "@tanstack/router-plugin": "1.141.2",
     "@types/react": "19.2.8",
