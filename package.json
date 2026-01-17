@@ -89,9 +89,9 @@
     "@types/react-dom": "19.2.3",
     "@types/webextension-polyfill": "0.12.4",
     "@types/webpack-env": "1.18.8",
-    "@vitest/browser": "4.0.15",
-    "@vitest/browser-playwright": "4.0.15",
-    "@vitest/coverage-v8": "4.0.15",
+    "@vitest/browser": "4.0.17",
+    "@vitest/browser-playwright": "4.0.17",
+    "@vitest/coverage-v8": "4.0.17",
     "@webext-core/fake-browser": "1.3.4",
     "chrome-webstore-upload-cli": "3.5.0",
     "image-size": "2.0.2",
@@ -109,7 +109,7 @@
     "vite": "7.2.7",
     "vite-plugin-inspect": "11.3.3",
     "vite-plugin-tsconfig-paths": "1.4.1",
-    "vitest": "4.0.15",
+    "vitest": "4.0.17",
     "zx": "8.8.5"
   },
   "packageManager": "pnpm@10.22.0+sha512.bf049efe995b28f527fd2b41ae0474ce29186f7edcb3bf545087bd61fbbebb2bf75362d1307fda09c2d288e1e499787ac12d4fcb617a974718a6051f2eee741c"
