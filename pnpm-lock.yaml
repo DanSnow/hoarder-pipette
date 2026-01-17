@@ -206,8 +206,8 @@ importers:
         specifier: 2.0.2
         version: 2.0.2
       knip:
-        specifier: 5.73.4
-        version: 5.73.4(@types/node@24.10.1)(typescript@5.9.3)
+        specifier: 5.81.0
+        version: 5.81.0(@types/node@24.10.1)(typescript@5.9.3)
       oxfmt:
         specifier: 0.24.0
         version: 0.24.0
@@ -4750,8 +4750,8 @@ packages:
     resolution: {integrity: sha512-dhG34DXATL5hSxJbIexCft8FChFXtmskoZYnoPWjXQuebWYCNkVeV3KkGegCK9CP1oswI/vQibS2GY7Em/sJJA==}
     engines: {node: '>= 8'}
 
-  knip@5.73.4:
-    resolution: {integrity: sha512-q0DDgqsRMa4z2IMEPEblns0igitG8Fu7exkvEgQx1QMLKEqSvcvKP9fMk+C1Ehy+Ux6oayl6zfAEGt6DvFtidw==}
+  knip@5.81.0:
+    resolution: {integrity: sha512-EM9YdNg6zU2DWMJuc9zD8kPUpj0wvPspa63Qe9DPGygzL956uYThfoUQk5aNpPmMr9hs/k+Xm7FLuWFKERFkrQ==}
     engines: {node: '>=18.18.0'}
     hasBin: true
     peerDependencies:
@@ -6995,7 +6995,7 @@ snapshots:
       remark-rehype: 11.1.2
       remark-smartypants: 3.0.2
       shiki: 3.19.0
-      smol-toml: 1.5.2
+      smol-toml: 1.6.0
       unified: 11.0.5
       unist-util-remove-position: 5.0.0
       unist-util-visit: 5.0.0
@@ -12015,7 +12015,7 @@ snapshots:
 
   klona@2.0.6: {}
 
-  knip@5.73.4(@types/node@24.10.1)(typescript@5.9.3):
+  knip@5.81.0(@types/node@24.10.1)(typescript@5.9.3):
     dependencies:
       '@nodelib/fs.walk': 1.2.8
       '@types/node': 24.10.1
@@ -12027,7 +12027,7 @@ snapshots:
       oxc-resolver: 11.15.0
       picocolors: 1.1.1
       picomatch: 4.0.3
-      smol-toml: 1.5.2
+      smol-toml: 1.6.0
       strip-json-comments: 5.0.3
       typescript: 5.9.3
       zod: 4.1.12
