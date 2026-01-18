@@ -20,6 +20,7 @@ export function HoarderCard({ className, userQuery }: { className?: string; user
         text: userQuery,
       },
       enabled: Boolean(userQuery),
+      refetchOnWindowFocus: false,
       gcTime: 600_000, // 10 minutes,
       staleTime: 300_000, // 5 minutes,
     }),
