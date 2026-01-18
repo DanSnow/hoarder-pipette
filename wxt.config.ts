@@ -22,5 +22,11 @@ export default defineConfig({
         id: 'hoarder-pipette@dansnow.github.io',
       },
     },
+    web_accessible_resources: [
+      {
+        matches: ['*://*/*'],
+        resources: ['content-scripts/*.css'],
+      },
+    ],
   }),
 })
