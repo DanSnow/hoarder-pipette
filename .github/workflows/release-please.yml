@@ -48,7 +48,7 @@ jobs:
           run_install: false
       - uses: actions/setup-node@v6
         with:
-          node-version: '22.21.1'
+          node-version: '22.22.0'
           cache: 'pnpm'
       - run: pnpm install
       - run: pnpm run lint --fix
@@ -75,7 +75,7 @@ jobs:
           run_install: false
       - uses: actions/setup-node@v6
         with:
-          node-version: '22.21.1'
+          node-version: '22.22.0'
           cache: 'pnpm'
       - run: pnpm install
       - run: pnpm build
