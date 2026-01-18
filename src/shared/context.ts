@@ -10,7 +10,6 @@ import type { AppRouter } from '~/orpc'
 class ReconnectingPort {
   private port: Browser.runtime.Port
   private messageListeners: ((message: unknown) => void)[] = []
-  private disconnectListeners: (() => void)[] = []
 
   constructor(private connect: () => Browser.runtime.Port) {
     this.port = this.connect()
@@ -18,25 +17,29 @@ class ReconnectingPort {
   }
 
   private setupPort() {
-    this.port.onDisconnect.addListener(() => {
-      this.reconnect()
-    })
-    this.port.onMessage.addListener((message) => {
-      for (const listener of this.messageListeners) {
-        listener(message)
-      }
-    })
+    this.port.onDisconnect.addListener(this.handleDisconnect)
+    this.port.onMessage.addListener(this.forwardMessage)
   }
 
-  private reconnect() {
+  private handleDisconnect = () => {
+    this.port.onDisconnect.removeListener(this.handleDisconnect)
+    this.port.onMessage.removeListener(this.forwardMessage)
     this.port = this.connect()
     this.setupPort()
   }
 
+  private forwardMessage = (message: unknown) => {
+    for (const listener of this.messageListeners) {
+      listener(message)
+    }
+  }
+
+  private reconnect() {
+    this.handleDisconnect()
+  }
+
   onDisconnect = {
-    addListener: (callback: () => void) => {
-      this.disconnectListeners.push(callback)
-    },
+    addListener: (_callback: () => void) => {},
   }
 
   onMessage = {
@@ -45,6 +48,7 @@ class ReconnectingPort {
     },
   }
 
+  // Retry once on failure (port may have disconnected)
   postMessage(message: unknown) {
     try {
       this.port.postMessage(message)
