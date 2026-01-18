@@ -1,3 +1,2 @@
 [tools]
 node = "v22.22.0"
-'npm:@antfu/ni' = '27.0.1'
