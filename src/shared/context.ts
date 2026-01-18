@@ -7,6 +7,54 @@ import { browser } from 'wxt/browser'
 
 import type { AppRouter } from '~/orpc'
 
+class ReconnectingPort {
+  private port: Browser.runtime.Port
+  private messageListeners: ((message: unknown) => void)[] = []
+  private disconnectListeners: (() => void)[] = []
+
+  constructor(private connect: () => Browser.runtime.Port) {
+    this.port = this.connect()
+    this.setupPort()
+  }
+
+  private setupPort() {
+    this.port.onDisconnect.addListener(() => {
+      this.reconnect()
+    })
+    this.port.onMessage.addListener((message) => {
+      for (const listener of this.messageListeners) {
+        listener(message)
+      }
+    })
+  }
+
+  private reconnect() {
+    this.port = this.connect()
+    this.setupPort()
+  }
+
+  onDisconnect = {
+    addListener: (callback: () => void) => {
+      this.disconnectListeners.push(callback)
+    },
+  }
+
+  onMessage = {
+    addListener: (callback: (message: unknown) => void) => {
+      this.messageListeners.push(callback)
+    },
+  }
+
+  postMessage(message: unknown) {
+    try {
+      this.port.postMessage(message)
+    } catch {
+      this.reconnect()
+      this.port.postMessage(message)
+    }
+  }
+}
+
 export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -18,7 +66,7 @@ export const queryClient = new QueryClient({
   },
 })
 
-const port = browser.runtime.connect()
+const port = new ReconnectingPort(() => browser.runtime.connect())
 
 const link = new RPCLink({
   port,
