@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.3](https://github.com/DanSnow/hoarder-pipette/compare/hoarder-pipette-v1.6.2...hoarder-pipette-v1.6.3) (2026-01-18)
+
+
+### Bug Fixes
+
+* styling issue on ddg ([#1317](https://github.com/DanSnow/hoarder-pipette/issues/1317)) ([7b01651](https://github.com/DanSnow/hoarder-pipette/commit/7b01651f4d5c53509d32c9032a94e97b6d40d8f9)), closes [#1240](https://github.com/DanSnow/hoarder-pipette/issues/1240)
+
 ## [1.6.2](https://github.com/DanSnow/hoarder-pipette/compare/hoarder-pipette-v1.6.1...hoarder-pipette-v1.6.2) (2025-11-09)
 
 ### Bug Fixes
