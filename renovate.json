@@ -12,7 +12,11 @@
     {
       "automerge": true,
       "matchDatasources": ["npm"],
-      "matchPackageNames": ["@astrojs/starlight", "lucide-react", "@effect/vitest"]
+      "matchPackageNames": ["@astrojs/starlight", "lucide-react", "@effect/vitest", "@effect/language-service"]
+    },
+    {
+      "automerge": true,
+      "matchDatasources": ["action"]
     },
     {
       "matchPackageNames": ["@orpc/**"],
