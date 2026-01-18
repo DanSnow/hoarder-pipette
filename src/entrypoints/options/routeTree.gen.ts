@@ -54,16 +54,16 @@ const SearchEnginesSearchEnginesIdRoute =
   } as any)
 
 export interface FileRoutesByFullPath {
+  '/': typeof LayoutIndexRoute
   '/story-render': typeof StoryRenderRoute
   '/search-engines': typeof LayoutSearchEnginesRoute
-  '/': typeof LayoutIndexRoute
   '/search-engines/$id': typeof SearchEnginesSearchEnginesIdRoute
   '/search-engines/apply': typeof SearchEnginesSearchEnginesApplyRoute
 }
 export interface FileRoutesByTo {
+  '/': typeof LayoutIndexRoute
   '/story-render': typeof StoryRenderRoute
   '/search-engines': typeof LayoutSearchEnginesRoute
-  '/': typeof LayoutIndexRoute
   '/search-engines/$id': typeof SearchEnginesSearchEnginesIdRoute
   '/search-engines/apply': typeof SearchEnginesSearchEnginesApplyRoute
 }
@@ -80,16 +80,16 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
+    | '/'
     | '/story-render'
     | '/search-engines'
-    | '/'
     | '/search-engines/$id'
     | '/search-engines/apply'
   fileRoutesByTo: FileRoutesByTo
   to:
+    | '/'
     | '/story-render'
     | '/search-engines'
-    | '/'
     | '/search-engines/$id'
     | '/search-engines/apply'
   id:
@@ -121,14 +121,14 @@ declare module '@tanstack/react-router' {
     '/_search-engines': {
       id: '/_search-engines'
       path: ''
-      fullPath: ''
+      fullPath: '/'
       preLoaderRoute: typeof SearchEnginesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_layout': {
       id: '/_layout'
       path: ''
-      fullPath: ''
+      fullPath: '/'
       preLoaderRoute: typeof LayoutRouteImport
       parentRoute: typeof rootRouteImport
     }
