@@ -127,8 +127,8 @@ importers:
         version: 3.25.76
     devDependencies:
       '@effect/language-service':
-        specifier: 0.71.2
-        version: 0.71.2
+        specifier: 0.72.0
+        version: 0.72.0
       '@effect/vitest':
         specifier: 0.27.0
         version: 0.27.0(effect@3.19.14)(vitest@4.0.17)
@@ -548,8 +548,8 @@ packages:
     peerDependencies:
       '@noble/ciphers': ^1.0.0
 
-  '@effect/language-service@0.71.2':
-    resolution: {integrity: sha512-l5MaMxopOMjzSwEmQdIq5KeKqaLVLwkFdWeplCZw58O1kV1TYQIaG6uZ1nb5XvMtldLcfLu+44mdpiaW484fHg==}
+  '@effect/language-service@0.72.0':
+    resolution: {integrity: sha512-MWkyTPCXSs5Q3OIBWR3q24SA+ipkdWW7EBJBt6EPUzlzZxjJLXtLBhXpMoCFheSEM0FTWOHT4BRLh5lufsmjVw==}
     hasBin: true
 
   '@effect/vitest@0.27.0':
@@ -7298,7 +7298,7 @@ snapshots:
     dependencies:
       '@noble/ciphers': 1.3.0
 
-  '@effect/language-service@0.71.2': {}
+  '@effect/language-service@0.72.0': {}
 
   '@effect/vitest@0.27.0(effect@3.19.14)(vitest@4.0.17)':
     dependencies:
