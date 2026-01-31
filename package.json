@@ -72,7 +72,7 @@
   "devDependencies": {
     "@effect/language-service": "0.72.0",
     "@effect/vitest": "0.27.0",
-    "@egoist/tailwindcss-icons": "1.9.0",
+    "@egoist/tailwindcss-icons": "1.9.2",
     "@hey-api/openapi-ts": "0.90.4",
     "@iconify-json/lucide": "1.2.87",
     "@iconify-json/simple-icons": "1.2.68",
