@@ -1,6 +1,6 @@
 {
   "name": "hoarder-pipette",
-  "version": "1.6.3",
+  "version": "1.6.4",
   "private": true,
   "description": "An extension to inject bookmarks from your Hoarder app",
   "keywords": [
