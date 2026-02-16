@@ -217,8 +217,8 @@ importers:
         specifier: 3.8.1
         version: 3.8.1
       shadcn:
-        specifier: 3.8.4
-        version: 3.8.4(@types/node@25.0.9)(typescript@5.9.3)
+        specifier: 3.8.5
+        version: 3.8.5(@types/node@25.0.9)(typescript@5.9.3)
       storybook:
         specifier: 10.2.8
         version: 10.2.8(@testing-library/dom@10.4.1)(prettier@3.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
@@ -3644,10 +3644,6 @@ packages:
     resolution: {integrity: sha512-yPVavfyCcRhmorC7rWlkHn15b4wDVgVmBA7kV4QVBsF7kv/9TKJAbAXVTxvTnwP8HHKjRCJDClKbciiYS7p0DQ==}
     engines: {node: '>=16'}
 
-  commander@14.0.2:
-    resolution: {integrity: sha512-TywoWNNRbhoD0BXs1P3ZEScW8W5iKrnbithIl0YH+uCmBd0QpPOA8yc82DS3BIE5Ma6FnBVUsJ7wVUDz4dvOWQ==}
-    engines: {node: '>=20'}
-
   commander@14.0.3:
     resolution: {integrity: sha512-H+y0Jo/T1RZ9qPP4Eh1pkcQcLRglraJaSLoyOtHxu6AapkjWVCy2Sit1QQ4x3Dng8qDlSsZEet7g5Pq06MvTgw==}
     engines: {node: '>=20'}
@@ -6005,8 +6001,8 @@ packages:
   setprototypeof@1.2.0:
     resolution: {integrity: sha512-E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw==}
 
-  shadcn@3.8.4:
-    resolution: {integrity: sha512-pSad/m1+PGzB0aLsRBV0EkyGg9al1nJqYUuucg6d8v8xZspPZ5/ehGNEp5M4b1KQYqdO5/gGPbkhVbgmXqG9Pw==}
+  shadcn@3.8.5:
+    resolution: {integrity: sha512-jPRx44e+eyeV7xwY3BLJXcfrks00+M0h5BGB9l6DdcBW4BpAj4x3lVmVy0TXPEs2iHEisxejr62sZAAw6B1EVA==}
     hasBin: true
 
   sharp@0.34.5:
@@ -6399,10 +6395,6 @@ packages:
   type-fest@4.41.0:
     resolution: {integrity: sha512-TeTSQ6H5YHvpqVwBRcnLDCBnDOHWYu7IvGbHT6N8AOymcr9PJGjc1GTtiWZTYg0NCgYwvnYWEkVChQAr9bjfwA==}
     engines: {node: '>=16'}
-
-  type-fest@5.4.1:
-    resolution: {integrity: sha512-xygQcmneDyzsEuKZrFbRMne5HDqMs++aFzefrJTgEIKjQ3rekM+RPfFCVq2Gp1VIDqddoYeppCj4Pcb+RZW0GQ==}
-    engines: {node: '>=20'}
 
   type-fest@5.4.4:
     resolution: {integrity: sha512-JnTrzGu+zPV3aXIUhnyWJj4z/wigMsdYajGLIYakqyOW1nPllzXEJee0QQbHj+CTIQtXGlAjuK0UY+2xTyjVAw==}
@@ -10824,8 +10816,6 @@ snapshots:
 
   commander@11.1.0: {}
 
-  commander@14.0.2: {}
-
   commander@14.0.3: {}
 
   commander@2.9.0:
@@ -12737,7 +12727,7 @@ snapshots:
       statuses: 2.0.2
       strict-event-emitter: 0.5.1
       tough-cookie: 6.0.0
-      type-fest: 5.4.1
+      type-fest: 5.4.4
       until-async: 3.0.2
       yargs: 17.7.2
     optionalDependencies:
@@ -13780,7 +13770,7 @@ snapshots:
 
   setprototypeof@1.2.0: {}
 
-  shadcn@3.8.4(@types/node@25.0.9)(typescript@5.9.3):
+  shadcn@3.8.5(@types/node@25.0.9)(typescript@5.9.3):
     dependencies:
       '@antfu/ni': 25.0.0
       '@babel/core': 7.28.6
@@ -13791,7 +13781,7 @@ snapshots:
       '@modelcontextprotocol/sdk': 1.26.0(zod@3.25.76)
       '@types/validate-npm-package-name': 4.0.2
       browserslist: 4.28.1
-      commander: 14.0.2
+      commander: 14.0.3
       cosmiconfig: 9.0.0(typescript@5.9.3)
       dedent: 1.7.1
       deepmerge: 4.3.1
@@ -14221,10 +14211,6 @@ snapshots:
   type-fest@3.13.1: {}
 
   type-fest@4.41.0: {}
-
-  type-fest@5.4.1:
-    dependencies:
-      tagged-tag: 1.0.0
 
   type-fest@5.4.4:
     dependencies:
