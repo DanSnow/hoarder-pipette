@@ -70,7 +70,7 @@
     "zod": "3.25.76"
   },
   "devDependencies": {
-    "@effect/language-service": "0.73.1",
+    "@effect/language-service": "0.74.0",
     "@effect/vitest": "0.27.0",
     "@egoist/tailwindcss-icons": "1.9.2",
     "@hey-api/openapi-ts": "0.92.3",
