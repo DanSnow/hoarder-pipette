@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.4](https://github.com/DanSnow/hoarder-pipette/compare/hoarder-pipette-v1.6.3...hoarder-pipette-v1.6.4) (2026-02-18)
+
+
+### Bug Fixes
+
+* it show fetch error about using disconnecting port ([#1319](https://github.com/DanSnow/hoarder-pipette/issues/1319)) ([1b559f9](https://github.com/DanSnow/hoarder-pipette/commit/1b559f9a5370c21a2b35c367774c850d11685e37))
+
 ## [1.6.3](https://github.com/DanSnow/hoarder-pipette/compare/hoarder-pipette-v1.6.2...hoarder-pipette-v1.6.3) (2026-01-18)
 
 
