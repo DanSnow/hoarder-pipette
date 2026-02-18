@@ -84,7 +84,7 @@
     "@storybook/react-vite": "10.2.9",
     "@t3-oss/env-core": "0.13.10",
     "@tailwindcss/vite": "4.1.18",
-    "@tanstack/router-plugin": "1.160.2",
+    "@tanstack/router-plugin": "1.161.0",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
     "@types/webextension-polyfill": "0.12.4",
