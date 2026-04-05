@@ -24,8 +24,8 @@
     "format": "oxfmt --ignore-path=.gitignore && prettier . --write --ignore-unknown",
     "format:check": "oxfmt --check --ignore-path=.gitignore && prettier . --check --ignore-unknown",
     "storybook": "storybook dev -p 6006",
-    "typecheck": "moon run '~:typecheck' --",
-    "typecheck-watch": "moon run '~:typecheck-watch' --",
+    "typecheck": "moon run :typecheck --",
+    "typecheck-watch": "moon run :typecheck-watch --",
     "postinstall": "wxt prepare"
   },
   "dependencies": {
