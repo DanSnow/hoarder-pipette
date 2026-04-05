@@ -3,16 +3,16 @@ tasks:
     command:
       - astro
       - build
-    platform: node
+    outputs:
+      - dist
     inputs:
       - src/**/*
       - public/**/*
       - astro.config.mjs
-    outputs:
-      - dist
+    toolchains: node
   dev:
     command:
       - astro
       - dev
-    platform: node
-    local: true
+    toolchains: node
+    preset: server

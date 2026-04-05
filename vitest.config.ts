@@ -62,7 +62,6 @@ export default mergeConfig(
                 },
               ],
             },
-            setupFiles: ['.storybook/vitest.setup.ts'],
           },
         },
       ],

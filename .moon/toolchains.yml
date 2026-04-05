@@ -1,0 +1,12 @@
+$schema: ./cache/schemas/toolchains.json
+
+javascript:
+  packageManager: pnpm
+  dedupeOnLockfileChange: true
+  inferTasksFromScripts: false
+  syncProjectWorkspaceDependencies: true
+  syncPackageManagerField: false
+
+pnpm: {}
+
+node: {}

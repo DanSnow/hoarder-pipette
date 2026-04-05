@@ -8,24 +8,24 @@ tasks:
     command:
       - tsx
       - build/build-logo.mts
-    platform: node
-    inputs:
-      - assets/logo.svg
     outputs:
       - assets/logo16.png
       - assets/logo48.png
       - assets/logo128.png
       - assets/logo256.png
+    inputs:
+      - assets/logo.svg
+    toolchains: node
   build-ext-chrome:
     type: build
     command:
       - wxt
       - zip
-    platform: node
-    inputs:
-      - '@group(sources)'
     outputs:
       - .output/chrome-mv3/**/*
+    inputs:
+      - "@group(sources)"
+    toolchains: node
   build-ext-firefox:
     type: build
     command:
@@ -33,11 +33,11 @@ tasks:
       - zip
       - -b
       - firefox
-    platform: node
-    inputs:
-      - '@group(sources)'
     outputs:
       - .output/firefox-mv2/**/*
+    inputs:
+      - "@group(sources)"
+    toolchains: node
   build:
     type: build
     command: noop
@@ -48,24 +48,26 @@ tasks:
     type: run
     command:
       - wxt
-    local: true
-    platform: node
+    toolchains: node
+    preset: server
   test:
     command:
       - vitest
-    preset: watcher
-    platform: node
+    toolchains: node
+    inputs:
+      - "@group(sources)"
+      - vitest.config.ts
   typecheck:
     type: test
     command: tsc --noEmit
-    platform: node
-    local: true
+    toolchains: node
+    preset: server
   typecheck-watch:
     type: run
     command: tsc --noEmit --watch
-    platform: node
-    local: true
+    toolchains: node
+    preset: server
   generate-client:
     type: build
     command: openapi-ts
-    platform: node
+    toolchains: node
