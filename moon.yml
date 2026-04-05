@@ -61,7 +61,6 @@ tasks:
     type: test
     command: tsc --noEmit
     toolchains: node
-    preset: server
   typecheck-watch:
     type: run
     command: tsc --noEmit --watch
