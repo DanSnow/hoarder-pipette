@@ -4,14 +4,12 @@ import { Clock, ExternalLink } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import invariant from 'tiny-invariant'
 import { joinURL } from 'ufo'
-import type { z } from 'zod/v4'
-
 import { optionsAtom } from '~/atoms/storage'
 import { BOOKMARK_PLACEHOLDER_SVG, decodeEntities, formattedDate } from '~/lib/utils'
-import type { zBookmarkSearchResult } from '~/schemas/bookmark-search-result'
+import type { BookmarkSearchResult } from '~/schemas/bookmark-search-result'
 import { orpc } from '~/shared/context' // Import orpc client
 
-export function BookmarkPreview({ bookmark }: { bookmark: z.infer<typeof zBookmarkSearchResult> }) {
+export function BookmarkPreview({ bookmark }: { bookmark: BookmarkSearchResult }) {
   invariant(bookmark.content.type === 'link', 'bookmark is not link')
 
   const content = bookmark.content as Extract<typeof bookmark.content, { type: 'link' }>

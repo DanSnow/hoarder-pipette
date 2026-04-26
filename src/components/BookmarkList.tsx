@@ -1,11 +1,9 @@
 import { Array, pipe } from 'effect'
-import type { z } from 'zod/v4'
-
 import { BookmarkPreview } from '~/components/BookmarkPreview'
-import type { zBookmarkSearchResult } from '~/schemas/bookmark-search-result'
+import type { BookmarkSearchResult } from '~/schemas/bookmark-search-result'
 
 interface BookmarkListProps {
-  bookmarks: z.infer<typeof zBookmarkSearchResult>[] | undefined
+  bookmarks: BookmarkSearchResult[] | undefined
   isPending: boolean
   error: Error | null
 }
