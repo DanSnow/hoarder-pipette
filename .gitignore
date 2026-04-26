@@ -39,3 +39,5 @@ storybook-static
 .wxt
 .output
 web-ext.config.ts
+.spectra/
+openspec/.vector-search.db*
