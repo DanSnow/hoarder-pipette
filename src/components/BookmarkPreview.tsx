@@ -8,13 +8,14 @@ import type { z } from 'zod/v4'
 
 import { optionsAtom } from '~/atoms/storage'
 import { BOOKMARK_PLACEHOLDER_SVG, decodeEntities, formattedDate } from '~/lib/utils'
-import type { zBookmark } from '~/shared/client/zod.gen'
+import type { zBookmarkSearchResult } from '~/schemas/bookmark-search-result'
 import { orpc } from '~/shared/context' // Import orpc client
 
-export function BookmarkPreview({ bookmark }: { bookmark: z.infer<typeof zBookmark> }) {
+export function BookmarkPreview({ bookmark }: { bookmark: z.infer<typeof zBookmarkSearchResult> }) {
   invariant(bookmark.content.type === 'link', 'bookmark is not link')
 
-  const { imageUrl, title, description } = bookmark.content
+  const content = bookmark.content as Extract<typeof bookmark.content, { type: 'link' }>
+  const { imageUrl, title, description } = content
   const { url } = useAtomValue(optionsAtom)
 
   const isFirefox = import.meta.env.EXTENSION_BROWSER === 'firefox'
@@ -63,7 +64,7 @@ export function BookmarkPreview({ bookmark }: { bookmark: z.infer<typeof zBookma
         <div className="min-w-0 flex-1">
           <div className="flex items-start justify-between gap-2">
             <a
-              href={bookmark.content.url}
+              href={content.url}
               target="_blank"
               rel="noreferrer noopener"
               className="-mx-1 -my-0.5 block rounded-sm px-1 hover:underline focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none"
@@ -86,7 +87,7 @@ export function BookmarkPreview({ bookmark }: { bookmark: z.infer<typeof zBookma
               </div>
             )}
 
-            {bookmark.content.url && url && (
+            {content.url && url && (
               <>
                 <span className="mx-2">•</span>
                 <a

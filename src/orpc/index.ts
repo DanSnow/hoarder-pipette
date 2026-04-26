@@ -8,7 +8,7 @@ import { getSupportedSearchEngines, registerAll } from '~/entrypoints/background
 import { BackgroundRuntime } from '~/entrypoints/background/runtime'
 import { SupportSearchEnginesSchema } from '~/schemas/supported-engines'
 import { createClient } from '~/shared/client/client'
-import { zBookmark } from '~/shared/client/zod.gen'
+import { zBookmarkSearchResult } from '~/schemas/bookmark-search-result'
 import { karakeep } from '~/shared/karakeep'
 import { store } from '~/store' // Import store
 
@@ -59,7 +59,7 @@ export const appRouter = os.router({
     }),
   searchBookmark: os
     .input(z.object({ text: z.string() })) // Correct input structure
-    .output(z.array(zBookmark))
+    .output(z.array(zBookmarkSearchResult))
     .handler(async ({ input }) => {
       const options = await store.get(optionsAtom) // Use store.get
       if (!options.apiKey || !options.url) {
