@@ -12,6 +12,7 @@ let removeCurrentUi: (() => void) | undefined
 let currentAnchor: HTMLElement | undefined
 let remountTimeout: number | undefined
 let isMounting = false
+let active = false
 
 if (import.meta.hot) {
   import.meta.hot?.accept()
@@ -27,17 +28,18 @@ export function main(ctx: ContentScriptContext) {
 }
 
 async function initial(ctx: ContentScriptContext) {
+  active = true
   await mount(ctx)
 
   const observer = new MutationObserver(() => {
-    if (isMounting || remountTimeout !== undefined || !currentAnchor || currentAnchor.isConnected) {
+    if (!active || isMounting || remountTimeout !== undefined || !currentAnchor || currentAnchor.isConnected) {
       return
     }
 
     remountTimeout = window.setTimeout(async () => {
       remountTimeout = undefined
 
-      if (!currentAnchor || currentAnchor.isConnected) {
+      if (!active || !currentAnchor || currentAnchor.isConnected) {
         return
       }
 
@@ -51,6 +53,7 @@ async function initial(ctx: ContentScriptContext) {
   })
 
   unmount = () => {
+    active = false
     observer.disconnect()
     if (remountTimeout !== undefined) {
       clearTimeout(remountTimeout)
@@ -63,6 +66,10 @@ async function initial(ctx: ContentScriptContext) {
 }
 
 async function mount(ctx: ContentScriptContext) {
+  if (!active || isMounting) {
+    return
+  }
+
   isMounting = true
 
   try {
@@ -71,7 +78,16 @@ async function mount(ctx: ContentScriptContext) {
     currentAnchor = undefined
 
     const userSites = await store.get(userSitesAtom)
+    if (!active) {
+      return
+    }
+
     const mountContainer = await getRenderRoot(userSites)
+    if (!active) {
+      mountContainer.container.remove()
+      return
+    }
+
     currentAnchor = mountContainer.container
 
     const root = createRoot(mountContainer.renderRoot)
@@ -89,6 +105,12 @@ async function mount(ctx: ContentScriptContext) {
         mountContainer.container.remove()
       },
     })
+
+    if (!active) {
+      root.unmount()
+      mountContainer.container.remove()
+      return
+    }
 
     ui.mount()
 

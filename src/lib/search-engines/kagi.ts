@@ -19,11 +19,12 @@ export const kagi: SearchEngine = {
     const appContent = $('#_0_app_content')
     const firstResult = $('.search-result')
     const resultList = firstResult?.parentElement
-    const main = $('#main') ?? layout ?? page ?? appContent ?? resultList ?? $('main#app') ?? $('main') ?? document.body
+    const mainFallback = $('#main') ?? layout ?? page ?? appContent ?? resultList
+    const main = mainFallback ?? $('main#app') ?? $('main') ?? document.body
 
     const mainRect = main.getBoundingClientRect()
     const navRect = nav?.getBoundingClientRect() ?? mainRect
-    const hasSidebarRoom = window.innerWidth - (mainRect.left + mainRect.width) >= 460
+    const hasSidebarRoom = mainRect.width > 0 && window.innerWidth - (mainRect.left + mainRect.width) >= 460
 
     if (nav && main !== document.body && hasSidebarRoom) {
       container.style.position = 'absolute'
