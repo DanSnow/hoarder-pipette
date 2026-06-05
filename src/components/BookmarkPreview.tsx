@@ -1,9 +1,10 @@
 import { useQuery } from '@tanstack/react-query' // Import useQuery
 import { useAtomValue } from 'jotai'
 import { Clock, ExternalLink } from 'lucide-react'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import invariant from 'tiny-invariant'
 import { joinURL } from 'ufo'
+
 import { optionsAtom } from '~/atoms/storage'
 import { BOOKMARK_PLACEHOLDER_SVG, decodeEntities, formattedDate } from '~/lib/utils'
 import type { BookmarkSearchResult } from '~/schemas/bookmark-search-result'
@@ -13,11 +14,41 @@ import { orpc } from '~/shared/context' // Import orpc client
 export function BookmarkPreview({ bookmark }: { bookmark: BookmarkSearchResult }) {
   invariant(bookmark.content.type === 'link', 'bookmark is not link')
 
+  const previewRef = useRef<HTMLDivElement>(null)
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    const previewElement = previewRef.current
+    if (!previewElement) {
+      return
+    }
+
+    if (!('IntersectionObserver' in window)) {
+      setIsVisible(true)
+      return
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry?.isIntersecting) {
+          setIsVisible(true)
+          observer.disconnect()
+        }
+      },
+      { rootMargin: '200px' },
+    )
+
+    observer.observe(previewElement)
+
+    return () => observer.disconnect()
+  }, [])
+
   const { data: hydratedBookmark } = useQuery(
     orpc.getBookmark.queryOptions({
       input: {
         bookmarkId: bookmark.id,
       },
+      enabled: isVisible,
       staleTime: 300_000,
     }),
   )
@@ -44,7 +75,7 @@ export function BookmarkPreview({ bookmark }: { bookmark: BookmarkSearchResult }
       input: {
         assetId: previewAssetId ?? '',
       },
-      enabled: Boolean(previewAssetId),
+      enabled: isVisible && Boolean(previewAssetId),
       staleTime: 60_000,
     }),
   )
@@ -68,7 +99,7 @@ export function BookmarkPreview({ bookmark }: { bookmark: BookmarkSearchResult }
   const formattedDateString = formattedDate(previewBookmark.createdAt)
 
   return (
-    <div className="group relative p-3 transition-colors">
+    <div ref={previewRef} className="group relative p-3 transition-colors">
       <div className="flex flex-wrap items-start gap-3">
         {/* Thumbnail */}
         {shouldDisplayImage && (
@@ -134,7 +165,7 @@ export function BookmarkPreview({ bookmark }: { bookmark: BookmarkSearchResult }
           </div>
 
           {/* Tags would go here if available */}
-          {previewBookmark.tags && previewBookmark.tags.length > 0 && (
+          {url && previewBookmark.tags && previewBookmark.tags.length > 0 && (
             <div className="mt-2 flex flex-wrap gap-1">
               {previewBookmark.tags.map((tag) => (
                 <a
