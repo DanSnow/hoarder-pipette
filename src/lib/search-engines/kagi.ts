@@ -11,16 +11,18 @@ export const KAGI_URL = 'https://kagi.com/search'
  * Kagi uses different desktop and mobile containers, so this prefers the
  * desktop sidebar when there is enough visible room and falls back to an
  * inline placement for narrow or mobile layouts.
+ *
+ * @returns The page-owned anchor to observe for SPA layout replacement.
  */
 function mountKagiRenderRoot(container: HTMLElement) {
-  const nav = $('#tonav') ?? $('.serp-nav')
-  const layout = $('#layout-v2')
-  const page = $('#page0')
-  const appContent = $('#_0_app_content')
-  const firstResult = $('.search-result')
+  const nav = ($('#tonav') ?? $('.serp-nav')) as HTMLElement | null
+  const layout = $('#layout-v2') as HTMLElement | null
+  const page = $('#page0') as HTMLElement | null
+  const appContent = $('#_0_app_content') as HTMLElement | null
+  const firstResult = $('.search-result') as HTMLElement | null
   const resultList = firstResult?.parentElement
   const mainFallback = $('#main') ?? layout ?? page ?? appContent ?? resultList
-  const main = mainFallback ?? $('main#app') ?? $('main') ?? document.body
+  const main = (mainFallback ?? $('main#app') ?? $('main') ?? document.body) as HTMLElement
 
   const mainRect = main.getBoundingClientRect()
   const navRect = nav?.getBoundingClientRect() ?? mainRect
@@ -34,7 +36,7 @@ function mountKagiRenderRoot(container: HTMLElement) {
     container.style.zIndex = '5'
 
     document.body.append(container)
-    return
+    return main
   }
 
   const renderRoot = container.querySelector<HTMLElement>('#hoarder-inject')
@@ -49,7 +51,9 @@ function mountKagiRenderRoot(container: HTMLElement) {
   container.style.boxSizing = 'border-box'
   container.style.marginBottom = '16px'
 
-  ;(layout ?? resultList ?? main).prepend(container)
+  const inlineAnchor = layout ?? resultList ?? main
+  inlineAnchor.prepend(container)
+  return inlineAnchor
 }
 
 export const kagi: SearchEngine = {

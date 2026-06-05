@@ -1,6 +1,14 @@
 export interface MountContainer {
   container: HTMLElement
   renderRoot: HTMLElement
+  /**
+   * Page-owned element whose disconnection should trigger a remount.
+   *
+   * Defaults to `container` for engines that mount inline. Engines that render
+   * the extension under `document.body` can set this to the search page layout
+   * element so SPA DOM replacements are still detected.
+   */
+  observedAnchor?: HTMLElement
 }
 
 export type GetRenderRoot = () => MountContainer

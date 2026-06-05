@@ -102,7 +102,7 @@ async function mount(ctx: ContentScriptContext) {
       return
     }
 
-    currentAnchor = mountContainer.container
+    currentAnchor = mountContainer.observedAnchor ?? mountContainer.container
 
     const root = createRoot(mountContainer.renderRoot)
     root.render(<ContentRoot />)

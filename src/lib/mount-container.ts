@@ -14,12 +14,12 @@ export function createMountContainer(): MountContainer {
   }
 }
 
-type MountRenderRoot = (container: HTMLElement) => void
+type MountRenderRoot = (container: HTMLElement) => HTMLElement | void
 
 export function defineRenderRoot(mount: MountRenderRoot): GetRenderRoot {
   return () => {
     const mountContainer = createMountContainer()
-    mount(mountContainer.container)
+    mountContainer.observedAnchor = mount(mountContainer.container) ?? mountContainer.container
     return mountContainer
   }
 }
