@@ -6,11 +6,12 @@ import { brave } from './brave'
 import { duckduckgo } from './duckduckgo'
 import { ecosia } from './ecosia'
 import { google } from './google'
+import { kagi } from './kagi'
 import { searXNG } from './searxng'
 import { startPage } from './startpage'
 import type { MountContainer, SearchEngine } from './utils/types'
 
-export const supportedEngines = [ecosia, google, startPage, searXNG, duckduckgo, brave]
+export const supportedEngines = [ecosia, google, startPage, searXNG, duckduckgo, brave, kagi]
 
 export function getSearchEngine(userSites: UserSite[]): SearchEngine {
   for (const engine of supportedEngines) {

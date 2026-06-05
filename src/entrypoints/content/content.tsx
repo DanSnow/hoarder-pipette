@@ -8,6 +8,10 @@ import { store } from '~/store'
 import { ContentRoot } from './ContentRoot'
 
 let unmount: (() => void) | undefined
+let removeCurrentUi: (() => void) | undefined
+let currentAnchor: HTMLElement | undefined
+let remountTimeout: number | undefined
+let isMounting = false
 
 if (import.meta.hot) {
   import.meta.hot?.accept()
@@ -23,24 +27,75 @@ export function main(ctx: ContentScriptContext) {
 }
 
 async function initial(ctx: ContentScriptContext) {
-  const userSites = await store.get(userSitesAtom)
-  const mountContainer = await getRenderRoot(userSites)
+  await mount(ctx)
 
-  const root = createRoot(mountContainer.renderRoot)
-  root.render(<ContentRoot />)
+  const observer = new MutationObserver(() => {
+    if (isMounting || remountTimeout !== undefined || !currentAnchor || currentAnchor.isConnected) {
+      return
+    }
 
-  const ui = await createShadowRootUi(ctx, {
-    name: 'hoarder-pipette',
-    position: 'inline',
-    anchor: mountContainer.container,
-    onMount: (uiContainer) => {
-      uiContainer.append(mountContainer.renderRoot)
-    },
-    onRemove: () => {
-      root.unmount()
-      mountContainer.container.remove()
-    },
+    remountTimeout = window.setTimeout(async () => {
+      remountTimeout = undefined
+
+      if (!currentAnchor || currentAnchor.isConnected) {
+        return
+      }
+
+      await mount(ctx)
+    }, 250)
   })
 
-  ui.mount()
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true,
+  })
+
+  unmount = () => {
+    observer.disconnect()
+    if (remountTimeout !== undefined) {
+      clearTimeout(remountTimeout)
+      remountTimeout = undefined
+    }
+    removeCurrentUi?.()
+    removeCurrentUi = undefined
+    currentAnchor = undefined
+  }
+}
+
+async function mount(ctx: ContentScriptContext) {
+  isMounting = true
+
+  try {
+    removeCurrentUi?.()
+    removeCurrentUi = undefined
+    currentAnchor = undefined
+
+    const userSites = await store.get(userSitesAtom)
+    const mountContainer = await getRenderRoot(userSites)
+    currentAnchor = mountContainer.container
+
+    const root = createRoot(mountContainer.renderRoot)
+    root.render(<ContentRoot />)
+
+    const ui = await createShadowRootUi(ctx, {
+      name: 'hoarder-pipette',
+      position: 'inline',
+      anchor: mountContainer.container,
+      onMount: (uiContainer) => {
+        uiContainer.append(mountContainer.renderRoot)
+      },
+      onRemove: () => {
+        root.unmount()
+        mountContainer.container.remove()
+      },
+    })
+
+    ui.mount()
+
+    removeCurrentUi = () => {
+      ui.remove()
+    }
+  } finally {
+    isMounting = false
+  }
 }
