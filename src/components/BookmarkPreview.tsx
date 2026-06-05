@@ -13,9 +13,19 @@ import { orpc } from '~/shared/context' // Import orpc client
 export function BookmarkPreview({ bookmark }: { bookmark: BookmarkSearchResult }) {
   invariant(bookmark.content.type === 'link', 'bookmark is not link')
 
-  const content = bookmark.content as Extract<typeof bookmark.content, { type: 'link' }>
+  const { data: hydratedBookmark } = useQuery(
+    orpc.getBookmark.queryOptions({
+      input: {
+        bookmarkId: bookmark.id,
+      },
+      staleTime: 300_000,
+    }),
+  )
+
+  const previewBookmark = hydratedBookmark ?? bookmark
+  const content = previewBookmark.content as Extract<typeof previewBookmark.content, { type: 'link' }>
   const { imageUrl, description } = content
-  const title = bookmark.title || content.title
+  const title = previewBookmark.title ?? content.title
   const previewAssetId = content.imageAssetId || content.screenshotAssetId
   const { url } = useAtomValue(optionsAtom)
 
@@ -46,14 +56,16 @@ export function BookmarkPreview({ bookmark }: { bookmark: BookmarkSearchResult }
     // eslint-disable-next-line react-hooks/exhaustive-deps -- isFirefox is a build-time constant
   }, [isLoading, permissionData])
 
-  // Image should be displayed if it is an authenticated Karakeep asset, or if an external image exists
-  // and the browser has permission to load it.
-  const externalImageUrl = imageUrl || content.favicon || undefined
+  // Image should be displayed if it is an authenticated Karakeep asset, or if
+  // an existing external preview image exists and the browser has permission to load it.
+  // Avoid falling back to favicons here: loading a bookmarked site's favicon from
+  // a search-result page can disclose private bookmark matches to that origin.
+  const externalImageUrl = imageUrl || undefined
   const previewImageUrl = assetDataUrl || externalImageUrl
   const shouldDisplayImage = assetDataUrl || (externalImageUrl && (!isFirefox || hasAllUrlsPermission))
 
   // Format the created date
-  const formattedDateString = formattedDate(bookmark.createdAt)
+  const formattedDateString = formattedDate(previewBookmark.createdAt)
 
   return (
     <div className="group relative p-3 transition-colors">
@@ -65,6 +77,7 @@ export function BookmarkPreview({ bookmark }: { bookmark: BookmarkSearchResult }
               className="h-full w-full object-cover"
               src={previewImageUrl}
               alt={title || 'Bookmark thumbnail'}
+              referrerPolicy="no-referrer"
               onError={(e) => {
                 // Fallback to a placeholder if image fails to load
                 const target = e.target as HTMLImageElement
@@ -107,7 +120,7 @@ export function BookmarkPreview({ bookmark }: { bookmark: BookmarkSearchResult }
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
-                  href={joinURL(url, '/dashboard/preview', bookmark.id)}
+                  href={joinURL(url, '/dashboard/preview', previewBookmark.id)}
                   className="flex items-center text-blue-600 hover:underline dark:text-blue-400"
                   onClick={(e) => e.stopPropagation()}
                 >
@@ -121,9 +134,9 @@ export function BookmarkPreview({ bookmark }: { bookmark: BookmarkSearchResult }
           </div>
 
           {/* Tags would go here if available */}
-          {bookmark.tags && bookmark.tags.length > 0 && (
+          {previewBookmark.tags && previewBookmark.tags.length > 0 && (
             <div className="mt-2 flex flex-wrap gap-1">
-              {bookmark.tags.map((tag) => (
+              {previewBookmark.tags.map((tag) => (
                 <a
                   key={tag.id}
                   href={joinURL(url, '/dashboard/tags', tag.id)}

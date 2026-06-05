@@ -26,18 +26,21 @@ async function initial(ctx: ContentScriptContext) {
   const userSites = await store.get(userSitesAtom)
   const mountContainer = await getRenderRoot(userSites)
 
-  const root = createRoot(mountContainer.renderRoot)
-  root.render(<ContentRoot />)
-
   const ui = await createShadowRootUi(ctx, {
     name: 'hoarder-pipette',
+    mode: 'closed',
     position: 'inline',
     anchor: mountContainer.container,
     onMount: (uiContainer) => {
       uiContainer.append(mountContainer.renderRoot)
+      const root = createRoot(mountContainer.renderRoot)
+      root.render(<ContentRoot />)
+      unmount = () => root.unmount()
+      return root
     },
-    onRemove: () => {
-      root.unmount()
+    onRemove: (root) => {
+      root?.unmount()
+      unmount = undefined
       mountContainer.container.remove()
     },
   })

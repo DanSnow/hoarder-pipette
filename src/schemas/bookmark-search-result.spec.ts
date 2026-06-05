@@ -3,6 +3,24 @@ import { describe, expect, it } from 'vitest'
 import { zBookmarkSearchResult } from './bookmark-search-result'
 
 describe('zBookmarkSearchResult', () => {
+  it('accepts minimal search result payloads', () => {
+    const bookmark = zBookmarkSearchResult.parse({
+      id: 'bookmark-id',
+      createdAt: '2026-05-24T01:27:49.000Z',
+      content: {
+        type: 'link',
+        url: 'https://mimir.example.test',
+      },
+    })
+
+    expect(bookmark.id).toBe('bookmark-id')
+    expect(bookmark.content).toMatchObject({
+      type: 'link',
+      url: 'https://mimir.example.test',
+    })
+    expect(bookmark.tags).toEqual([])
+  })
+
   it('preserves user-edited bookmark fields and link asset metadata', () => {
     const bookmark = zBookmarkSearchResult.parse({
       id: 'bookmark-id',

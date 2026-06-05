@@ -14,6 +14,15 @@ import { store } from '~/store' // Import store
 
 const API_PREFIX = '/api/v1'
 const MAX_ASSET_DATA_URL_BYTES = 1_000_000
+const ASSET_FETCH_TIMEOUT_MS = 10_000
+
+function encodeAssetIdPathSegment(assetId: string) {
+  if (!assetId || assetId === '.' || assetId === '..' || assetId.includes('/') || assetId.includes('\\')) {
+    return null
+  }
+
+  return encodeURIComponent(assetId)
+}
 
 /**
  * Converts a small authenticated image response into a data URL for previews.
@@ -37,7 +46,7 @@ async function responseToDataUrl(response: Response) {
   }
 
   const reader = response.body.getReader()
-  const chunks: Uint8Array[] = []
+  const chunks: BlobPart[] = []
   let totalBytes = 0
 
   while (true) {
@@ -52,19 +61,17 @@ async function responseToDataUrl(response: Response) {
       return null
     }
 
-    chunks.push(value)
+    chunks.push(new Uint8Array(value))
   }
 
-  const chunkSize = 0x8000
-  let binary = ''
+  const blob = new Blob(chunks, { type: contentType })
 
-  for (const bytes of chunks) {
-    for (let index = 0; index < bytes.length; index += chunkSize) {
-      binary += String.fromCharCode(...bytes.subarray(index, index + chunkSize))
-    }
-  }
-
-  return `data:${contentType};base64,${btoa(binary)}`
+  return new Promise<string | null>((resolve) => {
+    const fileReader = new FileReader()
+    fileReader.onloadend = () => resolve(fileReader.result as string)
+    fileReader.onerror = () => resolve(null)
+    fileReader.readAsDataURL(blob)
+  })
 }
 
 export const appRouter = os.router({
@@ -136,34 +143,41 @@ export const appRouter = os.router({
         })
       }
 
-      const client = createClient({
-        baseUrl: joinURL(options.url, API_PREFIX),
-        auth: () => options.apiKey,
-      })
+      return body.bookmarks
+    }),
+  getBookmark: os
+    .input(z.object({ bookmarkId: z.string() }))
+    .output(zBookmarkSearchResult.nullable())
+    .handler(async ({ input }) => {
+      const options = await store.get(optionsAtom)
+      if (!options.apiKey || !options.url) {
+        throw new ORPCError('UNAUTHORIZED', {
+          message: 'API key or URL is not configured.',
+        })
+      }
 
-      return Promise.all(
-        body.bookmarks.map(async (bookmark) => {
-          try {
-            const { body: hydratedBookmark, response: hydratedResponse } = await karakeep.getBookmarksByBookmarkId({
-              path: {
-                bookmarkId: bookmark.id,
-              },
-              query: {
-                includeContent: true,
-              },
-              client,
-            })
+      try {
+        const { body, response } = await karakeep.getBookmarksByBookmarkId({
+          path: {
+            bookmarkId: input.bookmarkId,
+          },
+          query: {
+            includeContent: true,
+          },
+          client: createClient({
+            baseUrl: joinURL(options.url, API_PREFIX),
+            auth: () => options.apiKey,
+          }),
+        })
 
-            if (hydratedResponse.status !== 200) {
-              return bookmark
-            }
+        if (response.status !== 200) {
+          return null
+        }
 
-            return hydratedBookmark
-          } catch {
-            return bookmark
-          }
-        }),
-      )
+        return body
+      } catch {
+        return null
+      }
     }),
   getAssetDataUrl: os
     .input(z.object({ assetId: z.string() }))
@@ -176,17 +190,32 @@ export const appRouter = os.router({
         })
       }
 
-      const response = await fetch(joinURL(options.url, API_PREFIX, 'assets', input.assetId), {
-        headers: {
-          Authorization: `Bearer ${options.apiKey}`,
-        },
-      })
-
-      if (!response.ok) {
+      const encodedAssetId = encodeAssetIdPathSegment(input.assetId)
+      if (!encodedAssetId) {
         return null
       }
 
-      return responseToDataUrl(response)
+      const abortController = new AbortController()
+      const timeoutId = setTimeout(() => abortController.abort(), ASSET_FETCH_TIMEOUT_MS)
+
+      try {
+        const response = await fetch(joinURL(options.url, API_PREFIX, 'assets', encodedAssetId), {
+          headers: {
+            Authorization: `Bearer ${options.apiKey}`,
+          },
+          signal: abortController.signal,
+        })
+
+        if (!response.ok) {
+          return null
+        }
+
+        return await responseToDataUrl(response)
+      } catch {
+        return null
+      } finally {
+        clearTimeout(timeoutId)
+      }
     }),
   checkAllUrlsPermission: os.output(z.boolean()).handler(async () => {
     // Check for <all_urls> permission in the background script
