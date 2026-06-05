@@ -13,15 +13,49 @@ import { karakeep } from '~/shared/karakeep'
 import { store } from '~/store' // Import store
 
 const API_PREFIX = '/api/v1'
+const MAX_ASSET_DATA_URL_BYTES = 1_000_000
 
 async function responseToDataUrl(response: Response) {
   const contentType = response.headers.get('content-type') ?? 'application/octet-stream'
-  const bytes = new Uint8Array(await response.arrayBuffer())
+  if (!contentType.toLowerCase().startsWith('image/')) {
+    return null
+  }
+
+  const contentLength = Number(response.headers.get('content-length'))
+  if (Number.isFinite(contentLength) && contentLength > MAX_ASSET_DATA_URL_BYTES) {
+    return null
+  }
+
+  if (!response.body) {
+    return null
+  }
+
+  const reader = response.body.getReader()
+  const chunks: Uint8Array[] = []
+  let totalBytes = 0
+
+  while (true) {
+    const { done, value } = await reader.read()
+    if (done) {
+      break
+    }
+
+    totalBytes += value.byteLength
+    if (totalBytes > MAX_ASSET_DATA_URL_BYTES) {
+      await reader.cancel()
+      return null
+    }
+
+    chunks.push(value)
+  }
+
   const chunkSize = 0x8000
   let binary = ''
 
-  for (let index = 0; index < bytes.length; index += chunkSize) {
-    binary += String.fromCharCode(...bytes.subarray(index, index + chunkSize))
+  for (const bytes of chunks) {
+    for (let index = 0; index < bytes.length; index += chunkSize) {
+      binary += String.fromCharCode(...bytes.subarray(index, index + chunkSize))
+    }
   }
 
   return `data:${contentType};base64,${btoa(binary)}`
@@ -103,27 +137,31 @@ export const appRouter = os.router({
 
       return Promise.all(
         body.bookmarks.map(async (bookmark) => {
-          const { body: hydratedBookmark, response: hydratedResponse } = await karakeep.getBookmarksByBookmarkId({
-            path: {
-              bookmarkId: bookmark.id,
-            },
-            query: {
-              includeContent: true,
-            },
-            client,
-          })
+          try {
+            const { body: hydratedBookmark, response: hydratedResponse } = await karakeep.getBookmarksByBookmarkId({
+              path: {
+                bookmarkId: bookmark.id,
+              },
+              query: {
+                includeContent: true,
+              },
+              client,
+            })
 
-          if (hydratedResponse.status !== 200) {
+            if (hydratedResponse.status !== 200) {
+              return bookmark
+            }
+
+            return hydratedBookmark
+          } catch {
             return bookmark
           }
-
-          return hydratedBookmark
         }),
       )
     }),
   getAssetDataUrl: os
     .input(z.object({ assetId: z.string() }))
-    .output(z.string())
+    .output(z.string().nullable())
     .handler(async ({ input }) => {
       const options = await store.get(optionsAtom)
       if (!options.apiKey || !options.url) {
@@ -139,9 +177,7 @@ export const appRouter = os.router({
       })
 
       if (!response.ok) {
-        throw new ORPCError('INTERNAL_SERVER_ERROR', {
-          message: `Failed to fetch asset: ${response.status}`,
-        })
+        return null
       }
 
       return responseToDataUrl(response)
