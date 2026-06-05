@@ -9,6 +9,7 @@ import { BOOKMARK_PLACEHOLDER_SVG, decodeEntities, formattedDate } from '~/lib/u
 import type { BookmarkSearchResult } from '~/schemas/bookmark-search-result'
 import { orpc } from '~/shared/context' // Import orpc client
 
+/** Renders a bookmark search result with hydrated metadata and preview imagery. */
 export function BookmarkPreview({ bookmark }: { bookmark: BookmarkSearchResult }) {
   invariant(bookmark.content.type === 'link', 'bookmark is not link')
 

@@ -15,6 +15,12 @@ import { store } from '~/store' // Import store
 const API_PREFIX = '/api/v1'
 const MAX_ASSET_DATA_URL_BYTES = 1_000_000
 
+/**
+ * Converts a small authenticated image response into a data URL for previews.
+ *
+ * Non-image responses, missing streams, and images over the size limit return
+ * `null` so callers can fall back to external images, favicons, or placeholders.
+ */
 async function responseToDataUrl(response: Response) {
   const contentType = response.headers.get('content-type') ?? 'application/octet-stream'
   if (!contentType.toLowerCase().startsWith('image/')) {

@@ -1,5 +1,11 @@
 import { z } from 'zod/v4'
 
+/**
+ * Bookmark shape used by search previews.
+ *
+ * It accepts both minimal search results and hydrated bookmark responses while
+ * preserving user-edited metadata and link asset identifiers.
+ */
 export const zBookmarkSearchResult = z.object({
   id: z.string(),
   createdAt: z.string(),
