@@ -19,6 +19,7 @@ if (import.meta.hot) {
   import.meta.hot?.dispose(() => unmount?.())
 }
 
+/** Starts the content script once the page DOM is ready for injection. */
 export function main(ctx: ContentScriptContext) {
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => initial(ctx))
@@ -27,6 +28,12 @@ export function main(ctx: ContentScriptContext) {
   }
 }
 
+/**
+ * Mounts the UI and watches for search-page DOM replacements.
+ *
+ * Kagi can replace the result layout without a full page load, so this observer
+ * remounts the UI when the current anchor is disconnected.
+ */
 async function initial(ctx: ContentScriptContext) {
   active = true
   await mount(ctx)
@@ -65,6 +72,13 @@ async function initial(ctx: ContentScriptContext) {
   }
 }
 
+/**
+ * Creates a fresh WXT shadow-root UI at the current search-engine render root.
+ *
+ * The active and mounting guards prevent concurrent mounts and cleanly abort
+ * async work if the content script is disposed while awaiting storage or UI
+ * setup.
+ */
 async function mount(ctx: ContentScriptContext) {
   if (!active || isMounting) {
     return

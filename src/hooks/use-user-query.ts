@@ -4,6 +4,13 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { userSitesAtom } from '~/atoms/storage'
 import { getUserQuery } from '~/lib/search-engines'
 
+/**
+ * Tracks the active search query for search engines that update in-place.
+ *
+ * Some engines, including Kagi, change URL state without reloading the content
+ * script, so the hook polls and listens for navigation events while avoiding
+ * duplicate React state updates.
+ */
 export function useUserQuery() {
   const [query, setQuery] = useState('')
   const queryRef = useRef('')
