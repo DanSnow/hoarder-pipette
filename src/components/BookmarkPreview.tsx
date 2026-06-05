@@ -13,7 +13,9 @@ export function BookmarkPreview({ bookmark }: { bookmark: BookmarkSearchResult }
   invariant(bookmark.content.type === 'link', 'bookmark is not link')
 
   const content = bookmark.content as Extract<typeof bookmark.content, { type: 'link' }>
-  const { imageUrl, title, description } = content
+  const { imageUrl, description } = content
+  const title = bookmark.title || content.title
+  const previewAssetId = content.imageAssetId || content.screenshotAssetId
   const { url } = useAtomValue(optionsAtom)
 
   const isFirefox = import.meta.env.EXTENSION_BROWSER === 'firefox'
@@ -26,6 +28,16 @@ export function BookmarkPreview({ bookmark }: { bookmark: BookmarkSearchResult }
     }),
   )
 
+  const { data: assetDataUrl } = useQuery(
+    orpc.getAssetDataUrl.queryOptions({
+      input: {
+        assetId: previewAssetId ?? '',
+      },
+      enabled: Boolean(previewAssetId),
+      staleTime: 60_000,
+    }),
+  )
+
   useEffect(() => {
     if (isFirefox && !isLoading && permissionData !== undefined) {
       setHasAllUrlsPermission(permissionData)
@@ -33,8 +45,11 @@ export function BookmarkPreview({ bookmark }: { bookmark: BookmarkSearchResult }
     // eslint-disable-next-line react-hooks/exhaustive-deps -- isFirefox is a build-time constant
   }, [isLoading, permissionData])
 
-  // Image should be displayed if imageUrl exists AND (it's not Firefox OR it is Firefox and has <all_urls> permission)
-  const shouldDisplayImage = imageUrl && (!isFirefox || hasAllUrlsPermission)
+  // Image should be displayed if it is an authenticated Karakeep asset, or if an external image exists
+  // and the browser has permission to load it.
+  const externalImageUrl = imageUrl || content.favicon || undefined
+  const previewImageUrl = assetDataUrl || externalImageUrl
+  const shouldDisplayImage = assetDataUrl || (externalImageUrl && (!isFirefox || hasAllUrlsPermission))
 
   // Format the created date
   const formattedDateString = formattedDate(bookmark.createdAt)
@@ -47,7 +62,7 @@ export function BookmarkPreview({ bookmark }: { bookmark: BookmarkSearchResult }
           <div className="relative h-16 w-16 flex-shrink-0 overflow-hidden rounded-md border border-gray-200 bg-gray-50 dark:border-gray-700 dark:bg-gray-800">
             <img
               className="h-full w-full object-cover"
-              src={imageUrl}
+              src={previewImageUrl}
               alt={title || 'Bookmark thumbnail'}
               onError={(e) => {
                 // Fallback to a placeholder if image fails to load

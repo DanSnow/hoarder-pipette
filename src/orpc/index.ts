@@ -14,6 +14,19 @@ import { store } from '~/store' // Import store
 
 const API_PREFIX = '/api/v1'
 
+async function responseToDataUrl(response: Response) {
+  const contentType = response.headers.get('content-type') ?? 'application/octet-stream'
+  const bytes = new Uint8Array(await response.arrayBuffer())
+  const chunkSize = 0x8000
+  let binary = ''
+
+  for (let index = 0; index < bytes.length; index += chunkSize) {
+    binary += String.fromCharCode(...bytes.subarray(index, index + chunkSize))
+  }
+
+  return `data:${contentType};base64,${btoa(binary)}`
+}
+
 export const appRouter = os.router({
   registerAll: os.output(z.void()).handler(() => {
     return BackgroundRuntime.runPromise(registerAll())
@@ -83,7 +96,55 @@ export const appRouter = os.router({
         })
       }
 
-      return body.bookmarks
+      const client = createClient({
+        baseUrl: joinURL(options.url, API_PREFIX),
+        auth: () => options.apiKey,
+      })
+
+      return Promise.all(
+        body.bookmarks.map(async (bookmark) => {
+          const { body: hydratedBookmark, response: hydratedResponse } = await karakeep.getBookmarksByBookmarkId({
+            path: {
+              bookmarkId: bookmark.id,
+            },
+            query: {
+              includeContent: true,
+            },
+            client,
+          })
+
+          if (hydratedResponse.status !== 200) {
+            return bookmark
+          }
+
+          return hydratedBookmark
+        }),
+      )
+    }),
+  getAssetDataUrl: os
+    .input(z.object({ assetId: z.string() }))
+    .output(z.string())
+    .handler(async ({ input }) => {
+      const options = await store.get(optionsAtom)
+      if (!options.apiKey || !options.url) {
+        throw new ORPCError('UNAUTHORIZED', {
+          message: 'API key or URL is not configured.',
+        })
+      }
+
+      const response = await fetch(joinURL(options.url, API_PREFIX, 'assets', input.assetId), {
+        headers: {
+          Authorization: `Bearer ${options.apiKey}`,
+        },
+      })
+
+      if (!response.ok) {
+        throw new ORPCError('INTERNAL_SERVER_ERROR', {
+          message: `Failed to fetch asset: ${response.status}`,
+        })
+      }
+
+      return responseToDataUrl(response)
     }),
   checkAllUrlsPermission: os.output(z.boolean()).handler(async () => {
     // Check for <all_urls> permission in the background script
