@@ -60,8 +60,8 @@ importers:
         specifier: 1.168.10
         version: 1.168.10(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@webext-core/storage':
-        specifier: 1.2.0
-        version: 1.2.0
+        specifier: 1.2.1
+        version: 1.2.1
       '@wxt-dev/module-react':
         specifier: 1.2.2
         version: 1.2.2(vite@8.0.3(@emnapi/core@1.9.2)(@emnapi/runtime@1.9.2)(@types/node@25.5.2)(esbuild@0.27.7)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.3))(wxt@0.20.20(@emnapi/core@1.9.2)(@emnapi/runtime@1.9.2)(@types/node@25.5.2)(jiti@2.6.1)(rollup@4.60.1)(tsx@4.21.0)(yaml@2.8.3))
@@ -3505,8 +3505,8 @@ packages:
   '@webext-core/match-patterns@1.0.3':
     resolution: {integrity: sha512-NY39ACqCxdKBmHgw361M9pfJma8e4AZo20w9AY+5ZjIj1W2dvXC8J31G5fjfOGbulW9w4WKpT8fPooi0mLkn9A==}
 
-  '@webext-core/storage@1.2.0':
-    resolution: {integrity: sha512-XI86HJUhugVdAQZLcj3EH/rZv08ByVn2riX3YI4HCJ86NOH5K3OwGi0ClFa/kq5U5hIVDMG6hwOBwgEgI2G5GQ==}
+  '@webext-core/storage@1.2.1':
+    resolution: {integrity: sha512-Jf6Ll7TRy6gkPK0aoM+FqqnwEBHeAfhNLOqDhi85S0DyyCeqG24TCZwHqmmdwglEpVv5tjuRXAzkrEom7PJZkQ==}
 
   '@wxt-dev/browser@0.1.39':
     resolution: {integrity: sha512-J3/qx7Wet4PElXYus2CZNzJAxlWryYNvHUx9YtH4bczFA16j098CKQ0oOIeuctlLer0UylSg3zBFsicjzZ0bKw==}
@@ -7102,9 +7102,6 @@ packages:
   web-streams-polyfill@3.3.3:
     resolution: {integrity: sha512-d2JWLCivmZYTSIoge9MsgFCZrt571BikcWGYkjC1khllbTeDlGqZ2D8vD8E/lJa8WGWbb7Plm8/XJYV7IJHZZw==}
     engines: {node: '>= 8'}
-
-  webextension-polyfill@0.10.0:
-    resolution: {integrity: sha512-c5s35LgVa5tFaHhrZDnr3FpQpjj1BB+RXhLTYUxGqBVN460HkbM8TBtEqdXWbpTKfzwCcjAZVF7zXCYSKtcp9g==}
 
   webextension-polyfill@0.12.0:
     resolution: {integrity: sha512-97TBmpoWJEE+3nFBQ4VocyCdLKfw54rFaJ6EVQYLBCXqCIpLSZkwGgASpv4oPt9gdKCJ80RJlcmNzNn008Ag6Q==}
@@ -10794,9 +10791,9 @@ snapshots:
 
   '@webext-core/match-patterns@1.0.3': {}
 
-  '@webext-core/storage@1.2.0':
+  '@webext-core/storage@1.2.1':
     dependencies:
-      webextension-polyfill: 0.10.0
+      webextension-polyfill: 0.12.0
 
   '@wxt-dev/browser@0.1.39':
     dependencies:
@@ -15136,8 +15133,6 @@ snapshots:
   web-namespaces@2.0.1: {}
 
   web-streams-polyfill@3.3.3: {}
-
-  webextension-polyfill@0.10.0: {}
 
   webextension-polyfill@0.12.0: {}
 
