@@ -31,7 +31,7 @@
   "dependencies": {
     "@autoform/react": "4.0.0",
     "@autoform/zod": "5.0.0",
-    "@hookform/resolvers": "5.2.2",
+    "@hookform/resolvers": "5.4.0",
     "@orpc/client": "1.13.13",
     "@orpc/hey-api": "1.13.13",
     "@orpc/server": "1.13.13",
