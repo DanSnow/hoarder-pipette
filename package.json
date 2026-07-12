@@ -44,7 +44,7 @@
     "@radix-ui/react-select": "2.3.3",
     "@radix-ui/react-slot": "1.3.0",
     "@radix-ui/react-tooltip": "1.2.12",
-    "@tanstack/react-query": "5.96.2",
+    "@tanstack/react-query": "5.101.2",
     "@tanstack/react-router": "1.168.10",
     "@webext-core/storage": "1.2.1",
     "@wxt-dev/module-react": "1.2.2",
