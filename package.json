@@ -100,7 +100,7 @@
     "oxlint": "1.74.0",
     "playwright": "1.61.1",
     "prettier": "3.9.5",
-    "shadcn": "4.1.2",
+    "shadcn": "4.13.0",
     "storybook": "10.3.4",
     "tailwindcss": "4.2.2",
     "tsx": "4.21.0",
