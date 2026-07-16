@@ -107,7 +107,7 @@
     "typed-query-selector": "2.12.2",
     "typescript": "6.0.3",
     "vite": "8.1.4",
-    "vite-plugin-inspect": "11.3.3",
+    "vite-plugin-inspect": "11.4.1",
     "vite-plugin-tsconfig-paths": "1.4.1",
     "vitest": "4.1.10",
     "zx": "8.8.5"
