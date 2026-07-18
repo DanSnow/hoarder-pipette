@@ -2,22 +2,19 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:js-app",
-    ":semanticCommitTypeAll(chore)",
-    ":combinePatchMinorReleases",
-    ":automergeStableNonMajor",
-    ":maintainLockFilesWeekly",
-    "customManagers:biomeVersions"
+    ":automergeAll",
+    ":approveMajorUpdates",
+    "abandonments:recommended",
+    "security:minimumReleaseAgeNpm",
+    "github>moonrepo/moon//ecosystem/renovate"
   ],
+  "semanticCommitScope": "deps",
+  "automergeType": "pr",
+  "prCreation": "immediate",
+  "ignorePresets": [":ignoreModulesAndTests"],
+  "ignorePaths": ["**/node_modules/**", "**/__fixtures__/**", "test/**"],
+  "rebaseWhen": "conflicted",
   "packageRules": [
-    {
-      "automerge": true,
-      "matchDatasources": ["npm"],
-      "matchPackageNames": ["@astrojs/starlight", "lucide-react", "@effect/vitest", "@effect/language-service"]
-    },
-    {
-      "automerge": true,
-      "matchDatasources": ["action"]
-    },
     {
       "matchPackageNames": ["@orpc/**"],
       "groupName": "orpc monorepo"
