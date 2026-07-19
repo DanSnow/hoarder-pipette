@@ -1,10 +1,6 @@
-import { type ClassValue, clsx } from 'clsx'
-import { twMerge } from 'tailwind-merge'
 import type { ParseSelector } from 'typed-query-selector/parser'
 
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
-}
+export { cn } from 'cnfast'
 
 export function $<S extends string>(
   selector: S,

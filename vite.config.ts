@@ -1,10 +1,12 @@
 import tailwindcss from '@tailwindcss/vite'
 import { tanstackRouter } from '@tanstack/router-plugin/vite'
-import TsConfigPaths from 'vite-plugin-tsconfig-paths'
 import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
-  plugins: [TsConfigPaths(), tanstackRouter(), tailwindcss()],
+  plugins: [tanstackRouter(), tailwindcss()],
+  resolve: {
+    tsconfigPaths: true,
+  },
   test: {
     setupFiles: ['vitest.setup.ts'],
 
