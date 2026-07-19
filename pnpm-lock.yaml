@@ -184,7 +184,7 @@ importers:
         specifier: 1.18.8
         version: 1.18.8
       '@typescript/native':
-        specifier: npm:typescript@^7.0.2
+        specifier: npm:typescript@7.0.2
         version: typescript@7.0.2
       '@vitest/browser':
         specifier: 4.1.10

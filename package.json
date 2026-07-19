@@ -89,7 +89,7 @@
     "@types/react-dom": "19.2.3",
     "@types/webextension-polyfill": "0.12.5",
     "@types/webpack-env": "1.18.8",
-    "@typescript/native": "npm:typescript@^7.0.2",
+    "@typescript/native": "npm:typescript@7.0.2",
     "@vitest/browser": "4.1.10",
     "@vitest/browser-playwright": "4.1.10",
     "@vitest/coverage-v8": "4.1.10",
