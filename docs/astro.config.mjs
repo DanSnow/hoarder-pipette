@@ -28,11 +28,11 @@ export default defineConfig({
       sidebar: [
         {
           label: 'Get Started',
-          autogenerate: { directory: 'guides' },
+          items: [{ autogenerate: { directory: 'guides' } }],
         },
         {
           label: 'Contribute',
-          autogenerate: { directory: 'contribute' },
+          items: [{ autogenerate: { directory: 'contribute' } }],
         },
       ],
     }),
