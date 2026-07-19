@@ -6,12 +6,14 @@ import { brave } from './brave'
 import { duckduckgo } from './duckduckgo'
 import { ecosia } from './ecosia'
 import { google } from './google'
+import { kagi } from './kagi'
 import { searXNG } from './searxng'
 import { startPage } from './startpage'
 import type { MountContainer, SearchEngine } from './utils/types'
 
-export const supportedEngines = [ecosia, google, startPage, searXNG, duckduckgo, brave]
+export const supportedEngines = [ecosia, google, startPage, searXNG, duckduckgo, brave, kagi]
 
+/** Resolves the search engine that owns the current page URL. */
 export function getSearchEngine(userSites: UserSite[]): SearchEngine {
   for (const engine of supportedEngines) {
     const url = window.location.href
@@ -26,10 +28,12 @@ export function getSearchEngine(userSites: UserSite[]): SearchEngine {
   throw new Error('Unsupported engine')
 }
 
+/** Returns the active page query using the matched search engine adapter. */
 export function getUserQuery(userSites: UserSite[]): string | null {
   return getSearchEngine(userSites).getQuery()
 }
 
+/** Returns a retrying render-root mount container for the active search engine. */
 export function getRenderRoot(userSites: UserSite[]): Promise<MountContainer> {
   return ensureRenderRoot(getSearchEngine(userSites))
 }
@@ -55,6 +59,7 @@ export function ensureRenderRoot(searchEngine: SearchEngine): Promise<MountConta
   )
 }
 
+/** Checks whether a URL matches one of an engine's static or optional URL prefixes. */
 export function isMatchSearchEngine(engine: SearchEngine, url: string): boolean {
   const matches = [...engine.matches, ...(engine.optionalMatches ?? [])]
   return matches.some((pattern) => url.startsWith(pattern))

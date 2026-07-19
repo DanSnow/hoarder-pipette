@@ -20,6 +20,7 @@ Hoarder's Pipette is now available on the official [Firefox Add-ons store](https
 - Searxng (can be enabled in settings)
 - Brave (can be enabled in settings)
 - DuckDuckGo (can be enabled in settings)
+- Kagi (can be enabled in settings)
 
 I plan to add support for more search engines in the future. If you'd like to see support for a specific search engine, please open an issue on this repository.
 
