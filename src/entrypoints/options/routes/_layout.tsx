@@ -32,7 +32,7 @@ function RouteComponent() {
         <NavigationMenuList className="flex flex-nowrap gap-3">
           {links.map((link) => (
             <NavigationMenuItem key={link.to}>
-              <NavigationMenuLink asChild>
+              <NavigationMenuLink>
                 <Link className={navigationMenuTriggerStyle()} to={link.to} activeProps={{ 'data-active': 'true' }}>
                   {link.label}
                 </Link>

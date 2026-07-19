@@ -21,7 +21,7 @@ function RouteComponent() {
       <NavigationMenu>
         <NavigationMenuList className="flex flex-nowrap gap-3">
           <NavigationMenuItem>
-            <NavigationMenuLink asChild>
+            <NavigationMenuLink>
               <Link className={navigationMenuTriggerStyle()} to="/search-engines">
                 <Button variant="ghost" size="sm">
                   <span className="i-lucide-chevron-left" />

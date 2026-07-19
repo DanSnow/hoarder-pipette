@@ -27,7 +27,7 @@ export function SearchEngineStateButton({ engine, onClick }: { engine: SupportSe
 
   return (
     <Tooltip open={isUserSites ? false : undefined}>
-      <TooltipTrigger asChild>
+      <TooltipTrigger>
         <CheckButton state={state} disabled={state === 'enabled' && totalMatches > 0} onClick={onClick} />
       </TooltipTrigger>
       <TooltipContent className="max-w-36 text-wrap">{tooltipContent[state]}</TooltipContent>
