@@ -1,19 +1,38 @@
 import { useQuery } from '@tanstack/react-query' // Import useQuery
 import { useAtomValue } from 'jotai'
 import { Clock, ExternalLink } from 'lucide-react'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import invariant from 'tiny-invariant'
 import { joinURL } from 'ufo'
+
 import { optionsAtom } from '~/atoms/storage'
+import { useInView } from '~/hooks/use-in-view'
 import { BOOKMARK_PLACEHOLDER_SVG, decodeEntities, formattedDate } from '~/lib/utils'
 import type { BookmarkSearchResult } from '~/schemas/bookmark-search-result'
 import { orpc } from '~/shared/context' // Import orpc client
 
+/** Renders a bookmark search result with hydrated metadata and preview imagery. */
 export function BookmarkPreview({ bookmark }: { bookmark: BookmarkSearchResult }) {
   invariant(bookmark.content.type === 'link', 'bookmark is not link')
 
-  const content = bookmark.content as Extract<typeof bookmark.content, { type: 'link' }>
-  const { imageUrl, title, description } = content
+  const previewRef = useRef<HTMLDivElement>(null)
+  const isVisible = useInView(previewRef, { rootMargin: '200px' })
+
+  const { data: hydratedBookmark } = useQuery(
+    orpc.getBookmark.queryOptions({
+      input: {
+        bookmarkId: bookmark.id,
+      },
+      enabled: isVisible,
+      staleTime: 300_000,
+    }),
+  )
+
+  const previewBookmark = hydratedBookmark ?? bookmark
+  const content = previewBookmark.content as Extract<typeof previewBookmark.content, { type: 'link' }>
+  const { imageUrl, description } = content
+  const title = previewBookmark.title ?? content.title
+  const previewAssetId = content.imageAssetId || content.screenshotAssetId
   const { url } = useAtomValue(optionsAtom)
 
   const isFirefox = import.meta.env.EXTENSION_BROWSER === 'firefox'
@@ -26,6 +45,16 @@ export function BookmarkPreview({ bookmark }: { bookmark: BookmarkSearchResult }
     }),
   )
 
+  const { data: assetDataUrl } = useQuery(
+    orpc.getAssetDataUrl.queryOptions({
+      input: {
+        assetId: previewAssetId ?? '',
+      },
+      enabled: isVisible && Boolean(previewAssetId),
+      staleTime: 60_000,
+    }),
+  )
+
   useEffect(() => {
     if (isFirefox && !isLoading && permissionData !== undefined) {
       setHasAllUrlsPermission(permissionData)
@@ -33,22 +62,27 @@ export function BookmarkPreview({ bookmark }: { bookmark: BookmarkSearchResult }
     // eslint-disable-next-line react-hooks/exhaustive-deps -- isFirefox is a build-time constant
   }, [isLoading, permissionData])
 
-  // Image should be displayed if imageUrl exists AND (it's not Firefox OR it is Firefox and has <all_urls> permission)
-  const shouldDisplayImage = imageUrl && (!isFirefox || hasAllUrlsPermission)
+  // Image should be displayed if it is an authenticated Karakeep asset, or if
+  // an existing external preview image exists and the browser has permission to load it.
+  // Avoid falling back to favicons here: loading a bookmarked site's favicon from
+  // a search-result page can disclose private bookmark matches to that origin.
+  const previewImageUrl = assetDataUrl || imageUrl || undefined
+  const shouldDisplayImage = assetDataUrl || (imageUrl && (!isFirefox || hasAllUrlsPermission))
 
   // Format the created date
-  const formattedDateString = formattedDate(bookmark.createdAt)
+  const formattedDateString = formattedDate(previewBookmark.createdAt)
 
   return (
-    <div className="group relative p-3 transition-colors">
+    <div ref={previewRef} className="group relative p-3 transition-colors">
       <div className="flex flex-wrap items-start gap-3">
         {/* Thumbnail */}
         {shouldDisplayImage && (
           <div className="relative h-16 w-16 flex-shrink-0 overflow-hidden rounded-md border border-gray-200 bg-gray-50 dark:border-gray-700 dark:bg-gray-800">
             <img
               className="h-full w-full object-cover"
-              src={imageUrl}
+              src={previewImageUrl}
               alt={title || 'Bookmark thumbnail'}
+              referrerPolicy="no-referrer"
               onError={(e) => {
                 // Fallback to a placeholder if image fails to load
                 const target = e.target as HTMLImageElement
@@ -91,7 +125,7 @@ export function BookmarkPreview({ bookmark }: { bookmark: BookmarkSearchResult }
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
-                  href={joinURL(url, '/dashboard/preview', bookmark.id)}
+                  href={joinURL(url, '/dashboard/preview', previewBookmark.id)}
                   className="flex items-center text-blue-600 hover:underline dark:text-blue-400"
                   onClick={(e) => e.stopPropagation()}
                 >
@@ -105,9 +139,9 @@ export function BookmarkPreview({ bookmark }: { bookmark: BookmarkSearchResult }
           </div>
 
           {/* Tags would go here if available */}
-          {bookmark.tags && bookmark.tags.length > 0 && (
+          {url && previewBookmark.tags && previewBookmark.tags.length > 0 && (
             <div className="mt-2 flex flex-wrap gap-1">
-              {bookmark.tags.map((tag) => (
+              {previewBookmark.tags.map((tag) => (
                 <a
                   key={tag.id}
                   href={joinURL(url, '/dashboard/tags', tag.id)}

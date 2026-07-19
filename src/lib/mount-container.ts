@@ -7,7 +7,6 @@ export function createMountContainer(): MountContainer {
   const renderRoot = document.createElement('div')
   renderRoot.id = 'hoarder-inject'
   renderRoot.className = 'min-w-[25rem]'
-  container.append(renderRoot)
   return {
     container,
     renderRoot,
