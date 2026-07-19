@@ -20,7 +20,7 @@ jobs:
       prs_created: ${{ steps.release.outputs.prs_created }}
       pr_number: ${{ steps.pr_number.outputs.pr_number }}
     steps:
-      - uses: googleapis/release-please-action@v4.4.1
+      - uses: googleapis/release-please-action@v5.0.0
         id: release
         with:
           # this assumes that you have created a personal access token
