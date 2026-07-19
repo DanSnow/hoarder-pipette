@@ -29,7 +29,7 @@
     "postinstall": "wxt prepare"
   },
   "dependencies": {
-    "@base-ui/react": "^1.6.0",
+    "@base-ui/react": "1.6.0",
     "@orpc/client": "1.14.8",
     "@orpc/hey-api": "1.14.8",
     "@orpc/server": "1.14.8",
