@@ -60,7 +60,7 @@ function RouteComponent() {
             return (
               <Field data-invalid={isInvalid}>
                 <FieldLabel htmlFor={field.name}>Search Engine Type</FieldLabel>
-                <Select value={field.state.value} onValueChange={field.handleChange}>
+                <Select value={field.state.value} onValueChange={(value) => field.handleChange(value ?? '')}>
                   <SelectTrigger id={field.name} aria-invalid={isInvalid}>
                     <SelectValue placeholder="Select the search engine type" />
                   </SelectTrigger>
