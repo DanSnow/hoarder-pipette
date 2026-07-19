@@ -6,6 +6,7 @@ import invariant from 'tiny-invariant'
 import { joinURL } from 'ufo'
 
 import { optionsAtom } from '~/atoms/storage'
+import { useInView } from '~/hooks/use-in-view'
 import { BOOKMARK_PLACEHOLDER_SVG, decodeEntities, formattedDate } from '~/lib/utils'
 import type { BookmarkSearchResult } from '~/schemas/bookmark-search-result'
 import { orpc } from '~/shared/context' // Import orpc client
@@ -15,33 +16,7 @@ export function BookmarkPreview({ bookmark }: { bookmark: BookmarkSearchResult }
   invariant(bookmark.content.type === 'link', 'bookmark is not link')
 
   const previewRef = useRef<HTMLDivElement>(null)
-  const [isVisible, setIsVisible] = useState(false)
-
-  useEffect(() => {
-    const previewElement = previewRef.current
-    if (!previewElement) {
-      return
-    }
-
-    if (!('IntersectionObserver' in window)) {
-      setIsVisible(true)
-      return
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry?.isIntersecting) {
-          setIsVisible(true)
-          observer.disconnect()
-        }
-      },
-      { rootMargin: '200px' },
-    )
-
-    observer.observe(previewElement)
-
-    return () => observer.disconnect()
-  }, [])
+  const isVisible = useInView(previewRef, { rootMargin: '200px' })
 
   const { data: hydratedBookmark } = useQuery(
     orpc.getBookmark.queryOptions({
@@ -91,9 +66,8 @@ export function BookmarkPreview({ bookmark }: { bookmark: BookmarkSearchResult }
   // an existing external preview image exists and the browser has permission to load it.
   // Avoid falling back to favicons here: loading a bookmarked site's favicon from
   // a search-result page can disclose private bookmark matches to that origin.
-  const externalImageUrl = imageUrl || undefined
-  const previewImageUrl = assetDataUrl || externalImageUrl
-  const shouldDisplayImage = assetDataUrl || (externalImageUrl && (!isFirefox || hasAllUrlsPermission))
+  const previewImageUrl = assetDataUrl || imageUrl || undefined
+  const shouldDisplayImage = assetDataUrl || (imageUrl && (!isFirefox || hasAllUrlsPermission))
 
   // Format the created date
   const formattedDateString = formattedDate(previewBookmark.createdAt)

@@ -16,36 +16,20 @@ const API_PREFIX = '/api/v1'
 const MAX_ASSET_DATA_URL_BYTES = 1_000_000
 const ASSET_FETCH_TIMEOUT_MS = 10_000
 
-function encodeAssetIdPathSegment(assetId: string) {
-  if (!assetId || assetId === '.' || assetId === '..' || assetId.includes('/') || assetId.includes('\\')) {
-    return null
-  }
-
-  return encodeURIComponent(assetId)
-}
-
 /**
- * Converts a small authenticated image response into a data URL for previews.
+ * Converts a small authenticated image blob into a data URL for previews.
  *
- * Non-image responses, missing streams, and images over the size limit return
- * `null` so callers can fall back to external images, favicons, or placeholders.
+ * Non-image blobs and images over the size limit return `null` so callers can
+ * fall back to external images, favicons, or placeholders.
  */
-async function responseToDataUrl(response: Response) {
-  const contentType = response.headers.get('content-type') ?? 'application/octet-stream'
-  if (!contentType.toLowerCase().startsWith('image/')) {
+async function blobToDataUrl(blob: Blob) {
+  if (!blob.type.toLowerCase().startsWith('image/')) {
     return null
   }
 
-  const contentLength = Number(response.headers.get('content-length'))
-  if (Number.isFinite(contentLength) && contentLength > MAX_ASSET_DATA_URL_BYTES) {
+  if (blob.size > MAX_ASSET_DATA_URL_BYTES) {
     return null
   }
-
-  if (!response.body) {
-    return null
-  }
-
-  const blob = await response.blob()
 
   return new Promise<string | null>((resolve) => {
     const fileReader = new FileReader()
@@ -171,24 +155,23 @@ export const appRouter = os.router({
         })
       }
 
-      const encodedAssetId = encodeAssetIdPathSegment(input.assetId)
-      if (!encodedAssetId) {
-        return null
-      }
-
       try {
-        const response = await fetch(joinURL(options.url, API_PREFIX, 'assets', encodedAssetId), {
-          headers: {
-            Authorization: `Bearer ${options.apiKey}`,
+        const { body, response } = await karakeep.getAssetsByAssetId({
+          path: {
+            assetId: input.assetId,
           },
+          client: createClient({
+            baseUrl: joinURL(options.url, API_PREFIX),
+            auth: () => options.apiKey,
+          }),
           signal: AbortSignal.timeout(ASSET_FETCH_TIMEOUT_MS),
         })
 
-        if (!response.ok) {
+        if (response.status !== 200 || !(body instanceof Blob)) {
           return null
         }
 
-        return await responseToDataUrl(response)
+        return await blobToDataUrl(body)
       } catch {
         return null
       }
