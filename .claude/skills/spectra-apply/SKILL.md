@@ -1,12 +1,12 @@
 ---
 name: spectra-apply
-description: "Implement or resume tasks from a Spectra change"
+description: 'Implement or resume tasks from a Spectra change'
 license: MIT
 compatibility: Requires spectra CLI.
 metadata:
   author: spectra
-  version: "1.0"
-  generatedBy: "Spectra"
+  version: '1.0'
+  generatedBy: 'Spectra'
 ---
 
 Implement tasks from a Spectra change.

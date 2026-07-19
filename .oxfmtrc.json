@@ -20,14 +20,6 @@
     "sortSideEffects": true
   },
   "ignorePatterns": [
-    "!*.ts",
-    "!*.tsx",
-    "!*.js",
-    "!*.jsx",
-    "!**/*.ts",
-    "!**/*.tsx",
-    "!**/*.js",
-    "!**/*.jsx",
     "**/dist/**",
     "**/docs/.astro/**",
     "**/node_modules/**",
@@ -38,6 +30,7 @@
     "**/.moon/cache/**",
     "src/shared/client/**",
     ".output/**",
-    ".wxt/**"
+    ".wxt/**",
+    "CHANGELOG.md"
   ]
 }

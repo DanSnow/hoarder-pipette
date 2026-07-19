@@ -26,12 +26,14 @@ export const zBookmarkSearchResult = z.object({
       type: z.string(),
     }),
   ]),
-  tags: z.array(
-    z.object({
-      id: z.string(),
-      name: z.string(),
-    }),
-  ).catch([]),
+  tags: z
+    .array(
+      z.object({
+        id: z.string(),
+        name: z.string(),
+      }),
+    )
+    .catch([]),
 })
 
 export type BookmarkSearchResult = z.infer<typeof zBookmarkSearchResult>

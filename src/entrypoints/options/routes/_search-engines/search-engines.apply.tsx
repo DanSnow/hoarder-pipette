@@ -1,12 +1,11 @@
-import { zodResolver } from '@hookform/resolvers/zod'
+import { useForm } from '@tanstack/react-form'
 import { createFileRoute, redirect, useNavigate } from '@tanstack/react-router'
 import { Effect, pipe } from 'effect'
 import { useMemo } from 'react'
-import { useForm } from 'react-hook-form'
 import { z } from 'zod/v4'
 
 import { Button } from '~/components/ui/button'
-import { Form, FormControl, FormField, FormItem, FormLabel } from '~/components/ui/form'
+import { Field, FieldError, FieldLabel } from '~/components/ui/field'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '~/components/ui/select'
 import { supportedEngines } from '~/lib/search-engines'
 
@@ -34,50 +33,52 @@ function RouteComponent() {
   const url = Route.useLoaderData()
   const { requestUserSitePermission } = useRequestUserSitePermission()
   const availableSearchEngine = useMemo(() => supportedEngines.filter((engine) => engine.allowUserSites), [])
-  const form = useForm<EnableForm>({
-    resolver: zodResolver(enableFormSchema),
+  const navigate = useNavigate()
+
+  const form = useForm({
+    defaultValues: { searchEngine: '' } satisfies EnableForm,
+    validators: { onSubmit: enableFormSchema },
+    onSubmit: async ({ value }) => {
+      await requestUserSitePermission({ id: value.searchEngine, url })
+      navigate({ to: '/search-engines' })
+    },
   })
 
-  const navigate = useNavigate()
-  async function onSubmit(values: EnableForm) {
-    console.log('submit', values)
-
-    await requestUserSitePermission({ id: values.searchEngine, url })
-    navigate({ to: '/search-engines' })
-  }
   return (
     <div>
       <p className="py-2">Enable on: {url}</p>
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-          <FormField
-            control={form.control}
-            name="searchEngine"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Search Engine Type</FormLabel>
-                <FormControl>
-                  <Select onValueChange={field.onChange} defaultValue={field.value}>
-                    <FormControl>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select the search engine type" />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      {availableSearchEngine.map((engine) => (
-                        <SelectItem key={engine.id} value={engine.id}>
-                          {engine.name}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </FormControl>
-              </FormItem>
-            )}
-          />
-          <Button type="submit">Enable</Button>
-        </form>
-      </Form>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault()
+          form.handleSubmit()
+        }}
+        className="space-y-8"
+      >
+        <form.Field name="searchEngine">
+          {(field) => {
+            const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid
+            return (
+              <Field data-invalid={isInvalid}>
+                <FieldLabel htmlFor={field.name}>Search Engine Type</FieldLabel>
+                <Select value={field.state.value} onValueChange={field.handleChange}>
+                  <SelectTrigger id={field.name} aria-invalid={isInvalid}>
+                    <SelectValue placeholder="Select the search engine type" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {availableSearchEngine.map((engine) => (
+                      <SelectItem key={engine.id} value={engine.id}>
+                        {engine.name}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+                <FieldError errors={field.state.meta.errors} />
+              </Field>
+            )
+          }}
+        </form.Field>
+        <Button type="submit">Enable</Button>
+      </form>
     </div>
   )
 }

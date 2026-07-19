@@ -1,13 +1,13 @@
 ---
 name: spectra-discuss
-description: "Have a focused discussion about a topic and reach a conclusion"
+description: 'Have a focused discussion about a topic and reach a conclusion'
 disallowedTools: [Edit, Write]
 license: MIT
 compatibility: Requires spectra CLI.
 metadata:
   author: spectra
-  version: "1.0"
-  generatedBy: "Spectra"
+  version: '1.0'
+  generatedBy: 'Spectra'
 ---
 
 Have a focused discussion about a topic and reach a conclusion.

@@ -1,13 +1,13 @@
 ---
 name: spectra-ask
-description: "Query openspec/documents and answer questions"
+description: 'Query openspec/documents and answer questions'
 disallowedTools: [Edit, Write]
 license: MIT
 compatibility: Requires spectra CLI.
 metadata:
   author: spectra
-  version: "1.0"
-  generatedBy: "Spectra"
+  version: '1.0'
+  generatedBy: 'Spectra'
 ---
 
 You are a project knowledge base assistant. Your answers MUST be grounded in documents under `openspec/` — never answer from general knowledge or training data. If the documents don't contain the answer, say so.
