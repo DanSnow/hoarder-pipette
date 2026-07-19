@@ -45,26 +45,7 @@ async function responseToDataUrl(response: Response) {
     return null
   }
 
-  const reader = response.body.getReader()
-  const chunks: BlobPart[] = []
-  let totalBytes = 0
-
-  while (true) {
-    const { done, value } = await reader.read()
-    if (done) {
-      break
-    }
-
-    totalBytes += value.byteLength
-    if (totalBytes > MAX_ASSET_DATA_URL_BYTES) {
-      await reader.cancel()
-      return null
-    }
-
-    chunks.push(new Uint8Array(value))
-  }
-
-  const blob = new Blob(chunks, { type: contentType })
+  const blob = await response.blob()
 
   return new Promise<string | null>((resolve) => {
     const fileReader = new FileReader()
@@ -195,15 +176,12 @@ export const appRouter = os.router({
         return null
       }
 
-      const abortController = new AbortController()
-      const timeoutId = setTimeout(() => abortController.abort(), ASSET_FETCH_TIMEOUT_MS)
-
       try {
         const response = await fetch(joinURL(options.url, API_PREFIX, 'assets', encodedAssetId), {
           headers: {
             Authorization: `Bearer ${options.apiKey}`,
           },
-          signal: abortController.signal,
+          signal: AbortSignal.timeout(ASSET_FETCH_TIMEOUT_MS),
         })
 
         if (!response.ok) {
@@ -213,8 +191,6 @@ export const appRouter = os.router({
         return await responseToDataUrl(response)
       } catch {
         return null
-      } finally {
-        clearTimeout(timeoutId)
       }
     }),
   checkAllUrlsPermission: os.output(z.boolean()).handler(async () => {
