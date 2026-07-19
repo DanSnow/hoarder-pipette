@@ -2,6 +2,8 @@ packages:
   - .
   - docs
 
+ignoreWorkspaceRootCheck: true
+
 allowBuilds:
   esbuild: true
   sharp: true

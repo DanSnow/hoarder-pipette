@@ -9,25 +9,25 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as StoryRenderRouteImport } from './routes/story-render'
-import { Route as SearchEnginesRouteImport } from './routes/_search-engines'
 import { Route as LayoutRouteImport } from './routes/_layout'
+import { Route as SearchEnginesRouteImport } from './routes/_search-engines'
+import { Route as StoryRenderRouteImport } from './routes/story-render'
 import { Route as LayoutIndexRouteImport } from './routes/_layout/index'
 import { Route as LayoutSearchEnginesRouteImport } from './routes/_layout/search-engines'
-import { Route as SearchEnginesSearchEnginesApplyRouteImport } from './routes/_search-engines/search-engines.apply'
 import { Route as SearchEnginesSearchEnginesIdRouteImport } from './routes/_search-engines/search-engines.$id'
+import { Route as SearchEnginesSearchEnginesApplyRouteImport } from './routes/_search-engines/search-engines.apply'
 
-const StoryRenderRoute = StoryRenderRouteImport.update({
-  id: '/story-render',
-  path: '/story-render',
+const LayoutRoute = LayoutRouteImport.update({
+  id: '/_layout',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SearchEnginesRoute = SearchEnginesRouteImport.update({
   id: '/_search-engines',
   getParentRoute: () => rootRouteImport,
 } as any)
-const LayoutRoute = LayoutRouteImport.update({
-  id: '/_layout',
+const StoryRenderRoute = StoryRenderRouteImport.update({
+  id: '/story-render',
+  path: '/story-render',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LayoutIndexRoute = LayoutIndexRouteImport.update({
@@ -40,16 +40,16 @@ const LayoutSearchEnginesRoute = LayoutSearchEnginesRouteImport.update({
   path: '/search-engines',
   getParentRoute: () => LayoutRoute,
 } as any)
-const SearchEnginesSearchEnginesApplyRoute =
-  SearchEnginesSearchEnginesApplyRouteImport.update({
-    id: '/search-engines/apply',
-    path: '/search-engines/apply',
-    getParentRoute: () => SearchEnginesRoute,
-  } as any)
 const SearchEnginesSearchEnginesIdRoute =
   SearchEnginesSearchEnginesIdRouteImport.update({
     id: '/search-engines/$id',
     path: '/search-engines/$id',
+    getParentRoute: () => SearchEnginesRoute,
+  } as any)
+const SearchEnginesSearchEnginesApplyRoute =
+  SearchEnginesSearchEnginesApplyRouteImport.update({
+    id: '/search-engines/apply',
+    path: '/search-engines/apply',
     getParentRoute: () => SearchEnginesRoute,
   } as any)
 
@@ -111,11 +111,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/story-render': {
-      id: '/story-render'
-      path: '/story-render'
-      fullPath: '/story-render'
-      preLoaderRoute: typeof StoryRenderRouteImport
+    '/_layout': {
+      id: '/_layout'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof LayoutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_search-engines': {
@@ -125,11 +125,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SearchEnginesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_layout': {
-      id: '/_layout'
-      path: ''
-      fullPath: '/'
-      preLoaderRoute: typeof LayoutRouteImport
+    '/story-render': {
+      id: '/story-render'
+      path: '/story-render'
+      fullPath: '/story-render'
+      preLoaderRoute: typeof StoryRenderRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_layout/': {
@@ -146,18 +146,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutSearchEnginesRouteImport
       parentRoute: typeof LayoutRoute
     }
-    '/_search-engines/search-engines/apply': {
-      id: '/_search-engines/search-engines/apply'
-      path: '/search-engines/apply'
-      fullPath: '/search-engines/apply'
-      preLoaderRoute: typeof SearchEnginesSearchEnginesApplyRouteImport
-      parentRoute: typeof SearchEnginesRoute
-    }
     '/_search-engines/search-engines/$id': {
       id: '/_search-engines/search-engines/$id'
       path: '/search-engines/$id'
       fullPath: '/search-engines/$id'
       preLoaderRoute: typeof SearchEnginesSearchEnginesIdRouteImport
+      parentRoute: typeof SearchEnginesRoute
+    }
+    '/_search-engines/search-engines/apply': {
+      id: '/_search-engines/search-engines/apply'
+      path: '/search-engines/apply'
+      fullPath: '/search-engines/apply'
+      preLoaderRoute: typeof SearchEnginesSearchEnginesApplyRouteImport
       parentRoute: typeof SearchEnginesRoute
     }
   }
