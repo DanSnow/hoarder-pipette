@@ -1,12 +1,12 @@
 ---
 name: spectra-ingest
-description: "Update an existing Spectra change from external context"
+description: 'Update an existing Spectra change from external context'
 license: MIT
 compatibility: Requires spectra CLI.
 metadata:
   author: spectra
-  version: "1.0"
-  generatedBy: "Spectra"
+  version: '1.0'
+  generatedBy: 'Spectra'
 ---
 
 Update an existing Spectra change — from a plan file or conversation context.

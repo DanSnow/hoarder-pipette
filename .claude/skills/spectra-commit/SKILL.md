@@ -1,12 +1,12 @@
 ---
 name: spectra-commit
-description: "Commit files related to a specific Spectra change"
+description: 'Commit files related to a specific Spectra change'
 license: MIT
 compatibility: Requires spectra CLI.
 metadata:
   author: spectra
-  version: "1.0"
-  generatedBy: "Spectra"
+  version: '1.0'
+  generatedBy: 'Spectra'
 ---
 
 Commit files related to a specific Spectra change.
@@ -178,30 +178,30 @@ This is a **utility skill** (not a workflow step). It reads source file tracking
 
 7. **Generate commit message**
 
-   Read the proposal file at `openspec/changes/<name>/proposal.md`. Extract the first sentence from the Why section (or Problem/Summary section if Why is absent).
+Read the proposal file at `openspec/changes/<name>/proposal.md`. Extract the first sentence from the Why section (or Problem/Summary section if Why is absent).
 
-   Generate a message in this format:
+Generate a message in this format:
 
-   ```
-   spectra(<change-name>): <summary>
+```
+spectra(<change-name>): <summary>
 
-   Change: <change-name>
-   Tasks: <completed>/<total> complete
-   ```
+Change: <change-name>
+Tasks: <completed>/<total> complete
+```
 
-   If the archive sub-flow was executed (user selected "Archive first, then commit together"), add `Archived: yes` to the message body:
+If the archive sub-flow was executed (user selected "Archive first, then commit together"), add `Archived: yes` to the message body:
 
-   ```
-   spectra(<change-name>): <summary>
+```
+spectra(<change-name>): <summary>
 
-   Change: <change-name>
-   Tasks: <completed>/<total> complete
-   Archived: yes
-   ```
+Change: <change-name>
+Tasks: <completed>/<total> complete
+Archived: yes
+```
 
-   Task progress comes from reading the tasks file and counting `- [x]` vs `- [ ]` checkboxes.
+Task progress comes from reading the tasks file and counting `- [x]` vs `- [ ]` checkboxes.
 
-   Show the generated message to the user and allow editing before proceeding.
+Show the generated message to the user and allow editing before proceeding.
 
 8. **Selective staging**
 

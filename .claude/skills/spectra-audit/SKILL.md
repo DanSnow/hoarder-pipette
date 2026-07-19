@@ -1,12 +1,12 @@
 ---
 name: spectra-audit
-description: "Audit changed code for security sharp edges — dangerous defaults, type confusion, and silent failures"
+description: 'Audit changed code for security sharp edges — dangerous defaults, type confusion, and silent failures'
 license: MIT
 compatibility: Requires spectra CLI.
 metadata:
   author: spectra
-  version: "1.0"
-  generatedBy: "Spectra"
+  version: '1.0'
+  generatedBy: 'Spectra'
 ---
 
 Audit changed code for security sharp edges — API design traps, dangerous defaults, and interfaces that make it easy to do the wrong thing.
@@ -183,7 +183,7 @@ verify_ssl: fasle # not "false", might be treated as truthy?
 # Dangerous combination
 auth_required: true
 bypass_auth_for_health: true
-health_check_path: "/" # oops, entire site bypasses auth
+health_check_path: '/' # oops, entire site bypasses auth
 ```
 
 #### 5. Silent Failures

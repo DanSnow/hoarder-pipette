@@ -1,12 +1,12 @@
 ---
 name: spectra-archive
-description: "Archive a completed change"
+description: 'Archive a completed change'
 license: MIT
 compatibility: Requires spectra CLI.
 metadata:
   author: spectra
-  version: "1.0"
-  generatedBy: "Spectra"
+  version: '1.0'
+  generatedBy: 'Spectra'
 ---
 
 Archive a completed change.

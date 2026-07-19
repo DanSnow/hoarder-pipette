@@ -1,4 +1,5 @@
 import { Array, pipe } from 'effect'
+
 import { BookmarkPreview } from '~/components/BookmarkPreview'
 import type { BookmarkSearchResult } from '~/schemas/bookmark-search-result'
 

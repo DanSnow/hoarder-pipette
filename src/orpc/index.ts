@@ -6,9 +6,9 @@ import { z } from 'zod/v4' // Import z from zod
 import { optionsAtom } from '~/atoms/storage'
 import { getSupportedSearchEngines, registerAll } from '~/entrypoints/background/dynamic-search-engine'
 import { BackgroundRuntime } from '~/entrypoints/background/runtime'
+import { zBookmarkSearchResult } from '~/schemas/bookmark-search-result'
 import { SupportSearchEnginesSchema } from '~/schemas/supported-engines'
 import { createClient } from '~/shared/client/client'
-import { zBookmarkSearchResult } from '~/schemas/bookmark-search-result'
 import { karakeep } from '~/shared/karakeep'
 import { store } from '~/store' // Import store
 

@@ -1,12 +1,12 @@
 ---
 name: spectra-propose
-description: "Create a change proposal with all required artifacts"
+description: 'Create a change proposal with all required artifacts'
 license: MIT
 compatibility: Requires spectra CLI.
 metadata:
   author: spectra
-  version: "1.0"
-  generatedBy: "Spectra"
+  version: '1.0'
+  generatedBy: 'Spectra'
 ---
 
 Create a complete Spectra change proposal — from requirement to validated artifacts — in a single workflow.

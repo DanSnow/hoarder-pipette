@@ -24,7 +24,7 @@ tasks:
     outputs:
       - .output/chrome-mv3/**/*
     inputs:
-      - "@group(sources)"
+      - '@group(sources)'
     toolchains: node
   build-ext-firefox:
     type: build
@@ -36,7 +36,7 @@ tasks:
     outputs:
       - .output/firefox-mv2/**/*
     inputs:
-      - "@group(sources)"
+      - '@group(sources)'
     toolchains: node
   build:
     type: build
@@ -55,7 +55,7 @@ tasks:
       - vitest
     toolchains: node
     inputs:
-      - "@group(sources)"
+      - '@group(sources)'
       - vitest.config.ts
   typecheck:
     type: test
