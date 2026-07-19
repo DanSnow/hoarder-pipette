@@ -42,7 +42,7 @@ importers:
         specifier: 0.7.1
         version: 0.7.1
       cnfast:
-        specifier: ^0.0.8
+        specifier: 0.0.8
         version: 0.0.8
       effect:
         specifier: 3.22.0
