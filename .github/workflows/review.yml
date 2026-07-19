@@ -11,14 +11,14 @@ jobs:
     name: runner / tsc
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6.0.3
+      - uses: actions/checkout@v7.0.0
         with:
           fetch-depth: 0
       - uses: moonrepo/setup-toolchain@v0.6.4
       - uses: pnpm/action-setup@v4.4.0
         with:
           run_install: false
-      - uses: actions/setup-node@v6.5.0
+      - uses: actions/setup-node@v7.0.0
         with:
           node-version: '24.18.0'
           cache: pnpm
@@ -36,14 +36,14 @@ jobs:
     name: runner / oxlint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6.0.3
+      - uses: actions/checkout@v7.0.0
         with:
           fetch-depth: 0
       - uses: moonrepo/setup-toolchain@v0.6.4
       - uses: pnpm/action-setup@v4.4.0
         with:
           run_install: false
-      - uses: actions/setup-node@v6.5.0
+      - uses: actions/setup-node@v7.0.0
         with:
           node-version: '24.18.0'
           cache: pnpm

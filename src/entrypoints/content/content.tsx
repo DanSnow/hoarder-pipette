@@ -109,6 +109,7 @@ async function mount(ctx: ContentScriptContext) {
 
     const ui = await createShadowRootUi(ctx, {
       name: 'hoarder-pipette',
+      mode: 'closed',
       position: 'inline',
       anchor: mountContainer.container,
       onMount: (uiContainer) => {
