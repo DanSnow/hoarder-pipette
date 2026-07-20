@@ -40,7 +40,7 @@
     "@webext-core/storage": "1.2.1",
     "@wxt-dev/module-react": "1.2.2",
     "class-variance-authority": "0.7.1",
-    "cnfast": "^0.0.8",
+    "cnfast": "0.0.8",
     "effect": "3.22.0",
     "jotai": "2.20.2",
     "lucide-react": "1.25.0",
