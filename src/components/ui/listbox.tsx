@@ -34,7 +34,7 @@ function ListBoxItem({ className, ref, ...props }: React.ComponentProps<typeof A
     <AriaListBoxItem
       ref={ref}
       className={cn(
-        'relative rounded-md px-2 py-1.5 outline-none data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50 data-[selected=true]:bg-accent data-[selected=true]:text-accent-foreground',
+        'relative rounded-md px-2 py-1.5 outline-none data-disabled:cursor-not-allowed data-disabled:opacity-50 data-[selected=true]:bg-accent data-[selected=true]:text-accent-foreground',
         className,
       )}
       {...props}

@@ -44,7 +44,7 @@ function RouteComponent() {
           Enable on this page
         </Button>
       </Link>
-      <ListBox>
+      <ListBox className="scrollbar-thin scrollbar-thumb-muted-foreground scrollbar-track-muted">
         {data?.map((engine) => (
           <SearchEngine key={engine.id} engine={engine} />
         ))}
