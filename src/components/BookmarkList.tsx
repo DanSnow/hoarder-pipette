@@ -35,7 +35,7 @@ export function BookmarkList({ bookmarks, isPending, error }: BookmarkListProps)
   }
 
   return (
-    <div className="max-h-[400px] w-full overflow-y-auto">
+    <div className="max-h-100 w-full scrollbar-thin scrollbar-thumb-muted-foreground scrollbar-track-muted overflow-y-auto">
       {pipe(
         bookmarks,
         Array.filter((bookmark) => bookmark.content.type === 'link'),
