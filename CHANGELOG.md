@@ -1,5 +1,28 @@
 # Changelog
 
+## [1.7.0](https://github.com/DanSnow/hoarder-pipette/compare/hoarder-pipette-v1.6.3...hoarder-pipette-v1.7.0) (2026-07-26)
+
+
+### Features
+
+* add Kagi search support ([#1440](https://github.com/DanSnow/hoarder-pipette/issues/1440)) ([b460813](https://github.com/DanSnow/hoarder-pipette/commit/b46081306d2dae0c6bd2b9b8aa46b13870e2dbaa))
+
+
+### Bug Fixes
+
+* add tooltip provider ([3bb4beb](https://github.com/DanSnow/hoarder-pipette/commit/3bb4beb295ec3ae30dbe5c5fc92070f8092d87aa))
+* **deps:** pin dependency @base-ui/react to 1.6.0 ([#1511](https://github.com/DanSnow/hoarder-pipette/issues/1511)) ([ff7ab52](https://github.com/DanSnow/hoarder-pipette/commit/ff7ab52407915c522c5b8c6584fbfac64a966119))
+* **deps:** pin dependency cnfast to 0.0.8 ([#1514](https://github.com/DanSnow/hoarder-pipette/issues/1514)) ([4cbdcad](https://github.com/DanSnow/hoarder-pipette/commit/4cbdcad27e3c3325b0c61f6b3582fab7d345db26))
+* **deps:** update dependency @astrojs/starlight to v0.41.4 ([#1523](https://github.com/DanSnow/hoarder-pipette/issues/1523)) ([2544c11](https://github.com/DanSnow/hoarder-pipette/commit/2544c111ad57bafad7283f38102650947b627f86))
+* **deps:** update dependency lucide-react to v1.26.0 ([#1525](https://github.com/DanSnow/hoarder-pipette/issues/1525)) ([765d38c](https://github.com/DanSnow/hoarder-pipette/commit/765d38cb8d00ccf879fde0f142a70f72a0d87d75))
+* fix type error ([353947f](https://github.com/DanSnow/hoarder-pipette/commit/353947f6e516881ff8bcccac7f8cd957c1d90749))
+* it show fetch error about using disconnecting port ([#1319](https://github.com/DanSnow/hoarder-pipette/issues/1319)) ([1b559f9](https://github.com/DanSnow/hoarder-pipette/commit/1b559f9a5370c21a2b35c367774c850d11685e37))
+* make scrollbar pretty ([9adf3fd](https://github.com/DanSnow/hoarder-pipette/commit/9adf3fdaa35f0799810cb7cc66757e8490b6c1f8))
+* make scrollbar pretty ([759f6fa](https://github.com/DanSnow/hoarder-pipette/commit/759f6fa3ddad727cdfc1ea9bfa2f7b6add426d08))
+* remove asChild ([1c9af0f](https://github.com/DanSnow/hoarder-pipette/commit/1c9af0f2d7aaec179d7d724020032db1afac4bf0))
+* **search:** use minimal bookmark schema to avoid output validation errors ([#1439](https://github.com/DanSnow/hoarder-pipette/issues/1439)) ([308b897](https://github.com/DanSnow/hoarder-pipette/commit/308b89738cbb61420399068fcd98fa948df5f557))
+* show hydrated bookmark metadata in previews ([#1441](https://github.com/DanSnow/hoarder-pipette/issues/1441)) ([f98afeb](https://github.com/DanSnow/hoarder-pipette/commit/f98afebbf902440d1d9bcb1c687275e65c59c716))
+
 ## [1.6.3](https://github.com/DanSnow/hoarder-pipette/compare/hoarder-pipette-v1.6.2...hoarder-pipette-v1.6.3) (2026-01-18)
 
 
