@@ -187,8 +187,8 @@ importers:
         specifier: 3.9.6
         version: 3.9.6
       shadcn:
-        specifier: 4.15.0
-        version: 4.15.0(@typescript/typescript6@6.0.2)(supports-color@7.2.0)
+        specifier: 4.16.0
+        version: 4.16.0(@typescript/typescript6@6.0.2)(supports-color@7.2.0)
       storybook:
         specifier: 10.5.5
         version: 10.5.5(@types/react@19.2.17)(prettier@3.9.6)(react@19.2.8)
@@ -5746,8 +5746,8 @@ packages:
   setprototypeof@1.2.0:
     resolution: {integrity: sha512-E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw==}
 
-  shadcn@4.15.0:
-    resolution: {integrity: sha512-fFTpfOuRwqjpXGp/sKpAxJkjdgv1jf8bDrW1xi0cVn2k7WJ5ijV/gjkAlkAidGDjhEkgcUuxVdm4oRB9r8BivA==}
+  shadcn@4.16.0:
+    resolution: {integrity: sha512-kPr4RrQmbbZeAjwBYeBSpFvAHV8rkTlNPUluIxkRriq5TpevfFelVO5xvcF6oguHPVn0R6wPuVer4HudfcLy/A==}
     engines: {node: '>=20.18.1'}
     hasBin: true
 
@@ -12521,7 +12521,7 @@ snapshots:
 
   setprototypeof@1.2.0: {}
 
-  shadcn@4.15.0(@typescript/typescript6@6.0.2)(supports-color@7.2.0):
+  shadcn@4.16.0(@typescript/typescript6@6.0.2)(supports-color@7.2.0):
     dependencies:
       '@babel/core': 7.29.7(supports-color@7.2.0)
       '@babel/parser': 7.29.7
