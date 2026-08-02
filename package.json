@@ -41,7 +41,7 @@
     "@wxt-dev/module-react": "1.2.2",
     "class-variance-authority": "0.7.1",
     "cnfast": "0.1.0",
-    "effect": "3.22.0",
+    "effect": "3.22.1",
     "jotai": "2.20.2",
     "lucide-react": "1.27.0",
     "next-themes": "0.4.6",
