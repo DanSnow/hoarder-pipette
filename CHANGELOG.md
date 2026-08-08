@@ -1,5 +1,29 @@
 # Changelog
 
+## [1.7.1](https://github.com/DanSnow/hoarder-pipette/compare/hoarder-pipette-v1.7.0...hoarder-pipette-v1.7.1) (2026-08-08)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @astrojs/starlight to v0.41.5 ([#1548](https://github.com/DanSnow/hoarder-pipette/issues/1548)) ([050fa34](https://github.com/DanSnow/hoarder-pipette/commit/050fa345039ac7d2cfd0d30f47857b0abea562ff))
+* **deps:** update dependency @astrojs/starlight to v0.41.6 ([#1562](https://github.com/DanSnow/hoarder-pipette/issues/1562)) ([14cda5c](https://github.com/DanSnow/hoarder-pipette/commit/14cda5ca3272a7bc1a75165e201f4086a983efc1))
+* **deps:** update dependency @astrojs/starlight to v0.41.7 ([#1580](https://github.com/DanSnow/hoarder-pipette/issues/1580)) ([8e14a5a](https://github.com/DanSnow/hoarder-pipette/commit/8e14a5a871335969e44456b529479daf4b4b6a83))
+* **deps:** update dependency @base-ui/react to v1.7.0 ([#1577](https://github.com/DanSnow/hoarder-pipette/issues/1577)) ([25f6199](https://github.com/DanSnow/hoarder-pipette/commit/25f6199c44d9dcef1e366a5e08cd95a6c3866b59))
+* **deps:** update dependency @tanstack/react-form to v1.33.3 ([#1567](https://github.com/DanSnow/hoarder-pipette/issues/1567)) ([d0e0045](https://github.com/DanSnow/hoarder-pipette/commit/d0e0045cce952d92d230f7dae742fd70c575e376))
+* **deps:** update dependency astro to v7.1.4 ([#1541](https://github.com/DanSnow/hoarder-pipette/issues/1541)) ([63ff0cc](https://github.com/DanSnow/hoarder-pipette/commit/63ff0cc8eac9eb273ef5b21979295aac55bd3ec3))
+* **deps:** update dependency astro to v7.1.5 ([#1549](https://github.com/DanSnow/hoarder-pipette/issues/1549)) ([a7a088b](https://github.com/DanSnow/hoarder-pipette/commit/a7a088bc8beb780c451d376b19ed05de485665a1))
+* **deps:** update dependency astro to v7.1.6 ([#1552](https://github.com/DanSnow/hoarder-pipette/issues/1552)) ([b1c4d79](https://github.com/DanSnow/hoarder-pipette/commit/b1c4d79fa10197296829ccbca2c5cef5cf1035b7))
+* **deps:** update dependency cnfast to v0.1.0 ([#1546](https://github.com/DanSnow/hoarder-pipette/issues/1546)) ([bed522e](https://github.com/DanSnow/hoarder-pipette/commit/bed522eb3bbdf6f47409f0f507441c44a24e66a9))
+* **deps:** update dependency effect to v3.22.1 ([#1553](https://github.com/DanSnow/hoarder-pipette/issues/1553)) ([c65514e](https://github.com/DanSnow/hoarder-pipette/commit/c65514e1b07d6b4fbb3fa78efcc16ed4c46ab288))
+* **deps:** update dependency lucide-react to v1.27.0 ([#1534](https://github.com/DanSnow/hoarder-pipette/issues/1534)) ([5e766d4](https://github.com/DanSnow/hoarder-pipette/commit/5e766d4d5d02f7f620060f04cb962f3b4584702f))
+* **deps:** update dependency lucide-react to v1.28.0 ([#1554](https://github.com/DanSnow/hoarder-pipette/issues/1554)) ([9130eb4](https://github.com/DanSnow/hoarder-pipette/commit/9130eb4deda59f7e1230b6755b66122231e9030a))
+* **deps:** update dependency react-aria-components to v1.20.0 ([#1566](https://github.com/DanSnow/hoarder-pipette/issues/1566)) ([4617711](https://github.com/DanSnow/hoarder-pipette/commit/46177115774dac83f7d80b19e5a930760e8892de))
+* **deps:** update orpc monorepo to v1.14.10 ([#1532](https://github.com/DanSnow/hoarder-pipette/issues/1532)) ([5f290e4](https://github.com/DanSnow/hoarder-pipette/commit/5f290e479d4786f41f2a210c484b4a21eb4d1b23))
+* **deps:** update orpc monorepo to v1.14.12 ([#1542](https://github.com/DanSnow/hoarder-pipette/issues/1542)) ([a4c4e35](https://github.com/DanSnow/hoarder-pipette/commit/a4c4e35bd471ff82ed182025246065b055f76784))
+* **deps:** update orpc monorepo to v1.14.13 ([#1550](https://github.com/DanSnow/hoarder-pipette/issues/1550)) ([35a793d](https://github.com/DanSnow/hoarder-pipette/commit/35a793d23824e27ab24a07d41b603b1956762ce0))
+* **deps:** update orpc monorepo to v1.14.14 ([#1576](https://github.com/DanSnow/hoarder-pipette/issues/1576)) ([48b25c5](https://github.com/DanSnow/hoarder-pipette/commit/48b25c563ff53144161267760477d0ebc7bf4d8f))
+* **deps:** update tanstack-router monorepo ([#1578](https://github.com/DanSnow/hoarder-pipette/issues/1578)) ([00052ad](https://github.com/DanSnow/hoarder-pipette/commit/00052ade55f74455f946c09f0d53b251a4408c44))
+
 ## [1.7.0](https://github.com/DanSnow/hoarder-pipette/compare/hoarder-pipette-v1.6.3...hoarder-pipette-v1.7.0) (2026-07-26)
 
 
