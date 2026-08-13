@@ -93,7 +93,7 @@
     "shadcn": "4.16.2",
     "storybook": "10.5.7",
     "tailwindcss": "4.3.3",
-    "tsx": "4.23.11",
+    "tsx": "4.23.12",
     "typed-query-selector": "2.12.2",
     "typescript": "npm:@typescript/typescript6@6.0.2",
     "vite": "8.2.1",
