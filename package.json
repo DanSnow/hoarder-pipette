@@ -86,7 +86,7 @@
     "chrome-webstore-upload-cli": "4.0.1",
     "image-size": "2.0.2",
     "knip": "6.32.1",
-    "oxfmt": "0.62.0",
+    "oxfmt": "0.63.0",
     "oxlint": "1.77.0",
     "playwright": "1.62.1",
     "prettier": "3.9.6",
