@@ -9,7 +9,7 @@ export async function getCurrentTab() {
 
 export async function getCurrentTabUrl() {
   const tab = await getCurrentTab()
-  return tab.url && withoutQueryAndHash(tab.url)
+  return tab?.url && withoutQueryAndHash(tab.url)
 }
 
 export function withoutQueryAndHash(url: string) {
