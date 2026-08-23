@@ -7,7 +7,7 @@ import { mergeConfig } from 'vite'
 import { defineConfig } from 'vitest/config'
 import { WxtVitest } from 'wxt/testing/vitest-plugin'
 
-import viteConfig from './vite.config'
+import viteConfig from './vite.config.ts'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
@@ -48,6 +48,7 @@ export default mergeConfig(
           },
           test: {
             name: 'storybook',
+            setupFiles: ['vitest.setup.ts', '.storybook/vitest.setup.ts'],
             browser: {
               enabled: true,
               headless: true,
