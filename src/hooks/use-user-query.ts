@@ -1,5 +1,5 @@
 import { useAtomValue } from 'jotai'
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 import { userSitesAtom } from '~/atoms/storage'
 import { getUserQuery } from '~/lib/search-engines'
@@ -11,33 +11,35 @@ import { getUserQuery } from '~/lib/search-engines'
  * script, so the hook polls and listens for navigation events while avoiding
  * duplicate React state updates.
  */
+function readUserQuery(userSites: ReturnType<typeof useAtomValue<typeof userSitesAtom>>) {
+  try {
+    return getUserQuery(userSites) ?? ''
+  } catch {
+    return ''
+  }
+}
+
 export function useUserQuery() {
-  const [query, setQuery] = useState('')
-  const queryRef = useRef('')
   const userSites = useAtomValue(userSitesAtom)
+  const [query, setQuery] = useState(() => readUserQuery(userSites))
+  const [syncedUserSites, setSyncedUserSites] = useState(userSites)
+
+  if (syncedUserSites !== userSites) {
+    setSyncedUserSites(userSites)
+    const nextQuery = readUserQuery(userSites)
+    if (query !== nextQuery) {
+      setQuery(nextQuery)
+    }
+  }
 
   const updateQuery = useCallback(() => {
-    try {
-      const nextQuery = getUserQuery(userSites) ?? ''
-      if (queryRef.current === nextQuery) {
-        return
-      }
-
-      queryRef.current = nextQuery
-      setQuery(nextQuery)
-    } catch {
-      if (queryRef.current === '') {
-        return
-      }
-
-      queryRef.current = ''
-      setQuery('')
-    }
+    setQuery((current) => {
+      const nextQuery = readUserQuery(userSites)
+      return current === nextQuery ? current : nextQuery
+    })
   }, [userSites])
 
   useEffect(() => {
-    updateQuery()
-
     const interval = window.setInterval(updateQuery, 500)
 
     window.addEventListener('popstate', updateQuery)
