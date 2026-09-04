@@ -65,7 +65,7 @@
     "@hey-api/openapi-ts": "0.99.0",
     "@iconify-json/lucide": "1.2.124",
     "@iconify-json/simple-icons": "1.2.94",
-    "@moonrepo/cli": "2.5.2",
+    "@moonrepo/cli": "2.5.3",
     "@storybook/addon-a11y": "10.5.10",
     "@storybook/addon-docs": "10.5.10",
     "@storybook/addon-vitest": "10.5.10",
