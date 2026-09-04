@@ -76,7 +76,7 @@
     "@tanstack/router-plugin": "1.168.35",
     "@types/react": "19.2.18",
     "@types/react-dom": "19.2.5",
-    "@types/webextension-polyfill": "0.12.5",
+    "@types/webextension-polyfill": "0.12.6",
     "@types/webpack-env": "1.18.8",
     "@typescript/native": "npm:typescript@7.0.2",
     "@vitest/browser": "4.1.11",
