@@ -42,8 +42,8 @@ importers:
         specifier: 0.7.1
         version: 0.7.1
       cnfast:
-        specifier: 0.1.0
-        version: 0.1.0
+        specifier: 0.2.0
+        version: 0.2.0
       effect:
         specifier: 3.22.1
         version: 3.22.1
@@ -3203,8 +3203,9 @@ packages:
     resolution: {integrity: sha512-eYm0QWBtUrBWZWG0d386OGAw16Z995PiOVo2B7bjWSbHedGl5e0ZWaq65kOGgUSNesEIDkB9ISbTg/JK9dhCZA==}
     engines: {node: '>=6'}
 
-  cnfast@0.1.0:
-    resolution: {integrity: sha512-rH0jBKeLkVrK7NsZ5Ba2l7WdMBmm1k0FMpABeXUU1PgTUxbz3261gEuCSsrYuXo4BwAe3yCcIbQ93YyS52lOGQ==}
+  cnfast@0.2.0:
+    resolution: {integrity: sha512-US4gOKGIylQWC7Nm+wNj+rOej6hJKyY4HwZYgtfRrduejEIFNNxcGKIWzCcQZxzgx6wKCZCCysWjnzsffiyhrw==}
+    engines: {node: '>=22'}
     hasBin: true
 
   code-block-writer@13.0.3:
@@ -9006,7 +9007,7 @@ snapshots:
 
   clsx@2.1.1: {}
 
-  cnfast@0.1.0: {}
+  cnfast@0.2.0: {}
 
   code-block-writer@13.0.3: {}
 
