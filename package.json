@@ -85,7 +85,7 @@
     "@webext-core/fake-browser": "2.0.1",
     "chrome-webstore-upload-cli": "4.0.1",
     "image-size": "2.0.2",
-    "knip": "6.34.0",
+    "knip": "6.35.0",
     "oxfmt": "0.67.0",
     "oxlint": "1.82.0",
     "playwright": "1.63.0",
