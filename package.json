@@ -36,7 +36,7 @@
     "@orpc/tanstack-query": "1.15.0",
     "@tanstack/react-form": "1.33.5",
     "@tanstack/react-query": "5.102.8",
-    "@tanstack/react-router": "1.170.34",
+    "@tanstack/react-router": "1.170.35",
     "@webext-core/storage": "2.0.0",
     "@wxt-dev/module-react": "1.2.2",
     "class-variance-authority": "0.7.1",
