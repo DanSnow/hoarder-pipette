@@ -35,7 +35,7 @@
     "@orpc/server": "1.15.1",
     "@orpc/tanstack-query": "1.15.1",
     "@tanstack/react-form": "1.33.5",
-    "@tanstack/react-query": "5.102.8",
+    "@tanstack/react-query": "5.103.1",
     "@tanstack/react-router": "1.170.36",
     "@webext-core/storage": "2.0.0",
     "@wxt-dev/module-react": "1.2.2",
