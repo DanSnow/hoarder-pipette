@@ -63,7 +63,7 @@
     "@effect/vitest": "0.30.0",
     "@egoist/tailwindcss-icons": "1.9.2",
     "@hey-api/openapi-ts": "0.99.0",
-    "@iconify-json/lucide": "1.2.133",
+    "@iconify-json/lucide": "1.2.134",
     "@iconify-json/simple-icons": "1.2.96",
     "@moonrepo/cli": "2.5.5",
     "@storybook/addon-a11y": "10.6.0",
