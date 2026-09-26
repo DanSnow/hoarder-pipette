@@ -1,253 +1,199 @@
 ---
 name: spectra-ingest
-description: 'Update an existing Spectra change from external context'
+description: "Update an identified Spectra change from a plan file or conversation context. Use when an identified Spectra change's requirements shift during implementation or a plan must be folded into its artifacts"
+argument-hint: "[change-name|plan-file]"
 license: MIT
 compatibility: Requires spectra CLI.
 metadata:
   author: spectra
-  version: '1.0'
-  generatedBy: 'Spectra'
+  version: "1.0"
+  generatedBy: "Spectra"
 ---
 
-Update an existing Spectra change — from a plan file or conversation context.
+Update an existing Spectra change from a plan file or conversation context.
 
-**Plan file support** is available when the tool has a plan directory (`~/.claude/plans/`). Otherwise, use conversation context to update artifacts.
+This tool can discover bare plan names under `~/.claude/plans/` and also accepts explicit existing plan paths.
 
-**Prerequisites**: This skill requires the `spectra` CLI. If any `spectra` command fails with "command not found" or similar, report the error and STOP.
+**Prerequisites**: Requires `spectra` CLI. If unavailable, report and STOP.
 
-**Input**: Optionally specify a plan file path or name.
+**Input**: Optional existing change name or plan file:
 
-- `/spectra-ingest ~/.claude/plans/agile-discovering-rocket.md`
-- `/spectra-ingest agile-discovering-rocket`
-- `/spectra-ingest` (use conversation context or auto-detect plan file)
+- `/spectra-ingest add-auth`
+- `/spectra-ingest ./plans/add-auth.md`
+- `/spectra-ingest`
+
+## Write for the reader
+
+The reader is using Spectra for the first time: they know their own project and have not learned this workflow's vocabulary. Every user-visible message is written so that reader can act on it.
+
+### Conversation language
+
+Use the active conversation language for user-visible analysis, questions, labels, and conclusion. Resolve it in this order: an explicit language instruction for subsequent user-visible output; the primary natural language of the current user request; the most recently established conversation language when the request is mixed or contains only technical identifiers. Keep established Traditional Chinese or English. User context selects it independently of the internal template and repository artifact locale; artifacts use the locale returned by `spectra instructions`.
+
+### Plain wording
+
+- Lead with what happened and what the reader does next; evidence and detail follow.
+- Keep a term only when the reader can see it on screen, type it in a command, or open it as a file (change, spec, proposal, tasks, archive, CLI output such as Critical). Explain it in one clause the first time it appears.
+- Every other term belongs to this workflow, so say what it means for the reader: "scenario coverage" becomes "which spec scenarios have a test"; RED becomes "the new test failed before the change, as intended".
+- Write headings, table columns, and labels as plain descriptions in the conversation language; section names in this template stay internal.
+- Commands, paths, identifiers, and required handoff lines stay verbatim.
+- Emphasis, grouping, and pointing are carried by the words and the structure alone: a heading, a list, a table cell, bold text, or the sentence itself.
 
 **Steps**
 
-1. **Locate the requirement source**
+1. **Resolve the requirement source and target hint**
 
-   a. **Argument provided** → treat as plan file reference (prepend `~/.claude/plans/` and append `.md` if needed)
-   - If the file exists → use it as the plan file source, proceed to Step 2
-   - If the file does NOT exist → report the error and **stop**
-
-   b. **No argument, plan file detectable**:
-   - Check conversation context for plan file path (plan mode system messages include the path like `~/.claude/plans/<name>.md`)
-   - If found and the file exists → use the **AskUserQuestion tool** to ask:
-     - Option 1: Use the plan file
-     - Option 2: Use conversation context
-   - If the user picks plan file → proceed to Step 2
-   - If the user picks conversation context → skip Step 2, go to Step 3
-
-   c. **No argument, no plan file detectable**:
-   - Check `~/.claude/plans/` for recent files
-   - If recent files exist → list 5 most recent with the **AskUserQuestion tool**, include "Use conversation context" as an additional option
-   - If the user picks a file → proceed to Step 2
-   - If the user picks conversation context → skip Step 2, go to Step 3
-
-   d. **Conversation context fallback** (no plan files found at all):
-   - Use conversation context to update artifacts
-   - If conversation context is insufficient, use the **AskUserQuestion tool** to get more details
-   - Warn: "No plan file found. Using conversation context."
-
-2. **Parse the plan structure** (skip if using conversation context)
-
-   Claude Code plan files typically contain:
-   - **Title** (`# ...`) — the high-level goal
-   - **Context** section — background, motivation, current state
-   - **Stages/Steps** — numbered implementation stages with goals and file lists
-   - **Files involved** — list of files to modify/create
-   - **Verification** section — how to test the changes
-
-   Extract:
-   - `plan_title`: from the H1 heading
-   - `plan_context`: from the Context section
-   - `plan_stages`: each numbered stage with its goal and file list
-   - `plan_files`: all file paths mentioned
-   - `plan_verification`: verification steps
-
-3. **Check for active changes** (REQUIRED — ingest only updates existing changes)
+   Reuse an explicit or uniquely confirmed source and target before enumerating candidates. Validate an identified target with `spectra status --change "<name>" --json`. For unresolved identity or a bare change/plan collision, list exact active/parked IDs:
 
    ```bash
    spectra list --json
-   ```
-
-   Also check for parked changes:
-
-   ```bash
    spectra list --parked --json
    ```
 
-   Parse both JSON outputs to get the full list of changes (active + parked). Parked changes should be annotated with "(parked)" in any selection list.
-   - If one change exists (active or parked) → use the **AskUserQuestion tool** to confirm updating it
-   - If multiple changes exist → use the **AskUserQuestion tool** to let user pick which one to update
-   - If no changes at all (neither active nor parked) → tell the user: "No active change found. Use `/spectra-propose` first to create one." and **stop**
+   Keep `requirement_source` and `target_change` as independent values. Apply these rules in order:
 
-4. **Select the change**
+   a. **Explicit plan path** — If the argument contains a path separator, resolves to an existing path, or ends in `.md`, set `requirement_source` to that exact plan path. A missing explicit plan path is an error: report it and STOP without falling back to a change or conversation context.
 
-   After selecting the change, check if it is parked:
+   b. **Exact active or parked change ID** — Otherwise, if the bare argument exactly matches an active or parked change ID, set `target_change` to that ID. Obtain `requirement_source` separately from conversation context or a separately selected plan. Do not append `.md` or report a missing plan merely because the argument selected a change.
 
-   ```bash
-   spectra list --parked --json
-   ```
+   c. **Plan-directory candidate** — Otherwise, if the bare argument resolves to a plan under `~/.claude/plans/`, set `requirement_source` to that plan and select `target_change` separately.
 
-   If the selected change appears in the `parked` array:
-   - Inform the user that this change is currently parked（暫存）
-   - Use **AskUserQuestion tool** to ask: continue (unpark) or cancel
-   - If continue: run `spectra unpark "<name>"` then proceed
-   - If cancel: stop the workflow
+   If a bare argument matches both an exact change ID and a plan-directory basename, the change ID wins. An explicit path or `.md` suffix forces plan-file interpretation. If a bare argument matches neither a change nor an available plan candidate, report the unknown argument and STOP; do not reinterpret it as conversation context.
 
-   If there is no AskUserQuestion tool available (non-Claude-Code environment):
-   Inform the user that this change is currently parked（暫存）and ask via plain text whether to unpark and continue, or cancel.
-   Wait for the user's response. If the user confirms, run `spectra unpark "<name>"` then proceed.
+   d. **No argument** — Without an argument, reuse the uniquely confirmed plan or conversation source. Only unresolved source intent needs a question: offer the relevant existing plan or conversation context. Recent configured plans are candidates only when needed. Keep the target change independent.
 
-   Read existing artifacts for context before updating.
+   e. **Conversation fallback** — Only without an argument and without a selected plan, use conversation context as `requirement_source`. If the context is insufficient, ask for more detail before updating artifacts.
 
-5. **Update artifacts**
+2. **Parse plan structure** (skip for conversation context)
 
-   For each artifact, get instructions first:
+   Extract title, context, stages/steps, files involved, and verification.
+
+3. **Select the target change** (REQUIRED — ingest only updates existing changes)
+
+   Keep an explicit name, else a unique confirmed conversation target. Otherwise use the active/parked lists and auto-select only one candidate; ask only when ambiguous. Label parked candidates. With no candidates, suggest `/spectra-propose` and STOP.
+
+   For a parked target, disclose parking. If the named ingest operation is already explicitly requested, run `spectra unpark "<name>"` as a necessary step; respect a known refusal. Otherwise ask for missing authorization. Silence does not authorize restoration.
+
+   Then read existing artifacts for context. The selected change is `target_change`; it does not replace `requirement_source`.
+
+4. **Update artifacts**
+
+   For the first artifact, fetch full instructions without `--omit-context`:
 
    ```bash
    spectra instructions <artifact-id> --change "<name>" --json
    ```
 
-   Use the `template` from instructions as the output structure. Apply `context` and `rules` as constraints but do NOT copy them into the file.
+   **Artifact context cache**: request the first artifact without `--omit-context`. In that first full response, cache its `context` and `contextRef`; both fields absent is the empty-context state, and only one is inconsistent and must not be cached. For each later artifact add `--omit-context` and compare the returned `contextRef` against the cache — equal, including absent on both sides, means reuse the cached context. When `contextRef` changes, discard the cache and request the current artifact instructions again without `--omit-context`, then replace the cache from that response.
 
-   The instructions JSON includes `locale` — the language to write artifacts in. If present, you MUST write the artifact content in that language. Exception: spec files (specs/\*/\*.md) MUST always be written in English regardless of locale, because they use normative language (SHALL/MUST).
+   ```bash
+   spectra instructions <artifact-id> --change "<name>" --json --omit-context
+   ```
 
-   **Plan-to-Artifact Mapping** (when using a plan file):
+   Use `template` as structure, cached `context` and `rules` as constraints. Honor `locale`; specs stay English.
 
-   | Plan Section       | Artifact         | How to Map                                        |
-   | ------------------ | ---------------- | ------------------------------------------------- |
-   | Title              | Change name      | Convert to kebab-case                             |
-   | Context            | proposal: Why    | Direct content transfer                           |
-   | Stages overview    | proposal: What   | Summarize all stages                              |
-   | Individual stages  | tasks.md groups  | One stage = one `##` heading, sub-items = `- [ ]` |
-   | File paths         | proposal: Impact | Affected code list                                |
-   | Verification steps | tasks.md         | Final verification task group                     |
+   Apply the matching `requirement_source` mapping below; keep the selected change-id.
 
-   **Context-to-Artifact Mapping** (when using conversation context):
+For a plan-file source, map the parsed plan while preserving the selected change-id.
 
-   | Conversation Element | Artifact         | How to Map                         |
-   | -------------------- | ---------------- | ---------------------------------- |
-   | Goal / requirement   | proposal: Why    | Extract motivation from discussion |
-   | Discussed approach   | proposal: What   | Summarize agreed approach          |
-   | Mentioned files      | proposal: Impact | Affected code list                 |
-   | Discussion phases    | tasks.md groups  | One topic = one `##` heading       |
+**Plan-to-Artifact Mapping**:
+
+| Plan Section | Artifact | How to Map |
+| --- | --- | --- |
+| Title | Artifact title / summary | Preserve the selected change-id |
+| Context | proposal: Why | Direct content transfer |
+| Stages overview | proposal: What | Summarize all stages |
+| Individual stages | tasks.md groups | One stage = one `##` heading, sub-items = `- [ ]` |
+| File paths | proposal: Impact | Affected code list |
+| Verification steps | tasks.md | Final verification task group |
+
+For a conversation source, map the resolved context while updating artifacts.
+
+**Context-to-Artifact Mapping**:
+
+| Conversation Element | Artifact | How to Map |
+| --- | --- | --- |
+| Goal / requirement | proposal: Why | Extract motivation from discussion |
+| Discussed approach | proposal: What | Summarize agreed approach |
+| Mentioned files | proposal: Impact | Affected code list |
+| Discussion phases | tasks.md groups | One topic = one `##` heading |
 
    **When updating an existing change:**
-   - Merge new context into existing proposal (don't replace)
-   - Add new tasks from plan stages or conversation, **preserve completed `[x]` items**
-   - **Preserve existing `[P]` markers** on tasks that still qualify
-   - Do NOT remove existing content
+   - When the user explicitly cancels or supersedes a requirement, remove or replace it in current proposal/design/specs; preserve unaffected content. Record a `Supersedes` decision pointing to the old decision and its replacement.
+   - Remove cancelled pending tasks from the executable checklist; map each to the decision or replacement in a non-checkbox change note: cancelled pending work is not completed work.
+   - Preserve completed `[x]` descriptions and touched provenance unchanged. Superseded completed behavior needs a new pending compensation or migration task linked to that history. Trace historical records by original task_desc and provenance: CLI checkbox indices differ from document task numbers; new indices cannot reinterpret old records.
+   - In the same update, repair all affected `[after: ...]` references and check for missing prerequisites and cycles with analyze/validate. Preserve existing `[P]` markers on retained tasks unchanged.
 
-   **Parallel task markers (`[P]`)**: When creating or updating the **tasks** artifact, first read `.spectra.yaml`. If `parallel_tasks: true` is set, add `[P]` markers to new tasks that can be executed in parallel. Format: `- [ ] [P] Task description`. A task qualifies for `[P]` if it targets different files from other pending tasks AND has no dependency on incomplete tasks in the same group. When `parallel_tasks` is not enabled, do NOT add `[P]` markers — but still preserve any existing `[P]` markers already in the file.
-
-   After creating each artifact, re-check status:
+   Write updates with `--force` only for existing files:
 
    ```bash
-   spectra status --change "<name>" --json
+   spectra new artifact <artifact-id> --change "<name>" --stdin --force <<'ARTIFACT_EOF'
+   <updated content>
+   ARTIFACT_EOF
    ```
 
-   Continue until all `applyRequires` artifacts are complete. Show progress: "✓ Created <artifact-id>"
+   Specs use `spectra new artifact spec <capability-name> --change "<name>" --stdin --force`.
 
-6. **Inline Self-Review** (before CLI analysis)
+   On validation failure, use the bounded validation policy below. Re-check `spectra status --change "<name>" --json` after each artifact.
 
-   After updating all artifacts, scan them manually. Fix issues inline, then proceed to the CLI analyzer.
+   Express ordering on new tasks with `[after: <task-number>]`. Leave existing `[P]` markers exactly as they are.
 
-   **Check 1: No Placeholders**
+   - Tasks must fit one uncompacted context window; otherwise split vertically into independently verifiable behavior across layers, rather than one task per layer.
 
-   These patterns are artifact failures — fix each one before proceeding:
-   - "TBD", "TODO", "FIXME", "implement later", "details to follow"
-   - Vague instructions: "Add appropriate error handling", "Handle edge cases", "Write tests for the above"
-   - Delegation by reference: "Similar to Task N" without repeating specifics
-   - Steps describing WHAT without HOW: "Implement the authentication flow" (what flow? what steps?)
-   - Empty template sections left unfilled
-   - Weasel quantities: "some", "various", "several" when a specific number or list is needed
+   - Use expand → migrate → contract: add the new form alongside the old, migrate with each batch its own task, then remove the old form after all migrations. The codebase builds and its tests pass at the end of every stage and every batch.
 
-   **Check 2: Internal Consistency**
-   - Does every capability in the proposal have a corresponding spec?
-   - Does the design reference only capabilities from the proposal?
-   - Do tasks cover all design decisions, and nothing outside proposal scope?
-   - Are file paths consistent across proposal Impact, design, and tasks?
+5. **Inline Self-Review** (before CLI analysis)
 
-   **Check 3: Scope Check**
-   - More than 15 pending tasks → consider decomposing into multiple changes
-   - Any single task would take more than 1 hour → split it
-   - Touches more than 3 unrelated subsystems → consider splitting
+   Check placeholders, consistency, scope, ambiguity, and preservation:
+   - quantitative claims: label every number (size, count, duration, percentage) measured or estimated. For an estimate, name the measurement that would confirm or refute it; record any decision depending on that unmeasured estimate.
+   - completed tasks `[x]` still present and unchanged.
+   - existing `[P]` markers preserved unchanged.
+   - replacements, cancellation notes and completed history remain traceable; dependencies resolve without cycles.
 
-   **Check 4: Ambiguity Check**
-   - Are success/failure conditions testable and specific?
-   - Are boundary conditions defined (empty input, max limits, error cases)?
-   - Could "the system" refer to multiple components? Be explicit.
+   **Durable Handoff Review** (run BEFORE the CLI analyzer)
 
-   **Check 5: Preservation Check** (ingest-specific)
-   - Are all completed tasks `[x]` still present and unchanged?
-   - Were existing `[P]` markers preserved on tasks that still qualify?
-   - Was existing content merged (not replaced)?
+   Fix these in **incomplete** design/tasks for durable handoff; preserve completed `[x]` history:
+   - **File-path-only tasks**: a task whose entire description is "edit file X" with no behavior, contract, or verification target. File paths are locator context — the task SHALL still describe what is observably true when complete.
+   - **Line-number-coupled instructions**: design or task content that points to "line 42" / "the function on lines 80-95" as the only way to identify the work. Source line numbers drift; name the function, command, struct, or behavior instead.
+   - **Vague acceptance criteria**: success conditions like "works correctly", "behaves as expected", "handles edge cases" without naming the observable behavior or the verification target (test name, CLI invocation, analyzer rule, manual assertion).
+   - **Missing scope boundaries on non-trivial work**: design lacking explicit "in scope" / "out of scope" lines for any change that touches more than one subsystem or introduces new behavior. Trivial artifact-only edits MAY skip this; runtime, build, or tooling effects MUST NOT.
+   - **Ungrounded codebase claims**: a task asserting the current state of existing code, tests, or behavior — "the existing tests need no assertion change", "only these three files reference it" — written without opening that source. Ground the claim in the source it names, or rewrite the task without it. The criterion is whether the claim has a basis, not whether a search was run.
 
----
+   Fix failures using context/new source. Preserve completed tasks unchanged.
 
-## Rationalization Table
+   Recheck affected artifacts, including proposal/scenarios. Keep tasks granular; superseded completed behavior needs pending compensation.
 
-| What You're Thinking                                             | What You Should Do                                                            |
-| ---------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| "The existing artifacts are close enough, just adjust the tasks" | Read the new context carefully. "Close enough" means you're missing something |
-| "The proposal doesn't need updating, the change is the same"     | If new context exists, the proposal likely needs updates. At minimum, check   |
-| "I can merge these tasks, they're basically the same"            | Keep tasks granular. Merged tasks are harder to track                         |
-| "The completed tasks still apply, no need to review"             | Verify they're still relevant to updated scope. Don't blindly keep stale work |
-| "This spec change is minor, skip the scenario update"            | If the requirement changed, the scenario must change                          |
-| "The conversation didn't discuss this artifact, so skip it"      | Absence of discussion doesn't mean absence of impact. Check                   |
-
----
-
-7. **Analyze-Fix Loop** (max 2 iterations)
-
-   ```bash
-   spectra analyze <name> --json
-   ```
-
-   1. Filter findings to **Critical and Warning only** (ignore Suggestion)
-   2. If no Critical/Warning findings → show "Artifacts look consistent ✓" and proceed
-   3. If Critical/Warning findings exist:
-      a. Show: "Found N issue(s), fixing... (attempt M/2)"
-      b. Fix each finding in the affected artifact
-      c. Re-run `spectra analyze <name> --json`
-      d. Repeat up to 2 total iterations
-   4. After 2 attempts, if findings remain:
-      - Show remaining findings as a summary
-      - Proceed normally (do NOT block)
-
-8. **Validation**
+6. **Analyze-Fix Loop** (max 2 iterations)
+   1. Run `spectra analyze <change-name> --json`; combine findings with unresolved inline review issues. Suggestions stay advisory.
+   2. For Critical/Warning findings, show findings and attempt M/2, fix affected artifacts, then re-run analysis; at most 2 repair iterations. Stop retrying if the same diagnostics recur without new progress.
+   3. Classify the remaining findings:
+      - Critical remains: report **not ready** with locations, reasons and next actions; continue only artifact handling and validation.
+      - Warnings only: list remaining warnings without claiming resolution; continue to validation.
+      - No Critical/Warning: report consistency and continue to validation.
+   4. Every validation retry (including artifact creation) requires a concrete correction; at most 2 corrections per failing gate. Stop on repeated diagnostics without progress. A failed validation remains **not ready** until corrected artifacts pass.
+   5. Saving or parking preserves this not-ready result. Only offer apply when Critical is zero and validation passed; otherwise end with blockers and next actions.
+7. **Validation**
 
    ```bash
    spectra validate "<name>"
    ```
 
-   If validation fails, fix errors and re-validate.
+   On failure, follow the bounded validation policy above and report the actual result.
 
-9. **Summary and next steps**
+8. **Summary and next steps**
 
-   Show:
-   - Source used: plan file (`<path>`) or conversation context
-   - Change name and location
-   - Artifacts created/updated
-   - Validation result
+   Show source used, change name/location, artifacts updated, and validation result.
 
-   Use **AskUserQuestion tool** to confirm the workflow is complete. This ensures the workflow stops even when auto-accept is enabled. Provide exactly these options:
-   - **First option (will be auto-selected)**: "Done" — End the ingest workflow. Inform the user they can run `/spectra-apply <change-name>` when ready.
-   - **Second option**: "Apply" — Invoke `/spectra-apply <change-name>` to start implementation.
+   With unresolved Critical or failed validation, end with blockers and next actions. Only the ready branch below offers apply.
 
-   If **AskUserQuestion tool** is not available, display the summary and inform the user to run `/spectra-apply <change-name>` when ready. Then STOP — do not continue.
-
-   **After the user responds**, if they chose "Done", the workflow is OVER. If they chose "Apply", invoke `/spectra-apply <change-name>` to begin implementation.
+   Report completion directly, without a Done gate. With existing explicit authorization to continue apply for this target and readiness checks passed, invoke `/spectra-apply <change-name>`. Without that authorization, suggest `/spectra-apply <change-name>` as the next step and STOP. Silence does not authorize a handoff; respect a known refusal or cancellation.
 
 **Guardrails**
 
-- **NEVER** modify the original plan file in `~/.claude/plans/`
-- **NEVER** write application code — this skill only creates/updates Spectra artifacts
-- **NEVER** create new changes — ingest only updates existing changes. If no active change exists, direct user to `/spectra-propose`
-- When updating existing changes, **preserve all completed tasks** (`[x]`) — never revert progress
-- If the source content is too brief to fill all artifact sections, use the **AskUserQuestion tool** to get more details rather than inventing content
-- If `spectra` CLI is not available, report the error and stop
-- Verify each artifact file exists after writing before proceeding to next
-- **NEVER** skip the artifact workflow to write code directly
-- If **AskUserQuestion tool** is not available, ask the same questions as plain text and wait for the user's response
+- NEVER modify the plan file selected as `requirement_source`.
+- NEVER write application code; this skill updates Spectra artifacts only.
+- NEVER create new changes.
+- Preserve all completed tasks (`[x]`) — never revert progress.
+- Ask for details when source content is too brief to fill artifacts.
+- Verify each artifact exists after writing.
+- Without structured input, ask required questions in plain text and wait.

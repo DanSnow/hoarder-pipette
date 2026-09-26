@@ -1,194 +1,186 @@
 ---
 name: spectra-discuss
-description: 'Have a focused discussion about a topic and reach a conclusion'
-disallowedTools: [Edit, Write]
+description: "Structure an explicitly requested Spectra pre-change decision without implementing it. Use when an explicitly requested Spectra decision has fuzzy requirements or competing approaches to compare before a proposal"
+argument-hint: "[topic]"
+disallowed-tools: [Edit, Write]
 license: MIT
 compatibility: Requires spectra CLI.
 metadata:
   author: spectra
-  version: '1.0'
-  generatedBy: 'Spectra'
+  version: "1.0"
+  generatedBy: "Spectra"
 ---
 
 Have a focused discussion about a topic and reach a conclusion.
 
-**IMPORTANT: Discuss mode is for thinking, not implementing.** You may read files, search code, and investigate the codebase, but you must NEVER write code or implement features. If the user asks you to implement something, remind them to exit discuss mode first (e.g., start a change with `/spectra-propose`). You MAY create Spectra artifacts (proposals, designs, specs) if the user asks—that's capturing thinking, not implementing.
+**READ-ONLY MODE — discuss is for thinking, not implementing.** This holds in every permission mode, including **auto mode** and **accept-edits mode**:
 
-**This is a task-oriented discussion.** Every discussion has a topic, works toward a goal, and ends with a clear conclusion. Unlike open-ended exploration, discuss mode converges.
+- Never edit/write source files.
+- Never run Bash that changes files or system state: no commits, installs, builds, codegen, or artifact writes.
+- Read-only search/status/`spectra ... --json` commands are fine.
+- Allowed exception: creating/updating Spectra artifacts when the user explicitly wants the decision captured.
+- Answering a clarifying question is not permission to write. However definite the answer, authorization comes only from a request or agreement addressed to writing itself.
+- Before the first artifact write, state which files you will create or modify and wait for an explicit yes. Later writes within that stated scope need no repeat; files outside that scope do.
+- If the user asks for code changes, decline and point them to `/spectra-propose` or ask them to exit discuss.
 
-**Input**: The argument after `/spectra-discuss` is the topic. Could be:
+This is task-oriented: it works toward a decision, recommendation, or explicit deferral.
 
-- A design question: "should we use WebSockets or SSE?"
-- A problem to solve: "the auth system is getting unwieldy"
-- A change name: "add-dark-mode" (discuss in context of that change)
-- An architecture decision: "how to structure the plugin system"
-- A vague idea that needs sharpening: "real-time collaboration"
+**Input**: Topic after `/spectra-discuss` — design question, problem, change name, architecture decision, or vague idea.
+
+## Write for the reader
+
+The reader is using Spectra for the first time: they know their own project and have not learned this workflow's vocabulary. Every user-visible message is written so that reader can act on it.
+
+### Conversation language
+
+Use the active conversation language for user-visible analysis, questions, labels, and conclusion. Resolve it in this order: an explicit language instruction for subsequent user-visible output; the primary natural language of the current user request; the most recently established conversation language when the request is mixed or contains only technical identifiers. Keep established Traditional Chinese or English. User context selects it independently of the internal template and repository artifact locale; artifacts use the locale returned by `spectra instructions`.
+
+### Plain wording
+
+- Lead with what happened and what the reader does next; evidence and detail follow.
+- Keep a term only when the reader can see it on screen, type it in a command, or open it as a file (change, spec, proposal, tasks, archive, CLI output such as Critical). Explain it in one clause the first time it appears.
+- Every other term belongs to this workflow, so say what it means for the reader: "scenario coverage" becomes "which spec scenarios have a test"; RED becomes "the new test failed before the change, as intended".
+- Write headings, table columns, and labels as plain descriptions in the conversation language; section names in this template stay internal.
+- Commands, paths, identifiers, and required handoff lines stay verbatim.
+- Emphasis, grouping, and pointing are carried by the words and the structure alone: a heading, a list, a table cell, bold text, or the sentence itself.
 
 ---
 
 ## Before You Speak
 
-Before asking anything, do a quick codebase scout to decide how to run this discussion.
+Before asking anything, load vocabulary, then scout the codebase to resolve facts and identify missing decisions.
+
+### Step 0: Load shared vocabulary
+
+Read `openspec/LANGUAGE.md` before anything else in this skill.
+
+- If the file exists, scan canonical terms and avoided synonyms. Use canonical terms in artifact captures; in replies, describe the concept in plain words and attach the canonical term when the reader needs it to find a file, command, or spec. If the topic/artifacts use an avoided synonym or missing concept, note vocabulary drift in the conclusion.
+- If the file does not exist, continue silently; a missing vocabulary file is not an error.
+
+This runs before the codebase scout, assumptions, interview questions, and conclusion capture.
+
+### Vocabulary maintenance
+
+These checks run only when the vocabulary file was found in Step 0.
+
+- **Conflicting use** — when the user's wording contradicts an entry's definition, state both the recorded definition and the meaning you read, then ask which applies. Leave that choice to the user. When they confirm their wording is intended and the entry is outdated, capture it as vocabulary drift.
+- **Ambiguous use** — when the user's wording spans several entries, list the candidates and ask which one applies. When it matches exactly one entry, carry on without asking.
+- **Boundary check** — when a new concept enters, or an existing boundary moves, propose a concrete case at the edge and ask whether it falls inside. Ask about concrete cases; the abstract definition is what the cases settle.
+- **Against the code** — when the discussion touches an entry, compare its definition with how the code behaves and raise any divergence as vocabulary drift. Limit this to the entries the discussion touches, so Step 0 stays a load rather than a full audit.
 
 ### Step 1: Extract search terms
 
-Pull 2-5 keywords from the user's topic. For "search should support fuzzy matching", that's `search`, `fuzzy`, `match`. For "should we add a plugin system", that's `plugin`, `extension`, `module`.
+Pull 2-5 keywords from the topic, e.g. `search`, `fuzzy`, `match`.
 
 ### Step 2: Scout the codebase
 
-Use Grep and Glob to find related source files (not docs, not tests — source code). Spend no more than a few seconds on this. Read up to 5 of the most relevant files found.
+Use Grep and Glob to find related source files, not docs/tests. Spend only a few seconds and read up to 5 relevant files.
 
 ### Step 3: Pick a mode
 
-- **3+ related source files found** → **Assumptions mode**: you have enough context to form opinions. List your assumptions, let the user correct.
-- **Fewer than 3 related source files found** → **Interview mode**: not enough code to base assumptions on. Fall through to "How to Discuss" below and ask questions one at a time.
+- With no unresolved user-owned decision, give the recommendation and reasoning directly, even with one relevant source.
+- With an unresolved user-owned trade-off, ask one focused question with a recommendation, regardless of source-file count. Investigate missing facts yourself.
 
-Announce which mode you picked and why: "Found `search.rs`, `SearchPanel.svelte`, `search-store.ts` — I have enough context to list my assumptions." or "Didn't find much related code — I'll ask questions instead."
+Use only evidence-supported assumptions; there is no count quota or mode-announcement gate.
 
 ### Assumptions mode
 
-When you enter assumptions mode, present 3-5 assumptions. Each one MUST include:
+In the active conversation language, present the supported decision points with:
 
-1. **Approach**: what you'd do and why
-2. **Evidence**: file path(s) that informed this assumption
-3. **If wrong**: concrete consequence of getting this wrong
+1. The decision to be made.
+2. A distinct recommendation.
+3. The file path evidence behind it.
+4. A concrete consequence of an incorrect recommendation only when that consequence has material value for the decision. Otherwise, omit the risk explanation.
 
-Example:
+Keep them separated by structure and wording; the recommendation remains distinct from the user's requirement.
 
-```
-### My assumptions
+Accept corrections in the active conversation language and converge; a clear recommendation needs no extra confirmation.
 
-1. **New IPC command goes in `commands/search.rs`**
-   Evidence: existing search commands are in `src-tauri/src/commands/search.rs`
-   If wrong: we'd need to create a new module and register it
-
-2. **Use the existing `SearchStore` for state**
-   Evidence: `src/lib/stores/search-store.ts` already manages search state
-   If wrong: parallel state would cause sync bugs
-
-3. **Fuzzy matching runs in Rust, not frontend**
-   Evidence: current search scoring is in `search.rs:calculate_score()`
-   If wrong: moving to frontend means rewriting the scoring logic in TypeScript
-```
-
-After presenting, ask: **"Which of these are wrong?"**
-
-- If the user says all are fine → proceed to Convergence with these as established context.
-- If the user flags corrections → for each one, ask ONE focused follow-up question to understand their intent, then proceed to Convergence with the corrected understanding.
+When the user says a decision point itself is wrong rather than the recommendation under it, drop that whole item and re-derive it from the user's own wording. Your earlier restatement of the requirement expires at that moment — go back to what the user actually said, rather than carrying your version of it forward as though they had said it.
 
 ### Mode switching
 
-The user can switch modes at any time during the discussion:
+If the user says "ask me questions" / "one at a time", switch to interview mode. If they ask "what do you think?", run the scout if needed, then use assumptions mode.
 
-- **"Ask me questions instead"** / **"one at a time"** → switch to interview mode (the "How to Discuss" section below)
-- **"Just list your assumptions"** / **"what do you think?"** → run the codebase scout if not done yet, then switch to assumptions mode
+### Step 4: Interface depth check (conditional)
+
+Run this only when the topic introduces a new architectural seam:
+
+- **new module**
+- **new IPC** command or message shape
+- **cross-layer** Rust ↔ Tauri ↔ Svelte flow
+- **new storage abstraction**
+
+If the topic only changes static **UI copy**, visual styling, docs wording, or other non-architectural surfaces, skip the depth check.
+
+When triggered, use the active conversation language for these semantics rather than literal probe labels or questions:
+
+1. Locate the owner. Callers and tests cross the same seam; testing past it means the module shape is wrong.
+2. Count the adapters. One adapter is a hypothetical seam; two or more make it real.
+3. Cover signatures, invariants, ordering constraints, error modes, configuration, and performance, not just types. Forwarding hides nothing.
+4. Check whether complexity vanishes with the module or reappears across callers.
+
+Surface these answers in assumptions or conclusion.
+
+### Fact-finding ownership
+
+Finding facts is your job. When you need to know what exists in the codebase, what a mechanism supports, or how something is wired today, check it with Grep, Glob, or Read.
+
+Ask only when the answer needs a value judgement or a trade-off the user owns. State your own recommendation alongside such a question.
+
+Keep presenting the other decision points while a check runs — a pending check holds up that one answer, and the rest of the discussion carries on.
+
+### Plain-language restatement
+
+When the user signals that a message did not land — too technical, too abstract, hard to follow — restate the same content in plainer wording. Recognition is semantic: any wording that signals incomprehension counts, including wording that is new to you.
+
+Restate first. Asking the user what counts as plain, or which part to redo, comes after the attempt rather than instead of it.
 
 ---
 
 ## How to Discuss
 
-_This section applies to interview mode — either chosen automatically (insufficient code context) or switched to manually by the user._
+This section applies to interview mode or when the user asks for it.
 
-**One question at a time.** Don't dump a list of 10 questions. Ask the most important one, listen, then follow up. Let the conversation breathe. If the user's initial description or previous answers already cover a question, skip it — don't ask what you already know.
+- Ask **one question at a time**. Skip questions already answered.
+- Present 2-3 concrete options with trade-offs; tables are fine.
+- Ground the discussion in actual code when relevant.
+- Use ASCII diagrams when they clarify systems, state, data flow, or dependencies.
+- Challenge assumptions, including your own; apply YAGNI.
+- Be direct when you have a recommendation.
+- Avoid empty validation. If you agree or disagree, explain why.
+- Push for specifics: thresholds, error classes, ownership, inputs/outputs, done criteria.
 
-**Propose concrete options.** When exploring approaches, present 2-3 specific options with trade-offs — not abstract possibilities. Use comparison tables when helpful:
+If the user wants speed:
 
-```
-| Approach      | Pros              | Cons              |
-|---------------|-------------------|-------------------|
-| WebSockets    | Real-time, bidir  | Complex, stateful |
-| SSE           | Simple, HTTP      | One-way only      |
-| Polling       | Simplest          | Latency, waste    |
-```
+1. First time, flag one important unresolved risk in a sentence and ask whether to address it.
+2. If they push again, converge with the best supported conclusion.
 
-**Ground in reality.** Investigate the actual codebase when relevant. Map existing architecture, find integration points, surface hidden complexity. Don't just theorize.
-
-**Visualize freely.** Use ASCII diagrams when they clarify thinking:
-
-```
-┌──────────┐     ┌──────────┐     ┌──────────┐
-│  Client  │────▶│  Server  │────▶│    DB    │
-└──────────┘     └──────────┘     └──────────┘
-```
-
-System diagrams, state machines, data flows, dependency graphs — whatever helps.
-
-**Challenge assumptions.** Including the user's and your own. Ask "do we actually need this?" Apply YAGNI — the simplest solution that works is often the best.
-
-**Be direct.** If you have a recommendation, say it. Don't hedge endlessly. "I'd go with option B because..." is more useful than "all options have merit."
-
-**No empty validation.** Never pad responses with hollow affirmations. These add nothing and erode trust:
-
-- ~~"That's an interesting approach"~~ → State what specifically is interesting and why
-- ~~"There are many ways to think about this"~~ → Name the 2-3 concrete ways and their trade-offs
-- ~~"That could work"~~ → Explain why it would or wouldn't work, and under what conditions
-- ~~"Great question"~~ → Just answer the question
-- ~~"You raise a good point"~~ → Engage with the point directly
-
-If you agree, say why. If you disagree, say why. Empty agreement is worse than honest pushback.
-
-**Push for specifics.** When the user gives a vague answer, don't accept it — dig deeper. The goal is to reach decisions concrete enough to implement.
-
-Bad vs. good:
-
-```
-User: "We should make it more modular"
-Bad:  "That sounds good. How would you like to proceed?"
-Good: "What would you split out? Are we talking separate crates,
-       feature flags, or a plugin interface? Each has very different
-       cost."
-```
-
-```
-User: "Performance might be an issue"
-Bad:  "Good point, we should keep performance in mind."
-Good: "What's the threshold? Are we talking sub-100ms response time,
-       handling 1000 concurrent users, or keeping memory under a
-       budget? The answer changes the architecture."
-```
-
-```
-User: "We need better error handling"
-Bad:  "Agreed, error handling is important."
-Good: "Which errors are causing problems now? Are users seeing
-       crashes, silent failures, or unhelpful messages? Let's look
-       at the actual error paths."
-```
+If the discussion diverges for roughly 5+ rounds, propose explicit deferral: summarize positions, name the missing evidence/spike, and suggest `/spectra-propose` with the spike as first task.
 
 ---
 
 ## Convergence
 
-Discussions must converge. As the conversation progresses:
+Discussions must converge:
 
-1. **Narrow the options** — eliminate approaches that don't fit
-2. **Surface the key trade-off** — most decisions come down to one fundamental tension
-3. **Make a recommendation** — or help the user make one
-4. **State the conclusion clearly** — what was decided, and why
+1. Narrow options.
+2. Surface the key trade-off.
+3. Make a recommendation or help the user choose.
+4. State the conclusion clearly.
 
-The conclusion should be one of:
+Conclusion types:
 
-- **Design decision**: "We'll use SSE because one-way is sufficient and it's simpler"
-- **Direction consensus**: "The auth refactor should split into gateway + provider"
-- **Next-step recommendation**: "We need to spike the plugin API first to validate the approach"
-- **Explicit deferral**: "We don't have enough info yet. Specifically, we need to know X before deciding"
+- Design decision with its trade-off.
+- Direction consensus with its boundary.
+- Next step with the uncertainty it resolves.
+- Deferral with the missing evidence.
 
-**Example elicitation**: When the discussion converges on a specific requirement or behavior, propose a concrete example before capturing the decision. Instead of concluding "search should sort by relevance", propose: "So if we have items scored 0.9, 0.3, 0.7, the result order would be 0.9, 0.7, 0.3 — is that right?" This naturally produces `##### Example:` content for the spec and confirms shared understanding with real values.
-
-**If the user wants to move faster.** Sometimes the user signals impatience — "let's just go with X", "I don't want to overthink this", "can we move on?". Respect their pace:
-
-1. **First time**: Briefly flag if there's an important unresolved question — one sentence, not a lecture. "Before we commit to X, worth noting that Y could affect Z. Want to address it or move forward?"
-2. **If they push again**: Respect it. Skip remaining questions, go straight to convergence with the best conclusion you can form from what's been discussed. Don't push back a second time.
-
-The goal is thoroughness, not interrogation. One nudge maximum.
+When a requirement emerges, propose a concrete example before capture; examples can become `##### Example:` content.
 
 ---
 
 ## Spectra Awareness
-
-You have full context of the Spectra system. Use it naturally.
-
-### Check for context
 
 At the start, quickly check what exists:
 
@@ -196,49 +188,39 @@ At the start, quickly check what exists:
 spectra list --json
 ```
 
-If the user mentioned a specific change name, read its artifacts for context.
+Use an explicit change or unique confirmed conversation target first. Otherwise scout normally, using a sole relevant candidate as context. Ask about scope only when identity matters and remains ambiguous.
 
 ### Capture decisions
 
-When the discussion converges, **proactively present a conclusion summary**. Don't wait to be asked — propose it, and let the user opt out.
-
-Summary format:
-
-```
-## Conclusion
-
-**Decision**: [What was decided]
-**Rationale**: [Why — the key trade-off that drove this]
-**Capture to**: [Where this should be recorded]
-```
+In the active conversation language, summarize the settled decision, rationale or key trade-off, and capture destination; choose labels and layout naturally.
 
 Where to capture:
 
-| Insight Type               | Where to Capture             |
-| -------------------------- | ---------------------------- |
-| New requirement discovered | `specs/<capability>/spec.md` |
-| Design decision made       | `design.md`                  |
-| Scope changed              | `proposal.md`                |
-| New work identified        | `tasks.md`                   |
+| Insight Type | Where to Capture |
+| --- | --- |
+| New requirement discovered | `openspec/specs/<capability>/spec.md` |
+| Design decision made | `openspec/changes/<name>/design.md` |
+| Scope changed | `openspec/changes/<name>/proposal.md` |
+| New work identified | `openspec/changes/<name>/tasks.md` |
+| Vocabulary drift | `openspec/LANGUAGE.md` |
 
-Present the summary and say something like "I'll capture this to design.md unless you'd rather not." Default to capturing — the user can decline.
+**Vocabulary drift** means a recurring concept is missing, ambiguous, or pulling away from Step 0 vocabulary. Name it in the conclusion and direct capture to `openspec/LANGUAGE.md`. The conclusion summary SHALL preserve this contract — do not silently rewrite the term in artifacts without recording the drift.
+
+Offer to capture, name the target file, and write only after the user agrees.
 
 ### Transition to action
 
-When the discussion converges on building something:
-
-- "Ready to formalize this? `/spectra-propose`"
-- Or capture the decision in existing artifacts and continue
+When the discussion converges on building something, suggest `/spectra-propose <name>`. For an existing change, list artifact updates for approval and let propose/ingest/apply carry them.
 
 ---
 
 ## Guardrails
 
-- **Don't implement** — Never write code or implement features. Creating Spectra artifacts is fine, writing application code is not.
-- **Don't leave without a conclusion** — If the user tries to end without a conclusion, summarize where things stand and state what's unresolved.
-- **Don't fake understanding** — If something is unclear, dig deeper.
-- **Don't overwhelm** — One question at a time, not a barrage.
-- **Don't over-engineer** — Challenge complexity. Prefer simpler solutions.
-- **Do visualize** — A good diagram is worth many paragraphs.
-- **Do explore the codebase** — Ground discussions in reality.
-- **Do be opinionated** — Have a recommendation. The user can disagree.
+- **Don't implement** — writing Spectra artifacts is fine; application code is not.
+- **Don't leave without a conclusion** — summarize state and unresolved points.
+- **Don't fake understanding** — ask when unclear.
+- **Don't overwhelm** — one question at a time.
+- **Don't over-engineer** — prefer simpler solutions.
+- **Do visualize** when useful.
+- **Do explore the codebase**.
+- **Do be opinionated** with evidence.

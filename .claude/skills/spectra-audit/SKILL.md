@@ -1,234 +1,135 @@
 ---
 name: spectra-audit
-description: 'Audit changed code for security sharp edges — dangerous defaults, type confusion, and silent failures'
+description: "Perform an explicit security audit of changed code for dangerous defaults, type confusion, unsafe API surfaces, and silent failures. Use when that security audit is requested, not merely because a diff touches paths or config"
+context: fork
+agent: Explore
+disallowed-tools: [Edit, Write]
 license: MIT
 compatibility: Requires spectra CLI.
 metadata:
   author: spectra
-  version: '1.0'
-  generatedBy: 'Spectra'
+  version: "1.0"
+  generatedBy: "Spectra"
 ---
 
-Audit changed code for security sharp edges — API design traps, dangerous defaults, and interfaces that make it easy to do the wrong thing.
+Audit changed code for security sharp edges in a Claude Code fork. This generated skill is report-only. Run only the standalone analysis below and return one consolidated report, then stop. Do not ask or wait for user input. Do not edit files, run rewriting formatters, stage, commit, apply fixes, or invoke a follow-up workflow.
 
-Good APIs don't require developers to "be careful" to stay secure. If the correct usage requires reading docs, remembering rules, or understanding cryptography, the API has failed.
+## Claude fork context
 
-**Core principle:** Security should be the path of least resistance. Insecure usage should be harder than secure usage.
-
-## Two Modes
-
-This skill operates in two modes depending on how it's invoked:
-
-- **Standalone** (`/spectra-audit`): Full 3-agent parallel analysis on current git diff. See [Standalone Mode](#standalone-mode).
-- **Discipline** (via `/spectra-apply` when `audit: true`): Condensed checklist applied during implementation. See [Discipline Mode](#discipline-mode).
-
-Both modes share the same [Core Framework](#core-framework).
+The standalone body below is the complete report core. Missing decisions: return the concrete context and missing input to the main thread, then stop. The main thread decides whether to authorize any recommended fix.
 
 ---
 
-## Standalone Mode
+Audit changed code for security sharp edges: APIs, defaults, and boundaries that make insecure use easier than secure use.
 
-When invoked directly as `/spectra-audit`:
+This standalone skill is report-only: do not mutate files, reformat, stage or commit. Return one consolidated report; the main thread decides whether to authorize a fix.
 
-### Phase 1: Gather Changes
+## Standalone Audit
 
-Run `git diff HEAD` to get the full diff of current modifications.
+### Phase 1: Capture and classify once
 
-If there are no changes, report "No changes to audit" and stop.
+Run `spectra scope --json` once per valid snapshot. Add `--change "<name>"` only for an explicitly selected change and `--base "<revision>"` only for a supplied base. Keep the `snapshot_id`, paths, per-layer patches, revisions and limitations in the main analyzer. Include committed base-to-HEAD differences for named changes and staged, unstaged and untracked content; treat untracked text as added content. Preserve rename/deletion paths and provenance limits.
 
-### Phase 2: Parallel 3-Agent Analysis
+On command error, stop with the error. Status `empty` means no differences in the resolved scope. Status `insufficient`, binary or unreadable content means incomplete inspection: preserve the limitations and never claim a completed clean audit. Mark unclassifiable content uncertain. Label approximated scope explicitly.
 
-Launch 3 agents in parallel (one message, 3 tool calls). Each agent receives the full diff and analyzes it through one adversary lens.
+From that snapshot, classify once whether the change touches a security-sensitive surface:
 
-**Agent 1 — The Scoundrel (壞蛋)**
+- public APIs, wire formats, or compatibility contracts
+- configuration, defaults, feature flags, or permission policy
+- authentication, authorization, sessions, secrets, or cryptography
+- input validation, parsing, deserialization, or type conversion
+- filesystem, process, network, or IPC boundaries
+- error-handling paths that can fail silently or mask failure
 
-A malicious developer or attacker deliberately manipulating configuration.
+Classify the audit as:
 
-Search the diff for:
+- **ordinary mode**: only non-sensitive presentation, documentation, tests, or internal behavior with no security-boundary effect
+- **sensitive**: at least one changed hunk affects a surface above
+- **uncertain**: the boundary or downstream effect cannot be classified confidently from the captured diff
 
-- Config options that can disable security mechanisms
-- Algorithm parameters that accept downgrades (e.g., `"none"`, `"md5"`)
-- Values that can be injected to bypass validation
-- Dangerous config combinations (e.g., `auth_required: true` + `bypass_auth_for_health: true` + `health_check_path: "/"`)
-- String concatenation in security-critical paths (permissions, queries, paths)
+Treat both sensitive and uncertain classifications as **deep mode**. Never use uncertainty to skip analysis.
 
-**Agent 2 — The Lazy Developer (懶惰的開發者)**
+### Phase 2: Apply the three lenses
 
-A developer who copy-pastes examples and skips documentation.
+#### Ordinary mode: one analyzer
 
-Search the diff for:
+Use one analyzer to apply the Scoundrel, Lazy Developer, and Confused Developer lenses in a single pass. Keep the work in the current analyzer and do not launch child agents.
 
-- Unsafe defaults: `verify: false`, `timeout: 0`, empty strings as keys
-- Zero/nil/empty behavior: what does `timeout=0`, `max_attempts=0`, `key=""` mean?
-- Error messages that don't guide toward secure usage
-- The "first example found" test: is the most obvious usage secure?
-- Path of least resistance: does the simplest way to use this API produce secure results?
+#### Deep mode: filtered packets
 
-**Agent 3 — The Confused Developer (搞混的開發者)**
+Build a **filtered context packet** for each applicable lens. It may contain only:
 
-A developer who misunderstands API usage.
+- only the relevant diff hunk with file/line anchor
+- minimum supporting declarations, types or callees
+- relevant configuration, defaults, validation or boundary definitions
+- tests that prove or challenge the behavior
 
-Search the diff for:
+Every packet MUST exclude unrelated hunks, including presentation, documentation or refactors unrelated to the sensitive boundary. Carry relevant limitations and use supporting reads from the same snapshot. Do not recapture scope per lens.
 
-- Parameters that can be swapped without type errors (e.g., `encrypt(msg, key, nonce)` — key and nonce are both strings)
-- Silent failures: security checks that return true/false where the return value can be ignored
-- Raw primitives where semantic types should exist (strings for keys, bytes for nonces)
-- Configuration cliffs: one wrong value = catastrophe with no warning (e.g., `verify_ssl: fasle`)
-- Stringly-typed security: permissions as comma-separated strings instead of enums
+When parallel dispatch is available, launch up to three lens agents in one batch, each with only its filtered packet and lens.
 
-### Phase 3: Consolidate and Fix
+**Sequential fallback:** Without parallel dispatch, run Scoundrel, Lazy Developer, then Confused Developer over the same filtered context. Merge evidence from all three lenses.
 
-Merge findings from all 3 agents. For each finding:
+### Phase 3: Consolidate and report
 
-- If fixable: apply the fix directly
-- If false positive or not worth changing: skip without debate
-- Classify severity: Critical / High / Medium / Low
+Merge the lens results, deduplicate overlaps, and discard claims without defensible evidence. For each finding report:
 
-End with a brief summary of what was fixed (or confirm the code is clean).
+- severity: Critical, High, Medium, or Low
+- affected file and line anchor
+- the changed behavior and supporting evidence
+- a concrete failure scenario
+- a recommended fix that removes or guards the trap
+- the lens that found it
 
----
+Before reporting, run `spectra scope --check-snapshot "<snapshot_id>" --json` with the same optional change/base arguments. On failure, discard the snapshot and findings, refresh and re-check; if scope stays unstable, report the limitation and stop.
 
-## Discipline Mode
+Report `scope_source`, `base_revision`, `head_revision`, reviewed paths, limitations and ordinary mode or deep mode. Report no security sharp edges only when scope is sufficient and all selected content was inspected. Otherwise retain unverified content alongside any findings. End findings with a severity summary.
 
-When referenced by `/spectra-apply` (via `spectra instructions --skill audit`), do NOT launch the 3-agent workflow above. Instead, apply this condensed checklist continuously during implementation.
+## Write for the reader
 
-### Quick 3-Role Check
+The reader is using Spectra for the first time: they know their own project and have not learned this workflow's vocabulary. Every user-visible message is written so that reader can act on it.
 
-Before finalizing any code that involves APIs, configuration, parameters, or security-related logic, ask:
+### Conversation language
 
-1. **Scoundrel**: Can this be abused? Can config disable security? Can values be injected?
-2. **Lazy Developer**: Is the default safe? Will copy-paste usage be secure? Does the error message guide correctly?
-3. **Confused Developer**: Can params be swapped? Will wrong usage fail loudly? Are types distinct enough?
+Use the active conversation language for user-visible analysis, questions, labels, and conclusion. Resolve it in this order: an explicit language instruction for subsequent user-visible output; the primary natural language of the current user request; the most recently established conversation language when the request is mixed or contains only technical identifiers. Keep established Traditional Chinese or English. User context selects it independently of the internal template and repository artifact locale; artifacts use the locale returned by `spectra instructions`.
 
-### Red Flags During Implementation
+### Plain wording
 
-Stop and fix immediately if you notice:
-
-- Adding a string parameter for security-related logic → use enum or newtype
-- Adding a config option that defaults to `false` → is the "off" state safe?
-- `if value == 0` or `if key.nil?` → what does zero/nil MEAN in this context?
-- Security check returns true/false → can the return value be ignored?
-- Accepting algorithm/mode as a parameter → can it be hardcoded to the safe choice?
-- Adding a config option without validation → what happens with invalid/malicious values?
-
-### When to Engage
-
-Not every line of code needs audit scrutiny. Focus on:
-
-- New function signatures and public APIs
-- Configuration options and their defaults
-- Authentication, authorization, encryption interfaces
-- Input validation and error handling at system boundaries
-- Anywhere a developer makes a security-relevant choice
+- Lead with what happened and what the reader does next; evidence and detail follow.
+- Keep a term only when the reader can see it on screen, type it in a command, or open it as a file (change, spec, proposal, tasks, archive, CLI output such as Critical). Explain it in one clause the first time it appears.
+- Every other term belongs to this workflow, so say what it means for the reader: "scenario coverage" becomes "which spec scenarios have a test"; RED becomes "the new test failed before the change, as intended".
+- Write headings, table columns, and labels as plain descriptions in the conversation language; section names in this template stay internal.
+- Commands, paths, identifiers, and required handoff lines stay verbatim.
+- Emphasis, grouping, and pointing are carried by the words and the structure alone: a heading, a list, a table cell, bold text, or the sentence itself.
 
 ---
 
 ## Core Framework
 
+Secure use should be the simplest path. Safety that depends on remembering rules or understanding a primitive creates a trap.
+
 ### Three Adversaries
 
-| Role                   | Mindset                                   | Key Questions                                                                     |
-| ---------------------- | ----------------------------------------- | --------------------------------------------------------------------------------- |
-| **Scoundrel**          | Malicious, deliberate exploitation        | Can I disable security via config? Downgrade algorithms? Inject values?           |
-| **Lazy Developer**     | Copy-paste, skips docs, deadline pressure | Is the first example safe? Is the default secure? Do errors guide me right?       |
-| **Confused Developer** | Misunderstands usage                      | Can I swap params silently? Will mistakes fail loudly? Are types distinguishable? |
+**Scoundrel** — deliberate exploitation: disabled controls, algorithm downgrades, validation bypass, injected permissions or paths, and unsafe option combinations.
 
-### Six Trap Categories
+**Lazy Developer** — copy-paste and defaults: safe examples, fail-closed zero/nil/empty/missing/timeout values, and errors that guide secure use.
 
-#### 1. Algorithm Choice Traps
+**Confused Developer** — accidental misuse: swappable parameters, untyped strings/bytes, accepted configuration typos, ignored results and failures that look successful.
 
-Letting developers choose algorithms = inviting them to choose wrong.
+### Sharp-edge categories
 
-```ruby
-# Dangerous: accepts arbitrary algorithm
-OpenSSL::Digest.new(algorithm).hexdigest(password)  # algorithm = "md5"?
+1. **Algorithm choice:** Replace obsolete, weak or no-op selectors with safe high-level operations.
+2. **Dangerous defaults:** Reject missing, zero, empty or nil values that disable validation, authentication, expiry, retry limits or encryption; fail closed.
+3. **Raw primitives:** Give keys, nonces, identities, paths and permissions distinct semantic types and validated constructors.
+4. **Configuration cliffs:** Validate schemas; reject typos and option combinations that remove boundaries.
+5. **Silent failures:** Expose swallowed errors, ignored false results and missing security material; make failure explicit.
+6. **Stringly-typed security:** Replace concatenated queries, paths, permissions, commands and policies with structured values or constrained enums.
 
-# Safe: no choice
-BCrypt::Password.create(password)  # can't pick wrong
-```
+### Severity
 
-#### 2. Dangerous Defaults
+- **Critical:** The default or most obvious use is insecure, or an unauthenticated path crosses a high-impact boundary.
+- **High:** A likely configuration or API use defeats a security control.
+- **Medium:** A less common but realistic misuse causes unsafe behavior.
+- **Low:** Deliberate or unusual misuse is required, but the interface still creates a defensible trap.
 
-Defaults that are insecure, or zero/empty values that disable security.
-
-```ruby
-# What does timeout=0 mean? Never expire? Expire immediately?
-def verify_token(token, timeout: 300)
-  return true if timeout == 0  # 0 = skip verification?!
-end
-```
-
-**Key question:** What do `timeout=0`, `max_attempts=0`, `key=""`, `nil` each mean?
-
-#### 3. Raw Primitives vs Semantic Types
-
-Using raw bytes/strings instead of meaningful types invites type confusion.
-
-```ruby
-# Dangerous: both params are strings, swappable
-encrypt(message, key, nonce)
-
-# Safe: types protect against swapping
-encrypt(message, Key.new(k), Nonce.new(n))
-```
-
-#### 4. Configuration Cliffs
-
-One wrong config value = disaster, with no warning.
-
-```yaml
-# A typo = security mechanism disappears
-verify_ssl: fasle # not "false", might be treated as truthy?
-
-# Dangerous combination
-auth_required: true
-bypass_auth_for_health: true
-health_check_path: '/' # oops, entire site bypasses auth
-```
-
-#### 5. Silent Failures
-
-Security errors that don't surface, or "success" masking failure.
-
-```ruby
-# Silent bypass
-def verify_signature(sig, data, key)
-  return true if key.nil?  # no key = skip verification?!
-end
-
-# Return value ignored
-result = crypto.verify(data, sig)  # returns false but nobody checks
-```
-
-#### 6. Stringly-Typed Security
-
-Security-critical values as plain strings = open door for injection and confusion.
-
-```ruby
-# Dangerous: string concatenation
-permissions = "read,write"
-permissions += ",admin"   # too easy to escalate
-
-# Safe: use enums
-permissions = Set[Permission::READ, Permission::WRITE]
-```
-
-### Severity Classification
-
-| Severity | Condition                                 | Example                                             |
-| -------- | ----------------------------------------- | --------------------------------------------------- |
-| Critical | Default or most obvious usage is insecure | `verify: false` is default, empty password accepted |
-| High     | Easy misconfiguration breaks security     | Algorithm param accepts `"none"`                    |
-| Medium   | Uncommon but possible misconfiguration    | Negative timeout has unexpected behavior            |
-| Low      | Requires deliberate misuse                | Obscure parameter combination                       |
-
-### Rationalization Table
-
-| Excuse                                | Why It's Wrong                             | What To Do                                             |
-| ------------------------------------- | ------------------------------------------ | ------------------------------------------------------ |
-| "Docs explain it"                     | Devs skip docs under deadlines             | Make the safe option the default or only option        |
-| "Advanced users need flexibility"     | Flexibility = foot-gun opportunity         | Provide safe high-level API, hide low-level primitives |
-| "It's the developer's responsibility" | You designed the trap                      | Remove the trap or make it impossible to misuse        |
-| "Nobody would do that"                | Devs under pressure do everything          | Assume maximum developer chaos                         |
-| "It's just a config option"           | Config is code; wrong config ships to prod | Validate config, reject dangerous combinations         |
-| "Backwards compatibility"             | Insecure defaults can't be grandfathered   | Deprecate loudly, force migration                      |
+Discard speculative findings. Documentation alone cannot repair a dangerous interface; make safe behavior the default or only path.
