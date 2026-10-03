@@ -94,8 +94,8 @@ importers:
         version: 4.6.5
     devDependencies:
       '@effect/language-service':
-        specifier: 0.87.2
-        version: 0.87.2
+        specifier: 0.87.3
+        version: 0.87.3
       '@effect/vitest':
         specifier: 0.30.0
         version: 0.30.0(effect@3.22.2)(vitest@4.1.11)
@@ -627,8 +627,8 @@ packages:
   '@dotenvx/primitives@0.8.0':
     resolution: {integrity: sha512-VYJy0uhFm9zTJ1TxBaW/pA8bjbOM/OttaNMwZ1RHG4JKyRG7DhSdiqD1ipQoAyoD22olUtxbP78W9xY3Wd11bg==}
 
-  '@effect/language-service@0.87.2':
-    resolution: {integrity: sha512-CfiSoaVQO8pZgaMZGw5VvMvRGybsJ2LaSDoLYaqiVGvo/YYPYVR2GzUKY0h1NtIweq/+SQ5XLrvtzPIttWQ0GQ==}
+  '@effect/language-service@0.87.3':
+    resolution: {integrity: sha512-g1OmRBZF5chbW9QMNoirPo5Bb4zzU2HfP88tR7/VSZEUxHJ1/qVb8AQ0kUh2ggctLH1I715yCwP4gkw56PTjpQ==}
     hasBin: true
 
   '@effect/vitest@0.30.0':
@@ -6385,7 +6385,7 @@ snapshots:
 
   '@dotenvx/primitives@0.8.0': {}
 
-  '@effect/language-service@0.87.2': {}
+  '@effect/language-service@0.87.3': {}
 
   '@effect/vitest@0.30.0(effect@3.22.2)(vitest@4.1.11)':
     dependencies:
