@@ -17,12 +17,25 @@ export const KAGI_URL = 'https://kagi.com/search'
 function mountKagiRenderRoot(container: HTMLElement) {
   const nav = ($('#tonav') ?? $('.serp-nav')) as HTMLElement | null
   const layout = $('#layout-v2') as HTMLElement | null
+  const rightContent = $('.right-content-box') as HTMLElement | null
   const page = $('#page0') as HTMLElement | null
   const appContent = $('#_0_app_content') as HTMLElement | null
   const firstResult = $('.search-result') as HTMLElement | null
   const resultList = firstResult?.parentElement
   const mainFallback = $('#main') ?? layout ?? page ?? appContent ?? resultList
   const main = (mainFallback ?? $('main#app') ?? $('main') ?? document.body) as HTMLElement
+
+  if (rightContent) {
+    container.style.position = 'relative'
+    container.style.top = ''
+    container.style.left = ''
+    container.style.zIndex = ''
+    container.style.width = '100%'
+    container.style.marginBottom = '16px'
+
+    rightContent.prepend(container)
+    return rightContent
+  }
 
   const mainRect = main.getBoundingClientRect()
   const navRect = nav?.getBoundingClientRect() ?? mainRect
