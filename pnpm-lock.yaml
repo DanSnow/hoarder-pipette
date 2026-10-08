@@ -166,8 +166,8 @@ importers:
         specifier: 2.0.1
         version: 2.0.1
       chrome-webstore-upload-cli:
-        specifier: 4.0.1
-        version: 4.0.1
+        specifier: 4.0.2
+        version: 4.0.2
       image-size:
         specifier: 2.0.4
         version: 2.0.4
@@ -3085,8 +3085,8 @@ packages:
     resolution: {integrity: sha512-TQMmc3w+5AxjpL8iIiwebF73dRDF4fBIieAqGn9RGCWaEVwQ6Fb2cGe31Yns0RRIzii5goJ1Y7xbMwo1TxMplw==}
     engines: {node: '>= 20.19.0'}
 
-  chrome-webstore-upload-cli@4.0.1:
-    resolution: {integrity: sha512-UGmvbEGTqNCD+W9HDEoYnZwrbp++v5WcIyVVZWxK7AxFMfxtZF/yiNtxWCcAetNg4z0m/CNhf+Qt3b0aitDEWw==}
+  chrome-webstore-upload-cli@4.0.2:
+    resolution: {integrity: sha512-QYNV56V5YScHshPbGn6ljbq6zUMDHjutDPH5CtMtb7e3folTUiU4RBftP/yvGpiLsD6QSYGDpZVA9P3ZxFE3/A==}
     engines: {node: '>=20'}
     hasBin: true
 
@@ -8560,7 +8560,7 @@ snapshots:
     dependencies:
       readdirp: 5.1.1
 
-  chrome-webstore-upload-cli@4.0.1:
+  chrome-webstore-upload-cli@4.0.2:
     dependencies:
       chrome-webstore-upload: 6.0.0
       meow: 12.1.1
