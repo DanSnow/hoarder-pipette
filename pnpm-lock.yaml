@@ -106,8 +106,8 @@ importers:
         specifier: 0.99.0
         version: 0.99.0(@typescript/typescript6@6.0.2)(magicast@0.5.4)
       '@iconify-json/lucide':
-        specifier: 1.2.139
-        version: 1.2.139
+        specifier: 1.2.140
+        version: 1.2.140
       '@iconify-json/simple-icons':
         specifier: 1.2.98
         version: 1.2.98
@@ -901,8 +901,8 @@ packages:
     peerDependencies:
       hono: ^4
 
-  '@iconify-json/lucide@1.2.139':
-    resolution: {integrity: sha512-QRJrLcEC+O4cHCxd8Nzos2s6oI8+qUywJ/ww7EEEKTKNkWE5HOa89QlNk4gD3Ao0AbUh2ml1pkqcXKTg8XZgIw==}
+  '@iconify-json/lucide@1.2.140':
+    resolution: {integrity: sha512-/br6j8K8IFcZscs7gJ20PWaaonQeA4jcGK0Bdt+4EDra2Zbtpb36RGaGOJr5opz6zJtXaZdMCYCXa0dN/y4c0g==}
 
   '@iconify-json/simple-icons@1.2.98':
     resolution: {integrity: sha512-35CEBG1H/3nsohVgJaRWtOZ/P5syRTL++ZXTISdQSC76o1mAFXngFoSm9EOnnBiDApKPu8WN/DY+z69yCycL9A==}
@@ -6665,7 +6665,7 @@ snapshots:
     dependencies:
       hono: 4.12.30
 
-  '@iconify-json/lucide@1.2.139':
+  '@iconify-json/lucide@1.2.140':
     dependencies:
       '@iconify/types': 2.0.0
 
