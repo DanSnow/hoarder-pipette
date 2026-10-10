@@ -172,8 +172,8 @@ importers:
         specifier: 2.0.4
         version: 2.0.4
       knip:
-        specifier: 6.39.0
-        version: 6.39.0
+        specifier: 6.40.0
+        version: 6.40.0
       oxfmt:
         specifier: 0.72.0
         version: 0.72.0
@@ -4129,8 +4129,8 @@ packages:
     resolution: {integrity: sha512-dhG34DXATL5hSxJbIexCft8FChFXtmskoZYnoPWjXQuebWYCNkVeV3KkGegCK9CP1oswI/vQibS2GY7Em/sJJA==}
     engines: {node: '>= 8'}
 
-  knip@6.39.0:
-    resolution: {integrity: sha512-Y7g6Ve1ATMox1u1v+gx3z9LTlvzVLTJISm/LVn9TgBU4qc7OoC63AWGO8qCFPVDDdaqlYdXkDDvvO1METBfTRw==}
+  knip@6.40.0:
+    resolution: {integrity: sha512-5Lp/ANJu3AkW5f+J+2QG14z7xKZGi/ybb5MU1EWjeGdt6MpuIaLpLFiyBi0ZKryTiuTHiJqo/WKJRaWYimvavw==}
     engines: {node: ^20.19.0 || >=22.12.0}
     hasBin: true
 
@@ -9550,7 +9550,7 @@ snapshots:
 
   klona@2.0.6: {}
 
-  knip@6.39.0:
+  knip@6.40.0:
     dependencies:
       fdir: 6.5.0(picomatch@4.0.7)
       formatly: 0.7.0
@@ -9559,7 +9559,7 @@ snapshots:
       oxc-parser: 0.150.0
       oxc-resolver: 11.24.2
       picomatch: 4.0.7
-      smol-toml: 1.8.0
+      smol-toml: 1.9.0
       strip-json-comments: 5.0.3
       tinyglobby: 0.2.17
       unbash: 4.0.11
