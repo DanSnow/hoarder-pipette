@@ -79,9 +79,9 @@
     "@types/webextension-polyfill": "0.12.6",
     "@types/webpack-env": "1.18.8",
     "@typescript/native": "npm:typescript@7.0.2",
-    "@vitest/browser": "4.1.11",
-    "@vitest/browser-playwright": "4.1.11",
-    "@vitest/coverage-v8": "4.1.11",
+    "@vitest/browser": "4.1.12",
+    "@vitest/browser-playwright": "4.1.12",
+    "@vitest/coverage-v8": "4.1.12",
     "@webext-core/fake-browser": "2.0.1",
     "chrome-webstore-upload-cli": "4.0.2",
     "image-size": "2.0.4",
@@ -98,7 +98,7 @@
     "typescript": "npm:@typescript/typescript6@6.0.2",
     "vite": "8.3.4",
     "vite-plugin-inspect": "12.1.0",
-    "vitest": "4.1.11",
+    "vitest": "4.1.12",
     "zx": "8.8.5"
   },
   "packageManager": "pnpm@11.28.5+sha512.484563d30b4c2ad27cb48aa94ff2b302dbcebc8ff6bf28816c2589886e146ce7f76f354f3bc1a438e6f5e9768c302aa0a6f7add8232903cd4cf81426cbc14d9e"
