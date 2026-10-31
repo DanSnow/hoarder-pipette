@@ -106,8 +106,8 @@ importers:
         specifier: 0.99.0
         version: 0.99.0(@typescript/typescript6@6.0.2)(magicast@0.5.5)
       '@iconify-json/lucide':
-        specifier: 1.2.147
-        version: 1.2.147
+        specifier: 1.2.148
+        version: 1.2.148
       '@iconify-json/simple-icons':
         specifier: 1.2.101
         version: 1.2.101
@@ -911,8 +911,8 @@ packages:
   '@hey-api/types@0.1.4':
     resolution: {integrity: sha512-thWfawrDIP7wSI9ioT13I5soaaqB5vAPIiZmgD8PbeEVKNrkonc0N/Sjj97ezl7oQgusZmaNphGdMKipPO6IBg==}
 
-  '@iconify-json/lucide@1.2.147':
-    resolution: {integrity: sha512-7Qqa/joSBeUxihWsQJx5nKcqMWtV3YrH90Jldxcx4J9ciTLavRUlpexQwRTcx9dcb7CJpISfjZTj42zD/30sqA==}
+  '@iconify-json/lucide@1.2.148':
+    resolution: {integrity: sha512-m+39WCfRJYC2JgzOsmDuzfZCJqNZg45sm4lYDAnxMvj3F4mN9N1olCc53jMhsn0ZIZBoNV2iyrq5JIxv/GZzow==}
 
   '@iconify-json/simple-icons@1.2.101':
     resolution: {integrity: sha512-MXJkMZDancJ/9I+Bgdthi9kXvn3AwWStxoTHwEPwAFQ9kMLBASO1BSstg52fNtjXeizm1Wi91R+QnWxNGkWHPQ==}
@@ -6475,7 +6475,7 @@ snapshots:
 
   '@hey-api/types@0.1.4': {}
 
-  '@iconify-json/lucide@1.2.147':
+  '@iconify-json/lucide@1.2.148':
     dependencies:
       '@iconify/types': 2.0.0
 
