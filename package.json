@@ -82,7 +82,7 @@
     "@vitest/browser": "4.1.12",
     "@vitest/browser-playwright": "4.1.12",
     "@vitest/coverage-v8": "4.1.12",
-    "@webext-core/fake-browser": "2.0.1",
+    "@webext-core/fake-browser": "2.0.2",
     "chrome-webstore-upload-cli": "4.0.2",
     "image-size": "2.1.0",
     "knip": "6.47.0",
