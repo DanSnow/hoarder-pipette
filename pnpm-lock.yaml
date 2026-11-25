@@ -33,8 +33,8 @@ importers:
         specifier: 1.170.46
         version: 1.170.46(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       '@webext-core/storage':
-        specifier: 2.0.0
-        version: 2.0.0
+        specifier: 2.0.1
+        version: 2.0.1
       '@wxt-dev/module-react':
         specifier: 1.2.2
         version: 1.2.2(vite@8.3.8(@types/node@26.1.1)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.15)(yaml@2.9.1))(wxt@0.21.5(@typescript/typescript6@6.0.2)(esbuild@0.28.2)(oxc-parser@0.156.0)(rolldown@1.2.19)(vite@8.3.8(@types/node@26.1.1)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.15)(yaml@2.9.1)))
@@ -3172,8 +3172,8 @@ packages:
   '@webext-core/match-patterns@2.0.0':
     resolution: {integrity: sha512-EsyMMKfQuSE4rWCjP/TifwvUWlhC/OhiGn5OK3p9F0d57UmtLib0nzguzPKyxM1/kZV7SkE+jYXkE8gsdPRLmw==}
 
-  '@webext-core/storage@2.0.0':
-    resolution: {integrity: sha512-7j3URtHFrHf6OKu2bHgN9thSfAN1SramDBBcassrrRSiISoEYwu/GfF/XXeVO9ANnNebJsLdK1JWmzMsUjN5tw==}
+  '@webext-core/storage@2.0.1':
+    resolution: {integrity: sha512-E9kWqKDXGZIbqfFb7eknch6cRmBrXdcblZATodqcxWe2ICjE/vVTZLgXqWQUMexfEGIR8MeTytNpF2gRkYiKRg==}
     peerDependencies:
       '@types/chrome': '*'
     peerDependenciesMeta:
@@ -8564,7 +8564,7 @@ snapshots:
 
   '@webext-core/match-patterns@2.0.0': {}
 
-  '@webext-core/storage@2.0.0': {}
+  '@webext-core/storage@2.0.1': {}
 
   '@wxt-dev/browser@0.2.7':
     dependencies:
